@@ -1,0 +1,304 @@
+/*
+label: Beside The Point Flat (BHG)
+description: Search and Results On Left Side. Map on Right. Blue Hint Green Palette. Featured Results Highlighted. In Territory Highlighted.
+add-ons: slp-pro,slp-enhanced-map,slp-enhanced-results,slp-enhanced-search,slp-tagalong,slp-premier
+Locator Layout: <div id="sl_div"><div id="sl_leftcol">[slp_search][slp_results]</div><div id="sl_rightcol">[slp_map]</div></div>
+Bubble Layout: <div id="sl_info_bubble" class="[slp_location featured] [slp_location data.in_territory_class]"><span id="slp_bubble_name"><strong>[slp_location name  suffix  br]</strong></span><span id="slp_bubble_address">[slp_location address       suffix  br]</span><span id="slp_bubble_address2">[slp_location address2      suffix  br]</span><span id="slp_bubble_city">[slp_location city          suffix  comma]</span><span id="slp_bubble_state">[slp_location state suffix    space]</span><span id="slp_bubble_zip">[slp_location zip suffix  br]</span><span id="slp_bubble_country"><span id="slp_bubble_country">[slp_location country       suffix  br]</span></span><span id="slp_bubble_directions">[html br ifset directions][slp_option label_directions wrap directions]</span><span id="slp_bubble_website">[html br ifset url][slp_location url           wrap    website][slp_option label_website ifset url][html closing_anchor ifset url][html br ifset url]</span><span id="slp_bubble_email">[slp_location email         wrap    mailto ][slp_option label_email ifset email][html closing_anchor ifset email][html br ifset email]</span><span id="slp_bubble_phone">[html br ifset phone]<span class="location_detail_label">[slp_option   label_phone   ifset   phone]</span>[slp_location phone         suffix    br]</span><span id="slp_bubble_fax"><span class="location_detail_label">[slp_option   label_fax     ifset   fax  ]</span>[slp_location fax           suffix    br]<span><span id="slp_bubble_description"><span id="slp_bubble_description">[html br ifset description][slp_location description raw]</span>[html br ifset description]</span><span id="slp_bubble_hours">[html br ifset hours]<span class="location_detail_label">[slp_option   label_hours   ifset   hours]</span><span class="location_detail_hours">[slp_location hours         suffix    br]</span></span><span id="slp_bubble_img">[html br ifset img][slp_location image         wrap    img]</span><span id="slp_tags">[slp_location tags]</span><span class="bubble_footnote">[slp_option bubble_footnote]</span></div>
+Results Layout: <div id="slp_results_[slp_location id]" class="results_entry location_primary [slp_location featured] [slp_location data.in_territory_class]"><div class="results_row_left_column"   id="slp_left_cell_[slp_location id]"   ><span class="location_name">[slp_location name]</span><span class="location_distance">[slp_location distance_1] [slp_location distance_unit]</span></div><div class="results_row_center_column" id="slp_center_cell_[slp_location id]" ><span class="slp_result_address slp_result_street">[slp_location address]</span><span class="slp_result_address slp_result_street2">[slp_location address2]</span><span class="slp_result_address slp_result_citystatezip">[slp_location city_state_zip]</span><span class="slp_result_address slp_result_country">[slp_location country]</span><span class="slp_result_address slp_result_phone">[slp_location phone]</span><span class="slp_result_address slp_result_fax">[slp_location fax]</span></div><div class="results_row_right_column"  id="slp_right_cell_[slp_location id]"  ><span class="slp_result_contact slp_result_website">[slp_location web_link]</span><span class="slp_result_contact slp_result_email">[slp_location email_link]</span><span class="slp_result_contact slp_result_directions"><a href="http://[slp_location map_domain]/maps?saddr=[slp_location search_address]&daddr=[slp_location location_address]" target="_blank" class="storelocatorlink">[slp_location directions_text]</a></span><span class="slp_result_contact slp_result_hours">[slp_location hours]</span>[slp_location iconarray wrap="fullspan"]</div></div>
+Search Layout: <div id="address_search">[slp_search_element input_with_label="name"][slp_search_element input_with_label="address"][slp_search_element dropdown_with_label="city"][slp_search_element dropdown_with_label="state"][slp_search_element dropdown_with_label="country"][slp_search_element selector_with_label="tag"][slp_search_element dropdown_with_label="category"]<div class="search_item">[slp_search_element dropdown_with_label="radius"][slp_search_element button="submit"]</div></div>
+*/
+/*---------------------
+ * SLP Sass Imports
+ *---------------------*/
+/* A div that looks like a button. */
+.like-a-button {
+  background: #FFF;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#DDDDDD');
+  background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#DDD));
+  background: -moz-linear-gradient(top, #FFF, #DDD);
+  text-decoration: none;
+  border: 1px solid #BBBBBB;
+  margin: 0;
+  padding: 3px 12px;
+  text-align: center;
+  width: auto;
+  cursor: pointer;
+  color: #333;
+  display: inline-block;
+  line-height: 1em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -khtml-border-radius: 3px; }
+
+.like-a-button:hover {
+  background: #DDD;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#DDDDDD', endColorstr='#FFFFFF');
+  background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#FFF));
+  background: -moz-linear-gradient(top, #DDD, #FFF); }
+
+.like-a-button A {
+  text-decoration: none; }
+
+#sl_info_bubble .location_detail_hours {
+  white-space: pre-wrap; }
+
+.slp_result_contact.slp_result_hours {
+  white-space: pre-wrap; }
+
+div#map img {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  max-width: none;
+  opacity: 1.0; }
+
+/* Fix IE11 Rules from Bad WP Themes */
+div#map div {
+  overflow: visible; }
+
+/* Fix IE10 Rules */
+div#map .gm-style-cc > div {
+  word-wrap: normal; }
+
+/* Hide the default Google bubble shadow */
+div#map img[src='http://maps.gstatic.com/mapfiles/iws3.png'] {
+  display: none; }
+
+#map_box_image {
+  display: block; }
+
+div.gm-style-iw div#sl_info_bubble {
+  min-width: 12em; }
+
+#map_box_map {
+  display: none; }
+
+div#slp_tagline {
+  background-color: #AABBDD;
+  font-size: 11px;
+  font-family: Arial, sans-serif;
+  opacity: 0.45;
+  filter: alpha(opacity=45);
+  margin-bottom: 3px;
+  padding-right: 3px;
+  text-align: right;
+  width: 100%; }
+
+#slp_widget\[city\] {
+  display: none; }
+
+ul.ui-autocomplete.ui-front.ui-widget {
+  color: gray;
+  background-color: white;
+  border: solid 1px #C0C0C0;
+  border-radius: 3px;
+  padding: 0.2em;
+  display: inline-block;
+  height: inherit; }
+  ul.ui-autocomplete.ui-front.ui-widget li {
+    list-style: none; }
+
+.singular .entry-meta .edit-link a {
+  right: 0;
+  left: auto; }
+
+div#sl_div {
+  display: table;
+  min-height: 650px;
+  position: relative;
+  width: 100%; }
+
+div#sl_leftcol {
+  display: table-cell;
+  padding-right: 1em;
+  height: 600px;
+  width: 32%;
+  vertical-align: top; }
+
+div#sl_rightcol {
+  display: table-cell;
+  padding: 0;
+  height: 100%;
+  width: 66%;
+  vertical-align: top; }
+
+/*---------------------
+ * Map
+ *---------------------*/
+div#map {
+  border: solid 1px lightgrey;
+  height: 492px;
+  margin: 0;
+  width: 99%; }
+
+div#slp_tagline {
+  font-size: 1em;
+  background-color: transparent;
+  padding-top: 0.5em; }
+  div#slp_tagline a {
+    color: #3297B6; }
+
+/*---------------------
+ * Search Form
+ * Base + Widget Pack
+ *---------------------*/
+form#searchForm {
+  background-color: #EBEBEB;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  padding: 12px 0;
+  position: relative;
+  margin-bottom: 1em; }
+  form#searchForm .search_header {
+    color: #444;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    padding: 0 0 14px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%; }
+  form#searchForm LABEL {
+    display: inline-block;
+    padding-right: 6px;
+    text-align: right;
+    width: 70px; }
+
+form#searchForm table,
+form#searchForm td {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+form#searchForm #div_nameSearch,
+form#searchForm #addy_in_address,
+form#searchForm #addy_in_city,
+form#searchForm #addy_in_state,
+form#searchForm #addy_in_country,
+form#searchForm #tagalong_category_selector {
+  padding-bottom: 6px; }
+
+form#searchForm INPUT {
+  display: inline-block; }
+
+form#searchForm SELECT {
+  display: inline-block;
+  padding-right: 3px; }
+
+input#addressInput {
+  border: 1px solid #C0C0C0;
+  border-radius: 3px 3px 3px 3px;
+  display: inline;
+  height: 18px;
+  padding: 0 5px;
+  width: 205px; }
+
+input#nameSearch {
+  border: 1px solid #C0C0C0;
+  border-radius: 3px 3px 3px 3px;
+  display: inline;
+  height: 18px;
+  padding: 0 5px;
+  width: 205px; }
+
+div#addy_in_radius {
+  display: block;
+  padding-top: 6px; }
+
+div#radius_in_submit {
+  display: block;
+  margin: 0 auto;
+  padding: 6px;
+  text-align: center;
+  width: 100%; }
+
+input#addressSubmit {
+  background: linear-gradient(to bottom, #888 0%, #666 4%, #444 44%, #222 100%) repeat scroll 0 0 transparent;
+  border: 0 none;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+  cursor: pointer;
+  font: 700 11px/20px "Open Sans",arial,sans-serif;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  width: 134px;
+  margin-top: 8px;
+  padding: 6px;
+  line-height: 1em;
+  vertical-align: top; }
+
+/*---------------------
+ * Results
+ *---------------------*/
+div#map_sidebar {
+  background-color: #EBEBEB;
+  border-top: 1px solid #EBEBEB;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+  max-height: 332px;
+  overflow: auto; }
+  div#map_sidebar .results_wrapper {
+    width: 95%;
+    cursor: pointer; }
+    div#map_sidebar .results_wrapper .results_entry {
+      border-bottom: 1px dotted black;
+      padding: 5px;
+      width: 100%; }
+      div#map_sidebar .results_wrapper .results_entry a.storelocatorlink {
+        overflow: hidden; }
+      div#map_sidebar .results_wrapper .results_entry .results_row_left_column,
+      div#map_sidebar .results_wrapper .results_entry .results_row_center_column,
+      div#map_sidebar .results_wrapper .results_entry .results_row_right_column {
+        display: block;
+        vertical-align: top;
+        width: 100%;
+        font-size: 1em;
+        line-height: 1em; }
+      div#map_sidebar .results_wrapper .results_entry .results_row_center_column,
+      div#map_sidebar .results_wrapper .results_entry .results_row_right_column {
+        margin-top: 0.75em; }
+      div#map_sidebar .results_wrapper .results_entry:first-child {
+        margin-top: 1px; }
+      div#map_sidebar .results_wrapper .results_entry:hover {
+        background-color: #EDEDED; }
+      div#map_sidebar .results_wrapper .results_entry.featured {
+        background-color: #FFFFE4;
+        border-left: 2px solid #D3FFB0;
+        padding-left: 2px;
+        margin-left: 1px; }
+      div#map_sidebar .results_wrapper .results_entry.in_territory {
+        background-color: #E4FFFF;
+        border-left: 2px solid #64C9E7;
+        padding-left: 2px;
+        margin-left: 1px; }
+      div#map_sidebar .results_wrapper .results_entry span {
+        font-size: 0.75em;
+        display: block; }
+        div#map_sidebar .results_wrapper .results_entry span.location_name {
+          color: #3297B6;
+          display: block;
+          font-size: 0.9em;
+          font-weight: 700; }
+        div#map_sidebar .results_wrapper .results_entry span.location_distance {
+          font-size: 0.9em; }
+        div#map_sidebar .results_wrapper .results_entry span.slp_result_street, div#map_sidebar .results_wrapper .results_entry span.slp_result_street2 {
+          display: inline-block; }
+        div#map_sidebar .results_wrapper .results_entry span a {
+          text-decoration: none; }
+  div#map_sidebar .text_below_map {
+    padding: 1em; }
+  div#map_sidebar .no_results_found h2 {
+    font-size: 1em;
+    font-weight: normal;
+    text-align: center;
+    padding: 2em;
+    margin: 0; }
+
+#slp_marker_email > nobr {
+  display: block;
+  overflow: hidden;
+  width: 100%; }
+
+/*# sourceMappingURL=beside_thepoint_flat_bhg.css.map */

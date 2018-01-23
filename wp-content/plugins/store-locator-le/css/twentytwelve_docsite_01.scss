@@ -1,0 +1,320 @@
+/** label: Twenty Twelve Docsite Rev 01
+ ** description: Designed for the Twenty Twelve Docsite child theme.  Includes Power category support, Experience Featured Location support, and Premier cluster marker support.
+ **/
+
+/********************************
+ * Rules specific to this plugin style.
+ */
+
+// Colors
+$color_border: #D1D1D1;
+$color_hyperlink: #0000FF;
+$color_hyperlink_hover: #4444FF;
+$color_placeholder: #686868;
+$tagalong_legend_border: 3px double #444444;
+
+//Border
+$border_search_input: 1px solid $color_border;
+$border_radius_search_input: 2px 0 0 2px;
+
+// Padding
+$padding_widget_input:  0.4615384615em 0.5384615385em;
+
+/********************************
+ * SCSS Included Default Rules
+ */
+@import '../assets/sass/slp/csa_mixins';
+@import '../assets/sass/slp/slp_defaults';
+
+/**
+ * General SLP Div Only
+ **/
+#sl_div {
+  padding:1px;
+
+  a.storelocatorlink {
+    color: $color_hyperlink;
+    box-shadow: none;
+  }
+
+  a:hover.storelocatorlink {
+    color:$color_hyperlink_hover;
+  }
+
+  img {
+    background-color:transparent;
+    background-image:none;
+    max-width:none;
+  }
+
+  table, #sl_div tr, #sl_div td {
+    border:none;
+  }
+}
+
+/*---------------------
+ * Search
+ *---------------------*/
+
+#searchForm {
+
+    INPUT {
+        &[type="text"] {
+            margin-bottom: 0.25em;
+
+            &.label_empty {
+                width: 100%;
+            }
+            &.label_text {
+                width: 79%;
+            }
+        }
+
+        &#addressSubmit.slp_ui_button {
+            width: auto;
+            box-shadow: none;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+    SELECT {
+        border: $border_search_input;
+        border-radius: $border_radius_search_input;
+        color: $color_placeholder;
+        padding: $padding_widget_input;
+    }
+
+    LABEL {
+        display: inline-block;
+        padding-right: 0.5%;
+        text-align: right;
+        vertical-align: top;
+        min-width: 21%;
+
+        &.empty {
+            display: none;
+        }
+    }
+
+    // Search Items
+    .search_item {
+        display: flex;
+        flex-direction: row;
+
+        LABEL {
+            flex: 1 1 auto;
+        }
+
+        INPUT {
+            flex: 1 1 auto;
+        }
+    }
+
+    // The radius  / find button share a single line,
+    // adjust accordingly
+    #addy_in_radius {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+
+        LABEL {
+            min-width: 42%;
+        }
+    }
+
+    // Submit Button
+    #radius_in_submit {
+        display: inline-block;
+        margin-bottom: 0.5em;
+        float: right;
+    }
+}
+
+span.slp_checkbox_entry {
+    padding-right: 12px;
+}
+
+span.slp_checkbox_entry input[type="checkbox"] {
+    vertical-align: text-bottom;
+}
+
+/* Tagalong Search Inputs */
+#tagalong_category_selector {
+    display: inline-block;
+    height: 2em;
+    width: 100%;
+
+  .category_selector.parent {
+    display: block;
+    float: left;
+  }
+
+  .category_selector.child {
+    display: none;
+    float: left;
+  }
+}
+#tagalong_cascade_dropdowns {
+    display: inline-block;
+    position: relative;
+}
+
+
+/*---------------------
+ * Map
+ *---------------------*/
+
+div.entry-content div#sl_div #map IMG {
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+}
+
+div#map {
+  border-top: solid 1px $color_border;
+  border-left: solid 1px $color_border;
+  border-right: solid 1px $color_border;
+  width: auto;
+
+  .slp_info_bubble {
+    font-weight: normal;
+
+    span {
+      width: auto;
+    }
+  }
+}
+
+div#slp_tagline {
+    background-color: #AABBDD;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+    opacity: 0.45;
+    filter:alpha(opacity=45);
+    margin-bottom: 3px;
+    padding-right: 3px;
+    text-align: right;
+    width: 100%;
+
+}
+
+/*---------------------
+ * Results
+ *---------------------*/
+
+div.results_entry {
+    cursor: pointer;
+    display: inline-block;
+    padding-bottom: 18px;
+    width: 100%;
+
+    &:hover {
+        background-color: #F2F2F2;
+    }
+
+    &.featured {
+        background-color: #EFF0DE;
+
+        &:hover {
+            background-color: #E7F8D6;
+        }
+    }
+
+    a {
+      border: none;
+      box-shadow: none;
+      display: inline-block;
+      text-decoration: none;
+      width: 100%;
+
+      &:hover {
+        color: #4444FF;
+        background-color: #F2F2F2;
+        box-shadow: none;
+        text-decoration: none;
+      }
+    }
+
+    span.location_name {
+        color: #CC0000;
+        display:block;
+        font-weight: bold;
+    }
+
+  .results_row_left_column {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+    width: 40%;
+  }
+  .results_row_center_column {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+    width: 40%;
+  }
+  .results_row_right_column {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    text-align: right;
+    vertical-align: top;
+    width: 18%;
+  }
+
+  span.slp_result_address {
+    width: 100%;
+    display: inline-block;
+  }
+  span.slp_result_phone {
+    padding-top: 6px;
+  }
+  span.slp_result_contact {
+    width: 100%;
+    white-space: nowrap;
+  }
+  span.slp_result_contact.slp_result_hours {
+    white-space: pre-line;
+  }
+
+  span.slp_result_realestate {
+    display:block;
+  }
+}
+
+
+// Below The Map
+//
+div#map_sidebar {
+    overflow: auto;
+
+    div.results_entry a {
+        color: #444444;
+        box-shadow: none;
+    }
+
+    span.location_iconarray {
+        display:block;
+    }
+}
+
+
+// Directory Based
+//
+div.slp_directory.landing_page {
+    div.results_row_left_column,
+    div.results_row_center_column,
+    div.results_row_right_column
+    {
+        display:block;
+        width: 100%;
+    }
+
+    span {
+        text-align: left;
+    }
+}

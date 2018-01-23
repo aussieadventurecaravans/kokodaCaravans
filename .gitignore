@@ -1,0 +1,29 @@
+# IDE
+/.cache/
+/.externalToolBuilders/
+/.idea/
+/.settings/
+/.buildpath
+/.project
+
+# Vagrant
+/.vagrant/
+
+# WordPress
+*.log
+.htaccess
+error_log
+wp-config.php
+/projects/
+/wp-content/advanced-cache.php
+/wp-content/backup-db/
+/wp-content/backups/
+/wp-content/blogs.dir/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/uploads/
+/wp-content/wp-cache-config.php
+/wp-content/plugins/hello.php
+/wp-content/themes/dreamseeker/cache/
+/wp-content/plugins/widgetkit/cache/
+/wp-content/themes/yoo_chester_wp/config.json

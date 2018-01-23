@@ -1,0 +1,336 @@
+/*
+label: Above And Beyond NyloBoard Rev 04
+description: Search to the left of the Map.  Results below.  Feature locations highlighted.  Experience search box title. Show Tagalong legend below the map. Email not shown in results or bubble.
+Locator Layout: <div id="sl_div"><div id="sl_top"><div id="sl_top_left" class="sl_leftcol"><div id="search_box"><div id="search_box_header">[slp_option name="search_box_title"]</div><div id="search_box_form">[slp_search]</div></div></div><div id="sl_top_right" class="sl_rightcol">[slp_map]</div></div><div id="sl_mid"><div id="sl_mid_left" class="sl_leftcol"></div><div id="sl_mid_right" class="sl_rightcol">[tagalong legend]</div></div><div id="sl_bottom"><div id="results_box"><div id="results_box_header">Dealers and Contractors</div><div id="results_box_output">[slp_results]</div></div></div></div>
+Bubble Layout: <div id="sl_info_bubble" class="[slp_location featured]"><span id="slp_bubble_name"><strong>[slp_location name  suffix  br]</strong></span><span id="slp_bubble_address">[slp_location address       suffix  br]</span><span id="slp_bubble_address2">[slp_location address2      suffix  br]</span><span id="slp_bubble_city">[slp_location city          suffix  comma]</span><span id="slp_bubble_state">[slp_location state suffix    space]</span><span id="slp_bubble_zip">[slp_location zip suffix  br]</span><span id="slp_bubble_country"><span id="slp_bubble_country">[slp_location country       suffix  br]</span></span><span id="slp_bubble_directions">[html br ifset directions][slp_option label_directions wrap directions]</span><span id="slp_bubble_website">[html br ifset url][slp_location url           wrap    website][slp_option label_website ifset url][html closing_anchor ifset url][html br ifset url]</span><span id="slp_bubble_phone">[html br ifset phone]<span class="location_detail_label">[slp_option   label_phone   ifset   phone]</span>[slp_location phone         suffix    br]</span><span id="slp_bubble_fax"><span class="location_detail_label">[slp_option   label_fax     ifset   fax  ]</span>[slp_location fax           suffix    br]<span><span id="slp_bubble_description"><span id="slp_bubble_description">[html br ifset description][slp_location description raw]</span>[html br ifset description]</span><span id="slp_bubble_hours">[html br ifset hours]<span class="location_detail_label">[slp_option   label_hours   ifset   hours]</span><span class="location_detail_hours">[slp_location hours         suffix    br]</span></span><span id="slp_bubble_img">[html br ifset img][slp_location image         wrap    img]</span><span id="slp_tags">[slp_location tags]</span><span class="bubble_footnote">[slp_option bubble_footnote]</span></div>
+Results Layout: <div id="slp_results_[slp_location id]" class="results_entry  [slp_location featured]"><div class="results_row_left_column"   id="slp_left_cell_[slp_location id]"   ><span class="location_name">[slp_location name]</span><span class="location_distance">[slp_location distance_1] [slp_location distance_unit]</span></div><div class="results_row_center_column" id="slp_center_cell_[slp_location id]" ><span class="slp_result_address slp_result_street">[slp_location address]</span><span class="slp_result_address slp_result_street2">[slp_location address2]</span><span class="slp_result_address slp_result_citystatezip">[slp_location city_state_zip]</span><span class="slp_result_address slp_result_country">[slp_location country]</span><span class="slp_result_address slp_result_phone">[slp_location phone]</span><span class="slp_result_address slp_result_fax">[slp_location fax]</span></div><div class="results_row_right_column"  id="slp_right_cell_[slp_location id]"  ><span class="slp_result_contact slp_result_website">[slp_location web_link]</span><span class="slp_result_contact slp_result_directions"><a href="http://[slp_location map_domain]/maps?saddr=[slp_location search_address]&daddr=[slp_location location_address]" target="_blank" class="storelocatorlink">[slp_location directions_text]</a></span><span class="slp_result_contact slp_result_hours">[slp_location hours]</span>[slp_location iconarray wrap="fullspan"]</div></div>
+Search Layout: <div id="address_search">[slp_search_element input_with_label="name"][slp_search_element input_with_label="address"][slp_search_element dropdown_with_label="city"][slp_search_element dropdown_with_label="state"][slp_search_element dropdown_with_label="country"][slp_search_element selector_with_label="tag"][slp_search_element dropdown_with_label="category"]<div class="search_item">[slp_search_element dropdown_with_label="radius"][slp_search_element button="submit"]</div></div>
+*/
+
+// Variables : Colors
+//
+$results_divider_color : #efefef;
+$results_header_color:   #8bc719;
+$results_hover_color : #f2f2f2;
+$results_name_color: #41922b;
+
+$search_header_color:    rgb( 218, 142,  18);
+$search_find_button_color: #CE8829;
+$search_find_button_hover_color: #F3981D;
+
+// Variables : Boxes
+//
+$left_column_size: 44;
+$left_column_percent: percentage( $left_column_size / 100 );
+$right_column_percent: percentage( (99 - $left_column_size ) / 100 );
+$right_column_pad_percent: percentage( 1 / 100 );
+
+$search_label_size: 30;
+$search_label_percent: percentage( $search_label_size / 100 );
+$search_label_pad_percent: percentage( 1 / 100 );
+$search_input_percent: percentage( (99 - $search_label_size ) / 100 );
+
+$search_entry_spacing: 1em;
+
+$results_left_column_size: 40; 
+$results_center_column_size: 40; 
+$results_left_column_percent: percentage( $results_left_column_size / 100 );
+$results_center_column_percent: percentage( $results_center_column_size / 100 );
+$results_right_column_percent: percentage( (98 - $results_left_column_size - $results_center_column_size ) / 100 );
+
+
+$tagalong_legend_padding: 0;
+$tagalong_legend_align: right;
+$tagalong_legend_text_margin_right: 0;
+$tagalong_legend_text_vertical: top;
+$tagalong_legend_minwidth: 11em;
+$tagalong_legend_text_max: 8em;
+$tagalong_legend_text_padtop: 0.01em;
+$tagalong_resultsline_display: block;
+
+/*---------------------
+ * SLP Sass Imports
+ *---------------------*/
+@import '../assets/sass/slp/csa_mixins';
+@import '../assets/sass/slp/slp_defaults';
+
+/*---------------------
+ * WordPress Tweaks
+ *---------------------*/
+.singular .entry-meta .edit-link a {
+    right: 0;
+    left: auto;
+}
+
+/*---------------------
+ * Entire SLPlus UI
+ *---------------------*/
+div#sl_div {
+    display: block;
+    margin-top: 0;
+    min-height: 650px;
+    position: relative;    
+    width: 100%;
+}
+
+/*---------------------
+ * Left Column
+ *---------------------*/
+div.sl_leftcol {
+    display: inline-block;
+    vertical-align: top;
+    width: $left_column_percent;
+}
+div#sl_mid_left {
+width: 2%;
+}
+
+/*---------------------
+ * Right Column
+ *---------------------*/
+div.sl_rightcol {
+    display: inline-block;   
+    padding-left: $right_column_pad_percent;
+    vertical-align: top;
+    width: $right_column_percent;
+}
+div#sl_mid_right {
+width: 97%;
+padding-top: 1em;
+}
+
+/*---------------------
+ * Map
+ *---------------------*/
+div#map {
+    border: solid 4px white;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+    height: 492px;
+    margin: 0;
+    width: 100%
+}
+div#slp_tagline {
+  font-family: Arial,sans-serif;
+  background-color: transparent;
+  font-size: 11px;
+  margin-top: 0.5em;
+  opacity: 0.45;
+  text-align: right;
+  width: 100%;
+}
+
+@include default_info_bubble;
+
+/*---------------------
+ * Search Form
+ *---------------------*/
+
+#search_box #search_box_header {
+    @include box-header( $search_header_color , #FFFFFF );    
+    margin-bottom: 0;
+}
+#search_box #search_box_form {
+    background-color: rgb(253,249,244); 
+    padding: 1em 0;
+    width: 100%;
+}
+
+form#searchForm         #div_nameSearch,
+div#slpw_searchform     #div_nameSearch,
+form#searchForm         #addy_in_address,
+div#slpw_searchform     #addy_in_address,
+form#searchForm         #addy_in_city,
+div#slpw_searchform     #addy_in_city,
+form#searchForm         #addy_in_state,
+div#slpw_searchform     #addy_in_state,
+form#searchForm         #addy_in_country,
+div#slpw_searchform     #addy_in_country,
+form#searchForm         #tagalong_category_selector,
+div#slpw_searchform     #tagalong_category_selector,
+form#searchForm         #addy_in_radius,
+div#slpw_searchform     #addy_in_radius
+
+{
+    padding-bottom: $search_entry_spacing;
+}
+form#searchForm         LABEL,
+div#slpw_searchform     LABEL
+{
+    display: inline-block;
+    padding-right: $search_label_pad_percent;
+    text-align: right;
+    width: $search_label_percent;
+}
+form#searchForm         INPUT,
+div#slpw_searchform     INPUT
+{
+    display: inline-block;
+}
+form#searchForm         SELECT,
+div#slpw_searchform     SELECT
+{
+    display: inline-block;
+    padding-right: 3px;
+}
+input#addressInput {
+    border: 1px solid #C0C0C0;
+    border-radius: 3px 3px 3px 3px;
+    display: inline;
+    height: 18px;
+    padding: 0 5px;
+    width: 205px;
+}
+input#nameSearch {
+    border: 1px solid #C0C0C0;
+    border-radius: 3px 3px 3px 3px;
+    display: inline;
+    height: 18px;
+    padding: 0 5px;
+    width: 205px;
+}
+
+div#addy_in_radius,
+div#slpw_submitline
+{
+    display: block;
+    padding-top: 6px;
+}
+div#radius_in_submit {
+    display: block;
+    margin: 0 auto;
+    padding: 6px;
+    text-align: center;
+    width: 100%;
+}
+input#addressSubmit,
+input#slpw_addressSubmit
+{
+    background-color: $search_find_button_color;
+    border: medium none;
+    border-radius: 6px 6px 6px 6px;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+input#addressSubmit:hover,
+input#slpw_addressSubmit:hover {
+    background-color: $search_find_button_hover_color;
+}
+
+// Pro Pack Tag Selector
+//
+form#searchForm .slp_checkbox_entry {
+    display:block;
+}
+
+form#searchForm .slp_checkbox_group {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*---------------------
+ * Results
+ *---------------------*/
+#results_box #results_box_header {
+    @include box-header( $results_header_color , #FFFFFF );    
+    margin-top: 0;
+}
+
+div#map_sidebar,
+div#slpw_resultsbox #slpw_results
+{
+    overflow: auto;
+}
+div#slpw_resultsbox #slpw_results {
+    display: none;
+}
+div#map_sidebar     .results_entry,
+div#slpw_resultsbox .results_entry
+{
+    border-bottom: 1px solid $results_divider_color;
+    padding: 1em 1% 0.5em;
+}
+
+div#map_sidebar     .results_entry {
+    cursor: pointer;
+}
+div#map_sidebar     .results_entry:hover,
+div#slpw_resultsbox .results_entry:hover
+{
+    background: $results_hover_color
+}
+
+div.no_results_found {
+    margin-left: 6px;
+}
+
+div#map_sidebar     .results_row_left_column,
+div#slpw_resultsbox .results_row_left_column,
+div#map_sidebar     .results_row_center_column,
+div#slpw_resultsbox .results_row_center_column,
+div#map_sidebar     .results_row_right_column,
+div#slpw_resultsbox .results_row_right_column
+{
+   display:inline-block;
+   vertical-align: top;
+   width: 30%;
+}
+
+div#map_sidebar     .results_row_left_column,
+div#slpw_resultsbox .results_row_left_column
+{
+    width: $results_left_column_percent;
+}
+div#map_sidebar     .results_row_center_column,
+div#slpw_resultsbox .results_row_center_column
+{
+    width: $results_center_column_percent;
+}
+div#map_sidebar     .results_row_right_column,
+div#slpw_resultsbox .results_row_right_column
+{
+    text-align: right;
+    width: $results_right_column_percent;
+}
+
+
+#slp_marker_email > nobr {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+@include default_results_2016;
+
+.results_entry {
+  &.featured {
+    background-color: #EEF7DC;
+  }
+
+  a.storelocatorlink {
+    overflow: hidden;
+  }
+
+  span {
+    &.location_name {
+      color: $results_name_color;
+      display: block;
+      font-weight: 700;
+    }
+    &.slp_result_citystatezip,
+    &.slp_result_phone,
+    &.location_distance {
+      display:block;
+    }
+    &.slp_result_hours {
+      display: block;
+      white-space: pre-wrap;
+    }
+  }
+
+}

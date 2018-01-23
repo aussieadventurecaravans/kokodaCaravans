@@ -1,0 +1,845 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Store Locator Plus : Pro Pack v4.5.07\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-22 15:27+0200\n"
+"PO-Revision-Date: 2016-10-22 15:32+0200\n"
+"Last-Translator: admin <lance@charlestonsw.com>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: include/class.admin.experience.php:32
+msgid "Appearance"
+msgstr ""
+
+#: include/class.admin.experience.php:35
+msgid "Show Tags In Output"
+msgstr ""
+
+#: include/class.admin.experience.php:36
+msgid ""
+"How should tags be output in the results below the map and the info bubble?"
+msgstr ""
+
+#: include/class.admin.experience.php:39
+msgid "As Entered"
+msgstr ""
+
+#: include/class.admin.experience.php:43
+msgid "Hide Tags"
+msgstr ""
+
+#: include/class.admin.experience.php:47
+msgid "On Separate Lines"
+msgstr ""
+
+#: include/class.admin.experience.php:67
+msgid "Search Features"
+msgstr ""
+
+#: include/class.admin.experience.php:70
+msgid "Search Form Tag Input"
+msgstr ""
+
+#: include/class.admin.experience.php:70
+msgid ""
+"Select the type of tag input that you would like to see on the search form."
+msgstr ""
+
+#: include/class.admin.experience.php:73
+#: include/class.csvimport.locations.php:325
+msgid "None"
+msgstr ""
+
+#: include/class.admin.experience.php:77
+msgid "Hidden"
+msgstr ""
+
+#: include/class.admin.experience.php:81
+msgid "Drop Down"
+msgstr ""
+
+#: include/class.admin.experience.php:85
+msgid "Radio Button"
+msgstr ""
+
+#: include/class.admin.experience.php:89
+msgid "Text Input"
+msgstr ""
+
+#: include/class.admin.experience.php:95
+msgid "Default Tag Selections"
+msgstr ""
+
+#: include/class.admin.experience.php:96
+msgid ""
+"For Hidden or Text tag input enter a default value to be used in the field, "
+"if any. "
+msgstr ""
+
+#: include/class.admin.experience.php:97
+msgid ""
+"For Drop Down tag input enter a comma (,) separated list of tags to show in "
+"the search pulldown, mark the default selection with parenthesis (). "
+msgstr ""
+
+#: include/class.admin.experience.php:98
+msgid ""
+"This is a default setting that can be overriden on each page within the "
+"shortcode."
+msgstr ""
+
+#: include/class.admin.experience.php:101
+msgid "Show Select All Option"
+msgstr ""
+
+#: include/class.admin.experience.php:101
+msgid ""
+"Add an \"any\" selection on the tag drop down list thus allowing the user to "
+"show all locations in the area, not just those matching a selected tag."
+msgstr ""
+
+#: include/class.admin.experience.php:102
+msgid "Tag Autosubmit"
+msgstr ""
+
+#: include/class.admin.experience.php:102
+msgid ""
+"Force the form to auto-submit when the tag is selected with a radio button."
+msgstr ""
+
+#: include/class.admin.experience.php:109
+msgid "Search Labels"
+msgstr ""
+
+#: include/class.admin.experience.php:112
+msgid "Tags Label"
+msgstr ""
+
+#: include/class.admin.experience.php:112
+msgid "Search form label to prefix the tag selector."
+msgstr ""
+
+#: include/class.admin.experience.php:114
+msgid "Tag Select All Text"
+msgstr ""
+
+#: include/class.admin.experience.php:115
+msgid "What should the \"any\" tag say? "
+msgstr ""
+
+#: include/class.admin.experience.php:116
+msgid "The first entry on the search by tag pulldown."
+msgstr ""
+
+#: include/class.admin.experience.php:133
+msgid "Page Layout"
+msgstr ""
+
+#: include/class.admin.experience.php:137
+msgid "Locator Layout"
+msgstr ""
+
+#: include/class.admin.experience.php:138
+msgid ""
+"Enter your custom page layout for the Store Locator Plus page. Set it to "
+"blank to reset to the default layout."
+msgstr ""
+
+#: include/class.admin.experience.php:147
+msgid "CSS Manipulation"
+msgstr ""
+
+#: include/class.admin.experience.php:151
+msgid "Custom CSS"
+msgstr ""
+
+#: include/class.admin.experience.php:152
+msgid ""
+"Enter your custom CSS, preferably for SLPLUS styling only but it can be used "
+"for any page element as this will go in your page header."
+msgstr ""
+
+#: include/class.admin.general.php:39
+msgid "Locations"
+msgstr ""
+
+#: include/class.admin.general.php:47
+msgid "Highlight Uncoded"
+msgstr ""
+
+#: include/class.admin.general.php:48
+msgid "Highlight the uncoded locations in the Manage Locations panel."
+msgstr ""
+
+#: include/class.admin.general.php:70
+msgid "Use location sensor"
+msgstr ""
+
+#: include/class.admin.general.php:71
+msgid ""
+"This can be slow to load and customers are prompted whether or not to allow "
+"location sensing."
+msgstr ""
+
+#: include/class.admin.location.filters.php:79
+msgid "Location Filter: "
+msgstr ""
+
+#: include/class.admin.location.filters.php:122
+msgid "and"
+msgstr ""
+
+#: include/class.admin.location.filters.php:123
+msgid "or"
+msgstr ""
+
+#: include/class.admin.location.filters.php:134
+msgid "Store Name My Place or My* or *Place"
+msgstr ""
+
+#: include/class.admin.location.filters.php:134
+msgid "Name"
+msgstr ""
+
+#: include/class.admin.location.filters.php:136
+msgid "Zip Code 29464 or 294* or *464"
+msgstr ""
+
+#: include/class.admin.location.filters.php:136
+#: include/class.admin.reports.php:248
+msgid "Zip"
+msgstr ""
+
+#: include/class.admin.location.filters.php:158
+msgid "Country"
+msgstr ""
+
+#: include/class.admin.location.filters.php:159
+msgid "All Countries"
+msgstr ""
+
+#: include/class.admin.location.filters.php:164
+#: include/class.admin.reports.php:247
+msgid "State"
+msgstr ""
+
+#: include/class.admin.location.filters.php:165
+msgid "All States"
+msgstr ""
+
+#: include/class.admin.php:135
+msgid "No data recorded yet. "
+msgstr ""
+
+#: include/class.admin.php:137
+msgid ""
+"Chart will be available after a Store Locator Plus search has been performed."
+msgstr ""
+
+#: include/class.admin.php:159
+msgid "Download your "
+msgstr ""
+
+#: include/class.admin.php:163
+msgid "locations CSV file."
+msgstr ""
+
+#: include/class.admin.php:440
+msgid "Location Processing Info"
+msgstr ""
+
+#: include/class.admin.php:501 include/class.admin.php:521
+#: include/class.admin.php:541 include/class.admin.reports.php:249
+msgid "Tags"
+msgstr ""
+
+#: include/class.admin.php:536
+msgid "Edit"
+msgstr ""
+
+#: include/class.admin.php:537 include/class.csvimport.locations.php:226
+msgid "Add"
+msgstr ""
+
+#: include/class.admin.php:543
+msgid "List of tags assigned to location. "
+msgstr ""
+
+#: include/class.admin.php:544
+msgid "Separate with commas."
+msgstr ""
+
+#: include/class.admin.php:595
+msgid "Export, Download CSV"
+msgstr ""
+
+#: include/class.admin.php:599
+msgid "Export, Hosted CSV"
+msgstr ""
+
+#: include/class.admin.php:603
+msgid "Geocode Selected"
+msgstr ""
+
+#: include/class.admin.php:607
+msgid "Geocode All Uncoded"
+msgstr ""
+
+#: include/class.admin.php:611
+msgid "Tag"
+msgstr ""
+
+#: include/class.admin.php:615
+msgid "Enter your comma-separated tags:"
+msgstr ""
+
+#: include/class.admin.php:620
+msgid "Remove Tags"
+msgstr ""
+
+#: include/class.admin.php:639
+msgid "Show Uncoded"
+msgstr ""
+
+#: include/class.admin.php:643
+msgid "With These Properties"
+msgstr ""
+
+#: include/class.admin.reports.php:38
+msgid " - Reporting"
+msgstr ""
+
+#: include/class.admin.reports.php:40
+msgid "Save Settings"
+msgstr ""
+
+#: include/class.admin.reports.php:77
+msgid "Report Summary"
+msgstr ""
+
+#: include/class.admin.reports.php:110 include/class.slp-pro.php:145
+msgid "Reports"
+msgstr ""
+
+#: include/class.admin.reports.php:131
+msgid "Export To CSV"
+msgstr ""
+
+#: include/class.admin.reports.php:140
+msgid "Export all records"
+msgstr ""
+
+#: include/class.admin.reports.php:144
+msgid "Top Searches"
+msgstr ""
+
+#: include/class.admin.reports.php:145
+msgid "Top Results"
+msgstr ""
+
+#: include/class.admin.reports.php:158
+msgid "Report Parameters"
+msgstr ""
+
+#: include/class.admin.reports.php:166
+msgid "Start Date"
+msgstr ""
+
+#: include/class.admin.reports.php:172
+msgid "Only show data on or after this date.  YYYY-MM-DD."
+msgstr ""
+
+#: include/class.admin.reports.php:182
+msgid "End Date"
+msgstr ""
+
+#: include/class.admin.reports.php:188
+msgid "Only show data on or before this date.  YYYY-MM-DD hh:mm:ss."
+msgstr ""
+
+#: include/class.admin.reports.php:203
+msgid "Report Limit"
+msgstr ""
+
+#: include/class.admin.reports.php:209
+msgid ""
+"Limit the report to this many detail records.  Default: 10.  Recommended "
+"maximum: 500."
+msgstr ""
+
+#: include/class.admin.reports.php:224
+#, php-format
+msgid "Total searches: <strong>%s</strong>"
+msgstr ""
+
+#: include/class.admin.reports.php:225
+#, php-format
+msgid "Total results: <strong>%s</strong>"
+msgstr ""
+
+#: include/class.admin.reports.php:226
+#, php-format
+msgid "Days with activity: <strong>%s</strong>"
+msgstr ""
+
+#: include/class.admin.reports.php:241 include/class.admin.reports.php:243
+#, php-format
+msgid "Top %s Results Returned"
+msgstr ""
+
+#: include/class.admin.reports.php:245
+msgid "Store"
+msgstr ""
+
+#: include/class.admin.reports.php:246
+msgid "City"
+msgstr ""
+
+#: include/class.admin.reports.php:250 include/class.admin.reports.php:292
+msgid "Total"
+msgstr ""
+
+#: include/class.admin.reports.php:276
+msgid "topresults"
+msgstr ""
+
+#: include/class.admin.reports.php:287 include/class.admin.reports.php:289
+#, php-format
+msgid "Top %s Addresses Searched"
+msgstr ""
+
+#: include/class.admin.reports.php:291
+msgid "Address"
+msgstr ""
+
+#: include/class.admin.reports.php:314
+msgid "topsearches"
+msgstr ""
+
+#: include/class.admin.reports.php:324 include/class.admin.reports.php:348
+msgid "Settings"
+msgstr ""
+
+#: include/class.admin.reports.php:333
+msgid "Enable reporting to start recording location search data. "
+msgstr ""
+
+#: include/class.admin.reports.php:334
+msgid "Once enabled the report section will appear on this tab."
+msgstr ""
+
+#: include/class.admin.reports.php:353
+msgid "Enable Reporting"
+msgstr ""
+
+#: include/class.admin.reports.php:359
+msgid ""
+"Enables tracking of searches and returned results.  The added overhead can "
+"increase how long it takes to return location search results."
+msgstr ""
+
+#: include/class.ajax.php:194 include/class.ajax.php:200
+msgid "Cheatin' huh!"
+msgstr ""
+
+#: include/class.ajax.php:360
+msgid "Creating the location export CSV file."
+msgstr ""
+
+#: include/class.cron.php:67
+msgid "Pro Pack cron import underway."
+msgstr ""
+
+#: include/class.cron.php:94
+#, php-format
+msgid "Action %s is unsupported"
+msgstr ""
+
+#: include/class.csvimport.locations.php:121
+msgid "Some CSV Records have too many fields."
+msgstr ""
+
+#: include/class.csvimport.locations.php:122
+#, php-format
+msgid "Got %d expected %d or fewer fields."
+msgstr ""
+
+#: include/class.csvimport.locations.php:123
+msgid "Defined field names are: "
+msgstr ""
+
+#: include/class.csvimport.locations.php:127
+msgid "Are you defining fileds as the first line of a CSV file? "
+msgstr ""
+
+#: include/class.csvimport.locations.php:128
+msgid "If so, did you check the First Line Has Field Name box? "
+msgstr ""
+
+#: include/class.csvimport.locations.php:141
+msgid "File Settings"
+msgstr ""
+
+#: include/class.csvimport.locations.php:152
+msgid "Skip First Line"
+msgstr ""
+
+#: include/class.csvimport.locations.php:153
+msgid "Skip the first line of the import file."
+msgstr ""
+
+#: include/class.csvimport.locations.php:165
+msgid "First Line Has Field Name"
+msgstr ""
+
+#: include/class.csvimport.locations.php:168
+msgid "Check this if the first line contains the field names."
+msgstr ""
+
+#: include/class.csvimport.locations.php:169
+#, php-format
+msgid "Text must match the <a href=\"%s\">approved field name list</a>."
+msgstr ""
+
+#: include/class.csvimport.locations.php:182
+msgid "Skip Geocoding"
+msgstr ""
+
+#: include/class.csvimport.locations.php:184
+msgid ""
+"Do not check with the Geocoding service to get latitude/longitude.  "
+"Locations without a latitude/longitude will NOT appear on map base searches."
+msgstr ""
+
+#: include/class.csvimport.locations.php:197
+msgid "Load Data"
+msgstr ""
+
+#: include/class.csvimport.locations.php:200
+msgid "If checked use the faster MySQL Load Data method of file processing."
+msgstr ""
+
+#: include/class.csvimport.locations.php:201
+#, php-format
+msgid ""
+"Only base plugin data can be loaded, see the <a href=\"%s\">approved field "
+"name list</a>."
+msgstr ""
+
+#: include/class.csvimport.locations.php:214
+msgid "Duplicates Handling"
+msgstr ""
+
+#: include/class.csvimport.locations.php:216
+msgid "How should duplicates be handled? "
+msgstr ""
+
+#: include/class.csvimport.locations.php:217
+msgid ""
+"Duplicates are records that match on name and complete address with country. "
+msgstr ""
+
+#: include/class.csvimport.locations.php:218
+msgid "Add (default) will add new records when duplicates are encountered. "
+msgstr ""
+
+#: include/class.csvimport.locations.php:219
+msgid "Skip will not process duplicate records. "
+msgstr ""
+
+#: include/class.csvimport.locations.php:220
+msgid "Update will update duplicate records. "
+msgstr ""
+
+#: include/class.csvimport.locations.php:221
+msgid ""
+"To update name and address fields the CSV must have the ID column with the "
+"ID of the existing location."
+msgstr ""
+
+#: include/class.csvimport.locations.php:230
+msgid "Skip"
+msgstr ""
+
+#: include/class.csvimport.locations.php:234
+msgid "Update"
+msgstr ""
+
+#: include/class.csvimport.locations.php:250
+#, php-format
+msgid "See the %s for more details on the import format."
+msgstr ""
+
+#: include/class.csvimport.locations.php:252
+msgid "online documentation"
+msgstr ""
+
+#: include/class.csvimport.locations.php:265
+msgid "Upload CSV File"
+msgstr ""
+
+#: include/class.csvimport.locations.php:277
+msgid "Upload Locations"
+msgstr ""
+
+#: include/class.csvimport.locations.php:290
+msgid "File Import"
+msgstr ""
+
+#: include/class.csvimport.locations.php:298
+msgid "CSV File URL"
+msgstr ""
+
+#: include/class.csvimport.locations.php:303
+msgid "Enter a full URL for a CSV file you wish to import"
+msgstr ""
+
+#: include/class.csvimport.locations.php:316
+msgid "Import Recurrence"
+msgstr ""
+
+#: include/class.csvimport.locations.php:318
+msgid "How often to fetch the file from the URL. "
+msgstr ""
+
+#: include/class.csvimport.locations.php:319
+msgid "None loads the remote file immediately with no background processing. "
+msgstr ""
+
+#: include/class.csvimport.locations.php:320
+msgid "At loads the file one time on or after the time specified. "
+msgstr ""
+
+#: include/class.csvimport.locations.php:329
+msgid "At"
+msgstr ""
+
+#: include/class.csvimport.locations.php:333
+msgid "Hourly"
+msgstr ""
+
+#: include/class.csvimport.locations.php:337
+msgid "Twice Daily"
+msgstr ""
+
+#: include/class.csvimport.locations.php:341
+msgid "Daily"
+msgstr ""
+
+#: include/class.csvimport.locations.php:358
+msgid "Daily Import Time"
+msgstr ""
+
+#: include/class.csvimport.locations.php:360
+msgid ""
+"How many seconds after midnight to run the recurring import from this URL.  "
+msgstr ""
+
+#: include/class.csvimport.locations.php:361
+msgid ""
+"Set to 3600 to run at the top of the hour (hourly) or at 1 AM 9 (daily).  "
+msgstr ""
+
+#: include/class.csvimport.locations.php:362
+msgid ""
+"WordPress cron is not exact, it executes the next time a visitor comes to "
+"your site.  "
+msgstr ""
+
+#: include/class.csvimport.locations.php:363
+msgid ""
+"Set to recurrence to none and leave the URL blank to clear the cron job.  "
+msgstr ""
+
+#: include/class.csvimport.locations.php:389
+msgid "Import Locations"
+msgstr ""
+
+#: include/class.csvimport.locations.php:400
+msgid "Import"
+msgstr ""
+
+#: include/class.csvimport.locations.php:435
+msgid "Scheduled Import Activity"
+msgstr ""
+
+#: include/class.csvimport.locations.php:469
+msgid "Location Import Cron Messages"
+msgstr ""
+
+#: include/class.csvimport.locations.php:499
+#, php-format
+msgid "CSV file imports are currently scheduled to run %s."
+msgstr ""
+
+#: include/class.csvimport.locations.php:503
+#, php-format
+msgid "The current WordPress time (GMT) is %s."
+msgstr ""
+
+#: include/class.csvimport.locations.php:517
+msgid " new locations added."
+msgstr ""
+
+#: include/class.csvimport.locations.php:518
+msgid " pre-existing locations skipped."
+msgstr ""
+
+#: include/class.csvimport.locations.php:519
+msgid " locations skipped due to malformed CSV data."
+msgstr ""
+
+#: include/class.csvimport.locations.php:520
+msgid " locations did not need to be updated."
+msgstr ""
+
+#: include/class.csvimport.locations.php:521
+msgid " locations were skipped due to duplicate address information."
+msgstr ""
+
+#: include/class.csvimport.locations.php:522
+msgid " locations were updated."
+msgstr ""
+
+#: include/class.csvimport.locations.php:631
+msgid "Could not fetch the remote file."
+msgstr ""
+
+#: include/class.csvimport.locations.php:640
+#, php-format
+msgid "%s does not exist."
+msgstr ""
+
+#: include/class.csvimport.locations.php:658
+msgid "The location CSV import file is missing the address fields."
+msgstr ""
+
+#: include/class.csvimport.locations.php:660
+#, php-format
+msgid "Fields received were: <pre>%s</pre>"
+msgstr ""
+
+#: include/class.csvimport.php:116
+msgid "Import file name not set."
+msgstr ""
+
+#: include/class.csvimport.php:125
+msgid "Import file exceeds the upload_max_filesize in php.ini."
+msgstr ""
+
+#: include/class.csvimport.php:129
+msgid "Import file was only partially loaded."
+msgstr ""
+
+#: include/class.csvimport.php:133
+msgid "Import file seems to have gone missing."
+msgstr ""
+
+#: include/class.csvimport.php:137
+msgid "Import file is empty."
+msgstr ""
+
+#: include/class.csvimport.php:149
+msgid "Uploaded file needs to be in CSV format."
+msgstr ""
+
+#: include/class.csvimport.php:150
+#, php-format
+msgid "Type was %s."
+msgstr ""
+
+#: include/class.csvimport.php:171
+#, php-format
+msgid "WordPress upload directory %s is missing, check directory permissions."
+msgstr ""
+
+#: include/class.csvimport.php:199
+msgid "Imported CSV file could not be renamed."
+msgstr ""
+
+#: include/class.csvimport.php:200
+#, php-format
+msgid "Possibly out of disk space while trying to rename to %s"
+msgstr ""
+
+#: include/class.csvimport.php:208
+msgid "Uploaded CSV file could not be moved."
+msgstr ""
+
+#: include/class.csvimport.php:209
+#, php-format
+msgid "Check folder permissions for %s"
+msgstr ""
+
+#: include/class.csvimport.php:243
+msgid "Could not open CSV file for processing."
+msgstr ""
+
+#: include/class.csvimport.php:359
+#, php-format
+msgid "%d data lines read from the CSV file."
+msgstr ""
+
+#: include/class.slp-pro.php:75
+msgid "Pro Pack"
+msgstr ""
+
+#: slp-pro.php:32
+msgid "Store Locator Plus Pro"
+msgstr ""
+
+#: slp-pro.php:45
+#, php-format
+msgid "%s requires Store Locator Plus to function properly. "
+msgstr ""
+
+#: slp-pro.php:48 slp-pro.php:72
+msgid "This plugin has been deactivated."
+msgstr ""
+
+#: slp-pro.php:49
+msgid "Please install Store Locator Plus."
+msgstr ""
+
+#: slp-pro.php:68
+#, php-format
+msgid "%s requires WordPress %s to function properly. "
+msgstr ""
+
+#: slp-pro.php:73
+msgid "Please upgrade WordPress."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Store Locator Plus :: Pro Pack"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.storelocatorplus.com/product/slp4-pro/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A premium add-on pack for Store Locator Plus that provides more admin power "
+"tools for wrangling locations."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Store Locator Plus"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.storelocatorplus.com/"
+msgstr ""

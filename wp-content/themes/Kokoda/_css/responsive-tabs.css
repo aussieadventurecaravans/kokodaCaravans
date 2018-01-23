@@ -1,0 +1,76 @@
+.r-tabs .r-tabs-nav {
+    margin: 0;
+    padding: 0;
+}
+
+.r-tabs .r-tabs-tab {
+    display: block;
+    margin: 0;
+    list-style: none;
+}
+
+.r-tabs .r-tabs-tab a:focus {
+	text-decoration: none;
+}
+
+.r-tabs .r-tabs-panel {
+    padding: 15px;
+    display: none;
+}
+
+.r-tabs .r-tabs-accordion-title {
+    display: none;
+}
+
+.r-tabs .r-tabs-panel.r-tabs-state-active {
+    display: block;
+}
+
+.r-tabs-state-active a {
+	background: #fff!important;
+	color: #202020!important;
+}
+
+/* Accordion responsive breakpoint */
+@media only screen and (max-width: 992px) {
+    .r-tabs .r-tabs-nav {
+        display: none;
+    }
+
+    .r-tabs .r-tabs-accordion-title {
+        display: block;
+		font-size: 24px;
+		text-transform: uppercase;
+		font-weight: 400;
+		border-bottom: 1px solid #1e1e1f;
+		line-height: 1em;
+		margin-left: -15px;
+		margin-right: -15px;
+    }
+    
+    .r-tabs .r-tabs-accordion-title a {
+    	width: 100%;
+    	display: block;
+        background: #404040;
+    	color: #fff;
+    	padding: 25px 20px 15px 40px;
+    }
+    
+    .r-tabs .r-tabs-accordion-title a:hover,
+    .r-tabs .r-tabs-accordion-title a:active {
+	    background: #fff;
+	    color: #202020;
+	    text-decoration: none;
+    }
+    
+    .r-tabs .r-tabs-accordion-title a:focus {
+    	text-decoration: none;
+    }
+    
+    .r-tabs-state-active a {
+    	background: #fff!important;
+    	color: #202020!important;
+    }
+    
+    
+}

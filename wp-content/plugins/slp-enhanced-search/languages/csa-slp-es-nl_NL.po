@@ -1,0 +1,494 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Store Locator Plus : Enhanced Search v4.3.00-RC-1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-23 13:46+0100\n"
+"PO-Revision-Date: 2015-08-05 11:22:30+0000\n"
+"Last-Translator: De B.A.A.T. <De_BAAT@de-baat.nl>\n"
+"Language-Team: De B.A.A.T. <de_baat@de-baat.nl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: slp-enhanced-search.php:120
+#@ csa-slp-es
+msgid "Enhanced Search"
+msgstr "Uitgebreid Zoeken"
+
+#: include/class.admin.userexperience.php:500
+#: include/class.userinterface.php:490
+#@ csa-slp-es
+msgid "--Search By City--"
+msgstr "--Zoek Op Plaats--"
+
+#: include/class.admin.userexperience.php:521
+#: include/class.userinterface.php:642
+#@ csa-slp-es
+msgid "--Search By State--"
+msgstr "--Zoek Op Provincie--"
+
+#: include/class.admin.php:87
+#@ csa-slp-es
+msgid "Program Interface"
+msgstr "Programma Interface"
+
+#: include/class.admin.php:102
+#@ csa-slp-es
+msgid "Allow Address In URL"
+msgstr "Sta Adres In URL Toe"
+
+#: include/class.admin.php:104
+#@ csa-slp-es
+msgid "If checked an address can be pre-loaded via a URL string ?address=blah."
+msgstr "Als aangevinkt kan een adres worden voorgeladen via een URL string ?address=blah."
+
+#: include/class.admin.php:106
+#@ csa-slp-es
+msgid "This will disable the Pro Pack location sensor whenever the address is used in the URL."
+msgstr "Dit zal de Pro Pack Locatie sensor uitschakelen als het adres is gebruikt in de URL."
+
+#: include/class.admin.userexperience.php:90
+#@ csa-slp-es
+msgid "Instructions to place in the address input."
+msgstr "Instructies om in de adres invoer te plaatsen."
+
+#: include/class.admin.userexperience.php:476
+#@ csa-slp-es
+msgid "Name"
+msgstr "Naam"
+
+#: include/class.admin.userexperience.php:104
+#@ csa-slp-es
+msgid "Instructions to place in the name input."
+msgstr "Instructies om in de naam invoer te plaatsen."
+
+#: include/class.userinterface.php:315
+#@ csa-slp-es
+msgid "Name of Store"
+msgstr "Naam van Store"
+
+#: include/class.admin.userexperience.php:542
+#: include/class.userinterface.php:567
+#@ csa-slp-es
+msgid "--Search By Country--"
+msgstr "--Zoek Op Land--"
+
+#: include/class.admin.userexperience.php:133
+#@ csa-slp-es
+msgid "Hide Search Form"
+msgstr "Verberg Zoekformulier"
+
+#: include/class.admin.userexperience.php:134
+#@ csa-slp-es
+msgid "Hide the user input on the search page, regardless of the SLP theme used."
+msgstr "Verberg de gebruikers invoer op de zoek pagina, ongeacht het gebruikte SLP thema."
+
+#: include/class.admin.userexperience.php:191
+#@ csa-slp-es
+msgid "Hide Radius Selections"
+msgstr "Verberg Straal Selecties"
+
+#: include/class.admin.userexperience.php:192
+#@ csa-slp-es
+msgid "Hide the radius selection drop down."
+msgstr "Verberg de straal selectie dropdown."
+
+#: include/class.admin.userexperience.php:181
+#@ csa-slp-es
+msgid "Show Search By Name"
+msgstr "Toon Zoek Op Naam"
+
+#: include/class.admin.userexperience.php:182
+#@ csa-slp-es
+msgid "Shows the name search entry box to the user."
+msgstr "Toont de naam zoek box invoer aan de gebruiker."
+
+#: include/class.admin.userexperience.php:201
+#: include/class.admin.userexperience.php:233
+#@ csa-slp-es
+msgid "Show the city selector on the search form."
+msgstr "Toon de stad selector op het zoekformulier."
+
+#: include/class.admin.userexperience.php:302
+#@ csa-slp-es
+msgid "Show the country selector on the search form."
+msgstr "Toon de provincie selector op het zoekformulier."
+
+#: include/class.admin.userexperience.php:267
+#@ csa-slp-es
+msgid "Show the state selector on the search form."
+msgstr "Toon de provincie selector op het zoekformulier."
+
+#: include/class.admin.userexperience.php:382
+#@ csa-slp-es
+msgid "Search Layout"
+msgstr "Zoek Layout"
+
+#: include/class.admin.userexperience.php:383
+#@ csa-slp-es
+msgid "Enter your custom search form layout. "
+msgstr "Geef je persoonlijke informatie ballon layout. "
+
+#: include/class.admin.userexperience.php:386
+#, php-format
+#@ csa-slp-es
+msgid "Uses HTML plus %s shortcodes."
+msgstr "Gebruikt HTML plus %s shortcodes."
+
+#: include/class.admin.userexperience.php:388
+#@ csa-slp-es
+msgid "Set it to blank to reset to the default layout. "
+msgstr "Maak het veld leeg om te resetten naar de standaard layout. "
+
+#: include/class.admin.userexperience.php:389
+#@ csa-slp-es
+msgid "Overrides all other search form settings."
+msgstr "Overrulet alle andere zoekformulier instellingen."
+
+#: include/class.admin.userexperience.php:466
+#@ csa-slp-es
+msgid "Find Button"
+msgstr "Zoek Knop"
+
+#: include/class.admin.userexperience.php:467
+#@ csa-slp-es
+msgid "The label on the find button, if text mode is selected."
+msgstr "Het label op de zoek knop, als de tekst mode geselecteerd is."
+
+#: include/class.admin.userexperience.php:469
+#@ csa-slp-es
+msgid "Find Locations"
+msgstr "Zoek Locaties"
+
+#: include/class.admin.userexperience.php:477
+#@ csa-slp-es
+msgid "The label that precedes the name input box."
+msgstr "Het label dat voorafgaat aan de naam invoer box."
+
+#: include/class.admin.userexperience.php:487
+#@ csa-slp-es
+msgid "The label that precedes the city selector."
+msgstr "Het label dat voorafgaat aan de stad invoer box."
+
+#: include/class.admin.userexperience.php:498
+#@ csa-slp-es
+msgid "The first entry on the search by city selector."
+msgstr "De eerste keuze van de zoek op stad selector."
+
+#: include/class.admin.userexperience.php:508
+#@ csa-slp-es
+msgid "The label that precedes the state selector."
+msgstr "Het label dat voorafgaat aan de provincie selector."
+
+#: include/class.admin.userexperience.php:519
+#@ csa-slp-es
+msgid "The first entry on the search by state selector."
+msgstr "De eerste keuze van de zoek op provincie selector."
+
+#: include/class.admin.userexperience.php:529
+#@ csa-slp-es
+msgid "The label that precedes the country selector."
+msgstr "Het label dat voorafgaat aan de provincie invoer box."
+
+#: include/class.admin.userexperience.php:540
+#@ csa-slp-es
+msgid "The first entry on the search by country selector."
+msgstr "De eerste keuze van de zoek op land selector."
+
+#. translators: plugin header field 'Name'
+#: slp-enhanced-search.php:0
+#@ csa-slp-es
+msgid "Store Locator Plus : Enhanced Search"
+msgstr "Store Locator Plus : Enhanced Search"
+
+#. translators: plugin header field 'Description'
+#: slp-enhanced-search.php:0
+#@ csa-slp-es
+msgid "A premium add-on pack for Store Locator Plus that adds enhanced search features to the plugin."
+msgstr "Een premium add-on pakket voor Store Locator Plus die uitgebreide zoek eigenschappen toevoegt aan de plug-in."
+
+#. translators: plugin header field 'Author'
+#: slp-enhanced-search.php:0
+#@ csa-slp-es
+msgid "Charleston Software Associates"
+msgstr "Charleston Software Associates"
+
+#: include/class.admin.userexperience.php:361
+#@ csa-slp-es
+msgid "Search Address Nearest"
+msgstr "Dichtstbijzijnde Zoekadres"
+
+#: include/class.admin.userexperience.php:363
+#@ csa-slp-es
+msgid "Worldwide is the default search, letting Google make the best guess which addres the user wants."
+msgstr "Wereldwijd is de standaard zoekopdracht, hierbij maakt Google zelf de beste gok over welk adres de gebruiker bedoelt."
+
+#: include/class.admin.userexperience.php:364
+#@ csa-slp-es
+msgid "Current Map will find the best matching address nearest the current area shown on the map."
+msgstr "Huidige Kaart zal het best matchende adres vinden wat zich het dichtst bevindt bij het gebied wat momenteel op de kaart getoond wordt."
+
+#: include/class.admin.userexperience.php:368
+#@ csa-slp-es
+msgid "Worldwide"
+msgstr "Wereldwijd"
+
+#: include/class.admin.userexperience.php:372
+#@ csa-slp-es
+msgid "Current Map"
+msgstr "Huidige Kaart"
+
+#: include/class.admin.userexperience.php:202
+#: include/class.admin.userexperience.php:234
+#: include/class.admin.userexperience.php:268
+#: include/class.admin.userexperience.php:303
+#, php-format
+#@ csa-slp-es
+msgid "View the <a href=\"%s\" target=\"csa\">documentation</a> for more info. "
+msgstr "Zie de <a href=\"%s\" target=\"csa\">documentatie</a> voor meer info. "
+
+#: include/class.admin.userexperience.php:240
+#: include/class.admin.userexperience.php:274
+#: include/class.admin.userexperience.php:309
+#@ csa-slp-es
+msgid "Hidden"
+msgstr "Verborgen"
+
+#: include/class.admin.userexperience.php:244
+#: include/class.admin.userexperience.php:278
+#: include/class.admin.userexperience.php:313
+#@ csa-slp-es
+msgid "Dropdown, Address Input"
+msgstr "Drop down, Adres Invoer"
+
+#: include/class.admin.userexperience.php:248
+#: include/class.admin.userexperience.php:282
+#: include/class.admin.userexperience.php:317
+#@ csa-slp-es
+msgid "Dropdown, Discrete Filter"
+msgstr "Drop down, Discreet Filter"
+
+#: include/class.admin.userexperience.php:252
+#: include/class.admin.userexperience.php:286
+#: include/class.admin.userexperience.php:321
+#@ csa-slp-es
+msgid "Dropdown, Discrete + Address Input"
+msgstr "Drop down, Discreet + Adres Invoer"
+
+#: include/class.admin.userexperience.php:400
+#@ csa-slp-es
+msgid "Append This To Searches"
+msgstr "Voeg Dit Toe Aan Zoekopdrachten"
+
+#: include/class.admin.userexperience.php:401
+#@ csa-slp-es
+msgid "Anything you enter in this box will automatically be appended to the address a user types into the locator search form address box on your site. "
+msgstr "Alles wat je in deze box invoert wordt automatisch toegevoegd aan het adres wat de gebruiker typt in het adres veld van het locatie zoek formulier op je site. "
+
+#: include/class.admin.userexperience.php:455
+#@ csa-slp-es
+msgid "Search Box Title"
+msgstr "Zoek Box Titel"
+
+#: include/class.admin.userexperience.php:456
+#@ csa-slp-es
+msgid "The label that goes in the search form box header, for plugin themes that support it."
+msgstr "Het label dat getoond wordt in de zoekformulier box header, voor plugin thema's die dat ondersteunen."
+
+#: include/class.admin.userexperience.php:486
+#: include/class.admin.userexperience.php:507
+#: include/class.admin.userexperience.php:528
+#, php-format
+#@ csa-slp-es
+msgid "%s Selector Label"
+msgstr "%s Selector Label"
+
+#: include/class.admin.userexperience.php:497
+#: include/class.admin.userexperience.php:518
+#: include/class.admin.userexperience.php:539
+#, php-format
+#@ csa-slp-es
+msgid "%s Selector First Entry"
+msgstr "%s Selector Eerste Optie"
+
+#: include/class.admin.userexperience.php:143
+#@ csa-slp-es
+msgid "Hide Address Entry"
+msgstr "Verberg Adres Optie"
+
+#: include/class.admin.userexperience.php:144
+#@ csa-slp-es
+msgid "Hide the address input box on the locator search form."
+msgstr "Verberg de adres invoer box op het locator zoekformulier."
+
+#: include/class.admin.userexperience.php:155
+#@ csa-slp-es
+msgid "Address Autocomplete"
+msgstr "Adres Autoaanvullen"
+
+#: include/class.admin.userexperience.php:157
+#@ csa-slp-es
+msgid "When 2 or more characters are typed in the address input, show input suggestions based on location data. "
+msgstr "Als 2 of meer karakters getyped worden in de adres invoer, toon invoer suggesties gebaseerd op locatie gegevens. "
+
+#: include/class.admin.userexperience.php:159
+#@ csa-slp-es
+msgid "None (default) - do not suggest address input. "
+msgstr "Geen (default) - suggereer geen adres invoer. "
+
+#: include/class.admin.userexperience.php:161
+#@ csa-slp-es
+msgid " Zipcode - suggest matching zip codes. "
+msgstr "Postcode - suggereer passende postcodes. "
+
+#: include/class.admin.userexperience.php:166
+#@ csa-slp-es
+msgid "None"
+msgstr "Geen"
+
+#: include/class.admin.userexperience.php:170
+#@ csa-slp-es
+msgid "Zipcode"
+msgstr "Postcode"
+
+#: include/class.admin.userexperience.php:199
+#@ csa-slp-es
+msgid "Radius Behavior"
+msgstr "Radius Gedrag"
+
+#: include/class.admin.userexperience.php:203
+#@ csa-slp-es
+msgid "If you want the option to search by address OR by city on the same form, select: Use radius only with address. If you choose not to use radius, you consider also hiding the radius selector."
+msgstr "Als je de optie zoeken op adres OF op plaats op hetzelfde formulier wilt, selecteer: Gebruik radius alleen met adres. Als je geen radius wilt gebruiken, overweeg dan om ook de radius selector te verbergen."
+
+#: include/class.admin.userexperience.php:208
+#@ csa-slp-es
+msgid "Do not use"
+msgstr "Gebruik niet"
+
+#: include/class.admin.userexperience.php:212
+#@ csa-slp-es
+msgid "Use only when address is entered"
+msgstr "Gebruik alleen als adres is ingevoerd"
+
+#: include/class.admin.userexperience.php:216
+#@ csa-slp-es
+msgid "Always use"
+msgstr "Gebruik altijd"
+
+#: include/class.admin.userexperience.php:231
+#: include/class.admin.userexperience.php:265
+#: include/class.admin.userexperience.php:300
+#, php-format
+#@ csa-slp-es
+msgid "%s Selector"
+msgstr "%s Selector"
+
+#: include/class.admin.userexperience.php:335
+#@ csa-slp-es
+msgid "Selector Behavior"
+msgstr "Selector Gedrag"
+
+#: include/class.admin.userexperience.php:337
+#@ csa-slp-es
+msgid "Should the address input be disabled when city, state, or country selectors are used? "
+msgstr "Moet de adres invoer uitgeschakeld zijn bij gebruik van plaats, provincie of land selectors? "
+
+#: include/class.admin.userexperience.php:338
+#@ csa-slp-es
+msgid "Allow means address and city/state/zip selectors are both left active at all times. "
+msgstr "Toestaan betekent adres en plaats/provincie/postcode selectors zijn beiden altijd actief. "
+
+#: include/class.admin.userexperience.php:339
+#@ csa-slp-es
+msgid "disable means users can interact with either the city/state/zip OR the address but not both at the same time. "
+msgstr "uitgeschakeld betekent gebruikers kunnen OF de plaats/provincie/postcode OF adres gebruiken maar niet beiden tegelijkertijd. "
+
+#: include/class.admin.userexperience.php:344
+#@ csa-slp-es
+msgid "Allow Selector and Address Input"
+msgstr "Toestaan Selector en Adres Invoer"
+
+#: include/class.admin.userexperience.php:348
+#@ csa-slp-es
+msgid "Disable Address When Using Selector"
+msgstr "Uitgeschakeld Adres Bij Gebruik Selector"
+
+#: include/class.userinterface.php:586
+#@ csa-slp-es
+msgid "Within"
+msgstr "Binnen"
+
+#: slp-enhanced-search.php:167
+#@ csa-slp-es
+msgid "Find Our Locations"
+msgstr "Vind Onze Locaties"
+
+#: slp-enhanced-search.php:168
+#@ csa-slp-es
+msgid "City"
+msgstr "Plaats"
+
+#: slp-enhanced-search.php:169
+#@ csa-slp-es
+msgid "Country"
+msgstr "Land"
+
+#: slp-enhanced-search.php:170
+#@ csa-slp-es
+msgid "State"
+msgstr "Provincie"
+
+#: include/class.admin.userexperience.php:46
+#@ csa-slp-es
+msgid "Search Features"
+msgstr "Zoek Eigenschappen"
+
+#: include/class.admin.userexperience.php:66
+#@ csa-slp-es
+msgid "Search Labels"
+msgstr "Zoek Labels"
+
+#: include/class.admin.userexperience.php:88
+#@ csa-slp-es
+msgid "Address Placeholder"
+msgstr "Adres Placeholder"
+
+#: include/class.admin.userexperience.php:102
+#@ csa-slp-es
+msgid "Name Placholder"
+msgstr "Naam Placeholder"
+
+#: include/class.admin.userexperience.php:124
+#@ csa-slp-es
+msgid "Consider setting Radius Behavior to \"Use only when address is entered\" when using discrete search mode."
+msgstr "Overweeg Radius Gedrag in te stellen op \"Gebruik alleen als adres is ingevoerd\" bij gebruik van discrete zoek modus."
+
+#. translators: plugin header field 'PluginURI'
+#: slp-enhanced-search.php:0
+#@ csa-slp-es
+msgid "http://www.storelocatorplus.com/product/slp4-enhanced-search/"
+msgstr "http://www.storelocatorplus.com/product/slp4-enhanced-search/"
+
+#. translators: plugin header field 'AuthorURI'
+#: slp-enhanced-search.php:0
+#@ csa-slp-es
+msgid "http://storelocatorplus.com.com/"
+msgstr "http://storelocatorplus.com.com/"
+
+#. translators: plugin header field 'Version'
+#: slp-enhanced-search.php:0
+#@ csa-slp-es
+msgid "4.3.00-RC-1"
+msgstr "4.3.00"
+

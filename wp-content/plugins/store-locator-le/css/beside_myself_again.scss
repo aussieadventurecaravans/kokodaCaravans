@@ -1,0 +1,249 @@
+/*
+label: Beside Myself Again
+description: Map on left, Search and Results on right.  Recommended for WordPress themes with no sidebar, such as Twenty Twelve's full width template.  Supports Enhanced Search Search Form Title. Supports Premier Bubble Footnote.
+add-ons: slp-pro,slp-enhanced-map,slp-enhanced-results,slp-enhanced-search,slp-tagalong,slp-premier
+Locator Layout: <div id="sl_div"><div id="sl_leftcol">[slp_map]</div><div id="sl_rightcol"><div class="side_table"><div id="search_box" class="side_row">[slp_search]</div><div id="results_box" class="side_row"><div class="result_cell"><div class="all_results">[slp_results]</div></div></div></div></div></div>
+Bubble Layout: <div id="slp_bubble" class="[slp_location featured]"><span class="name" >[slp_location name suffix br]</span><span class="address" >[slp_location address suffix br]</span><span class="address2">[slp_location address2 suffix br]</span><span class="city"    >[slp_location city suffix comma]</span><span class="state"   >[slp_location state suffix space]</span><span class="zip"     >[slp_location zip suffix br]</span><span class="country" >[slp_location country suffix  br]</span><span class="directions">[html br ifset directions][slp_option label_directions wrap directions]</span><span class="website">[html br ifset url][slp_location url wrap website][slp_option label_website ifset url][html closing_anchor ifset url][html br ifset url]</span><span class="email">[slp_location email wrap mailto ][slp_option label_email ifset email][html closing_anchor ifset email][html br ifset email]</span><span class="phone">[html br ifset phone]<span class="location_detail_label">[slp_option label_phone ifset phone]</span>[slp_location phone suffix br]</span><span class="fax"><span class="label">[slp_option label_fax ifset fax]</span>[slp_location fax suffix br]<span><span class="description">[html br ifset description]<span class="long_text">[slp_location description raw]</span>[html br ifset description]</span><span class="hours">[html br ifset hours]<span class="label">[slp_option label_hours ifset hours]</span><span class="long_text">[slp_location hours suffix br]</span></span><span class="img">[html br ifset img][slp_location image wrap img]</span><span class="tags">[slp_location tags]</span><span class="categories">[slp_location iconarray]</span><span class="bubble_footnote">[slp_option bubble_footnote]</span></div>
+Results Layout: <span class="slp_location name">[slp_location name]</span><span class="slp_location street">[slp_location address]</span><span class="slp_location street2">[slp_location address2]</span><span class="slp_location citystatezip">[slp_location city_state_zip]</span><span class="slp_location phone">[slp_location phone]</span><span class="slp_location website">[slp_location web_link]</span><span class="slp_location directions"><a href="http://[slp_location map_domain]/maps?saddr=[slp_location search_address]&daddr=[slp_location location_address]" target="_blank" class="storelocatorlink">[slp_location directions_text]</a></span><span class="slp_location categories">[slp_location iconarray]</span>
+Search Layout: <span class="search_header">[slp_option nojs="search_box_title"]</span>[slp_search_element input_with_label="name"][slp_search_element input_with_label="address"][slp_search_element dropdown_with_label="city"][slp_search_element dropdown_with_label="state"][slp_search_element dropdown_with_label="country"][slp_search_element selector_with_label="tag"][slp_search_element dropdown_with_label="category"][slp_search_element dropdown_with_label="radius"][slp_search_element button="submit"]
+*/
+
+// Colors
+//
+$search_header_color: #821908;
+
+$search_find_button_color: #821908;
+$search_find_button_hover_color: #932A19;
+$search_find_button_text_color: white;
+
+// Layout Size
+//
+// Adjust height here and set Experience/Map height to auto on the admin UI.
+//
+$locator_height: 30em;
+$locator_width: 100%;
+
+// Column Sizes
+//
+// Adjust left column size and/or padding number is percent.  The rest is calculated.
+//
+$left_column_size: 70;
+$padding_between_columns: 1;
+
+$column_padding_percent: percentage( $padding_between_columns / 100 );
+$left_column_percent: percentage( $left_column_size / 100 );
+$right_column_percent: percentage( (100 - $padding_between_columns - $left_column_size ) / 100 );
+
+// Search Form Sizes
+//
+$label_size: 25;
+$padding_after_label: 1;
+
+$search_padding_percent: percentage( $padding_after_label / 100 );
+$search_input_percent: percentage( (100 - $padding_after_label - 4 ) / 100 );
+$search_select_percent: percentage( (100 - $padding_after_label ) / 100 );
+
+/********************************
+ * SCSS Included Default Rules
+ */
+@import '../assets/sass/slp/csa_mixins';
+@import '../assets/sass/slp/slp_defaults';
+
+/*---------------------
+ * Entire SLPlus UI
+ *---------------------*/
+div#sl_div {
+  height: $locator_height;
+  width: $locator_width;
+
+  /*---------------------
+   * Left Column
+   *---------------------*/
+  div#sl_leftcol {
+    display: inline-block;
+    margin-right: $column_padding_percent;
+    width: $left_column_percent;
+    height: 100%;
+
+    /*---------------------
+     * Map
+     *---------------------*/
+    div#map {
+      margin: 0;
+      width: 100%;
+
+      /*---------------------
+       * Info Bubble
+       *---------------------*/
+      #slp_bubble {
+
+        .long_text {
+          white-space: pre-line;
+        }
+
+        .bubble_footnote {
+          display: block;
+        }
+      }
+
+    }
+
+  }
+
+  /*---------------------
+   * Right Column
+   *---------------------*/
+  div#sl_rightcol {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    width: $right_column_percent;
+
+    .side_table {
+      display: table;
+      height: 100%;
+      width: 100%;
+
+      .side_row {
+        display: table-row;
+      }
+
+      .result_cell {
+        display: table-cell;
+        height: 100%;
+      }
+
+      #results_box {
+        height: 100%;
+      }
+    }
+
+    /*---------------------
+     * Search Form
+     *---------------------*/
+    form#searchForm {
+      display: block;
+      margin: 0 0 1em 0;
+      padding: 0;
+      width: 100%;
+
+      .search_header {
+        font-size: 1em;
+        color: $search_header_color;
+        display: block;
+        font-weight: 700;
+        text-align: center;
+        width: 100%;
+        margin: 0 0 0 0.5em;
+      }
+
+      .search_item {
+        display: table-row;
+        white-space: nowrap;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+        LABEL {
+          display: table-cell;
+          text-align: right;
+        }
+
+        SELECT {
+          display: table-cell;
+          margin-left: $search_padding_percent;
+          width: $search_select_percent;
+        }
+
+        INPUT {
+          display: table-cell;
+          margin-left: $search_padding_percent;
+          width: $search_input_percent;
+        }
+
+      }
+
+      div#radius_in_submit {
+        display: block;
+        margin: 6px auto;
+        width: auto;
+        text-align: center;
+      }
+      input#addressSubmit {
+        font-size: 1em;
+        background-color: $search_find_button_color;
+        color: $search_find_button_text_color;
+        border: 0 none;
+        cursor: pointer;
+        padding: 0.5em;
+        margin: 0 0 0 0.5em;
+
+        &:hover {
+          background-color: $search_find_button_hover_color;
+        }
+      }
+    }
+
+
+    /*---------------------
+     * All Results Box
+     *---------------------*/
+
+    .all_results {
+      height: 100%;
+      position: relative;
+      overflow: auto;
+
+      #map_sidebar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        /*---------------------
+         * Individual Results
+         *---------------------*/
+        .results_wrapper {
+          cursor: pointer;
+          margin-bottom: 1em;
+
+          SPAN.slp_location {
+            padding-left: 0.1em;
+            font-size: 0.75em;
+
+            &.name {
+              color: #3297B6;
+              display: block;
+              font-size: 1em;
+              font-weight: 700;
+              line-height: 14px;
+            }
+
+            &.citystatezip,
+            &.phone,
+            &.location_distance {
+              display: block;
+            }
+
+            &.website,
+            &.directions {
+              display: inline-block;
+              padding: 0.25em;
+            }
+
+            &.categories {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+

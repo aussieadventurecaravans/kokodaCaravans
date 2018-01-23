@@ -1,0 +1,930 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Store Locator Plus : Pro Pack v 4.5.07\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-22 15:28+0200\n"
+"PO-Revision-Date: 2016-10-22 15:39+0200\n"
+"Last-Translator: admin <lance@charlestonsw.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: nl_NL\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: include/class.admin.experience.php:32
+msgid "Appearance"
+msgstr "Uiterlijk"
+
+#: include/class.admin.experience.php:35
+msgid "Show Tags In Output"
+msgstr "Toon Tags In Output"
+
+#: include/class.admin.experience.php:36
+msgid ""
+"How should tags be output in the results below the map and the info bubble?"
+msgstr ""
+"Hoe moeten tags worden getoond in de resultaten onder de kaart en de info "
+"ballon?"
+
+#: include/class.admin.experience.php:39
+msgid "As Entered"
+msgstr "Zoals Ingevoerd"
+
+#: include/class.admin.experience.php:43
+msgid "Hide Tags"
+msgstr "Verberg Tags"
+
+#: include/class.admin.experience.php:47
+msgid "On Separate Lines"
+msgstr "Op aparte regels"
+
+#: include/class.admin.experience.php:67
+msgid "Search Features"
+msgstr "Zoekinstellingen"
+
+#: include/class.admin.experience.php:70
+msgid "Search Form Tag Input"
+msgstr "Zoek Formulier Tag Invoer"
+
+#: include/class.admin.experience.php:70
+msgid ""
+"Select the type of tag input that you would like to see on the search form."
+msgstr ""
+"Selecteer het type tag invoer dat je op het zoekformulier zou willen zien."
+
+#: include/class.admin.experience.php:73
+#: include/class.csvimport.locations.php:325
+msgid "None"
+msgstr "Geen"
+
+#: include/class.admin.experience.php:77
+msgid "Hidden"
+msgstr "Verborgen"
+
+#: include/class.admin.experience.php:81
+msgid "Drop Down"
+msgstr "Drop Down"
+
+#: include/class.admin.experience.php:85
+msgid "Radio Button"
+msgstr "Radio Button"
+
+#: include/class.admin.experience.php:89
+msgid "Text Input"
+msgstr "Tekst Invoer"
+
+#: include/class.admin.experience.php:95
+msgid "Default Tag Selections"
+msgstr "Default Tag Selecties"
+
+#: include/class.admin.experience.php:96
+msgid ""
+"For Hidden or Text tag input enter a default value to be used in the field, "
+"if any. "
+msgstr ""
+"Geef een default waarde die gebruikt moet worden voor Verborgen of Tekst tag "
+"invoer, indien nodig. "
+
+#: include/class.admin.experience.php:97
+msgid ""
+"For Drop Down tag input enter a comma (,) separated list of tags to show in "
+"the search pulldown, mark the default selection with parenthesis (). "
+msgstr ""
+"Geef een komma (,) gescheiden lijst met tags om in de zoek lijst te tonen "
+"voor de Drop Down tag invoer, markeer de default selectie met haakjes (). "
+
+#: include/class.admin.experience.php:98
+msgid ""
+"This is a default setting that can be overriden on each page within the "
+"shortcode."
+msgstr ""
+"Dit is een default instelling die op iedere pagina kan worden vervangen "
+"binnen de shortcode."
+
+#: include/class.admin.experience.php:101
+msgid "Show Select All Option"
+msgstr "Toon Alles selecteren Option"
+
+#: include/class.admin.experience.php:101
+msgid ""
+"Add an \"any\" selection on the tag drop down list thus allowing the user to "
+"show all locations in the area, not just those matching a selected tag."
+msgstr ""
+"Voeg een \"elke\" selectie toe aan de tag drop down lijst om de gebruiker de "
+"mogelijkheid te bieden alle locaties in het gebied te tonen, niet alleen die "
+"die matchen met een geselecteerde tag."
+
+#: include/class.admin.experience.php:102
+msgid "Tag Autosubmit"
+msgstr "Tag Automatische Invoer"
+
+#: include/class.admin.experience.php:102
+msgid ""
+"Force the form to auto-submit when the tag is selected with a radio button."
+msgstr ""
+"Forceer het formulier automatisch te versturen als de tag is geselecteerd "
+"met een radio button."
+
+#: include/class.admin.experience.php:109
+msgid "Search Labels"
+msgstr "Zoeklabels"
+
+#: include/class.admin.experience.php:112
+msgid "Tags Label"
+msgstr "Tags Label"
+
+#: include/class.admin.experience.php:112
+msgid "Search form label to prefix the tag selector."
+msgstr "Zoekformulier label prefix voor de tag selectie."
+
+#: include/class.admin.experience.php:114
+msgid "Tag Select All Text"
+msgstr "Tag selecteer alle tekst"
+
+#: include/class.admin.experience.php:115
+msgid "What should the \"any\" tag say? "
+msgstr "Wat moet de \"elke\" tag zijn? "
+
+#: include/class.admin.experience.php:116
+msgid "The first entry on the search by tag pulldown."
+msgstr "De eerste keuze van de zoekopdracht op tag pulldown."
+
+#: include/class.admin.experience.php:133
+msgid "Page Layout"
+msgstr "Pagina layout"
+
+#: include/class.admin.experience.php:137
+msgid "Locator Layout"
+msgstr "Locator Layout"
+
+#: include/class.admin.experience.php:138
+msgid ""
+"Enter your custom page layout for the Store Locator Plus page. Set it to "
+"blank to reset to the default layout."
+msgstr ""
+"Geef je persoonlijke pagina layout voor de Store Locator Plus pagina. Maak "
+"leeg om te resetten naar de standaard layout."
+
+#: include/class.admin.experience.php:147
+msgid "CSS Manipulation"
+msgstr "CSS Manipulatie"
+
+#: include/class.admin.experience.php:151
+msgid "Custom CSS"
+msgstr "Aangepaste CSS"
+
+#: include/class.admin.experience.php:152
+msgid ""
+"Enter your custom CSS, preferably for SLPLUS styling only but it can be used "
+"for any page element as this will go in your page header."
+msgstr ""
+"Geef je persoonlijke CSS, bij voorkeur voor SLPLUS styles maar het kan "
+"gebruikt worden voor ieder element op de pagina omdat deze code in je pagina "
+"header komt."
+
+#: include/class.admin.general.php:39
+msgid "Locations"
+msgstr "Locaties"
+
+#: include/class.admin.general.php:47
+msgid "Highlight Uncoded"
+msgstr "Markeer Niet-gecodeerden"
+
+#: include/class.admin.general.php:48
+msgid "Highlight the uncoded locations in the Manage Locations panel."
+msgstr "Highlight de niet-gecodeerde locaties in het Beheer Locaties panel."
+
+#: include/class.admin.general.php:70
+msgid "Use location sensor"
+msgstr "Gebruik locatie sensor"
+
+#: include/class.admin.general.php:71
+msgid ""
+"This can be slow to load and customers are prompted whether or not to allow "
+"location sensing."
+msgstr ""
+"Dit kan het laden vertragen en bezoekers wordt gevraagd al dan niet het "
+"gebruik van de locatie sensor toe te staan."
+
+#: include/class.admin.location.filters.php:79
+msgid "Location Filter: "
+msgstr "Locatie Filter: "
+
+#: include/class.admin.location.filters.php:122
+msgid "and"
+msgstr "en"
+
+#: include/class.admin.location.filters.php:123
+msgid "or"
+msgstr "of"
+
+#: include/class.admin.location.filters.php:134
+msgid "Store Name My Place or My* or *Place"
+msgstr "Store Naam Mijn Plaats of Mijn* of *Plaats"
+
+#: include/class.admin.location.filters.php:134
+msgid "Name"
+msgstr "Naam"
+
+#: include/class.admin.location.filters.php:136
+msgid "Zip Code 29464 or 294* or *464"
+msgstr "Postcode 1234AB of 123* of *4AB"
+
+#: include/class.admin.location.filters.php:136
+#: include/class.admin.reports.php:248
+msgid "Zip"
+msgstr "Postcode"
+
+#: include/class.admin.location.filters.php:158
+msgid "Country"
+msgstr "Land"
+
+#: include/class.admin.location.filters.php:159
+msgid "All Countries"
+msgstr "Alle Landen"
+
+#: include/class.admin.location.filters.php:164
+#: include/class.admin.reports.php:247
+msgid "State"
+msgstr "Provincie"
+
+#: include/class.admin.location.filters.php:165
+msgid "All States"
+msgstr "Alle Provincies"
+
+#: include/class.admin.php:135
+msgid "No data recorded yet. "
+msgstr "Nog geen data opgeslagen. "
+
+#: include/class.admin.php:137
+msgid ""
+"Chart will be available after a Store Locator Plus search has been performed."
+msgstr ""
+"Grafiek is pas beschikbaar nadat een Store Locator Plus zoekopdracht is "
+"uitgevoerd."
+
+#: include/class.admin.php:159
+msgid "Download your "
+msgstr "Download je "
+
+#: include/class.admin.php:163
+msgid "locations CSV file."
+msgstr "locaties CSV bestand."
+
+#: include/class.admin.php:440
+msgid "Location Processing Info"
+msgstr "Locatie Verwerk Info"
+
+#: include/class.admin.php:501 include/class.admin.php:521
+#: include/class.admin.php:541 include/class.admin.reports.php:249
+msgid "Tags"
+msgstr "Tags"
+
+#: include/class.admin.php:536
+msgid "Edit"
+msgstr "Bewerk"
+
+#: include/class.admin.php:537 include/class.csvimport.locations.php:226
+msgid "Add"
+msgstr "Toevoegen"
+
+#: include/class.admin.php:543
+msgid "List of tags assigned to location. "
+msgstr "Lijst van tags gekoppeld aan de locatie."
+
+#: include/class.admin.php:544
+msgid "Separate with commas."
+msgstr "Gescheiden door komma's."
+
+#: include/class.admin.php:595
+msgid "Export, Download CSV"
+msgstr "Export, Download CSV"
+
+#: include/class.admin.php:599
+msgid "Export, Hosted CSV"
+msgstr "Export, Hosted CSV"
+
+#: include/class.admin.php:603
+msgid "Geocode Selected"
+msgstr "Geocode Geselecteerden"
+
+#: include/class.admin.php:607
+msgid "Geocode All Uncoded"
+msgstr "Geocode Alle Niet-gecodeerden"
+
+#: include/class.admin.php:611
+msgid "Tag"
+msgstr "Tag"
+
+#: include/class.admin.php:615
+msgid "Enter your comma-separated tags:"
+msgstr "Geef je komma-gescheiden tags:"
+
+#: include/class.admin.php:620
+msgid "Remove Tags"
+msgstr "Verwijder Tags"
+
+#: include/class.admin.php:639
+msgid "Show Uncoded"
+msgstr "Toon Nietgecodeerden"
+
+#: include/class.admin.php:643
+msgid "With These Properties"
+msgstr "Met deze Eigenschappen"
+
+#: include/class.admin.reports.php:38
+msgid " - Reporting"
+msgstr " - Rapporteren"
+
+#: include/class.admin.reports.php:40
+msgid "Save Settings"
+msgstr "Instellingen Opslaan"
+
+#: include/class.admin.reports.php:77
+msgid "Report Summary"
+msgstr "Rapporteer Samenvatting"
+
+#: include/class.admin.reports.php:110 include/class.slp-pro.php:145
+msgid "Reports"
+msgstr "Rapporten"
+
+#: include/class.admin.reports.php:131
+msgid "Export To CSV"
+msgstr "Exporteer Naar CSV"
+
+#: include/class.admin.reports.php:140
+msgid "Export all records"
+msgstr "Exporteer alle records"
+
+#: include/class.admin.reports.php:144
+msgid "Top Searches"
+msgstr "Top Zoekopdrachten"
+
+#: include/class.admin.reports.php:145
+msgid "Top Results"
+msgstr "Top Resultaten"
+
+#: include/class.admin.reports.php:158
+msgid "Report Parameters"
+msgstr "Rapport Parameters"
+
+#: include/class.admin.reports.php:166
+msgid "Start Date"
+msgstr "Start Datum"
+
+#: include/class.admin.reports.php:172
+msgid "Only show data on or after this date.  YYYY-MM-DD."
+msgstr "Toon alleen data op of na deze datum.  YYYY-MM-DD."
+
+#: include/class.admin.reports.php:182
+msgid "End Date"
+msgstr "Eind Datum"
+
+#: include/class.admin.reports.php:188
+msgid "Only show data on or before this date.  YYYY-MM-DD hh:mm:ss."
+msgstr "Toon alleen data op of voor deze datum. YYYY-MM-DD hh:mm:ss."
+
+#: include/class.admin.reports.php:203
+msgid "Report Limit"
+msgstr "Rapport Limiet"
+
+#: include/class.admin.reports.php:209
+msgid ""
+"Limit the report to this many detail records.  Default: 10.  Recommended "
+"maximum: 500."
+msgstr ""
+"Beperkt het rapport tot zoveel detail records. Default: 10. Aanbevolen "
+"maximum: 500."
+
+#: include/class.admin.reports.php:224
+#, php-format
+msgid "Total searches: <strong>%s</strong>"
+msgstr "Totaal zoekopdrachten: <strong>%s</strong> "
+
+#: include/class.admin.reports.php:225
+#, php-format
+msgid "Total results: <strong>%s</strong>"
+msgstr "Totaal resultaten: <strong>%s</strong> "
+
+#: include/class.admin.reports.php:226
+#, php-format
+msgid "Days with activity: <strong>%s</strong>"
+msgstr "Dagen met activiteit: <strong>%s</strong>"
+
+#: include/class.admin.reports.php:241 include/class.admin.reports.php:243
+#, php-format
+msgid "Top %s Results Returned"
+msgstr "Top %s Resultaten Getoond"
+
+#: include/class.admin.reports.php:245
+msgid "Store"
+msgstr "Store"
+
+#: include/class.admin.reports.php:246
+msgid "City"
+msgstr "Plaats"
+
+#: include/class.admin.reports.php:250 include/class.admin.reports.php:292
+msgid "Total"
+msgstr "Totaal"
+
+#: include/class.admin.reports.php:276
+msgid "topresults"
+msgstr "topresultaten"
+
+#: include/class.admin.reports.php:287 include/class.admin.reports.php:289
+#, php-format
+msgid "Top %s Addresses Searched"
+msgstr "Top %s Adressen Gezocht"
+
+#: include/class.admin.reports.php:291
+msgid "Address"
+msgstr "Adres"
+
+#: include/class.admin.reports.php:314
+msgid "topsearches"
+msgstr "topzoekopdrachten"
+
+#: include/class.admin.reports.php:324 include/class.admin.reports.php:348
+msgid "Settings"
+msgstr "Instellingen"
+
+#: include/class.admin.reports.php:333
+msgid "Enable reporting to start recording location search data. "
+msgstr "Schakel rapportage in om te starten met locatie zoek data opslaan. "
+
+#: include/class.admin.reports.php:334
+msgid "Once enabled the report section will appear on this tab."
+msgstr "Eenmaal aangezet verschijnt de rapportage sectie op deze tab."
+
+#: include/class.admin.reports.php:353
+msgid "Enable Reporting"
+msgstr "Inschakelen Rapportage"
+
+#: include/class.admin.reports.php:359
+msgid ""
+"Enables tracking of searches and returned results.  The added overhead can "
+"increase how long it takes to return location search results."
+msgstr ""
+"Schakelt het bijhouden van zoekopdrachten en gevonden resultaten in. De "
+"extra overhead kan invloed hebben op hoe lang het duurt voordat de "
+"zoekresultaten getoond worden."
+
+#: include/class.ajax.php:194 include/class.ajax.php:200
+msgid "Cheatin' huh!"
+msgstr "Valsspelen ?!"
+
+#: include/class.ajax.php:360
+msgid "Creating the location export CSV file."
+msgstr "Maak het locatie export CSV bestand."
+
+#: include/class.cron.php:67
+msgid "Pro Pack cron import underway."
+msgstr "Pro Pack cron import onderweg."
+
+#: include/class.cron.php:94
+#, php-format
+msgid "Action %s is unsupported"
+msgstr "Actie %s wordt niet ondersteund"
+
+#: include/class.csvimport.locations.php:121
+msgid "Some CSV Records have too many fields."
+msgstr "Sommige CSV Records hebben te veel velden."
+
+#: include/class.csvimport.locations.php:122
+#, php-format
+msgid "Got %d expected %d or fewer fields."
+msgstr "Kreeg %d verwachtte %d of minder velden."
+
+#: include/class.csvimport.locations.php:123
+msgid "Defined field names are: "
+msgstr "Gedefinieerde veldnamen zijn:"
+
+#: include/class.csvimport.locations.php:127
+msgid "Are you defining fileds as the first line of a CSV file? "
+msgstr "Definieert u fileds als eerste regel in een CSV bestand?"
+
+#: include/class.csvimport.locations.php:128
+msgid "If so, did you check the First Line Has Field Name box? "
+msgstr "Zo ja, heeft u de eerste regel Heeft Veldnaam gecontroleerd?"
+
+#: include/class.csvimport.locations.php:141
+msgid "File Settings"
+msgstr "Bestand Instellingen"
+
+#: include/class.csvimport.locations.php:152
+msgid "Skip First Line"
+msgstr "Sla Eerste Regel Over"
+
+#: include/class.csvimport.locations.php:153
+msgid "Skip the first line of the import file."
+msgstr "Sla de eerste regel uit het invoerbestand over."
+
+#: include/class.csvimport.locations.php:165
+msgid "First Line Has Field Name"
+msgstr "Eerste Regel heeft Veldnaam"
+
+#: include/class.csvimport.locations.php:168
+msgid "Check this if the first line contains the field names."
+msgstr "Vink dit aan als de eerste regel de veldnamen bevat."
+
+#: include/class.csvimport.locations.php:169
+#, php-format
+msgid "Text must match the <a href=\"%s\">approved field name list</a>."
+msgstr ""
+"Tekst moet overeenkomen met de <a href=\"%s\">goedgekeurde veldnamenlijst</"
+"a>."
+
+#: include/class.csvimport.locations.php:182
+msgid "Skip Geocoding"
+msgstr "Skip Geocoding"
+
+#: include/class.csvimport.locations.php:184
+msgid ""
+"Do not check with the Geocoding service to get latitude/longitude.  "
+"Locations without a latitude/longitude will NOT appear on map base searches."
+msgstr ""
+"Check niet met de Geocoding service om de latitude/longitude te zetten. "
+"Locaties zonder latitude/longitude zullen NIET getoond worden op kaart "
+"gebaseerde zoekopdrachten."
+
+#: include/class.csvimport.locations.php:197
+msgid "Load Data"
+msgstr "Laad Data"
+
+#: include/class.csvimport.locations.php:200
+msgid "If checked use the faster MySQL Load Data method of file processing."
+msgstr ""
+"Als gekozen gebruik dan de snellere MySQL Laad Data methode van bestand "
+"verwerking."
+
+#: include/class.csvimport.locations.php:201
+#, php-format
+msgid ""
+"Only base plugin data can be loaded, see the <a href=\"%s\">approved field "
+"name list</a>."
+msgstr ""
+"Alleen basis plugin data kan geladen worden, zie de <a href=\"%s\">lijst met "
+"toegestane veldnamen</a>."
+
+#: include/class.csvimport.locations.php:214
+msgid "Duplicates Handling"
+msgstr "Duplicaten Behandeling"
+
+#: include/class.csvimport.locations.php:216
+msgid "How should duplicates be handled? "
+msgstr "Hoe moeten duplicaten behandeld worden? "
+
+#: include/class.csvimport.locations.php:217
+msgid ""
+"Duplicates are records that match on name and complete address with country. "
+msgstr ""
+"Duplicaten zijn records die matchen op naam en compleet adres met land. "
+
+#: include/class.csvimport.locations.php:218
+msgid "Add (default) will add new records when duplicates are encountered. "
+msgstr ""
+"Toevoegen (default) voegt een nieuw record toe als duplicaten gevonden zijn. "
+
+#: include/class.csvimport.locations.php:219
+msgid "Skip will not process duplicate records. "
+msgstr "Overslaan zal de duplicaat records niet verwerken. "
+
+#: include/class.csvimport.locations.php:220
+msgid "Update will update duplicate records. "
+msgstr "Bijwerken zal de duplicaat records bijwerken. "
+
+#: include/class.csvimport.locations.php:221
+msgid ""
+"To update name and address fields the CSV must have the ID column with the "
+"ID of the existing location."
+msgstr ""
+"Om de naam en adres velden bij te werken, moet de CSV een ID kolom hebben "
+"met het ID van de bestaande locatie."
+
+#: include/class.csvimport.locations.php:230
+msgid "Skip"
+msgstr "Overslaan"
+
+#: include/class.csvimport.locations.php:234
+msgid "Update"
+msgstr "Bijwerken"
+
+#: include/class.csvimport.locations.php:250
+#, php-format
+msgid "See the %s for more details on the import format."
+msgstr "Zie %s voor meer informatie over het importformaat."
+
+#: include/class.csvimport.locations.php:252
+msgid "online documentation"
+msgstr "online documentatie"
+
+#: include/class.csvimport.locations.php:265
+msgid "Upload CSV File"
+msgstr "Upload CSV Bestand"
+
+#: include/class.csvimport.locations.php:277
+msgid "Upload Locations"
+msgstr "Upload Locaties"
+
+#: include/class.csvimport.locations.php:290
+msgid "File Import"
+msgstr "Bestand Import"
+
+#: include/class.csvimport.locations.php:298
+msgid "CSV File URL"
+msgstr "CSV Bestand URL"
+
+#: include/class.csvimport.locations.php:303
+msgid "Enter a full URL for a CSV file you wish to import"
+msgstr "Geef een volledige URL naar het CSV bestand dat je wilt importeren"
+
+#: include/class.csvimport.locations.php:316
+msgid "Import Recurrence"
+msgstr "Import Herhaling"
+
+#: include/class.csvimport.locations.php:318
+msgid "How often to fetch the file from the URL. "
+msgstr "Hoe vaak het bestand van de URL ophalen. "
+
+#: include/class.csvimport.locations.php:319
+msgid "None loads the remote file immediately with no background processing. "
+msgstr "Geen laadt het bestand meteen zonder achtergrond verwerking. "
+
+#: include/class.csvimport.locations.php:320
+msgid "At loads the file one time on or after the time specified. "
+msgstr "Op laadt het bestand eenmalig op of na de opgegeven tijd. "
+
+#: include/class.csvimport.locations.php:329
+msgid "At"
+msgstr "Op"
+
+#: include/class.csvimport.locations.php:333
+msgid "Hourly"
+msgstr "Elk uur"
+
+#: include/class.csvimport.locations.php:337
+msgid "Twice Daily"
+msgstr "Twee Keer per Dag"
+
+#: include/class.csvimport.locations.php:341
+msgid "Daily"
+msgstr "Dagelijks"
+
+#: include/class.csvimport.locations.php:358
+msgid "Daily Import Time"
+msgstr "Dagelijkse Import Tijd"
+
+#: include/class.csvimport.locations.php:360
+msgid ""
+"How many seconds after midnight to run the recurring import from this URL.  "
+msgstr ""
+"Hoeveel seconden na middernacht moet de terugkerende import vanuit deze URL "
+"draaien."
+
+#: include/class.csvimport.locations.php:361
+msgid ""
+"Set to 3600 to run at the top of the hour (hourly) or at 1 AM 9 (daily).  "
+msgstr ""
+"Zet op 3600 om precies op elk uur de draaien of op 1 uur 's-ochtends 9 "
+"(dagelijks)"
+
+#: include/class.csvimport.locations.php:362
+msgid ""
+"WordPress cron is not exact, it executes the next time a visitor comes to "
+"your site.  "
+msgstr ""
+"WordPress cron is niet precies, het wordt uitgevoerd zodra er een bezoeker "
+"op je site komt. "
+
+#: include/class.csvimport.locations.php:363
+msgid ""
+"Set to recurrence to none and leave the URL blank to clear the cron job.  "
+msgstr "Zet herhalen op niet en laat URL leeg om de cron job leeg te maken."
+
+#: include/class.csvimport.locations.php:389
+msgid "Import Locations"
+msgstr "Import Locaties"
+
+#: include/class.csvimport.locations.php:400
+msgid "Import"
+msgstr "Importeer"
+
+#: include/class.csvimport.locations.php:435
+msgid "Scheduled Import Activity"
+msgstr "Geplande Import Activiteit"
+
+#: include/class.csvimport.locations.php:469
+msgid "Location Import Cron Messages"
+msgstr "Locatie Import Cron Berichten"
+
+#: include/class.csvimport.locations.php:499
+#, php-format
+msgid "CSV file imports are currently scheduled to run %s."
+msgstr "CSV bestand imports zijn momenteel gepland te draaien %s."
+
+#: include/class.csvimport.locations.php:503
+#, php-format
+msgid "The current WordPress time (GMT) is %s."
+msgstr "De huidige WordPress tijd (GMT) is %s."
+
+#: include/class.csvimport.locations.php:517
+msgid " new locations added."
+msgstr " nieuwe locaties toegevoegd."
+
+#: include/class.csvimport.locations.php:518
+msgid " pre-existing locations skipped."
+msgstr " reeds bestaande locaties overgeslagen."
+
+#: include/class.csvimport.locations.php:519
+msgid " locations skipped due to malformed CSV data."
+msgstr "locaties overgeslagen vanwege onjuist geformatteerde CSV data."
+
+#: include/class.csvimport.locations.php:520
+msgid " locations did not need to be updated."
+msgstr " locaties hoefden niet te worden bijgewerkt."
+
+#: include/class.csvimport.locations.php:521
+msgid " locations were skipped due to duplicate address information."
+msgstr "locaties zijn overgeslagen vanwege dubbele adres informatie."
+
+#: include/class.csvimport.locations.php:522
+msgid " locations were updated."
+msgstr " locaties zijn bijgewerkt."
+
+#: include/class.csvimport.locations.php:631
+msgid "Could not fetch the remote file."
+msgstr "Kon het bestand niet ophalen."
+
+#: include/class.csvimport.locations.php:640
+#, php-format
+msgid "%s does not exist."
+msgstr "%s bestaat niet."
+
+#: include/class.csvimport.locations.php:658
+msgid "The location CSV import file is missing the address fields."
+msgstr "In het locatie CSV import bestand ontbreken de adres velden."
+
+#: include/class.csvimport.locations.php:660
+#, php-format
+msgid "Fields received were: <pre>%s</pre>"
+msgstr "Ontvangen velden waren: <pre>%s</pre>"
+
+#: include/class.csvimport.php:116
+msgid "Import file name not set."
+msgstr "Importbestandsnaam niet ingesteld."
+
+#: include/class.csvimport.php:125
+msgid "Import file exceeds the upload_max_filesize in php.ini."
+msgstr "Importbestand is groter dan het maximum  ingesteld in php.ini"
+
+#: include/class.csvimport.php:129
+msgid "Import file was only partially loaded."
+msgstr "Importbestand is slechts gedeeltelijk geladen."
+
+#: include/class.csvimport.php:133
+msgid "Import file seems to have gone missing."
+msgstr "Importbestand lijkt te ontbreken."
+
+#: include/class.csvimport.php:137
+msgid "Import file is empty."
+msgstr "Importbestand is leeg."
+
+#: include/class.csvimport.php:149
+msgid "Uploaded file needs to be in CSV format."
+msgstr "Upload bestand moet in CSV formaat zijn."
+
+#: include/class.csvimport.php:150
+#, php-format
+msgid "Type was %s."
+msgstr "Type was %s."
+
+#: include/class.csvimport.php:171
+#, php-format
+msgid "WordPress upload directory %s is missing, check directory permissions."
+msgstr ""
+"WordPress upload directory %s ontbreekt, check directory toegang en rechten."
+
+#: include/class.csvimport.php:199
+msgid "Imported CSV file could not be renamed."
+msgstr "Import CSV bestand kon niet worden hernoemd."
+
+#: include/class.csvimport.php:200
+#, php-format
+msgid "Possibly out of disk space while trying to rename to %s"
+msgstr ""
+"Waarschijnlijk is de schijfruimte overschreden bij de poging om te hernoemen "
+"naar %s"
+
+#: include/class.csvimport.php:208
+msgid "Uploaded CSV file could not be moved."
+msgstr "Uploaded CSV bestand kon niet verplaatst worden."
+
+#: include/class.csvimport.php:209
+#, php-format
+msgid "Check folder permissions for %s"
+msgstr "Check folderrechten voor %s"
+
+#: include/class.csvimport.php:243
+msgid "Could not open CSV file for processing."
+msgstr "Kon CSV bestand niet openen om te verwerken."
+
+#: include/class.csvimport.php:359
+#, php-format
+msgid "%d data lines read from the CSV file."
+msgstr "%d data regels gelezen van het CSV bestand."
+
+#: include/class.slp-pro.php:75
+msgid "Pro Pack"
+msgstr "Pro Pack"
+
+#: slp-pro.php:32
+msgid "Store Locator Plus Pro"
+msgstr "Store Locator Plus Pro"
+
+#: slp-pro.php:45
+#, php-format
+msgid "%s requires Store Locator Plus to function properly. "
+msgstr "%s vereist Store Locator Plus om goed te functioneren."
+
+#: slp-pro.php:48 slp-pro.php:72
+msgid "This plugin has been deactivated."
+msgstr "Deze plugin is uitgeschakeld."
+
+#: slp-pro.php:49
+msgid "Please install Store Locator Plus."
+msgstr "Installeer Store Locator Plus."
+
+#: slp-pro.php:68
+#, php-format
+msgid "%s requires WordPress %s to function properly. "
+msgstr "%s vereist WordPress %s om goed te functioneren."
+
+#: slp-pro.php:73
+msgid "Please upgrade WordPress."
+msgstr "Upgrade Wordpress"
+
+#. Plugin Name of the plugin/theme
+msgid "Store Locator Plus :: Pro Pack"
+msgstr "Store Locator Plus :: Pro Pack"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.storelocatorplus.com/product/slp4-pro/"
+msgstr "https://www.storelocatorplus.com/product/slp4-pro/"
+
+#. Description of the plugin/theme
+msgid ""
+"A premium add-on pack for Store Locator Plus that provides more admin power "
+"tools for wrangling locations."
+msgstr ""
+"Een premium add-on pakket voor Store Locator Plus die meer admin tools biedt."
+
+#. Author of the plugin/theme
+msgid "Store Locator Plus"
+msgstr "Store Locator Plus"
+
+#. Author URI of the plugin/theme
+msgid "https://www.storelocatorplus.com/"
+msgstr "https://www.storelocatorplus.com/"
+
+#~ msgid "https://www.storelocatorplus.com/product/slp4-pro"
+#~ msgstr "https://www.storelocatorplus.com/product/slp4-pro"
+
+#~ msgid "https://www.storelocatorplus.com"
+#~ msgstr "https://www.storelocatorplus.com"
+
+#~ msgid "Store Locator Plus : Pro Pack"
+#~ msgstr "Store Locator Plus : Pro Pack"
+
+#~ msgid "JavaScript"
+#~ msgstr "JavaScript"
+
+#~ msgid ""
+#~ "This turns on the location sensor (GPS) to set the default search "
+#~ "address. "
+#~ msgstr ""
+#~ "Dit schakelt de locatie sensor (GPS) in om het start zoekadres te "
+#~ "bepalen. "
+
+#~ msgid "What time to run the recurring import from this URL.  "
+#~ msgstr "Op welke tijd de herhaalde import van deze URL moet plaatsvinden. "
+
+#~ msgid "WordPress times are UTC/GMT time NOT local time.  "
+#~ msgstr "WordPress tijden zijn UTC/GMT tijd NIET locale tijd. "
+
+#~ msgid "Set to none and leave the URL blank to clear the cron job.  "
+#~ msgstr "Zet op geen en laat de URL leeg om de cron job te verwijderen. "
+
+#~ msgid "Example: 14:25.  (Default: empty = do not run daily cron)"
+#~ msgstr "Voorbeeld: 14:25.  (Default: leeg = draai geen dagelijkse cron)"

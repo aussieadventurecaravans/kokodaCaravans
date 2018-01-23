@@ -1,0 +1,372 @@
+/*
+label: Above All Revision 01
+description: Search above map and results.  Results to left of map.  Feature locations highlighted.  Show Tagalong legend below the map. For best results: turn off name and address field labels and use placeholders instead. Styled for use on the Genesis / News Pro WP Theme.
+add-ons: slp-pro,slp-enhanced-map,slp-enhanced-results,slp-enhanced-search,slp-tagalong,slp-premier
+Locator Layout: <div id="sl_div"><div id="sl_top"><div id="search_box"><div id="search_box_header">Find A Counselor Near You</div><div id="search_box_form">[slp_search]</div></div></div><div id="sl_bottom"><div id="sl_bottom_left" class="sl_leftcol"><div id="results_box"><div id="results_box_header">Your Closest Counselors</div><div id="results_box_output">[slp_results]</div></div></div><div id="sl_bottom_right" class="sl_rightcol"><div id="map_box">[slp_map]</div><div id="tagalong_box">[tagalong legend]</div></div></div></div>
+Bubble Layout: <div id="sl_info_bubble" class="[slp_location featured]"><span id="slp_bubble_name"><strong>[slp_location name  suffix  br]</strong></span><span id="slp_bubble_address">[slp_location address       suffix  br]</span><span id="slp_bubble_address2">[slp_location address2      suffix  br]</span><span id="slp_bubble_city">[slp_location city          suffix  comma]</span><span id="slp_bubble_state">[slp_location state suffix    space]</span><span id="slp_bubble_zip">[slp_location zip suffix  br]</span><span id="slp_bubble_country"><span id="slp_bubble_country">[slp_location country       suffix  br]</span></span><span id="slp_bubble_directions">[html br ifset directions][slp_option label_directions wrap directions]</span><span id="slp_bubble_website">[html br ifset url][slp_location url           wrap    website][slp_option label_website ifset url][html closing_anchor ifset url][html br ifset url]</span><span id="slp_bubble_phone">[html br ifset phone]<span class="location_detail_label">[slp_option   label_phone   ifset   phone]</span>[slp_location phone         suffix    br]</span><span id="slp_bubble_fax"><span class="location_detail_label">[slp_option   label_fax     ifset   fax  ]</span>[slp_location fax           suffix    br]<span><span id="slp_bubble_description"><span id="slp_bubble_description">[html br ifset description][slp_location description raw]</span>[html br ifset description]</span><span id="slp_bubble_hours">[html br ifset hours]<span class="location_detail_label">[slp_option   label_hours   ifset   hours]</span><span class="location_detail_hours">[slp_location hours         suffix    br]</span></span><span id="slp_bubble_img">[html br ifset img][slp_location image         wrap    img]</span><span id="slp_tags">[slp_location tags]</span><span class="bubble_footnote">[slp_option bubble_footnote]</span></div>
+Results Layout: <div id="slp_results_[slp_location id]" class="results_entry  [slp_location featured]"><div class="results_row_left_column"   id="slp_left_cell_[slp_location id]"   ><span class="location_name">[slp_location name]</span><span class="location_distance">[slp_location distance_1] [slp_location distance_unit]</span></div><div class="results_row_center_column" id="slp_center_cell_[slp_location id]" ><span class="slp_result_address slp_result_street">[slp_location address]</span><span class="slp_result_address slp_result_street2">[slp_location address2]</span><span class="slp_result_address slp_result_citystatezip">[slp_location city_state_zip]</span><span class="slp_result_address slp_result_country">[slp_location country]</span><span class="slp_result_address slp_result_phone">[slp_location phone]</span><span class="slp_result_address slp_result_fax">[slp_location fax]</span></div><div class="results_row_right_column"  id="slp_right_cell_[slp_location id]"  ><span class="slp_result_contact slp_result_website">[slp_location web_link]</span><span class="slp_result_contact slp_result_directions"><a href="http://[slp_location map_domain]/maps?saddr=[slp_location search_address]&daddr=[slp_location location_address]" target="_blank" class="storelocatorlink">[slp_location directions_text]</a></span><span class="slp_result_contact slp_result_hours">[slp_location hours]</span>[slp_location iconarray wrap="fullspan"]</div></div>
+Search Layout: <div id="address_search">[slp_search_element input_with_label="name"][slp_search_element input_with_label="address"][slp_search_element dropdown_with_label="city"][slp_search_element dropdown_with_label="state"][slp_search_element dropdown_with_label="country"][slp_search_element dropdown_with_label="radius"][slp_search_element dropdown_with_label="category"][slp_search_element selector_with_label="tag"][slp_search_element button="submit"]</div>
+*/
+
+// Variables : Text Sizes
+//
+$results_box_text_size: 0.75em;
+$results_not_found_text_size: 1.5em;
+
+// Variables : Colors
+//
+$results_divider_color : #efefef;
+$results_header_color: #C24050;
+$results_text_color: white;
+$results_hover_color: #f2f2f2;
+$results_name_color: #41922b;
+
+$search_header_color:    #C24050;
+$search_input_border_color: #C0C0C0;
+
+$search_find_button_color: black;
+$search_find_button_hover_color: #FF0000;
+$search_find_button_text_color: white;
+
+// Variables : Input
+//
+$input_width: 17em;
+
+// Variables : Boxes
+//
+$left_column_size: 44;
+$left_column_percent: percentage( $left_column_size / 100 );
+$right_column_percent: percentage( (99 - $left_column_size ) / 100 );
+$right_column_pad_percent: percentage( 1 / 100 );
+
+$search_label_size: 34;
+$search_label_percent: percentage( $search_label_size / 100 );
+$search_label_pad_percent: percentage( 1 / 100 );
+$search_input_percent: percentage( (99 - $search_label_size ) / 100 );
+
+$search_entry_spacing: 1em;
+
+$results_left_column_size: 40;
+$results_center_column_size: 40;
+$results_left_column_percent: percentage( $results_left_column_size / 100 );
+$results_center_column_percent: percentage( $results_center_column_size / 100 );
+$results_right_column_percent: percentage( (98 - $results_left_column_size - $results_center_column_size ) / 100 );
+
+$tagalong_legend_padding: 0;
+$tagalong_legend_align: right;
+$tagalong_legend_text_margin_left: 0.25em;
+$tagalong_legend_text_margin_right: 0;
+$tagalong_legend_text_align: left;
+$tagalong_legend_text_vertical: top;
+$tagalong_legend_text_max: 8em;
+$tagalong_legend_text_padtop: 0.01em;
+$tagalong_legend_minwidth: 11em;
+$tagalong_resultsline_display: block;
+
+
+/*---------------------
+ * SLP Sass Imports
+ *---------------------*/
+@import '../assets/sass/slp/csa_mixins';
+@import '../assets/sass/slp/slp_defaults';
+
+/*---------------------
+ * WordPress Tweaks
+ *---------------------*/
+.singular .entry-meta .edit-link a {
+    right: 0;
+    left: auto;
+}
+
+/*---------------------
+ * Entire SLPlus UI
+ *---------------------*/
+div#sl_div {
+    display: block;
+    margin-top: 0;
+    min-height: 650px;
+    position: relative;
+    width: 100%;
+}
+
+/*---------------------
+ * Left Column
+ *---------------------*/
+div.sl_leftcol {
+    display: inline-block;
+    vertical-align: top;
+    width: $left_column_percent;
+}
+div#sl_mid_left {
+width: 2%;
+}
+
+/*---------------------
+ * Right Column
+ *---------------------*/
+div.sl_rightcol {
+    display: inline-block;
+    padding-left: $right_column_pad_percent;
+    vertical-align: top;
+    width: $right_column_percent;
+}
+
+/*---------------------
+ * Map
+ *---------------------*/
+div#map {
+    border: solid 4px white;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5);
+    height: 492px;
+    margin: 0;
+    width: 100%
+}
+div#slp_tagline {
+  font-family: Arial,sans-serif;
+  background-color: transparent;
+  font-size: 11px;
+  margin-top: 0.5em;
+  opacity: 0.45;
+  text-align: right;
+  width: 100%;
+}
+
+@include default_info_bubble;
+
+/*---------------------
+ * Search Form
+ *---------------------*/
+
+#search_box { 
+    #search_box_header {
+        @include box-header( $search_header_color , #FFFFFF );
+        margin-bottom: 0;
+    }
+    
+    #search_box_form {
+        background-color: rgb(253,249,244);
+        padding: 0.25em 0 0 0;
+        width: 100%;
+
+        // General Div Box Styles
+        #div_nameSearch,
+        #addy_in_address,
+        #addy_in_city,
+        #addy_in_state,
+        #addy_in_country,
+        #tagalong_category_selector,
+        #addy_in_radius
+        {
+            padding-bottom: $search_entry_spacing;
+        }
+        
+        // Specific  Div Box Styles
+        //
+        // Name Entry
+        // Address Entry
+        // Radius Entry
+        #div_nameSearch,
+        #addy_in_address, 
+        #addy_in_radius 
+        {
+            display: inline-block;
+            margin-left: 0.2em;
+            margin-right: 0.2em;
+            max-width: 32%;
+        }
+        
+        // Tagalong Category Selectors
+        //
+        #tagalong_category_selector {
+            display: block;
+            width: 100%;
+            
+            LABEL {
+                width: 33%;
+            }
+            
+            #tagalong_cascade_dropdowns {
+                width: 67%;
+            }
+        }
+        
+        // Pro Pack Tags
+        //
+        #search_by_tag {
+            display: block;
+            width: 100%;
+            
+            LABEL {
+                width: 33%;
+            }            
+            
+            span INPUT[type="radio"] {
+                margin: 0 0.2em 0 0;
+            }
+            
+            .slp_checkbox_entry {
+                display:block;
+            }
+
+            .slp_checkbox_group {
+                display: inline-block;
+                vertical-align: top;
+            }         
+        }
+        
+        // HTML Selector Styles
+        //
+        LABEL 
+        {
+            display: inline-block;
+            padding-right: $search_label_pad_percent;
+            text-align: right;
+            width: $search_label_percent;
+        }
+        
+        INPUT
+        {
+            @include input-box( white, gray, inherit , 0.2em );  
+            
+            &#addressInput ,
+            &#nameSearch
+            { 
+                width: 100%; 
+            }
+            
+            &#addressSubmit
+            {
+                background-color: $search_find_button_color;
+                color: $search_find_button_text_color;
+                padding: 1em;
+                
+                &:hover{ background-color: $search_find_button_hover_color; }
+            }            
+            
+        }
+        
+        SELECT
+        {
+            @include input-box( white, gray , inherit , 0.2em );  
+        }
+        
+        // Radius Drop Down
+        //
+        #radiusSelect {
+            width: 65%;            
+        }
+        
+        // Submit Button Box
+        #radius_in_submit {
+            display: block;
+            margin: 0 auto;
+            padding: 6px;
+            text-align: center;
+            width: 100%;
+        }       
+    }
+}
+
+
+/*---------------------
+ * Results 
+ *---------------------*/
+#results_box {
+    #results_box_header {
+        @include box-header( $results_header_color , $results_text_color );    
+        margin-top: 0;
+    }
+    
+    #results_box_output {
+        font-size: $results_box_text_size;
+        
+        H2 {
+            font-size: $results_not_found_text_size;  
+        }
+    }
+}
+
+
+div#map_sidebar,
+div#slpw_resultsbox #slpw_results
+{
+    overflow: auto;
+}
+div#slpw_resultsbox #slpw_results {
+    display: none;
+}
+div#map_sidebar     .results_entry,
+div#slpw_resultsbox .results_entry
+{
+    border-bottom: 1px solid $results_divider_color;
+    padding: 1em 1% 0.5em;
+}
+
+div#map_sidebar     .results_entry {
+    cursor: pointer;
+}
+div#map_sidebar     .results_entry:hover,
+div#slpw_resultsbox .results_entry:hover
+{
+    background: $results_hover_color
+}
+
+div#map_sidebar     .results_row_left_column,
+div#slpw_resultsbox .results_row_left_column,
+div#map_sidebar     .results_row_center_column,
+div#slpw_resultsbox .results_row_center_column,
+div#map_sidebar     .results_row_right_column,
+div#slpw_resultsbox .results_row_right_column
+{
+   display:inline-block;
+   vertical-align: top;
+   width: 30%;
+}
+
+div#map_sidebar     .results_row_left_column,
+div#slpw_resultsbox .results_row_left_column
+{
+    width: $results_left_column_percent;
+}
+div#map_sidebar     .results_row_center_column,
+div#slpw_resultsbox .results_row_center_column
+{
+    width: $results_center_column_percent;
+}
+div#map_sidebar     .results_row_right_column,
+div#slpw_resultsbox .results_row_right_column
+{
+    text-align: right;
+    width: $results_right_column_percent;
+}
+
+span.location_name {
+    color: $results_name_color;
+    display: block;
+    font-weight: 700;
+}
+span.slp_result_citystatezip,
+span.slp_result_phone,
+span.location_distance
+{
+    display:block;
+}
+span.slp_result_hours {
+    display: block;
+    white-space: pre-wrap;
+}
+.results_entry a.storelocatorlink {
+    overflow: hidden;
+}
+#slp_marker_email > nobr {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+// Enhanced Results : Featured
+div#map_sidebar .results_entry.featured {
+    background-color: #EEF7DC;
+}
+
+
