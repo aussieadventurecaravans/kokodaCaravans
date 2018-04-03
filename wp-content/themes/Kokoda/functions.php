@@ -272,6 +272,7 @@ add_theme_support( 'menus' );
 add_action( 'after_setup_theme', 'register_kokoda_menus' );
 function register_kokoda_menus() {
   register_nav_menu( 'primary', __( 'Primary Menu', 'theme-slug' ) );
+  register_nav_menu( 'top-menu', __( 'Top Menu', 'theme-slug' ) );
   register_nav_menu( 'footer-1', __( 'Footer Menu 1', 'theme-slug' ) );
   register_nav_menu( 'footer-2', __( 'Footer Menu 2', 'theme-slug' ) );
   register_nav_menu( 'footer-3', __( 'Footer Menu 3', 'theme-slug' ) );

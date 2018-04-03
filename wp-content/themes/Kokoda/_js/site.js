@@ -5,12 +5,12 @@ jQuery(function($) {
 	$(document).scroll(function() {
 		if ($(window).scrollTop() >= 200 && $(window).width() > 755) {
 			$('body.home').css({'padding-top': '54px'});
-			$('nav#navbar-top.navbar-default').css({'height': '54px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '17px', 'padding-bottom': '17px'});
-			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '54px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '17px', 'padding-bottom': '17px'});
-			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '23px'});
-			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '10px', 'padding-bottom': '14px'});
+			$('nav#navbar-top.navbar-default').css({'height': '80px'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '10px', 'padding-bottom': '13px'});
+			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '80px'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '10px', 'padding-bottom': '13px'});
+			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '12px'});
+			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '20px', 'padding-bottom': '14px'});
 			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '7px'});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '54px'});
 		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755) {
@@ -18,12 +18,12 @@ jQuery(function($) {
 			$('body.page').css({'padding-top': '96px'});
 			$('body.page-template-page-listing').css({'padding-top': '146px'});
 			$('body.single-product').css({'padding-top': '146px'});
-			$('nav#navbar-top.navbar-default').css({'height': '96px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '38px', 'padding-bottom': '38px'});
+			$('nav#navbar-top.navbar-default').css({'height': '117px'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '28px', 'padding-bottom': '32px'});
 			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '96px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '38px', 'padding-top': '38px'});
-			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '65px'});
-			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '19px', 'padding-bottom': '0'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '32px', 'padding-top': '28px'});
+			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '49px'});
+			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '35px', 'padding-bottom': '0'});
 			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '25px'});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '96px'});
 		} else if ($(window).scrollTop() && $(window).width() < 755) {

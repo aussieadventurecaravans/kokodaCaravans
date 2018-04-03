@@ -128,7 +128,7 @@ a:hover, a:focus {
 
 .navbar-default {
 	background-color: #000;
-	height: 96px;
+	height: 117px;
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 }
 
@@ -161,8 +161,8 @@ a:hover, a:focus {
 
 .navbar-default .navbar-nav > li > a {
 	color: #fff;
-	padding-top: 38px;
-	padding-bottom: 38px;
+	padding-top: 28px;
+	padding-bottom: 32px;
 	padding-left: 0;
 	padding-right: 0;
 	border-right: 1px solid #424242;
@@ -243,7 +243,7 @@ a:hover, a:focus {
 .navbar-default .nav li .dropdown-menu {
 	margin-top: 31px;
 	border-radius: 0;
-	top: 65px;
+	top: 49px;
 	background: #151515;
 	border: 0;
 	padding: 0;
@@ -758,7 +758,7 @@ nav .container {
 
 .page-nav.navbar-fixed-top {
 	position: fixed;
-	top: 96px;
+	top: 116px;
 	right: 0;
 	left: 0;
 	z-index: 1020;
@@ -1332,6 +1332,7 @@ nav .container {
 	background-color: #202020;	
 	color: #fff;
 	padding:0;
+	margin-top: 20px;
 }
 
 .map .map-search {
@@ -2255,7 +2256,7 @@ nav .container {
 	
 	.navbar-default .navbar-header .brand img {
 		width: auto;
-		margin-top: 20px;
+		margin-top: 35px;
 	}
 	
 	.page-nav .navbar-right {
@@ -3073,4 +3074,26 @@ nav .container {
 		height: 550px;
 	}
 	
+}
+
+
+/** Top menu customize **/
+.top-nav-panel{
+	width: 85%;float: left;border-left: 1px solid #424242;border-bottom: 1px solid #424242;
+}
+.top-nav-panel .top-menu{
+	list-style-type: none;
+	float: right;
+	text-align: center;
+	padding-right: 20px;
+	margin-bottom: 0;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.top-nav-panel .top-menu li.menu-item{
+	display:inline ;height: 35px;
+	line-height: 35px;
+}
+.top-nav-panel .top-menu li.menu-item a{
+	padding: 0 13px;font-family: avenir,arial,helvetica,sans-serif;color: #fff;
 }

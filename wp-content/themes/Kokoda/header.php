@@ -21,28 +21,46 @@
 	<body <?php body_class($class); ?>>
 		<nav id="navbar-top" class="hidden-xs navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid nav-container">
-				<div class="navbar-header">
-					<a class="brand auto-top" href="<?php bloginfo('url') ?>"><img src="<?php the_field('site_logo', 'options'); ?>"></a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<div class="search-box">
-						<div class="container nav-container">
-							<?php get_search_form(); ?>
-						</div>
-					</div>
-					<ul class="nav navbar-nav navbar-left">
-						<?php wp_nav_menu( array( 
-							'theme_location' => 'primary',
-							'depth' => 2,
-							'container' => 'false',
-							'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-							'items_wrap' => '%3$s', 
-							'walker' => new wp_bootstrap_navwalker() ) 
-							); ?>
-						<li class="nav-search hidden-xs ico-search"><a href="#">Search</a></li>
-					</ul>
-				</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <a class="brand auto-top" href="<?php bloginfo('url') ?>"><img src="<?php the_field('site_logo', 'options'); ?>"></a>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <div class="top-nav-panel">
+                                <?php
+                                wp_nav_menu( array(
+                                       'theme_location' => 'top-menu',
+                                       'depth' => 2,
+                                       'container' => 'false',
+                                       'menu_class' => 'top-menu'
+                                       )
+                               );
+                                ?>
+                            </div>
+                            <div class="main-navi-panel">
+                                    <div class="search-box">
+                                        <div class="container nav-container">
+                                            <?php get_search_form(); ?>
+                                        </div>
+                                    </div>
+                                    <ul class="nav navbar-nav navbar-left">
+                                        <?php wp_nav_menu( array(
+                                            'theme_location' => 'primary',
+                                            'depth' => 2,
+                                            'container' => 'false',
+                                            'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+                                            'items_wrap' => '%3$s',
+                                            'walker' => new wp_bootstrap_navwalker() )
+                                            ); ?>
+                                        <li class="nav-search hidden-xs ico-search"><a href="#">Search</a></li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			</div>
+
 		</nav>
 		
 		<nav id="navbar-top-mob" class="visible-xs navbar navbar-default navbar-fixed-top" role="navigation">
