@@ -524,7 +524,7 @@ nav .container {
 	color:#000;
 	background-color: hsla(0,0%,100%,.9);
 	padding:19px 25px 21px;
-	min-width: 39%;
+	min-width: 450px;
 }
 
 .banner h1 {
@@ -2963,6 +2963,15 @@ nav .container {
 	.home .featured .item .item-details p {
 		font-size: 15px;
 	}
+	.single-product .banner h1
+	{
+		font-size: 30px;
+	}
+	.single-product .banner-wrap .banner .row .banner-content
+	{
+		min-width: 100%;
+		padding: 10%;
+	}
 	.banner-wrap .banner .product-meta {
 		width: auto;
 		min-width: 30%;
@@ -3161,7 +3170,7 @@ nav .container {
 	height: 15px;
 	width: 15px;
 }
-#specifications .panel-heading .panel-title a:after
+#specifications .panel-heading .panel-title a:not(.collapsed):after
 {
 	background-image: url("_img/sprite.png");
 	background-position: -105px -226px;

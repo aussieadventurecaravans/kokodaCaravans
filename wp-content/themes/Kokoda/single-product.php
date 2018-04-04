@@ -179,7 +179,7 @@
                                             <?php if ($i == 1) : ?>
                                                 aria-expanded="true"
                                             <?php else: ?>
-                                                aria-expanded="false"
+                                                aria-expanded="false" class="collapsed"
                                             <?php endif; ?>
                                            data-parent="#accordion">
                                             <?php echo $spec["group_heading"]; ?>
