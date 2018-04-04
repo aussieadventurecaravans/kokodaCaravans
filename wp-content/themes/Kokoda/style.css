@@ -451,6 +451,7 @@ nav .container {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	top: 19px;
 }
 
 .home.page .banner-wrap {
@@ -516,7 +517,14 @@ nav .container {
 	height: 220px;
 	padding-left: 20px;
 	position: absolute;
-		top: 25%;
+	top: 25%;
+}
+.single-product .banner-wrap .banner .row .banner-content
+{
+	color:#000;
+	background-color: hsla(0,0%,100%,.9);
+	padding:19px 25px 21px;
+	min-width: 39%;
 }
 
 .banner h1 {
@@ -865,18 +873,26 @@ nav .container {
 	text-transform: uppercase;
 	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
-
+.single-product .banner .lead{
+	color: #000;
+	text-shadow:none;
+}
 .single-product .banner h1 {
 	margin-bottom: 5px;
+	color:#000;
+	text-shadow: none;
 }
 
 .banner-wrap .banner .product-meta {
 	display: block;
-	width: 370px;
+	min-width: 40%;
 	position: absolute;
-		right: 0;
-		bottom: 20px;
+	left: 26px;
+	top: 67%;
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	background: #0c121c;
+	padding: 9px 3%;
+	text-align: center;
 }
 
 .banner-wrap .banner .product-meta span {
@@ -887,7 +903,7 @@ nav .container {
 	background-repeat: no-repeat;
 	display: block;
 	float: left;
-	height: 45px;
+	height: 36px;
 	margin-right: 20px;
 }
 
@@ -2801,7 +2817,8 @@ nav .container {
 	}
 	
 	.banner-wrap .banner .product-meta {
-		width: 100%;
+		width: auto;
+		min-width: 30%;
 	}
 	
 	.stripe.intro .video-embed {
@@ -2946,7 +2963,15 @@ nav .container {
 	.home .featured .item .item-details p {
 		font-size: 15px;
 	}
-
+	.banner-wrap .banner .product-meta {
+		width: auto;
+		min-width: 30%;
+	}
+	.banner-wrap .banner .product-meta span.price
+	{
+		font-size: 26px;
+		line-height: 1.2;
+	}
 	.featured .item .item-img {
 		border-right: 0;
 		height: 250px;
