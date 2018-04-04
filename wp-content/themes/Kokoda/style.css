@@ -3097,3 +3097,62 @@ nav .container {
 .top-nav-panel .top-menu li.menu-item a{
 	padding: 0 13px;font-family: avenir,arial,helvetica,sans-serif;color: #fff;
 }
+
+
+/** customize product specification **/
+#specifications .header-wrapper h2{
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 22px;
+	letter-spacing: 3px;
+	text-align: center;
+	width: auto;
+	height: 100px;
+	line-height: 100px;
+	margin: 0 28%;
+}
+#specifications .panel-group {
+	margin-bottom: 20px;
+	background: #fff;
+	padding-bottom: 5px;
+}
+#specifications .panel-group .panel {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+#specifications .panel-heading {background: #0c121c;color:#fff;text-transform: uppercase;font-size: 20px;padding: 18px 45px;}
+#specifications .panel-heading .panel-title
+{
+	font-size: 20px;
+}
+#specifications .panel-heading .panel-title a{cursor: pointer}
+#specifications .panel-heading .panel-title a.collapsed:after
+{
+	background-image: url("_img/sprite.png");
+	background-position: -84px -226px;
+	content: "";
+	display: block;
+	float: right;
+	height: 15px;
+	width: 15px;
+}
+#specifications .panel-heading .panel-title a:after
+{
+	background-image: url("_img/sprite.png");
+	background-position: -105px -226px;
+	content: "";
+	display: block;
+	float: right;
+	height: 15px;
+	width: 15px;
+}
+#specifications .panel-collapse .panel-body
+{
+	background: #fff;
+	color: #0c121c;
+	padding: 20px 40px;
+	font-size: 17px;
+}
+#specifications .panel-collapse .panel-body p{
+	font-size: 20px;
+}

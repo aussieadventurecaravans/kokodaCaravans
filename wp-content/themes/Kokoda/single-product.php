@@ -151,73 +151,96 @@
 
 <?php endif; ?>
 
-<?php if(have_rows('specifications')) : $i = 0; ?>
+<?php if(have_rows('specifications')): ?>
 
-	<div class="stripe center specs" id="specifications">
+	<div class="stripe specs" id="specifications">
 		<div class="container">
-			
-			<div class="row">
-				<div class="col-xs-12">
-					<h2>Specifications</h2>
-				</div>
-			</div>
-		
-			<div class="row">
-			
-				<div id="specificationTabs">
-					<ul class="group-headings col-md-3">
-					    <?php while (have_rows('specifications')) : the_row(); $i++; ?>
-					        <?php if(get_row_layout() == 'specification_group'): ?>
-					        
-					        	<li class="heading"><a href="#tab-<?php echo $i; ?>"><?php the_sub_field('group_heading'); ?></a></li>
-					        	
-					        <?php endif; //specification_group ?>
-					    <?php endwhile; ?>
-			        </ul>
-			        
-					<div class="items col-md-9">
-					<?php while (have_rows('specifications')) : the_row(); $i2++; ?>
-					   <?php if(get_row_layout() == 'specification_group'): ?>
-					   
-					   	<div class="item" id="tab-<?php echo $i2; ?>">
-					   		
-					   		<?php if(have_rows('specification_item')):
-					   		    while (have_rows('specification_item')) : the_row(); ?>
-					   		
-					   			<div class="row">
-				   				<?php if(get_sub_field('options')): ?>
-				   					<div class="col-sm-6">
-				   						<h4><?php the_sub_field('heading'); ?></h4>
-				   						<?php if(get_sub_field('description')): ?><p><?php the_sub_field('description'); ?></p><?php endif; ?>
-			   						</div>
-			   						<div class="col-sm-6">
-			   							<p class="head">Available Options:</p>
-			   							<p><?php the_sub_field('options'); ?></p>
-			   						</div>
-			   					<?php else: ?>
-			   						<div class="col-sm-12">
-		   								<h4><?php the_sub_field('heading'); ?></h4>
-		   								<?php if(get_sub_field('description')): ?><p><?php the_sub_field('description'); ?></p><?php endif; ?>
-		   							</div>
-				   				<?php endif; ?>
-								</div>
-					   		
-					   		    <?php endwhile;
-					   		endif; ?>
-					   		
-					   	</div>
-					   	
-					   <?php endif; //specification_group ?>
-					<?php endwhile; ?>
-					</div>
-			        
-				</div>
-    			
-    		</div>
+
+            <div class="row">
+                <div class="header-wrapper">
+                    <h2>Specifications</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="panel-group" id="accordion">
+                    <?php  $specs = get_field('specifications');?>
+                    <?php  if($specs): ?>
+                        <?php $i = 1;?>
+                        <?php foreach ($specs as $spec): ?>
+                            <div class="panel panel-default">
+                                <!-- spec heading --->
+                                <div class="panel-heading" id="heading<?php echo $i; ?>">
+
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-target="#collapse<?php echo $i;?>"
+                                            <?php if ($i == 1) : ?>
+                                                aria-expanded="true"
+                                            <?php else: ?>
+                                                aria-expanded="false"
+                                            <?php endif; ?>
+                                           data-parent="#accordion">
+                                            <?php echo $spec["group_heading"]; ?>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <!-- spec content --->
+                                <div id="collapse<?php echo $i; ?>"
+
+                                    <?php if ($i == 1) : ?>
+
+                                        class="panel-collapse collapse in"
+
+                                    <?php  else : ?>
+
+                                        class="panel-collapse collapse"
+
+                                    <?php endif; ?>
+
+                                     aria-labelledby="heading<?php echo $i; ?>" data-parent="#accordion">
+
+                                    <div class="panel-body">
+
+                                        <?php $spec_it = $spec['specification_item'];?>
+
+                                       <?php  foreach ($spec_it as $spec_its) : ?>
+
+                                            <div class="left_conto" style="<?php if ($spec_its['spec_options'] != '') { ?>width:50%;float:left;<?php } else { ?>width:100%;float:left;<?php } ?>">
+
+                                                <p> <?php echo ($spec_its['heading']); ?></p>
+
+                                                <div class="spec_ds">
+                                                    <?php echo ($spec_its['spec_description']); ?>
+                                                </div>
+                                            </div>
+                                            <?php if ($spec_its['spec_options'] != '') : ?>
+
+                                                <div class="spec_opt" style="width:50%;float:right;">
+
+                                                    <h4 style="font-weight:bold;">Options</h4>
+
+                                                    <?php echo ($spec_its['spec_options']) ?>
+                                                </div>
+
+                                            <?php endif; ?>
+
+                                        <?php endforeach;   ?>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <?php $i++;  ?>
+
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
     	</div>
     </div>
-    
 <?php endif; //specifications ?>
+
 
 <?php $images = get_field('gallery'); ?>
 <?php if($images): ?>
@@ -288,3 +311,13 @@
 </div>
 
 <?php get_footer(); ?>
+
+
+<script type="text/javascript">
+    //script action for specification
+    jQuery('.panel-title a').click(function(e) {
+        $('html,body').animate({
+            scrollTop: $('#specifications').offset().top -20
+        }, 500);
+    });
+</script>
