@@ -852,7 +852,7 @@ nav .container {
 .banner-wrap .banner-grad {
 	height: 100%;
 	position: relative;
-	background: url('_img/banner-grad-bg.png') repeat-x left bottom;
+	/*background: url('_img/banner-grad-bg.png') repeat-x left bottom;*/
 }
 
 .banner-wrap .banner-grad .banner-badge {
