@@ -3,40 +3,45 @@
 		<div class="row">
 		
 		<?php if(get_field('cta_1_link') || get_field('cta_1_heading') || get_field('cta_1_text')): ?>
-			<div class="dealer col-sm-6">
+			<div class="dealer col-sm-12">
+                <p><?php the_field('cta_1_text'); ?></p>
 				<a href="<?php the_field('cta_1_link'); ?>">
 					<h2><?php the_field('cta_1_heading'); ?></h2>
-					<p><?php the_field('cta_1_text'); ?></p>
 				</a>
 			</div>
 		<?php else: ?>
-			<div class="dealer col-sm-6">
+			<div class="dealer col-sm-12">
+                <p><?php the_field('footer_cta_1_text', 'options'); ?></p>
 				<a href="<?php the_field('footer_cta_1_link', 'options'); ?>">
 					<h2><?php the_field('footer_cta_1_heading', 'options'); ?></h2>
-					<p><?php the_field('footer_cta_1_text', 'options'); ?></p>
 				</a>
 			</div>
 		<?php endif; ?>
-		
-		<?php if(get_field('cta_2_link') || get_field('cta_2_heading') || get_field('cta_2_text')): ?>
-			<div class="contact col-sm-6">
-				<a href="<?php the_field('cta_2_link'); ?>">
-					<h2><?php the_field('cta_2_heading'); ?></h2>
-					<p><?php the_field('cta_2_text'); ?></p>
-				</a>
-			</div>
-		<?php else: ?>
-			<div class="contact col-sm-6">
-				<a href="<?php the_field('footer_cta_2_link', 'options'); ?>">
-					<h2><?php the_field('footer_cta_2_heading', 'options'); ?></h2>
-					<p><?php the_field('footer_cta_2_text', 'options'); ?></p>
-				</a>
-			</div>
-		<?php endif; ?>
-		
 		</div>
+
+        <div class="row">
+            <?php if(get_field('cta_2_link') || get_field('cta_2_heading') || get_field('cta_2_text')): ?>
+                <div class="contact">
+                    <a href="<?php the_field('cta_2_link'); ?>">
+                        <h2><?php the_field('cta_2_heading'); ?></h2>
+                        <p><?php the_field('cta_2_text'); ?></p>
+                    </a>
+                </div>
+            <?php else: ?>
+                <div class="contact">
+                    <p><?php the_field('footer_cta_2_text', 'options'); ?></p>
+                    <a href="<?php the_field('footer_cta_2_link', 'options'); ?>">
+                       <?php the_field('footer_cta_2_heading', 'options'); ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
+
 	</div>
 </div>
+
+
+
 
 <div class="footer-wrap">
 	<footer class="container">

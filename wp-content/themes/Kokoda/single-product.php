@@ -249,6 +249,11 @@
 
 	<div class="stripe center gallery" id="gallery">
 		<div class="container-fluid">
+            <div class="row">
+                <div class="header-wrapper">
+                    <h2>Gallery</h2>
+                </div>
+            </div>
 			<div class="row">
 			
 				<div class="col-xs-12">
@@ -282,11 +287,11 @@
 				<h4 class="modal-title" id="myModalLabel"><?php the_title();?> Tech Specs</h4>
 			</div>
 			<div class="modal-body">
-			
+
 				<div class="container-fluid">
 					<?php if(have_rows('tech_specs')): ?>
-						<?php while (have_rows('tech_specs')) : the_row(); ?>	
-						
+						<?php while (have_rows('tech_specs')) : the_row(); ?>
+
 							<div class="row">
 								<div class="col-xs-6">
 									<span><?php the_sub_field('left'); ?></span>
@@ -294,12 +299,12 @@
 								<div class="col-xs-6 pull-right">
 									<span><?php the_sub_field('right'); ?></span>
 								</div>
-							</div>	
-						
+							</div>
+
 						<?php endwhile; ?>
 					<?php endif; ?>
 				</div>
-						
+
 			</div>
 			<?php if(get_field('tech_specs_paragraph')): ?>
 			<div class="modal-footer">

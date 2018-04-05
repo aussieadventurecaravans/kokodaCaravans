@@ -1126,7 +1126,8 @@ nav .container {
 }
 
 .stripe.gallery {
-	background: #404040;
+	background: #ffffff;
+	padding-top: 10px;
 }
 
 .stripe.gallery .flexslider {
@@ -1151,7 +1152,16 @@ nav .container {
 	display: block;
 	position: relative;
 }
-
+.stripe.gallery .header-wrapper h2{
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 3px;
+	text-align: center;
+	width: auto;
+	height: 100px;
+	line-height: 100px;
+	margin: 0 28%;
+}
 .stripe.gallery .flexslider .slides li a .overlay {
 	width: 100%;
 	height: 100%;
@@ -1208,7 +1218,7 @@ nav .container {
 }
 
 .stripe.gallery .flex-direction-nav .flex-nav-prev a {
-	background-image: url('_img/arrow-left-white.png');
+	background-image: url('_img/arrow-left-grey.png');
 }
 
 .stripe.gallery .flex-direction-nav .flex-nav-next {
@@ -1216,7 +1226,7 @@ nav .container {
 }
 
 .stripe.gallery .flex-direction-nav .flex-nav-next a {
-	background-image: url('_img/arrow-right-white.png');	
+	background-image: url('_img/arrow-right-grey.png');
 }
 
 /* PRODUCT LISTING */
@@ -1841,7 +1851,9 @@ nav .container {
 }
 
 .cta .contact {
-	border-left: 1px solid #424242;
+	background: #fff;
+	text-align: center;
+	padding: 25px 0px;
 }
 
 .cta a {
@@ -1862,7 +1874,25 @@ nav .container {
 	-o-transition: background-color 0.2s linear;
 	transition: background-color 0.2s linear;
 }
+.cta .contact a{
+	color: #ffff;
+	background: #111;
+	padding: 12px 48px;
+	font-size: 24px;
+	padding-top: 19px;
+	letter-spacing: 4px;
+	display: inline-block;
+	text-transform: uppercase;
+	line-height: normal;
+}
 
+.cta .contact a:hover{
+	background: #000;
+	color: #fff;
+}
+.cta .contact p{
+	color: #111;margin: 18px 0;
+}
 .cta a:hover {
 	background-color: #000;
 	background-image: url('_img/arrow-right-grey.png');
@@ -1870,9 +1900,22 @@ nav .container {
 }
 
 .cta .dealer {
-
+	text-align: center;padding: 25px 0px;
 }
-
+.cta .dealer p {
+	margin: 18px 0;
+}
+.cta .dealer a{
+	background: #ffff;
+	color: #111;
+	padding: 12px 48px;
+	font-size: 24px;
+	padding-top: 19px;
+	letter-spacing: 4px;
+	display: inline-block;
+	text-transform: uppercase;
+	line-height: normal;
+}
 .footer-wrap {
 	background: #404040;
 	padding-top: 50px;
@@ -3136,7 +3179,7 @@ nav .container {
 /** customize product specification **/
 #specifications .header-wrapper h2{
 	text-transform: uppercase;
-	font-weight: 700;
+	font-weight: 500;
 	letter-spacing: 3px;
 	text-align: center;
 	width: auto;
