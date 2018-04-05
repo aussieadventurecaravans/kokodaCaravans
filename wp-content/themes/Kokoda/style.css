@@ -1050,6 +1050,7 @@ nav .container {
 	color: #000000;
 	background-size: 100% auto;
 	background-color: #e9eded;
+	padding-top: 30px;
 }
 
 .stripe.specs .group-headings {
@@ -1900,7 +1901,8 @@ nav .container {
 }
 
 .cta .dealer {
-	text-align: center;padding: 25px 0px;
+	text-align: center;
+	padding: 55px 0px;
 }
 .cta .dealer p {
 	margin: 18px 0;
