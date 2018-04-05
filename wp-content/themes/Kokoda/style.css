@@ -1047,9 +1047,9 @@ nav .container {
 }
 
 .stripe.specs {
-	color: #fff;
-	background: #202020;
+	color: #000000;
 	background-size: 100% auto;
+	background-color: #e9eded;
 }
 
 .stripe.specs .group-headings {
@@ -3137,7 +3137,6 @@ nav .container {
 #specifications .header-wrapper h2{
 	text-transform: uppercase;
 	font-weight: 700;
-	font-size: 22px;
 	letter-spacing: 3px;
 	text-align: center;
 	width: auto;
