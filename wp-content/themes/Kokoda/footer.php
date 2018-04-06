@@ -5,16 +5,16 @@
 		<?php if(get_field('cta_1_link') || get_field('cta_1_heading') || get_field('cta_1_text')): ?>
 			<div class="dealer col-sm-12">
                 <p><?php the_field('cta_1_text'); ?></p>
-				<a href="<?php the_field('cta_1_link'); ?>">
+				<button href="<?php the_field('cta_1_link'); ?>">
 					<h2><?php the_field('cta_1_heading'); ?></h2>
-				</a>
+				</button>
 			</div>
 		<?php else: ?>
 			<div class="dealer col-sm-12">
                 <p><?php the_field('footer_cta_1_text', 'options'); ?></p>
-				<a href="<?php the_field('footer_cta_1_link', 'options'); ?>">
+				<button href="<?php the_field('footer_cta_1_link', 'options'); ?>">
 					<h2><?php the_field('footer_cta_1_heading', 'options'); ?></h2>
-				</a>
+				</button>
 			</div>
 		<?php endif; ?>
 		</div>

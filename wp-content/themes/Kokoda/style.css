@@ -1893,6 +1893,8 @@ nav .container {
 }
 .cta .contact p{
 	color: #111;margin: 18px 0;
+	font-weight: 400;
+	letter-spacing: 3px;
 }
 .cta a:hover {
 	background-color: #000;
@@ -1906,13 +1908,19 @@ nav .container {
 }
 .cta .dealer p {
 	margin: 18px 0;
+	font-weight: 400;
+	letter-spacing: 3px;
 }
-.cta .dealer a{
-	background: #ffff;
+.cta .dealer button h2
+{
+	margin:0;
+}
+.cta .dealer button{
+	background: #fff;
+	border-color:#fff;
 	color: #111;
 	padding: 12px 48px;
 	font-size: 24px;
-	padding-top: 19px;
 	letter-spacing: 4px;
 	display: inline-block;
 	text-transform: uppercase;
