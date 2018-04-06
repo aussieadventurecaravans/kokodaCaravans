@@ -14,7 +14,7 @@
                 <p><?php the_field('footer_cta_1_text', 'options'); ?></p>
                 <div>
                     <input class="address_postcode" type="text" id="addressInput" name="addressInput" size="50" value="" placeholder="Enter suburb or postcode"/>
-                    <button onclick="location.href='<?php the_field('footer_cta_1_link', 'options'); ?>'">
+                    <button class="dealer_search">
                         <h2><?php the_field('footer_cta_1_heading', 'options'); ?></h2>
                     </button>
                 </div>
@@ -135,5 +135,30 @@
 	  ga('send', 'pageview');
 
 	</script>
+    <?php if(get_field('footer_cta_1_link', 'options') || get_field('footer_cta_1_heading', 'options') || get_field('footer_cta_1_text', 'options')): ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $('.dealer button.dealer_search').click(function () {
+                    var formData = {
+                        'action': 'search_dealer',
+                        'dealer_link': "<?php echo get_field('footer_cta_1_link', 'options') ; ?>",
+                        'postcode' : $('.dealer .address_postcode').val()
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                        data: formData,
+                        dataType   : 'json',
+                    }).done(function (res) {
+                        window.location = res.data.url ;
+
+                    });
+                });
+            });
+        </script>
+   <?php endif; ?>
+
+
+
 	</body>
 </html>

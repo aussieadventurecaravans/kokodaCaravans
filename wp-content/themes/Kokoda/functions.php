@@ -385,7 +385,7 @@ function the_pagination($pages = '', $range = 2)
          if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
          echo "</div>\n";
      }
-}   
-
-
+}
 ?>
+
+
