@@ -26,7 +26,7 @@ function search_dealer_by_postcode()
         $url =   $_POST["dealer_link"];
 
         wp_send_json_success(array(
-            'url' =>  $url.'?postcode='.$_POST['postcode']
+            'url' =>  $url.'?address='.$_POST['address']
         ));
     }
 
@@ -38,9 +38,9 @@ add_filter('slp_search_default_address','add_default_search_address',99);
 
 function add_default_search_address()
 {
-    if ( isset( $_GET["postcode"] ) )
+    if ( isset( $_GET["address"] ) )
     {
-        return $_GET['postcode'];
+        return $_GET['address'];
     }
     return '';
 }

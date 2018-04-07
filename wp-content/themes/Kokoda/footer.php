@@ -142,7 +142,7 @@
                     var formData = {
                         'action': 'search_dealer',
                         'dealer_link': "<?php echo get_field('footer_cta_1_link', 'options') ; ?>",
-                        'postcode' : $('.dealer .address_postcode').val()
+                        'address' : $('.dealer .address_postcode').val()
                     };
                     $.ajax({
                         type: 'POST',

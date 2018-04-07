@@ -28,3 +28,30 @@ get_header(); ?>
 </div>
 
 <?php get_footer(); ?>
+
+<script type="text/javascript">
+    /** check if the addressinput has the address filled
+     *  when dealer page is load at first time
+     *  if yes then do the search with that address
+     */
+    jQuery(document).ready(function($) {
+        var load_map_from_url = true;
+        $('#map_sidebar').on('contentchanged',function()
+        {
+            if(load_map_from_url == true)
+            {
+                var postcode =  $('.search-bar-item .search_item input#addressInput').val();
+                if(postcode !=='')
+                {
+                    load_map_from_url = false;
+                    cslmap.searchLocations();
+
+                }
+            }
+
+        });
+
+    });
+
+
+</script>
