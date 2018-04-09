@@ -154,6 +154,14 @@
 
                     });
                 });
+
+
+                $('input.address_postcode').on('keypress', function(e) {
+                    var code = e.keyCode || e.which;
+                    if(code==13){
+                        $('.dealer button.dealer_search').click();
+                    }
+                });
             });
         </script>
    <?php endif; ?>
