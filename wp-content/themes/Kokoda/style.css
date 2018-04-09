@@ -514,7 +514,7 @@ nav .container {
 
 .page.home .banner-wrap .banner .row .banner-content,
 .single-product .banner-wrap .banner .row .banner-content {
-	height: 220px;
+	height: 250px;
 	padding-left: 20px;
 	position: absolute;
 	top: 25%;
@@ -887,16 +887,18 @@ nav .container {
 	display: block;
 	min-width: 40%;
 	position: absolute;
-	left: 26px;
-	top: 67%;
+	left: 0;
+	bottom:0;
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
-	background: #0c121c;
+	background: hsla(180,8%,90%,.9);
 	padding: 9px 3%;
 	text-align: center;
+	width: 100%;
+	opacity: .7;
 }
 
 .banner-wrap .banner .product-meta span {
-	color: #fff;
+	color: #0C121C;
 	font-size: 19px;
 	font-weight: 400;
 	background-size: 22px auto;
@@ -908,10 +910,11 @@ nav .container {
 }
 
 .banner-wrap .banner .product-meta .price {
-	font-size: 34px;
-	font-weight: 500;
+	font-size: 19px;
+	font-weight: 400;
 	line-height: 1;
 	margin-right: 30px;
+	padding-top: 10px;
 }
 
 .banner-wrap .banner .product-meta .size {
@@ -922,7 +925,7 @@ nav .container {
 }
 
 .banner-wrap .banner .product-meta .occupants {
-	background-image: url('_img/ico-occupants@2x.png');	
+	background-image: url('_img/ico-occupants@2x.png');
 	background-position: 0 7px;
 	padding-left: 30px;
 	padding-top: 5px;
@@ -1049,7 +1052,7 @@ nav .container {
 .stripe.specs {
 	color: #000000;
 	background-size: 100% auto;
-	background-color: #e9eded;
+	background-color: #f7f9f9;
 	padding-top: 30px;
 }
 
@@ -2347,7 +2350,7 @@ nav .container {
 	}
 	
 	.banner-wrap .banner .lead {
-		font-size: 20px;
+		font-size: 16px;
 	}
 	
 	.featured .item .item-img {
@@ -2880,7 +2883,7 @@ nav .container {
 	}
 	
 	.banner-wrap .banner .product-meta {
-		width: auto;
+		width: 100%;
 		min-width: 30%;
 	}
 	
@@ -3033,16 +3036,18 @@ nav .container {
 	.single-product .banner-wrap .banner .row .banner-content
 	{
 		min-width: 100%;
-		padding: 10%;
+		padding: 6%;
 	}
 	.banner-wrap .banner .product-meta {
-		width: auto;
+		width: 100%;
 		min-width: 30%;
 	}
 	.banner-wrap .banner .product-meta span.price
 	{
 		font-size: 26px;
 		line-height: 1.2;
+		padding-top: 3px;
+
 	}
 	.featured .item .item-img {
 		border-right: 0;
@@ -3250,5 +3255,28 @@ nav .container {
 	font-size: 17px;
 }
 #specifications .panel-collapse .panel-body p{
-	font-size: 20px;
+	font-size: 17px;
+	margin-bottom: 0;
+}
+
+.banner-wrap .banner .product-brochure-button{
+	display: block;
+	min-width: 40%;
+	position: absolute;
+	left: 26px;
+	top: 50%;
+	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	background: #0c121c;
+	padding: 9px 3%;
+	text-align: center;
+}
+.banner-wrap .banner .product-brochure-button a {
+	color: #fff;
+	font-size: 25px;
+	font-weight: 400;
+	background-size: 22px auto;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 36px;
 }

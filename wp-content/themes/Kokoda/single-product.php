@@ -35,14 +35,17 @@
 				<div class="banner-content">
 					<h1><?php the_title(); ?></h1>
 					<p class="lead"><?php the_field('banner_description'); ?></p>
-
+                    <?php if(get_field('brochure_pdf')): ?>
+                        <div class="product-brochure-button">
+                          <a href="<?php the_field('brochure_pdf'); ?>" target="_blank">Download Brochure</a>
+                        </div>
+                    <?php endif; ?>
                     <div class="product-meta">
                         <?php if(get_field('price_thousands')): ?><span class="price">$<?php the_field('price_thousands'); ?>,<?php the_field('price_hundreds'); ?><i>+ORC</i></span><?php endif; ?>
                         <?php if(get_field('size_feet')): ?><span class="size"><?php the_field('size_feet'); ?>'<?php if(get_field('size_inches')): ?><?php the_field('size_inches'); ?>"<?php endif; ?></span><?php endif; ?>
                         <?php if(get_field('occupants')): ?><span class="occupants"><?php the_field('occupants'); ?></span><?php endif; ?>
                     </div>
 				</div>
-
 			</div>
 		</div>
 		<?php if(!empty($badge_img)): ?>
