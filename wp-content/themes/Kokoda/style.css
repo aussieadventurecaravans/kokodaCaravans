@@ -891,7 +891,7 @@ nav .container {
 	bottom:0;
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 	background: hsla(180,8%,90%,.9);
-	padding: 9px 3%;
+	padding: 9px 5%;
 	text-align: center;
 	width: 100%;
 	opacity: .7;
@@ -918,14 +918,14 @@ nav .container {
 }
 
 .banner-wrap .banner .product-meta .size {
-	background-image: url('_img/ico-size@2x.png');
+	background-image: url('_img/ico-size@2x-black.png');
 	background-position: 0 9px;
 	padding-left: 30px;
 	padding-top: 5px;
 }
 
 .banner-wrap .banner .product-meta .occupants {
-	background-image: url('_img/ico-occupants@2x.png');
+	background-image: url('_img/ico-occupants@2x-black.png');
 	background-position: 0 7px;
 	padding-left: 30px;
 	padding-top: 5px;
@@ -3270,13 +3270,24 @@ nav .container {
 	padding: 9px 3%;
 	text-align: center;
 }
+
+.banner-wrap .banner .product-brochure-button:hover{
+
+	background: #fff;
+}
+.banner-wrap .banner .product-brochure-button:hover a{
+
+	color: #0c121c;
+}
 .banner-wrap .banner .product-brochure-button a {
 	color: #fff;
-	font-size: 25px;
-	font-weight: 400;
+	font-size: 16px;
+	font-weight: normal;
 	background-size: 22px auto;
 	background-repeat: no-repeat;
 	display: block;
 	float: left;
-	height: 36px;
+	height: 33px;
+	text-transform: uppercase;
+	padding: 4px 0;
 }
