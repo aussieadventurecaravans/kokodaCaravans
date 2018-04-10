@@ -981,7 +981,8 @@ nav .container {
 }
 
 .stripe.floorplan img {
-	width: 100%;
+	width: 93%;
+	margin: auto 3%;
 }
 
 .floorplan .btn {
