@@ -168,7 +168,7 @@
             </div>
 
             <div class="row">
-                <div class="panel-group" id="accordion">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <?php  $specs = get_field('specifications');?>
                     <?php  if($specs): ?>
                         <?php $i = 1;?>
@@ -321,13 +321,3 @@
 </div>
 
 <?php get_footer(); ?>
-
-
-<script type="text/javascript">
-    //script action for specification
-    jQuery('.panel-title a').click(function(e) {
-        $('html,body').animate({
-            scrollTop: $('#specifications').offset().top -20
-        }, 500);
-    });
-</script>
