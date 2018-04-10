@@ -966,6 +966,7 @@ nav .container {
 
 .stripe.intro {
 	color: #202020;
+	background: #f9fbfb;
 }
 
 .stripe.intro p:last-child {
@@ -973,7 +974,7 @@ nav .container {
 }
 
 .stripe.floorplan {
-	background: #1a1a1a;
+	background: #ffffff;
 	color: #fff;
 }
 
@@ -3257,9 +3258,47 @@ nav .container {
 {
 	background: #fff;
 	color: #0c121c;
-	padding:12px 40px;
+	padding: 30px;
 	font-size: 17px;
 }
+#specifications .panel-collapse .panel-body table.spec_table
+{
+	background-color: #fff;
+	border: 1px solid #a4a7a9;
+	width: 100%;
+}
+#specifications .panel-collapse .panel-body table.spec_table tr{
+	border-bottom: 1px solid #a4a7a9;
+}
+#specifications .panel-collapse .panel-body table.spec_table tr td:first-child{
+	background-color: #e4e8e8;width: 10%;
+}
+#specifications .panel-collapse .panel-body table.spec_table tr td{
+	padding:18px;
+	width: 30%;
+}
+
+#specifications .panel-collapse .panel-body table.spec_table table.spec_opt_table
+{
+	height:100%;
+}
+#specifications .panel-collapse .panel-body table.spec_table table.spec_opt_table tr td.options
+ {
+	 border-left: 1px solid #a4a7a9;
+ }
+
+ #specifications .panel-collapse .panel-body table.spec_table table.spec_opt_table tr
+ {
+	border-bottom: none;
+ }
+
+#specifications .panel-collapse .panel-body table.spec_table table.spec_opt_table tr td
+{
+	background-color: #fff;
+	width: auto;
+	vertical-align: baseline;
+}
+
 #specifications .panel-collapse .panel-body p{
 	font-size: 17px;
 	margin-bottom: 0;

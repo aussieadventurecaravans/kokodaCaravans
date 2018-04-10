@@ -168,7 +168,7 @@
             </div>
 
             <div class="row">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel-group" id="accordion">
                     <?php  $specs = get_field('specifications');?>
                     <?php  if($specs): ?>
                         <?php $i = 1;?>
@@ -180,7 +180,7 @@
                                     <h4 class="panel-title">
                                         <a data-toggle="collapse" data-target="#collapse<?php echo $i;?>"
                                             <?php if ($i == 1) : ?>
-                                                aria-expanded="true"
+                                                aria-expanded="false"  class="collapsed"
                                             <?php else: ?>
                                                 aria-expanded="false" class="collapsed"
                                             <?php endif; ?>
@@ -194,7 +194,7 @@
 
                                     <?php if ($i == 1) : ?>
 
-                                        class="panel-collapse collapse in"
+                                        class="panel-collapse collapse"
 
                                     <?php  else : ?>
 
@@ -207,30 +207,43 @@
                                     <div class="panel-body">
 
                                         <?php $spec_it = $spec['specification_item'];?>
+                                        <table class="spec_table">
+                                            <tbody>
 
-                                       <?php  foreach ($spec_it as $spec_its) : ?>
+                                           <?php  foreach ($spec_it as $spec_its) : ?>
+                                               <?php $spec_head_split =  explode(' - ',$spec_its['heading']); ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="left_conto" style="<?php if ($spec_its['spec_options'] != '') { ?>width:50%;float:left;<?php } else { ?>width:100%;float:left;<?php } ?>">
 
-                                            <div class="left_conto" style="<?php if ($spec_its['spec_options'] != '') { ?>width:50%;float:left;<?php } else { ?>width:100%;float:left;<?php } ?>">
+                                                            <p> <?php echo $spec_head_split[0]; ?></p>
 
-                                                <p> <?php echo ($spec_its['heading']); ?></p>
-
-                                                <div class="spec_ds">
-                                                    <?php echo ($spec_its['spec_description']); ?>
-                                                </div>
-                                            </div>
-                                            <?php if ($spec_its['spec_options'] != '') : ?>
-
-                                                <div class="spec_opt" style="width:50%;float:right;">
-
-                                                    <h4 style="font-weight:bold;">Options</h4>
-
-                                                    <?php echo ($spec_its['spec_options']) ?>
-                                                </div>
-
-                                            <?php endif; ?>
-
-                                        <?php endforeach;   ?>
-
+                                                            <div class="spec_ds">
+                                                                <?php echo ($spec_its['description']); ?>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td style="padding:0">
+                                                        <div class="spec_opt" style="float:left;">
+                                                            <table class="spec_opt_table">
+                                                                <tr>
+                                                                    <td>
+                                                                        <p><?php echo $spec_head_split[1]  ?></p>
+                                                                    </td>
+                                                                    <?php if ($spec_its['options'] != '') : ?>
+                                                                    <td <?php if(!empty($spec_head_split[1])): ?> class="options" <?php endif; ?> >
+                                                                        <h4 style="font-weight:bold;">Options</h4>
+                                                                        <?php echo ($spec_its['options']) ?>
+                                                                    </td>
+                                                                    <?php endif; ?>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach;   ?>
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                 </div>
