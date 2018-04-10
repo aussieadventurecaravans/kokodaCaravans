@@ -957,7 +957,6 @@ nav .container {
 	margin: 0 0 20px 0;
 	font-weight: 300;
 	line-height: 1.3em;
-	color: #303235;
 }
 
 .stripe p {
@@ -973,8 +972,10 @@ nav .container {
 .stripe.intro p:last-child {
 	margin-bottom: 0;
 }
-
-.stripe.floorplan {
+.stripe.floorplan h2{
+	color: #303235;
+}
+.stripe.floorplan{
 	background: #ffffff;
 	color: #fff;
 }

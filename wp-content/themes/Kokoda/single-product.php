@@ -76,7 +76,7 @@
 <?php if(get_field('floor_plan') || get_field('tech_specs') || get_field('virtual_tour_link')): ?>
 <div class="stripe center floorplan" id="floorplan">
 	<div class="container">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+		<div>
 		
 			<?php if(get_field('floor_plan')): ?>
 			<h2>Floor Plan</h2>
@@ -86,7 +86,6 @@
 			
 			<?php if(get_field('tech_specs')): ?><button data-toggle="modal" data-target="#techSpecs" class="btn btn-sub" target="_blank">Tech Specs</button><?php endif; ?>
 			<?php if(get_field('virtual_tour_link')): ?><a href="<?php the_field('virtual_tour_link'); ?>" class="btn btn-sub virtual-tour" target="_blank">Virtual Tour</a><?php endif; ?>
-			
 			
 		</div>
 	</div>
