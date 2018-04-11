@@ -507,7 +507,7 @@ nav .container {
 	background-image: url('_img/arrow-down-black.png');	
 }
 .banner-wrap .banner{
-	width:70%;
+	width: 90.5%;
 }
 @media only screen and (max-width: 650px){
 	.banner-wrap .banner{
