@@ -1059,7 +1059,7 @@ nav .container {
 	letter-spacing: 3px;
 	text-align: center;
 	width: auto;
-	height: 10px;
+	height: 0;
 	line-height: 50px;
 	margin: 0 28%;
 }
@@ -1071,8 +1071,8 @@ nav .container {
 }
 
 .stripe.floorplan img {
-	width: 88%;
-	margin: auto 5%;
+	width: 75%;
+	margin: auto 12%;
 }
 
 .floorplan .btn {
