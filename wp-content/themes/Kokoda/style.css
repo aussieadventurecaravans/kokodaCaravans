@@ -1047,6 +1047,9 @@ nav .container {
 .stripe.intro {
 	color: #202020;
 	background: #f9fbfb;
+	position: relative;
+	top:0;
+	padding: 35px 0;
 }
 
 .stripe.intro p:last-child {
