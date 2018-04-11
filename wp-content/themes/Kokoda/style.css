@@ -1059,23 +1059,25 @@ nav .container {
 	letter-spacing: 3px;
 	text-align: center;
 	width: auto;
-	height: 100px;
-	line-height: 100px;
+	height: 10px;
+	line-height: 50px;
 	margin: 0 28%;
 }
 .stripe.floorplan{
 	background: #ffffff;
 	color: #fff;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .stripe.floorplan img {
 	width: 88%;
-	margin: auto 6%;
+	margin: auto 5%;
 }
 
 .floorplan .btn {
-	margin-top: 30px;
-	margin-right: 15px;
+	margin-top: 0px;
+	margin-right: 0px;
 }
 
 .floorplan .btn.virtual-tour {
