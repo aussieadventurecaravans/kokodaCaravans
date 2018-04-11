@@ -1062,9 +1062,10 @@ nav .container {
 	letter-spacing: 3px;
 	text-align: center;
 	width: auto;
-	height: 0;
-	line-height: 50px;
-	margin: 0 28%;
+	height: 29px;
+	line-height: 41px;
+	margin: 0px 28%;
+	margin-top: 15px;
 }
 .stripe.floorplan{
 	background: #ffffff;
