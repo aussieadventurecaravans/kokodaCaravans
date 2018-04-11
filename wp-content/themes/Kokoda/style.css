@@ -1049,7 +1049,7 @@ nav .container {
 	background: #f9fbfb;
 	position: relative;
 	top:0;
-	padding: 35px 0;
+	padding: 40px 0 20px 0;
 }
 
 .stripe.intro p:last-child {
@@ -1071,7 +1071,7 @@ nav .container {
 	background: #ffffff;
 	color: #fff;
 	padding-top: 30px;
-	padding-bottom: 45px
+	padding-bottom: 50px
 }
 
 .stripe.floorplan img {
