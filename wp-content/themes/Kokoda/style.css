@@ -935,7 +935,87 @@ nav .container {
 	padding-left: 30px;
 	padding-top: 5px;
 }
+.single-product .mobile-banner-wrap
+{
+	display:none;
+}
+@media (max-width: 768px)
+{
+	.banner-wrap .banner-grad
+	{
+		display:none;
+	}
+	.single-product .mobile-banner-wrap
+	{
+		display:block;
+	}
+	.single-product .mobile-banner-wrap .banner .row .banner-content
+	{
+		color: #000;
+		background-color: hsla(0,0%,100%,.9);
+	}
+	.single-product .mobile-banner-wrap .banner .product-brochure-button
+	{
+		display: block;
+		font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+		background: #0c121c;
+		padding: 9px 3%;
+		text-align: center;
+		width: 250px;
+		margin: 0 auto;
+	}
 
+	.single-product .mobile-banner-wrap .banner .product-brochure-button a {
+		color: #fff;
+		font-size: 16px;
+		font-weight: normal;
+		background-size: 22px auto;
+		background-repeat: no-repeat;
+		display: block;
+		height: 33px;
+		text-transform: uppercase;
+		padding: 4px 0;
+	}
+
+	.single-product .mobile-banner-wrap .banner .product-meta {
+		display: block;
+		min-width: 40%;
+		font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+		padding: 9px 5%;
+		text-align: center;
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	.single-product .mobile-banner-wrap .banner .product-meta .price {
+		font-size: 19px;
+		font-weight: 400;
+		line-height: 1;
+		margin-right: 30px;
+		padding-top: 10px;
+	}
+	.single-product .mobile-banner-wrap .banner .product-meta span {
+		color: #0C121C;
+		font-size: 19px;
+		font-weight: 400;
+		background-size: 22px auto;
+		background-repeat: no-repeat;
+		height: 36px;
+		margin-right: 20px;
+	}
+	.single-product .mobile-banner-wrap .banner .product-meta .size {
+		background-image: url(_img/ico-size@2x-black.png);
+		background-position: 0 9px;
+		padding-left: 30px;
+		padding-top: 10px;
+	}
+	.single-product .mobile-banner-wrap .banner .product-meta .occupants {
+		background-image: url(_img/ico-occupants@2x-black.png);
+		background-position: 0 7px;
+		padding-left: 30px;
+		padding-top: 9px;
+	}
+
+}
 .video-embed {
 	margin-top: 20px;
 	height: 440px;
