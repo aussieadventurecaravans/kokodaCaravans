@@ -1082,6 +1082,7 @@ nav .container {
 .floorplan .btn {
 	margin-top: 0px;
 	margin-right: 0px;
+	padding: 15px 30px;
 }
 
 .floorplan .btn.virtual-tour {
