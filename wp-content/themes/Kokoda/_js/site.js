@@ -11,7 +11,7 @@ jQuery(function($) {
 			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '10px', 'padding-bottom': '13px'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '12px'});
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '20px', 'padding-bottom': '14px'});
-			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '7px'});
+			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '19px'});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '78px'});
 		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755) {
 			$('body.home').css({'padding-top': '96px'});
