@@ -24,7 +24,7 @@ jQuery(function($) {
 			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '32px', 'padding-top': '28px'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '49px'});
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '35px', 'padding-bottom': '0'});
-			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '25px'});
+			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '19px'});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '116px'});
 		} else if ($(window).scrollTop() && $(window).width() < 755) {
 			$('body').css({'padding-top': '74px'});
