@@ -2079,7 +2079,7 @@ nav .container {
 .cta .contact p{
 	color: #111;margin: 18px 0;
 	font-weight: 400;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
 }
 .cta a:hover {
 	background-color: #000;
@@ -2099,12 +2099,12 @@ nav .container {
 	display: inline;
 	height: 52px;
 	vertical-align: top;
-	margin-bottom: 20px;
+	margin: 0 auto;
 }
 .cta .dealer p {
 	margin: 18px 0;
 	font-weight: 400;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
 }
 .cta .dealer button h2
 {
