@@ -11,7 +11,7 @@ jQuery(function($) {
 			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '10px', 'padding-bottom': '13px'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '12px'});
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '20px', 'padding-bottom': '14px'});
-			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '19px'});
+			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '0px','height' : '50%'});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '78px'});
 		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755) {
 			$('body.home').css({'padding-top': '96px'});
@@ -24,7 +24,7 @@ jQuery(function($) {
 			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '32px', 'padding-top': '28px'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '49px'});
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '35px', 'padding-bottom': '0'});
-			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '19px'});
+			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': ''});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '116px'});
 		} else if ($(window).scrollTop() && $(window).width() < 755) {
 			$('body').css({'padding-top': '74px'});
@@ -89,6 +89,8 @@ jQuery(function($) {
 		e.stopPropagation();
 		
 		if($('.nav-search.hidden-xs').is(':visible')){
+
+            $('.search-box').css({'padding-top': '','height': '' });
 		
 			$('.search-box').toggle('slide', {
 			    direction: 'right',
@@ -100,8 +102,10 @@ jQuery(function($) {
 			
 			$('.searchwp-live-search-results-showing').toggle();
 
+
+
+
 		} else {
-		
 			$('.search-box').toggle('slide', {
 			    direction: 'left'
 			}, 500);
