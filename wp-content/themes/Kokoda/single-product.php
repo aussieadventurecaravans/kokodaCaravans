@@ -1,7 +1,12 @@
 <?php get_header(); ?>
 
-<nav class="page-nav navbar-fixed-top hidden-xs">
+<nav class="page-nav navbar-fixed-top single_nav">
 	<div class="container-fluid nav-container">
+        <input type="checkbox" id="product-list-toggle"/>
+        <label for="product-list-toggle" class="product-list-toggle-label"><?php echo the_title() . '/ OVERVIEW';  ?>
+            <img src="/wp-content/themes/Kokoda/_img/banner_down_icons_arrow_black.png" class="arrow">
+        </label>
+
 		<ul class="nav navbar-nav navbar-right">
 			<?php if(get_field('floor_plan')): ?><li><a href="#floorplan">Floor Plan</a></li><?php endif; ?>
 			<?php if(have_rows('features')): ?><li><a href="#features">Features</a></li><?php endif; ?>
