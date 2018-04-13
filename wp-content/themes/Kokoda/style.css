@@ -1130,6 +1130,9 @@ nav .container {
 	padding: 40px 0 20px 0;
 }
 
+.stripe.intro h2{
+	text-transform: uppercase;
+}
 .stripe.intro p:last-child {
 	margin-bottom: 0;
 	font-size: 20px;
