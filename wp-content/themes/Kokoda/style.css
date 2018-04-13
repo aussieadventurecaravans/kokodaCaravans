@@ -1118,7 +1118,7 @@ nav .container {
 }
 
 .stripe p {
-	font-size: 17px;
+	font-size: 20px;
 	margin-bottom: 20px;
 }
 
@@ -1127,11 +1127,11 @@ nav .container {
 	background: #f9fbfb;
 	position: relative;
 	top:0;
-	padding: 40px 0 20px 0;
+	padding: 60px 0 60px 0;
 }
 
 .stripe.intro h2{
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 .stripe.intro p:last-child {
 	margin-bottom: 0;
@@ -1140,7 +1140,6 @@ nav .container {
 .stripe.floorplan h2{
 	color: #303235;
 	text-transform: uppercase;
-	font-weight: 500;
 	letter-spacing: 1px;
 	text-align: center;
 	width: auto;
@@ -1148,11 +1147,13 @@ nav .container {
 	line-height: 41px;
 	margin: 0px 28%;
 	margin-top: 15px;
+	font-size: 40px;
+	font-weight: bold;
 }
 .stripe.floorplan{
 	background: #ffffff;
 	color: #fff;
-	padding-top: 30px;
+	padding-top: 40px;
 	padding-bottom: 50px
 }
 
@@ -1239,7 +1240,7 @@ nav .container {
 	color: #000000;
 	background-size: 100% auto;
 	background-color: #f7f9f9;
-	padding-top: 30px;
+	padding-top: 40px;
 }
 
 .stripe.specs .group-headings {
@@ -1317,7 +1318,7 @@ nav .container {
 
 .stripe.gallery {
 	background: #ffffff;
-	padding-top: 10px;
+	padding-top: 30px;
 }
 
 .stripe.gallery .flexslider {
@@ -1350,6 +1351,8 @@ nav .container {
 	height: 100px;
 	line-height: 100px;
 	margin: 0 28%;
+	font-size: 40px;
+	font-weight: bold;
 }
 .stripe.gallery .flexslider .slides li a .overlay {
 	width: 100%;
@@ -3394,13 +3397,14 @@ nav .container {
 /** customize product specification **/
 #specifications .header-wrapper h2{
 	text-transform: uppercase;
-	font-weight: 500;
+	font-weight: bold;
 	letter-spacing: 1px;
 	text-align: center;
 	width: auto;
 	height: 100px;
 	line-height: 100px;
 	margin: 0 28%;
+	font-size: 40px;
 }
 #specifications .panel-group {
 	margin-bottom: 20px;
@@ -3495,7 +3499,7 @@ nav .container {
 	top: 50%;
 	font-family: 'Roboto', sans-serif;
 	background: #0c121c;
-	padding: 9px 3%;
+	padding: 9px 5%;
 	text-align: center;
 }
 
@@ -3509,13 +3513,13 @@ nav .container {
 }
 .banner-wrap .banner .product-brochure-button a {
 	color: #fff;
-	font-size: 16px;
+	font-size: 12px;
 	font-weight: normal;
 	background-size: 22px auto;
 	background-repeat: no-repeat;
 	display: block;
 	float: left;
-	height: 30px;
+	height: 26px;
 	text-transform: uppercase;
 	padding: 4px 0;
 }
