@@ -537,7 +537,7 @@ nav .container {
 }
 
 .banner h1 {
-	font-size: 42px;
+	font-size: 38px;
 	font-weight: 500;
 	color: #fff;
 	text-transform: uppercase;
@@ -964,6 +964,8 @@ nav .container {
 	margin-bottom: 5px;
 	color:#000;
 	text-shadow: none;
+	font-weight: bold;
+
 }
 
 .banner-wrap .banner .product-meta {
@@ -1145,10 +1147,10 @@ nav .container {
 	width: auto;
 	height: 29px;
 	line-height: 41px;
-	margin: 0px 28%;
-	margin-top: 15px;
-	font-size: 40px;
+	margin: 20px 28% 10px;
+	font-size: 38px;
 	font-weight: bold;
+
 }
 .stripe.floorplan{
 	background: #ffffff;
@@ -1350,8 +1352,8 @@ nav .container {
 	width: auto;
 	height: 100px;
 	line-height: 100px;
-	margin: 0 28%;
-	font-size: 40px;
+	margin: 0 28% 35px;
+	font-size: 38px;
 	font-weight: bold;
 }
 .stripe.gallery .flexslider .slides li a .overlay {
@@ -2537,7 +2539,7 @@ nav .container {
 	}
 	
 	.banner h1 {
-		font-size: 35px;
+		font-size: 38px;
 	}
 	
 	.banner-wrap .banner .lead {
@@ -3403,8 +3405,8 @@ nav .container {
 	width: auto;
 	height: 100px;
 	line-height: 100px;
-	margin: 0 28%;
-	font-size: 40px;
+	margin: 0 28% 35px;
+	font-size: 38px;
 }
 #specifications .panel-group {
 	margin-bottom: 20px;
