@@ -22,7 +22,8 @@ Table of Contents:
 ============================== */
 
 @import url(http://fonts.googleapis.com/css?family=Maven+Pro:500,400,700|Khula:400,300,600,700);
-
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 html {
     height: 100%;	
 }
@@ -32,7 +33,7 @@ html, html a {
 }
 
 body {
-	font-family: "Khula", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	padding-top: 96px;
 	height: 100%;
 	overflow-x: hidden;
@@ -44,7 +45,7 @@ body.page-template-page-listing {
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	font-family: 'Rubik', sans-serif;
 }
 
 .alignleft {
@@ -446,7 +447,7 @@ nav .container {
 /* BANNER */
 
 .banner-wrap {
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	position: relative;
 	height: 90%;
 	background-position: center center;
@@ -638,7 +639,7 @@ nav .container {
 }
 
 .featured .item .item-details .details h3 {
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	font-family: 'Rubik', sans-serif;
 	font-weight: 400;
 	font-size: 22px;
 	letter-spacing: 1px;
@@ -697,7 +698,7 @@ nav .container {
 
 .blog .item {
 	color: #9a9a9a;
-	font-family: "Khula", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .blog .item {
@@ -800,7 +801,7 @@ nav .container {
 	}
 	.single-product .page-nav.navbar-fixed-top .nav-container
 	{
-		padding:0;
+		padding:0;border-bottom:0;
 	}
 	.single-product .page-nav.navbar-fixed-top .product-list-toggle-label
 	{
@@ -870,7 +871,7 @@ nav .container {
 	list-style-type: none;
 	text-transform: uppercase;
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: 700;
 	letter-spacing: 1px;
 }
 
@@ -1110,8 +1111,7 @@ nav .container {
 }
 
 .stripe h2 {
-	font-family: "Khula", Helvetica, Arial, sans-serif;
-	font-size: 28px;
+	font-size: 35px;
 	margin: 0 0 20px 0;
 	font-weight: 300;
 	line-height: 1.3em;
@@ -1132,12 +1132,13 @@ nav .container {
 
 .stripe.intro p:last-child {
 	margin-bottom: 0;
+	font-size: 20px;
 }
 .stripe.floorplan h2{
 	color: #303235;
 	text-transform: uppercase;
 	font-weight: 500;
-	letter-spacing: 3px;
+	letter-spacing: 1px;
 	text-align: center;
 	width: auto;
 	height: 29px;
@@ -1340,8 +1341,7 @@ nav .container {
 }
 .stripe.gallery .header-wrapper h2{
 	text-transform: uppercase;
-	font-weight: 500;
-	letter-spacing: 3px;
+	letter-spacing: 1px;
 	text-align: center;
 	width: auto;
 	height: 100px;
@@ -2030,9 +2030,9 @@ nav .container {
 }
 
 .cta p {
-	font-size: 17px;
+	font-size: 18px;
 	margin: 0;
-	font-family: "Khula", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 }
 
@@ -2060,16 +2060,18 @@ nav .container {
 	-o-transition: background-color 0.2s linear;
 	transition: background-color 0.2s linear;
 }
-.cta .contact a{
+.cta .contact a
+{
 	color: #ffff;
 	background: #111;
-	padding: 8px 44px;
-	font-size: 19px;
-	padding-top: 14px;
-	letter-spacing: 4px;
+	padding: 12px 50px;
+	font-size: 24px;
+	padding-top: 11px;
+	letter-spacing: 0;
 	display: inline-block;
 	text-transform: uppercase;
 	line-height: normal;
+	font-family: 'Rubik', sans-serif;
 }
 
 .cta .contact a:hover{
@@ -2077,9 +2079,9 @@ nav .container {
 	color: #fff;
 }
 .cta .contact p{
-	color: #111;margin: 18px 0;
+	color: #111;
+	margin: 18px 0;
 	font-weight: 400;
-	letter-spacing: 2px;
 }
 .cta a:hover {
 	background-color: #000;
@@ -2100,12 +2102,11 @@ nav .container {
 	height: 52px;
 	vertical-align: top;
 	margin: 0 auto;
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 .cta .dealer p {
 	margin: 18px 0;
 	font-weight: 400;
-	letter-spacing: 2px;
 }
 .cta .dealer button h2
 {
@@ -2145,7 +2146,7 @@ nav .container {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	font-family: "Khula", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 17px;
 }
 
@@ -2196,7 +2197,7 @@ nav .container {
 .footer-wrap .newsletter input[type="email"] {
 	width: 100%;
 	border: 0;
-	background-color: #6b6b6b;
+
 	padding: 10px 10px 5px 10px;
 	margin-bottom: 10px;
 	font-size: 16px;
@@ -2204,7 +2205,7 @@ nav .container {
 }
 
 .footer-wrap .newsletter input[type="email"]:focus {
-	background-color: #6b6b6b;
+	background-color: #fff;
 } 
 
 .footer-wrap .newsletter .frm_submit {
@@ -2292,7 +2293,7 @@ nav .container {
 .slp_ui_button,
 #searchsubmit,
 .frm_forms .frm_submit input {
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	text-transform: uppercase;
 	border-radius: 2px;
 	font-size: 16px;
@@ -2530,7 +2531,7 @@ nav .container {
 	}
 	
 	.banner h1 {
-		font-size: 46px;
+		font-size: 35px;
 	}
 	
 	.banner-wrap .banner .lead {
@@ -3381,7 +3382,9 @@ nav .container {
 	line-height: 35px;
 }
 .top-nav-panel .top-menu li.menu-item a{
-	padding: 0 13px;font-family: avenir,arial,helvetica,sans-serif;color: #fff;
+	padding: 0 13px;
+	font-family: 'Roboto', sans-serif;
+	color: #fff;
 }
 
 
@@ -3389,7 +3392,7 @@ nav .container {
 #specifications .header-wrapper h2{
 	text-transform: uppercase;
 	font-weight: 500;
-	letter-spacing: 3px;
+	letter-spacing: 1px;
 	text-align: center;
 	width: auto;
 	height: 100px;
@@ -3487,7 +3490,7 @@ nav .container {
 	position: absolute;
 	left: 26px;
 	top: 50%;
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	background: #0c121c;
 	padding: 9px 3%;
 	text-align: center;
@@ -3509,7 +3512,7 @@ nav .container {
 	background-repeat: no-repeat;
 	display: block;
 	float: left;
-	height: 33px;
+	height: 30px;
 	text-transform: uppercase;
 	padding: 4px 0;
 }
