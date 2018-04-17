@@ -1152,6 +1152,13 @@ nav .container {
 	font-weight: bold;
 
 }
+@media (max-width : 680px)  {
+	.stripe.floorplan h2
+	{
+		margin: 10px 20% 20px;
+		font-size: 30px;
+	}
+}
 .stripe.floorplan{
 	background: #ffffff;
 	color: #fff;
@@ -2047,7 +2054,7 @@ nav .container {
 .cta .contact {
 	background: #fff;
 	text-align: center;
-	padding: 25px 0px;
+	padding: 25px 0px 35px;
 }
 
 .cta a {
@@ -2111,6 +2118,19 @@ nav .container {
 	vertical-align: top;
 	margin-bottom: 15px;
 	font-family: 'Roboto', sans-serif;
+}
+@media (max-width : 993px)  {
+	.cta .dealer input.address_postcode{
+		height: 48px;
+	}
+}
+@media (max-width : 768px)  {
+	.cta .dealer input.address_postcode{
+		width: 90%;
+		text-align: center;
+		margin-bottom: 20px;
+		height: 48px;
+	}
 }
 .cta .dealer p {
 	margin: 18px 0;
@@ -2637,8 +2657,8 @@ nav .container {
 
 /* Small Desktop only */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-	
-	#addressInput {
+
+	.stripe.map #addressInput {
 		width: 300px;
 	}
 
