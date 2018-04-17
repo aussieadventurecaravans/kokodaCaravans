@@ -3425,9 +3425,10 @@ nav .container {
 	width: auto;
 	height: 100px;
 	line-height: 100px;
-	margin: 0 28% 35px;
+	margin: 0 auto 35px;
 	font-size: 38px;
 }
+
 #specifications .panel-group {
 	margin-bottom: 20px;
 	background: #fff;
