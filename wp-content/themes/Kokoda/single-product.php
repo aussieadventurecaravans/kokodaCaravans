@@ -289,7 +289,6 @@
 
 <?php $images = get_field('gallery'); ?>
 <?php if($images): ?>
-
 	<div class="stripe center gallery" id="gallery">
 		<div class="container-fluid">
             <div class="row">
@@ -307,7 +306,7 @@
 								<li>
 									<a data-lightbox="product-gallery" href="<?php echo $image['url']; ?>">
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/bg-black-20.png" class="overlay">
-										<img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" class="gallery-img">
+										<img src="<?php echo $image['sizes']['medium_large']; ?>" alt="<?php echo $image['alt']; ?>" class="gallery-img">
 									</a>
 								</li>
 							<?php endforeach; ?>
@@ -319,7 +318,6 @@
 			</div>
 		</div>
 	</div>
-
 <?php endif; ?>
 
 <div class="modal fade" id="techSpecs" tabindex="-1" role="dialog" aria-labelledby="techSpecsLabel">
