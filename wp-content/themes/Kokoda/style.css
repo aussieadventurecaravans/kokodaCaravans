@@ -455,7 +455,19 @@ nav .container {
 	background-repeat: no-repeat;
 	top: 19px;
 }
-
+@media(max-width: 1020px)
+{
+	.banner-wrap {
+		height: 51%;
+	}
+}
+@media(max-width: 500px)
+{
+	.banner-wrap {
+		height: 21% !important;
+		top: 46px !important;
+	}
+}
 .home.page .banner-wrap {
 	height: 100%;
 }
@@ -2956,9 +2968,10 @@ nav .container {
 	.searchwp-live-search-results .result-item {
 		width: 60%;
 	}
-	
+
 	.banner-wrap {
-		height: 400px;
+		height: 41%;
+		top: 54px;
 	}
 	
 	.banner-wrap .scroll-btn {
@@ -3374,10 +3387,6 @@ nav .container {
 }
 
 @media only screen and (max-height:768px) {
-
-	.banner-wrap {
-		height: 550px;
-	}
 	
 	.page-template-page-listing .banner-wrap,
 	.page .banner-wrap,
