@@ -1106,6 +1106,15 @@ nav .container {
 .home .mobile-banner-wrap .banner.container h1{
 	color: #000;
 }
+@media (max-width: 400px)
+{
+	.home .mobile-banner-wrap .banner.container h1
+	{
+		font-size: 28px;
+		margin-bottom: 10px;
+	}
+}
+
 .home .mobile-banner-wrap .banner.container a.btn-default{
 	color: #fff;
 	background-color: #202020;
@@ -1187,6 +1196,15 @@ nav .container {
 		padding-top: 9px;
 	}
 
+}
+@media (max-width: 400px) {
+
+	.home .mobile-banner-wrap
+	 {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		display: block;
+	}
 }
 .video-embed {
 	margin-top: 20px;
