@@ -11,6 +11,16 @@
 		<a href="#break">Scroll down to continue <span class="arrow-down"></span></a>
 	</div>
 </div>
+<div class="mobile-banner-wrap stripe center">
+    <div class="banner container">
+        <div class="row">
+            <div class="banner-content">
+                <h1><?php the_field('home_banner_text'); ?></h1>
+                <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="break" id="break">
 	<div class="container">
