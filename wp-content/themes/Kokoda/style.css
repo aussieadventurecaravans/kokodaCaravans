@@ -1296,7 +1296,8 @@ nav .container {
 }
 
 .stripe.feature {
-
+	color: #fff;
+	background: #202020;
 }
 
 .stripe.feature:last-child {
@@ -1335,16 +1336,63 @@ nav .container {
 .stripe.feature.black a:hover {
 	color: #bdbdbd;
 }
+#features.stripe.feature .container-fluid
+{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+@media (max-width: 600px )
+{
+	#features.stripe.feature .container-fluid
+	{
+		padding-left: 10%;
+		padding-right: 0;
+	}
+}
+#features.stripe.feature .header-wrapper h2
+{
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	width: auto;
+	height: 60px;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 0 0 50px;
+}
+#features.stripe.feature .mobile-features-navigation
+{
+	display: none;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 30px;
+}
+#features.stripe.feature .mobile-features-navigation .feature-number
+{
+	font-size:20px;padding: 0 26px;
+}
+#features.stripe.feature .mobile-features-navigation .arrow
+{
+	cursor: pointer;
+	width:20px;
+}
+#features.stripe.feature .feature-img
+{
+	max-height: 400px;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
 
-.stripe.feature h3 {
+#features.stripe.feature h3 {
 	line-height: 1.3em;
 	text-transform: uppercase;
 	margin: 0 0 20px 0;
 }
 
-.stripe.feature .feature-img {
-	max-height: 270px;
-	overflow: hidden;
+#features.stripe.feature p {
+	font-size: 20px;
+	margin-bottom: 30px;
 }
 
 .stripe.feature .row {
@@ -2720,12 +2768,6 @@ nav .container {
 	.stripe.intro .video-embed {
 		height: 460px;
 	}
-	
-	.stripe.feature .feature-img {
-		max-height: 300px;
-		overflow: hidden;
-	}
-	
 	.stripe.gallery .flex-viewport {
 		width: 95%;
 	}

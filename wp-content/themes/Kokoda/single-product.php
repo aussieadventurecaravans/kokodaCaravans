@@ -122,62 +122,38 @@
 
 <?php if(have_rows('features')): ?>
 
-	<div id="features">
-		
-		<?php while (have_rows('features')) : the_row(); ?>	
-			<?php if(get_row_layout() == 'image_right'): ?>
-			
-			<div class="stripe feature <?php the_sub_field('feature_background_colour'); ?>">
-				<div class="container">
-				
-					<div class="row">
-						<div class="col-sm-6">
-							<h3><?php the_sub_field('feature_heading'); ?></h3>
-							<p><?php the_sub_field('feature_text'); ?></p>
-						</div>
-						<div class="col-sm-6 feature-img">
-							<img src="<?php the_sub_field('feature_image'); ?>" class="img-responsive">
-						</div>
-					</div>
-					
-				</div>
-			</div>
-			
-			<?php elseif(get_row_layout() == 'image_left'): ?>
-			
-			<div class="stripe feature <?php the_sub_field('feature_background_colour'); ?>">
-				<div class="container">
-			
-					<div class="row">
-						<div class="col-sm-6 col-sm-push-6">
-							<h3><?php the_sub_field('feature_heading'); ?></h3>
-							<p><?php the_sub_field('feature_text'); ?></p>
-						</div>
-						<div class="col-sm-6 col-sm-pull-6 feature-img">
-							<img src="<?php the_sub_field('feature_image'); ?>" class="img-responsive">
-						</div>
-					</div>
-				
-				</div>
-			</div>
-				
-			<?php elseif(get_row_layout() == 'one_text'): ?>
-			
-			<div class="stripe feature <?php the_sub_field('feature_background_colour'); ?>">
-				<div class="container">
-			
-					<div class="row one-text">
-						<div class="col-xs-12">
-							<?php if(get_sub_field('feature_heading')): ?><h3><?php the_sub_field('feature_heading'); ?></h3><?php endif; ?>
-							<?php the_sub_field('feature_text'); ?>
-						</div>
-					</div>
-				
-				</div>
-			</div>
-			
-			<?php endif; ?>
-		<?php endwhile; ?>
+	<div class="stripe feature" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="header-wrapper">
+                    <h2>Key Features</h2>
+                </div>
+                <div class="mobile-features-navigation">
+                    <span class="fea-prev">
+                        <img src="/wp-content/themes/Kokoda/_img/arrow-left-white.png" class="arrow"/>
+                    </span>
+                    <span class="feature-number">
+
+                    </span>
+                    <span class="fea-next">
+                        <img src="/wp-content/themes/Kokoda/_img/arrow-right-white.png" class="arrow"/>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row" id="features-list">
+                <?php while (have_rows('features')) : the_row(); ?>
+                <div class="item col-md-4">
+                    <div class="feature-img">
+                        <img src="<?php the_sub_field('feature_image'); ?>" class="img-responsive">
+                    </div>
+                    <h3><?php the_sub_field('feature_heading'); ?></h3>
+                    <p><?php the_sub_field('feature_text'); ?></p>
+                </div>
+                <?php endwhile; ?>
+            </div>
+        </div>
 
 	</div>
 
@@ -359,3 +335,78 @@
 </div>
 
 <?php get_footer(); ?>
+<!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="/wp-content/themes/Kokoda/owl-carousel/owl.carousel.css">
+<!-- Default Theme -->
+<link rel="stylesheet" href="/wp-content/themes/Kokoda/owl-carousel/owl.theme.css">
+<!-- Include js plugin -->
+<script src="/wp-content/themes/Kokoda/owl-carousel/owl.carousel.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+
+        var windowWidth = $(window).width();
+        var default_featurelist =  $("#features div.container-fluid").html();
+        var owl =  $("#features-list");
+        if(windowWidth <= 976)
+        {
+            $("#features-list").owlCarousel({
+
+                navigation : false, // Show next and prev buttons
+                slideSpeed : 300,
+                pagination: false,
+                paginationSpeed : 400,
+                singleItem:true,
+                afterAction : afterOwlAction
+            });
+            $("#features.stripe.feature .mobile-features-navigation").css({'display':'inline-block'});
+            $("#features.stripe.feature .header-wrapper h2").css({'margin' :   '0 0 20px' });
+        }
+
+        $( window ).resize(function() {
+
+            var windowWidth = $(window).width();
+
+            if(windowWidth <= 976)
+            {
+                $("#features-list").owlCarousel({
+
+                    navigation : false, // Show next and prev buttons
+                    slideSpeed : 300,
+                    pagination: false,
+                    paginationSpeed : 400,
+                    singleItem:true,
+                    afterAction : afterOwlAction
+
+                });
+                $("#features.stripe.feature .mobile-features-navigation").css({'display':'inline-block'});
+                $("#features.stripe.feature .header-wrapper h2").css({'margin' :   '0 0 20px' });
+            }
+            else
+            {
+                $("#features div.container-fluid").html(default_featurelist);
+                $("#features.stripe.feature .mobile-features-navigation").hide();
+                $("#features.stripe.feature .header-wrapper h2").css({'margin' :   '' });
+            }
+
+        });
+
+        $("#features.stripe.feature .mobile-features-navigation .fea-prev img").on('click', function(){
+            $("#features-list").trigger('owl.prev')
+        });
+        $("#features.stripe.feature .mobile-features-navigation .fea-next img").on('click',function(){
+            $("#features-list").trigger('owl.next')
+        });
+
+        function afterOwlAction()
+        {
+            var current_feature = this.owl.currentItem + 1;
+            $("#features.stripe.feature .mobile-features-navigation .feature-number").html(current_feature + ' / ' + this.owl.owlItems.length);
+
+        }
+
+    });
+
+</script>
+
+
