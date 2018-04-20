@@ -130,13 +130,13 @@
                 </div>
                 <div class="mobile-features-navigation">
                     <span class="fea-prev">
-                        <img src="/wp-content/themes/Kokoda/_img/arrow-left-white.png" class="arrow"/>
+                        <img src="/wp-content/themes/Kokoda/_img/arrow-left-grey.png" class="arrow"/>
                     </span>
                     <span class="feature-number">
 
                     </span>
                     <span class="fea-next">
-                        <img src="/wp-content/themes/Kokoda/_img/arrow-right-white.png" class="arrow"/>
+                        <img src="/wp-content/themes/Kokoda/_img/arrow-right-grey.png" class="arrow"/>
                     </span>
                 </div>
             </div>
