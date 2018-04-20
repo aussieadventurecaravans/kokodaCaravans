@@ -1236,7 +1236,7 @@ nav .container {
 
 .stripe.intro {
 	color: #202020;
-	background: #f9fbfb;
+	background: #eceded;
 	position: relative;
 	top:0;
 	padding: 60px 0 60px 0;
@@ -1297,7 +1297,7 @@ nav .container {
 
 .stripe.feature {
 	color: #202020;
-	background: #f9fbfb;
+	background: #eceded;
 }
 
 .stripe.feature:last-child {
@@ -1494,7 +1494,7 @@ nav .container {
 }
 
 .stripe.gallery {
-	background: #f9fbfb;
+	background: #eceded;
 	padding-top: 30px;
 }
 
