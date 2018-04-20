@@ -1408,7 +1408,11 @@ nav .container {
 .stripe.feature .row:last-child {
   margin-bottom: 0;
 }
-
+.stripe.feature .row .item
+{
+	padding-left: 20px;
+	padding-right: 20px;
+}
 .stripe.specs {
 	color: #000000;
 	background-size: 100% auto;
