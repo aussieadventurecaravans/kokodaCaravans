@@ -1266,14 +1266,14 @@ nav .container {
 	.stripe.floorplan h2
 	{
 		margin: 10px 20% 20px;
-		font-size: 30px;
+		font-size: 38px;
 	}
 }
 .stripe.floorplan{
 	background: #ffffff;
 	color: #fff;
-	padding-top: 40px;
-	padding-bottom: 50px
+	padding-top: 60px;
+	padding-bottom: 90px;
 }
 
 .stripe.floorplan img {
