@@ -480,7 +480,7 @@ nav .container {
 @media(max-width: 767px){
 	.home.page .banner-wrap
 	{
-		height: 31% !important;
+		height: 50% !important;
 	}
 }
 @media(max-width: 500px)
@@ -491,7 +491,7 @@ nav .container {
 		margin-bottom: 30px;
 	}
 	.home.page .banner-wrap {
-		height: 26% !important;
+		height: 38% !important;
 	}
 }
 .home.page .banner-wrap {
@@ -590,18 +590,29 @@ nav .container {
 	margin-top: 5px;
 }
 
+.page.home .banner-wrap .banner .row .banner-content .lead
+{
+	color: #000;
+	text-shadow: none;
+}
+
 .page.home .banner-wrap .banner a.btn-default {
 	color: #fff;
-	font-size: 16px;
+	font-size: 12px;
 	font-weight: normal;
 	display: block;
-	height: 52px;
+	height: 46px;
 	text-transform: uppercase;
 	font-family: 'Roboto', sans-serif;
 	background: #0c121c;
 	padding: 15px 5%;
 	text-align: center;
-	min-width: 40%;
+	width: 200px;
+}
+.page.home .banner-wrap .banner a.btn-default:hover
+{
+	background: #fff;
+	color:#0c121c;
 }
 .single-product .banner-wrap .banner .row .banner-content
 {
