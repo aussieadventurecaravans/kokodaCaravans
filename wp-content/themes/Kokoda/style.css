@@ -3715,3 +3715,23 @@ nav .container {
 	text-transform: uppercase;
 	padding: 4px 0;
 }
+
+
+.page-template-template-why-kokoda .stripe.intro p:last-child
+{
+	font-size: 16px;
+	margin-bottom: 30px;
+	color: #4a4f54;
+	letter-spacing: .02em;
+
+}
+
+
+.page-template-template-why-kokoda #features .stripe p
+{
+	font-size: 16px;
+	margin-bottom: 30px;
+	color: #4a4f54;
+	letter-spacing: .02em;
+
+}
