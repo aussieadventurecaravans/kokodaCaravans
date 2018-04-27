@@ -1,15 +1,53 @@
-<div class="banner-wrap" style="background-image: url('<?php the_field('home_banner_image'); ?>');">
-	<div class="banner container">
-		<div class="row">
-			<div class="banner-content">
-				<?php the_field('home_banner_text'); ?>
-				<a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
-			</div>
-		</div>
-	</div>
-	<div class="scroll-btn">
-		<a href="#break">Scroll down to continue <span class="arrow-down"></span></a>
-	</div>
+
+
+
+<?php $banner_img = get_field('home_banner_image'); ?>
+<?php $banner_img_2 = get_field('home_banner_image_2'); ?>
+<?php $banner_img_3 = get_field('home_banner_image_3'); ?>
+<div class="banner-list-wrap" id="banner-list">
+    <?php if(!empty($banner_img)): ?>
+        <div class="banner-wrap item">
+            <div class="banner container-fluid">
+                <div class="row">
+                    <img src="<?php echo $banner_img; ?>" />
+                    <div class="banner-content">
+                        <?php the_field('home_banner_text'); ?>
+                        <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if(!empty($banner_img_2)): ?>
+        <div class="banner-wrap item">
+            <div class="banner container-fluid">
+                <div class="row">
+                    <img src="<?php echo $banner_img_2; ?>" />
+                    <div class="banner-content">
+                        <?php the_field('home_banner_text'); ?>
+                        <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if(!empty($banner_img_3)): ?>
+    <div class="banner-wrap item" style="background-image: url('<?php the_field('home_banner_image'); ?>');">
+        <div class="banner container">
+            <div class="row">
+                <div class="banner-content">
+                    <?php the_field('home_banner_text'); ?>
+                    <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
+<div class="scroll-btn">
+    <a href="#break">Scroll down to continue <span class="arrow-down"></span></a>
 </div>
 <div class="mobile-banner-wrap stripe center">
     <div class="banner container">
@@ -156,3 +194,28 @@
 	</div>
 	
 <?php endif; ?>
+
+
+<?php get_footer(); ?>
+
+<!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="/wp-content/themes/Kokoda/owl-carousel/owl.carousel.css">
+<!-- Default Theme -->
+<link rel="stylesheet" href="/wp-content/themes/Kokoda/owl-carousel/owl.theme.css">
+<!-- Include js plugin -->
+<script src="/wp-content/themes/Kokoda/owl-carousel/owl.carousel.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+
+       $("#banner-list").owlCarousel({
+
+            navigation : false, // Show next and prev buttons
+            slideSpeed : 300,
+            pagination: false,
+            paginationSpeed : 400,
+            singleItem:true
+        });
+    });
+</script>

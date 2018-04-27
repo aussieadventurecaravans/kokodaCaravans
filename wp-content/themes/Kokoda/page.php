@@ -10,8 +10,14 @@ else :
 
 	get_template_part('content','page');
 
+    get_footer();
+
 endif;
 
-get_footer(); 
+
 
 ?>
+
+
+
+

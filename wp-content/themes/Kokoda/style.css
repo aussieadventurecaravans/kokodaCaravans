@@ -454,14 +454,23 @@ nav .container {
 	background-repeat: no-repeat;
 	top: 19px;
 }
-.home .banner-wrap {
+.home .banner-list-wrap
+{
 	font-family: 'Roboto', sans-serif;
 	position: relative;
-	height: 90%;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
+	height: auto;
+	padding: 0;
+
 }
+.home.page .banner-list-wrap .banner-wrap {
+	font-family: 'Roboto', sans-serif;
+	position: relative;
+}
+.home.page .banner-list-wrap .banner-wrap img{
+	width:100%;
+	min-height: 291px;
+}
+
 .single-product .banner-wrap {
 	font-family: 'Roboto', sans-serif;
 	position: relative;
@@ -477,12 +486,6 @@ nav .container {
 		height: 51%;
 	}
 }
-@media(max-width: 767px){
-	.home.page .banner-wrap
-	{
-		height: 50% !important;
-	}
-}
 @media(max-width: 500px)
 {
 	.single-product .banner-wrap {
@@ -490,31 +493,30 @@ nav .container {
 		top: 49px;
 		margin-bottom: 30px;
 	}
-	.home.page .banner-wrap {
-		height: 38% !important;
+	.home.page .banner-list-wrap .banner-wrap {
+		height: 100% !important;
+	}
+	.home.page .banner-list-wrap
+	{
+		height: 300px !important;
 	}
 }
-.home.page .banner-wrap {
-	height: 100%;top: 0px;
-}
 
-.banner-wrap .scroll-btn {
+.home.page .scroll-btn {
 	text-transform: uppercase;
 	color: #fff;
 	font-size: 14px;
-	border-top-left-radius: 2px;
-	border-top-right-radius: 2px;
 	letter-spacing: 2px;
 	width: 357px;
-	margin: 0 auto 0 auto;
+	margin: 0 auto -60px;
 	height: 60px;
 	line-height: 14px;
 	text-align: center;
 	position: relative;
-		bottom: 60px;
+	bottom: 60px;
 }
 
-.banner-wrap .scroll-btn a {
+.home.page .scroll-btn a {
 	background-color: #000;
 	display: block;
 	height: 100%;
@@ -528,12 +530,12 @@ nav .container {
 }
 @media(max-width: 500px)
 {
-	.banner-wrap .scroll-btn,
-	.banner-wrap .scroll-btn a {
+	.home.page .scroll-btn,
+	.home.page .scroll-btn a {
 		display: none !important;
 	}
 }
-.banner-wrap .scroll-btn a:hover {
+.home.page .scroll-btn a:hover {
 	background-color: #fff;
 	text-decoration: none;
 	color: #202020;
@@ -550,9 +552,6 @@ nav .container {
 
 .scroll-btn a:hover .arrow-down {
 	background-image: url('_img/arrow-down-black.png');	
-}
-.banner-wrap .banner{
-	width: 90.5%;
 }
 @media only screen and (max-width: 650px){
 	.banner-wrap .banner{
@@ -580,6 +579,8 @@ nav .container {
 	padding: 19px 25px 21px;
 	min-width: 450px;
 	height: 210px;
+	left: 5%;
+	top: 27%;
 }
 .page.home .banner-wrap .banner h1 {
 	color: #000;
@@ -3133,13 +3134,14 @@ nav .container {
 		height: 41%;
 		top: 54px;
 	}
-	
+	.home.page .banner-wrap {
+		top : 0;
+	}
 	.banner-wrap .scroll-btn {
 		width: 320px;
 	}
 	
 	.page-template-page-listing .banner-wrap,
-	.page .banner-wrap,
 	.archive .banner-wrap {
 		height: 150px;
 	}
@@ -3549,15 +3551,9 @@ nav .container {
 @media only screen and (max-height:768px) {
 	
 	.page-template-page-listing .banner-wrap,
-	.page .banner-wrap,
 	.archive .banner-wrap {
 		height: 150px;
 	}
-	
-	.home.page .banner-wrap {
-		height: 550px;
-	}
-	
 }
 
 
