@@ -178,9 +178,9 @@
                         <?php foreach ($specs as $spec): ?>
                             <div class="panel panel-default">
                                 <!-- spec heading --->
-                                <div class="panel-heading" id="heading<?php echo $i; ?>">
+                                <div class="panel-heading" id="heading<?php echo $i; ?>" data-toggle="collapse" data-target="#collapse<?php echo $i;?>">
 
-                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse<?php echo $i;?>">
+                                    <h4 class="panel-title">
                                         <a data-toggle="collapse" data-target="#collapse<?php echo $i;?>"
                                             <?php if ($i == 1) : ?>
                                                 aria-expanded="false"  class="collapsed"
