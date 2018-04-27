@@ -180,7 +180,7 @@
                                 <!-- spec heading --->
                                 <div class="panel-heading" id="heading<?php echo $i; ?>">
 
-                                    <h4 class="panel-title">
+                                    <h4 class="panel-title" data-toggle="collapse" data-target="#collapse<?php echo $i;?>">
                                         <a data-toggle="collapse" data-target="#collapse<?php echo $i;?>"
                                             <?php if ($i == 1) : ?>
                                                 aria-expanded="false"  class="collapsed"
