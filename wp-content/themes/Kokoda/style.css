@@ -502,7 +502,12 @@ nav .container {
 		height: 300px !important;
 	}
 }
-
+.single-product .banner-wrap .banner,
+.single-product .banner-wrap .banner .row{
+	height: 100%;
+	position: relative;
+	width: 90%;
+}
 .home.page .scroll-btn {
 	text-transform: uppercase;
 	color: #fff;
