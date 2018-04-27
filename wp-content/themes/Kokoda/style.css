@@ -460,6 +460,7 @@ nav .container {
 	position: relative;
 	height: auto;
 	padding: 0;
+	top: -60px;
 
 }
 .home.page .banner-list-wrap .banner-wrap {
@@ -508,12 +509,12 @@ nav .container {
 	font-size: 14px;
 	letter-spacing: 2px;
 	width: 357px;
-	margin: 0 auto -60px;
+	margin: 0 auto -120px;
 	height: 60px;
 	line-height: 14px;
 	text-align: center;
 	position: relative;
-	bottom: 60px;
+	top: -120px;
 }
 
 .home.page .scroll-btn a {

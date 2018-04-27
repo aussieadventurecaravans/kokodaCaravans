@@ -25,7 +25,7 @@
                 <div class="row">
                     <img src="<?php echo $banner_img_2; ?>" />
                     <div class="banner-content">
-                        <?php the_field('home_banner_text'); ?>
+                        <?php the_field('home_banner_text_2'); ?>
                         <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
                     </div>
                 </div>
@@ -34,16 +34,17 @@
     <?php endif; ?>
 
     <?php if(!empty($banner_img_3)): ?>
-    <div class="banner-wrap item" style="background-image: url('<?php the_field('home_banner_image'); ?>');">
-        <div class="banner container">
-            <div class="row">
-                <div class="banner-content">
-                    <?php the_field('home_banner_text'); ?>
-                    <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+        <div class="banner-wrap item">
+            <div class="banner container-fluid">
+                <div class="row">
+                    <img src="<?php echo $banner_img_3; ?>" />
+                    <div class="banner-content">
+                        <?php the_field('home_banner_text_3'); ?>
+                        <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     <?php endif; ?>
 </div>
 <div class="scroll-btn">
