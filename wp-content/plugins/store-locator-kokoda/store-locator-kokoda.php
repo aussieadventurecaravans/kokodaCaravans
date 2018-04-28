@@ -29,11 +29,16 @@ function search_dealer_by_postcode()
             'url' =>  $url.'?address='.$_POST['address']
         ));
     }
+    else
+    {
+        echo "post value dealer_link is empty";
+    }
 
 }
 
 add_action('wp_ajax_search_dealer','search_dealer_by_postcode');
 //add_action('wp_ajax_nopriv_csl_search_dealer', 'search_dealer_by_postcode');
+add_action( 'wp_ajax_nopriv_search_dealer', 'search_dealer_by_postcode' );
 add_filter('slp_search_default_address','add_default_search_address',99);
 
 function add_default_search_address()
