@@ -33,6 +33,7 @@ function search_dealer_by_postcode()
     {
         echo "post value dealer_link is empty";
     }
+    wp_die(); // this is required to terminate immediately and return a proper response
 
 }
 
