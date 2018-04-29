@@ -149,9 +149,12 @@
                         url: "<?php echo admin_url('admin-ajax.php'); ?>",
                         data: formData,
                         dataType   : 'json',
+                        beforeSend: function() {
+                            $('#loading-icon-panel').show();
+                        }
                     }).done(function (res) {
                         window.location = res.data.url ;
-
+                        $('#loading-icon-panel').hide();
                     });
                 });
 
@@ -162,11 +165,15 @@
                         $('.dealer button.dealer_search').click();
                     }
                 });
+                $('#loading-icon-panel').on('click',function(){
+                    $('#loading-icon-panel').hide();
+                })
             });
         </script>
    <?php endif; ?>
-
-
+    <div class="loading-icon-panel" id="loading-icon-panel">
+         <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/loading-progress.svg" class="loading-icon" alt="loading icon" width="250"/>
+    </div>
 
 	</body>
 </html>

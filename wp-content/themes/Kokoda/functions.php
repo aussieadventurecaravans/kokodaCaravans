@@ -45,13 +45,13 @@ function kokoda_scripts() {
 		true
 	);
 	
-	wp_enqueue_script(
+	/*wp_enqueue_script(
 		'retina',
 		get_stylesheet_directory_uri() . '/_js/retina.min.js',
 		array( 'jquery' ),
 		'1.0.0',
 		true
-	);
+	);*/
 	
 	wp_enqueue_script(
 		'responsivetabs',
