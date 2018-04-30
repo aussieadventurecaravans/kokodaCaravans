@@ -469,7 +469,7 @@ nav .container {
 }
 .home.page .banner-list-wrap .banner-wrap img{
 	width:100%;
-	min-height: 291px;
+	min-height: 200px;
 }
 
 .single-product .banner-wrap {
@@ -499,7 +499,8 @@ nav .container {
 	}
 	.home.page .banner-list-wrap
 	{
-		height: 300px !important;
+		top:0;
+		min-height: 200px;
 	}
 }
 .single-product .banner-wrap .banner,
@@ -588,6 +589,14 @@ nav .container {
 	left: 5%;
 	top: 27%;
 }
+@media only screen and (max-width:900px)
+{
+	.page.home .banner-wrap .banner .row .banner-content
+	{
+		display: none;
+	}
+}
+
 @media only screen and (max-width:1326px) {
 	.page.home .banner-wrap .banner .row .banner-content
 	{
@@ -3168,11 +3177,6 @@ nav .container {
 	.page .banner-wrap .banner .row .banner-content.page-heading h1 {
 		font-size: 34px;
 	}
-	
-	.page.home .banner-wrap .banner .row .banner-content {
-		display: none;
-	}
-	
 	.banner-wrap .banner .row .banner-content {
 		top: 20%;
 	}
