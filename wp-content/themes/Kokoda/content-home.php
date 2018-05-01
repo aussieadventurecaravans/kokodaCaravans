@@ -47,14 +47,22 @@
         </div>
     <?php endif; ?>
 </div>
-<div class="scroll-btn">
-    <a href="#break">Scroll down to continue <span class="arrow-down"></span></a>
-</div>
+<!--<div class="scroll-btn">
+    <a href="#break"><span class="arrow-down"></span></a>
+</div>-->
 <div class="mobile-banner-wrap stripe center">
     <div class="banner container">
         <div class="row">
-            <div class="banner-content">
+            <div class="banner-content content-1">
                 <?php the_field('home_banner_text'); ?>
+                <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+            </div>
+            <div class="banner-content content-2">
+                <?php the_field('home_banner_text_2'); ?>
+                <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+            </div>
+            <div class="banner-content content-3">
+                <?php the_field('home_banner_text_3'); ?>
                 <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
             </div>
         </div>
@@ -210,13 +218,26 @@
 <script type="text/javascript">
     jQuery(document).ready(function($){
 
+        var owl =  $("#banner-list");
+
        $("#banner-list").owlCarousel({
 
             navigation : false, // Show next and prev buttons
             slideSpeed : 300,
-            pagination: false,
+            pagination: true,
             paginationSpeed : 400,
-            singleItem:true
+            singleItem:true,
+            autoPlay: 3000,
+            afterAction : afterOwlAction
         });
+
+        function afterOwlAction()
+        {
+            var current_feature = this.owl.currentItem + 1;
+            $(".home .mobile-banner-wrap .banner-content").hide();
+            $(".home .mobile-banner-wrap .banner-content.content-" + current_feature).show();
+
+        }
+
     });
 </script>

@@ -460,7 +460,7 @@ nav .container {
 	position: relative;
 	height: auto;
 	padding: 0;
-	top: -60px;
+	top: 0;
 
 }
 .home.page .banner-list-wrap .banner-wrap {
@@ -1132,6 +1132,21 @@ nav .container {
 {
 	display:none;
 }
+@media(max-width: 900px)
+{
+	.home .mobile-banner-wrap
+	{
+		display: block;
+	}
+}
+
+.home .mobile-banner-wrap .banner-content.content-1,
+.home .mobile-banner-wrap .banner-content.content-2,
+.home .mobile-banner-wrap .banner-content.content-3
+{
+	display:none;
+}
+
 .home .mobile-banner-wrap .banner.container
 {
 	color: #000;
@@ -1159,7 +1174,6 @@ nav .container {
 	{
 		display:none;
 	}
-	.home .mobile-banner-wrap,
 	.single-product .mobile-banner-wrap
 	{
 		display:block;
@@ -3752,9 +3766,9 @@ nav .container {
 }
 
 
-/****
-loading ajax icon panel
- */
+/*
+*loading ajax icon panel
+**/
 
 
 .loading-icon-panel
@@ -3779,4 +3793,41 @@ loading ajax icon panel
 	height: 150px;
 	margin-top: -75px; /* Half the height */
 	margin-left: -75px; /* Half the width */
+}
+
+
+/*
+* home banner pagination style
+*/
+.home.page .owl-theme .owl-controls
+{
+	text-align: left;
+	position: absolute;
+	margin-top: -74px;
+	margin-left: 4%;
+}
+@media(max-width: 1320px) {
+	.home.page .owl-theme .owl-controls
+	{
+		margin-left: 0;
+	}
+}
+@media(max-width: 900px) {
+	.home.page .owl-theme .owl-controls
+	{
+		margin: -40px auto auto;
+		text-align: center;
+		position: relative;
+	}
+}
+.home.page .owl-theme .owl-controls .owl-page
+{
+
+}
+.home.page .owl-theme .owl-controls .owl-page span
+{
+	width: 60px;
+	height: 2px;
+	border-radius: 0;
+	background: #ffffff;
 }
