@@ -460,7 +460,8 @@ nav .container {
 	position: relative;
 	height: auto;
 	padding: 0;
-	top: 0;
+	margin-top: -60px;
+
 
 }
 .home.page .banner-list-wrap .banner-wrap {
