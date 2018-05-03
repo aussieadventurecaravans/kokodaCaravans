@@ -56,9 +56,9 @@
     </div>
 </div>
 
-<!--<div class="scroll-btn">
+<div class="scroll-btn">
     <a href="#break"><span class="arrow-down"></span></a>
-</div>-->
+</div>
 <div class="mobile-banner-wrap stripe center">
     <div class="banner container">
         <div class="row">
@@ -232,7 +232,7 @@
        $("#banner-list").owlCarousel({
 
             navigation : false, // Show next and prev buttons
-            slideSpeed : 300,
+            slideSpeed :1000,
             pagination: true,
             paginationSpeed : 1000,
             singleItem:true,
@@ -248,6 +248,12 @@
 
         }
 
+        $(".home.page .banner .arrow-left img").on('click', function(){
+            $("#banner-list").trigger('owl.prev');
+        });
+        $(".home.page .banner .arrow-right img").on('click',function(){
+            $("#banner-list").trigger('owl.next');
+        });
 
         $(".home.page .banner .arrow-left img").hover(function(){
             $(".home.page .banner .arrow-left img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-left-glow.png');

@@ -516,57 +516,6 @@ nav .container {
 	position: relative;
 	width: 90%;
 }
-.home.page .scroll-btn {
-	text-transform: uppercase;
-	color: #fff;
-	font-size: 14px;
-	letter-spacing: 2px;
-	width: 357px;
-	margin: 0 auto -120px;
-	height: 60px;
-	line-height: 14px;
-	text-align: center;
-	position: relative;
-	top: -120px;
-}
-
-.home.page .scroll-btn a {
-	background-color: #000;
-	display: block;
-	height: 100%;
-	width: 100%;
-	color: inherit;
-	padding-top: 22px;
-	-webkit-transition: background-color 0.2s linear;
-	-moz-transition: background-color 0.2s linear;
-	-o-transition: background-color 0.2s linear;
-	transition: background-color 0.2s linear;
-}
-@media(max-width: 500px)
-{
-	.home.page .scroll-btn,
-	.home.page .scroll-btn a {
-		display: none !important;
-	}
-}
-.home.page .scroll-btn a:hover {
-	background-color: #fff;
-	text-decoration: none;
-	color: #202020;
-}
-
-.scroll-btn a .arrow-down {
-	display: inline-block;
-	background-image: url('_img/arrow-down-white.png');
-	background-repeat: no-repeat;
-	background-size: 18px 9px;
-	width: 18px;
-	height: 9px;
-}
-
-.scroll-btn a:hover .arrow-down {
-	background-image: url('_img/arrow-down-black.png');	
-}
 @media only screen and (max-width: 650px){
 	.banner-wrap .banner{
 		width:auto;
@@ -3810,8 +3759,8 @@ nav .container {
 {
 	text-align: left;
 	position: absolute;
-	margin-top: -74px;
-	margin-left: 4%;
+	margin-top: -80px;
+	margin-left: 5%;
 }
 @media(max-width: 1320px) {
 	.home.page .owl-theme .owl-controls
@@ -3844,7 +3793,7 @@ nav .container {
 .home.page .banner .arrow-right
 {
 	position: absolute;
-	top: 40%;
+	top: 50%;
 
 }
 .home.page .banner .arrow-left
@@ -3866,8 +3815,94 @@ nav .container {
 .home.page .banner .arrow-right img,
 .home.page .banner .arrow-left img
 {
-	width:50px
+	width:50px;
+	cursor:pointer;
 }
+
+
+.home.page .scroll-btn {
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 14px;
+	letter-spacing: 2px;
+	margin: 0 auto -60px;
+	height: 60px;
+	line-height: 14px;
+	text-align: center;
+	position: relative;
+	top: -65px;
+}
+
+.home.page .scroll-btn a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	color: inherit;
+	padding-top: 22px;
+	-webkit-transition: background-color 0.2s linear;
+	-moz-transition: background-color 0.2s linear;
+	-o-transition: background-color 0.2s linear;
+	transition: background-color 0.2s linear;
+}
+@media(max-width: 500px)
+{
+	.home.page .scroll-btn,
+	.home.page .scroll-btn a {
+		display: none !important;
+	}
+}
+.scroll-btn a .arrow-down {
+	display: inline-block;
+	background-image: url('_img/arrow-down-white.png');
+	background-repeat: no-repeat;
+	background-size: 50px 25px;
+	width: 50px;
+	height: 25px;
+
+
+	/*set bounce down animation */
+	-moz-animation: bounceDown 1s infinite;
+	-webkit-animation: bounceDown 1s infinite;
+	animation: bounceDown 1s infinite;
+}
+
+@-moz-keyframes bounceDown {
+	0%, 20%, 50%, 80%, 100% {
+		-moz-transform: translateY(0);
+		transform: translateY(0);
+	}
+	60% {
+		-moz-transform: translateY(15px);
+		transform: translateY(15px);
+	}
+}
+
+/* set up animation configuration for bounce down */
+@-webkit-keyframes bounceDown {
+	0%, 20%, 50%, 80%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	60% {
+		-webkit-transform: translateY(15px);
+		transform: translateY(15px);
+	}
+}
+@keyframes bounceDown {
+	0%, 20%, 50%, 80%, 100% {
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+	60% {
+		-moz-transform: translateY(15px);
+		-ms-transform: translateY(15px);
+		-webkit-transform: translateY(15px);
+		transform: translateY(15px);
+	}
+}
+
 
 
 /* set up animation configuration for bounce left/right */
@@ -3912,8 +3947,6 @@ nav .container {
 	}
 }
 /* /left bounce */
-
-
 /* right bounce */
 @-webkit-keyframes bounceRight {
 	0%,
