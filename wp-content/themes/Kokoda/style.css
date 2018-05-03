@@ -454,7 +454,13 @@ nav .container {
 	background-repeat: no-repeat;
 	top: 19px;
 }
-.home .banner-list-wrap
+.home.page .banner
+{
+	position: relative;
+	width: 100%;
+	height:auto;
+}
+.home.page .banner .banner-list-wrap
 {
 	font-family: 'Roboto', sans-serif;
 	position: relative;
@@ -3831,4 +3837,121 @@ nav .container {
 	height: 2px;
 	border-radius: 0;
 	background: #ffffff;
+}
+
+
+.home.page .banner .arrow-left,
+.home.page .banner .arrow-right
+{
+	position: absolute;
+	top: 40%;
+
+}
+.home.page .banner .arrow-left
+{
+	 left:15px;
+	 /* make arrow left/right bounce animation	*/
+	 -webkit-animation: bounceLeft 1s infinite;
+	 animation: bounceRight 1s infinite;
+
+}
+.home.page .banner .arrow-right
+{
+	right:15px;
+
+	/* make arrow left/right bounce animation	*/
+	-webkit-animation: bounceLeft 1s infinite;
+	animation: bounceLeft 1s infinite;
+}
+.home.page .banner .arrow-right img,
+.home.page .banner .arrow-left img
+{
+	width:50px
+}
+
+
+/* set up animation configuration for bounce left/right */
+@-webkit-keyframes bounceLeft {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	60% {
+		-webkit-transform: translateX(15px);
+		transform: translateX(15px);
+	}
+}
+@-moz-keyframes bounceLeft {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateX(0);
+	}
+	60% {
+		transform: translateX(15px);
+	}
+}
+@keyframes bounceLeft {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+	}
+	60% {
+		-ms-transform: translateX(15px);
+		transform: translateX(15px);
+	}
+}
+/* /left bounce */
+
+
+/* right bounce */
+@-webkit-keyframes bounceRight {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	60% {
+		-webkit-transform: translateX(-15px);
+		transform: translateX(-15px);
+	}
+}
+@-moz-keyframes bounceRight {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateX(0);
+	}
+	60% {
+		transform: translateX(-15px);
+	}
+}
+@keyframes bounceRight {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+	}
+	60% {
+		-ms-transform: translateX(-15px);
+		transform: translateX(-15px);
+	}
 }

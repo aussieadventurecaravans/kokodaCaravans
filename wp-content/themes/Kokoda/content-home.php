@@ -4,49 +4,58 @@
 <?php $banner_img = get_field('home_banner_image'); ?>
 <?php $banner_img_2 = get_field('home_banner_image_2'); ?>
 <?php $banner_img_3 = get_field('home_banner_image_3'); ?>
-<div class="banner-list-wrap" id="banner-list">
-    <?php if(!empty($banner_img)): ?>
-        <div class="banner-wrap item">
-            <div class="banner container-fluid">
-                <div class="row">
-                    <img src="<?php echo $banner_img; ?>" />
-                    <div class="banner-content">
-                        <?php the_field('home_banner_text'); ?>
-                        <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+<div class="banner">
+    <div class="banner-list-wrap" id="banner-list">
+        <?php if(!empty($banner_img)): ?>
+            <div class="banner-wrap item">
+                <div class="banner container-fluid">
+                    <div class="row">
+                        <img src="<?php echo $banner_img; ?>" />
+                        <div class="banner-content">
+                            <?php the_field('home_banner_text'); ?>
+                            <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
 
-    <?php if(!empty($banner_img_2)): ?>
-        <div class="banner-wrap item">
-            <div class="banner container-fluid">
-                <div class="row">
-                    <img src="<?php echo $banner_img_2; ?>" />
-                    <div class="banner-content">
-                        <?php the_field('home_banner_text_2'); ?>
-                        <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+        <?php if(!empty($banner_img_2)): ?>
+            <div class="banner-wrap item">
+                <div class="banner container-fluid">
+                    <div class="row">
+                        <img src="<?php echo $banner_img_2; ?>" />
+                        <div class="banner-content">
+                            <?php the_field('home_banner_text_2'); ?>
+                            <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
 
-    <?php if(!empty($banner_img_3)): ?>
-        <div class="banner-wrap item">
-            <div class="banner container-fluid">
-                <div class="row">
-                    <img src="<?php echo $banner_img_3; ?>" />
-                    <div class="banner-content">
-                        <?php the_field('home_banner_text_3'); ?>
-                        <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+        <?php if(!empty($banner_img_3)): ?>
+            <div class="banner-wrap item">
+                <div class="banner container-fluid">
+                    <div class="row">
+                        <img src="<?php echo $banner_img_3; ?>" />
+                        <div class="banner-content">
+                            <?php the_field('home_banner_text_3'); ?>
+                            <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
+    <div class="arrow-left">
+        <img src="/wp-content/themes/kokoda/_img/banner-arrow-left.png" class="white-arrow-left"/>
+    </div>
+    <div class="arrow-right">
+        <img src="/wp-content/themes/kokoda/_img/banner-arrow-right.png" class="white-arrow-right"/>
+    </div>
 </div>
+
 <!--<div class="scroll-btn">
     <a href="#break"><span class="arrow-down"></span></a>
 </div>-->
@@ -225,9 +234,9 @@
             navigation : false, // Show next and prev buttons
             slideSpeed : 300,
             pagination: true,
-            paginationSpeed : 400,
+            paginationSpeed : 1000,
             singleItem:true,
-            autoPlay: 3000,
+            autoPlay: 5000,
             afterAction : afterOwlAction
         });
 
@@ -238,6 +247,19 @@
             $(".home .mobile-banner-wrap .banner-content.content-" + current_feature).show();
 
         }
+
+
+        $(".home.page .banner .arrow-left img").hover(function(){
+            $(".home.page .banner .arrow-left img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-left-glow.png');
+        },function(){
+            $(".home.page .banner .arrow-left img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-left.png');
+        });
+        $(".home.page .banner .arrow-right img").hover(function(){
+            $(".home.page .banner .arrow-right img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-right-glow.png');
+        },function(){
+            $(".home.page .banner .arrow-right img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-right.png');
+        });
+
 
     });
 </script>
