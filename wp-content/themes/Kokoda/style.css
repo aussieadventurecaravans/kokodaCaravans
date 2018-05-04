@@ -82,7 +82,7 @@ a:hover, a:focus {
 }
 
 .caret {
-	background-image: url('_img/arrow-down-white.png');
+	background-image: url('_img/arrow-down-black.png');
 	background-repeat: no-repeat;
 	background-size: 10px 5px;
 	display: inline-block;
@@ -128,7 +128,8 @@ a:hover, a:focus {
 }
 
 .navbar-default {
-	background-color: #000;
+	background-color: #fff;
+	color: #000;
 	height: 117px;
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 }
@@ -154,59 +155,59 @@ a:hover, a:focus {
 }
 
 .navbar-default .navbar-nav li {
-	font-size: 14px;
-	font-weight: 700;
+	font-size: 12px;
+	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: #fff;
 	padding-top: 28px;
 	padding-bottom: 32px;
 	padding-left: 0;
 	padding-right: 0;
-	border-right: 1px solid #424242;
-	background-color: #000;
+	border-right: 1px solid #eff1f1;
 	-webkit-transition: background-color 0.2s linear;
 	-moz-transition: background-color 0.2s linear;
 	-o-transition: background-color 0.2s linear;
 	transition: background-color 0.2s linear;
+
+	color: #000;
+	background-color: #fff;
+	border-bottom-color: transparent;
+	line-height: 19px;
 }
 
 .navbar-default .navbar-nav > li.current-menu-parent > a {
-	background-color: #2d2d2d;
+	background-color: #e4e8e8;
 }
-
 .navbar-default .navbar-nav > li:first-child > a  {
-	border-left: 1px solid #424242;
+	border-left: 1px solid #e4e8e8;
 }
 
 .navbar-default .navbar-nav > li > a:hover, 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li.nav-search > a:hover {
-	background-color: #2d2d2d;
-	color: #fff;
+	background-color: #e4e8e8;
+	color: #000;
 }
 
 .navbar-default .navbar-nav > .open > a, 
 .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
-	color: #fff;
-	background-color: #2d2d2d;
+	background-color: #e4e8e8;
 }
 
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-	color: #fff;
-	background-color: #2d2d2d;
+	background-color: #e4e8e8;
 }
 
 .nav .open > a, 
 .nav .open > a:hover, 
 .nav .open > a:focus {
-	border-color: #424242;
+	border-color: #e4e8e8;
 }
 
 .navbar-default .navbar-toggle {
@@ -303,11 +304,11 @@ a:hover, a:focus {
 }
 
 .nav-search.ico-search a {
-	background-image: url('_img/ico-search.png');
+	background-image: url('_img/ico-search-black.png');
 }
 
 .nav-search.ico-close a {
-	background-image: url('_img/close-white.png');	
+	background-image: url('_img/close-black.png');
 }
 
 /* search box */
@@ -320,13 +321,13 @@ nav .container {
 {
 	display: none;
 	width: 76%;
-	background: #000;
+	background: #fff;
 	padding: 19px 25px 0;
 	position: absolute;
-	top: 37px;
-	right:0;
+	top: 38px;
+	right: 0;
 	z-index: 100;
-	height: 65%;
+	height: 66%;
 }
 
 .single-product .search-box,
@@ -338,7 +339,7 @@ nav .container {
 	width: 75%;
 	padding: 7px 10px 6px 10px;
 	font-size: 18px;
-	border: 1px solid #202020;
+	border: 1px solid #fff;
 }
 
 .search-box input[type="submit"] {
@@ -3548,7 +3549,9 @@ nav .container {
 
 /** Top menu customize **/
 .top-nav-panel{
-	width: 85%;float: left;border-left: 1px solid #424242;border-bottom: 1px solid #424242;
+	width: 85%;float: left;
+	border-left: 1px solid #eff1f1;
+	border-bottom: 1px solid #eff1f1;
 }
 .top-nav-panel .top-menu{
 	list-style-type: none;
@@ -3566,7 +3569,10 @@ nav .container {
 .top-nav-panel .top-menu li.menu-item a{
 	padding: 0 13px;
 	font-family: 'Roboto', sans-serif;
-	color: #fff;
+	color: #0c121c;
+	font-size: 11px;
+	letter-spacing: 0.2em;
+	font-weight: 400;
 }
 
 
