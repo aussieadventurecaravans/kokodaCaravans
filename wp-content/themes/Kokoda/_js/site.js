@@ -6,12 +6,12 @@ jQuery(function($) {
 		if ($(window).scrollTop() >= 200 && $(window).width() > 755) {
 			$('body.home').css({'padding-top': '54px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default').css({'height': '80px','transition': 'height .3s'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '10px', 'padding-bottom': '13px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '14px', 'padding-bottom': '13px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '80px','transition': 'height .3s'});
 			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '10px', 'padding-bottom': '13px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '12px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '20px', 'padding-bottom': '14px','transition': 'padding .3s'});
-			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '0px','height' : '66%','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '0px','height' : '58%','transition': 'padding .3s'});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '78px'});
 		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755) {
 			$('body.home').css({'padding-top': '96px','transition': 'padding .3s'});
@@ -19,7 +19,7 @@ jQuery(function($) {
 			$('body.page-template-page-listing').css({'padding-top': '146px','transition': 'padding .3s'});
 			$('body.single-product').css({'padding-top': '146px'});
 			$('nav#navbar-top.navbar-default').css({'height': '114px','transition': 'height .3s'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '28px', 'padding-bottom': '32px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '31px', 'padding-bottom': '31px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '96px','transition': 'height .3s'});
 			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '32px', 'padding-top': '28px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '49px','transition': 'padding .3s'});
