@@ -153,7 +153,6 @@ a:hover, a:focus {
 
 .navbar-default .navbar-nav {
 	position: relative;
-	border-bottom: 1px solid #e4e8e8;
 }
 
 .navbar-default .navbar-nav li {
@@ -169,15 +168,9 @@ a:hover, a:focus {
 	padding-left: 0;
 	padding-right: 0;
 	border-right: 1px solid #eff1f1;
-	-webkit-transition: background-color 0.2s linear;
-	-moz-transition: background-color 0.2s linear;
-	-o-transition: background-color 0.2s linear;
-	transition: background-color 0.2s linear;
-
 	color: #000;
 	background-color: #fff;
-	border-bottom-color: transparent;
-	line-height: 19px;
+	line-height: 18px;
 }
 
 .navbar-default .navbar-nav > li.current-menu-parent > a {
