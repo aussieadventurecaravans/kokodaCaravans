@@ -217,4 +217,25 @@ jQuery(function($) {
 		});
 	});
 
+
+	//customize the "Our Range" custom link at Main Menu
+	$('#navbar-top .main-navi-panel .our-range-class.menu-item').click(function()
+	{
+		if($('#navbar-top .main-navi-panel .our-range-class.menu-item').hasClass('active'))
+		{
+            $('#navbar-top .main-navi-panel li.menu-item').removeClass('active');
+		}
+		else
+		{
+            $('#navbar-top .main-navi-panel li.menu-item').removeClass('active');
+            $('#navbar-top .main-navi-panel .our-range-class.menu-item').addClass('active');
+		}
+
+        $('#navbar-top .main-navi-panel .our-range-class.menu-item ul.dropdown-menu').hide();
+		$('.products-navigation').toggle();
+
+	});
+
+
+
 });
