@@ -232,6 +232,7 @@ jQuery(function($) {
                 $('#navbar-top .main-navi-panel li.menu-item.our-range-class').removeClass('active');
                 $('body.page').removeClass('no-scroll');
                 $(this).find('span.caret').removeClass('up-arrow');
+                $('.products-navigation').removeClass('show-nav');
             }
             else
             {
@@ -239,16 +240,17 @@ jQuery(function($) {
                 $('#navbar-top .main-navi-panel li.menu-item.our-range-class').addClass('active');
                 $('body.page').addClass('no-scroll');
                 $(this).find('span.caret').addClass('up-arrow');
+                $('.products-navigation').addClass('show-nav');
 
             }
 
             $('#navbar-top .main-navi-panel li.menu-item.our-range-class ul.dropdown-menu').hide();
-            $('.products-navigation').toggle();
+
 		}
 		else
 		{
 			//hide the product navigation of custom link "our range"
-            $('.products-navigation').hide();
+            $('.products-navigation').removeClass('show-nav');
             $('#navbar-top .main-navi-panel li.menu-item.our-range-class').removeClass('active');
 
 			//this clicked menu link will have up arrow or not

@@ -4020,7 +4020,7 @@ at main Menu
 .products-navigation
 {
 	position: fixed;
-	display: none;
+	visibility: hidden;
 	width: 100%;
 	z-index: 999;
 	background-color: #f8f9f9;
@@ -4028,14 +4028,17 @@ at main Menu
 	height: 100%;
 	overflow-y: auto;
 	padding-bottom: 80px;
-	padding-top: 36px;
+	padding-top: 17px;
+
+	transition: opacity 600ms, visibility 600ms;
+	opacity: 0;
 
 }
-/*.products-navigation::-webkit-scrollbar
- {
-	 display: none;
- }*/
-
+.products-navigation.show-nav
+{
+	opacity: 1;
+	visibility: visible;
+}
 .products-navigation .product-list
 {
 	overflow: hidden;
