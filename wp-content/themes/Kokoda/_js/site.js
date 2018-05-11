@@ -218,21 +218,55 @@ jQuery(function($) {
 	});
 
 
-	//customize the "Our Range" custom link at Main Menu
-	$('#navbar-top .main-navi-panel .our-range-class.menu-item').click(function()
-	{
-		if($('#navbar-top .main-navi-panel .our-range-class.menu-item').hasClass('active'))
+
+	//customizre the main menu style
+    $('#navbar-top .main-navi-panel li.menu-item').click(function(){
+        //other main menu link remove up arrow
+        $('#navbar-top .main-navi-panel li.menu-item span.caret').removeClass('up-arrow');
+
+        //customize the "Our Range" custom link at Main Menu
+    	if($(this).hasClass('our-range-class'))
 		{
-            $('#navbar-top .main-navi-panel li.menu-item').removeClass('active');
+            if($('#navbar-top .main-navi-panel .our-range-class.menu-item').hasClass('active'))
+            {
+                $('#navbar-top .main-navi-panel li.menu-item.our-range-class').removeClass('active');
+                $('body.page').removeClass('no-scroll');
+                $(this).find('span.caret').removeClass('up-arrow');
+            }
+            else
+            {
+
+                $('#navbar-top .main-navi-panel li.menu-item.our-range-class').addClass('active');
+                $('body.page').addClass('no-scroll');
+                $(this).find('span.caret').addClass('up-arrow');
+
+            }
+
+            $('#navbar-top .main-navi-panel li.menu-item.our-range-class ul.dropdown-menu').hide();
+            $('.products-navigation').toggle();
 		}
 		else
 		{
-            $('#navbar-top .main-navi-panel li.menu-item').removeClass('active');
-            $('#navbar-top .main-navi-panel .our-range-class.menu-item').addClass('active');
+			//hide the product navigation of custom link "our range"
+            $('.products-navigation').hide();
+            $('#navbar-top .main-navi-panel li.menu-item.our-range-class').removeClass('active');
+
+			//this clicked menu link will have up arrow or not
+			//this link drop donw open then should add up-arrow icon
+            if($(this).find('a').attr('aria-expanded') == 'true')
+            {
+                $(this).find('span.caret').removeClass('up-arrow');
+            }
+            else
+            {
+            	//if not, then remove the up arrow icon
+                $(this).find('span.caret').addClass('up-arrow');
+            }
 		}
 
-        $('#navbar-top .main-navi-panel .our-range-class.menu-item ul.dropdown-menu').hide();
-		$('.products-navigation').toggle();
+
+
+
 
 	});
 

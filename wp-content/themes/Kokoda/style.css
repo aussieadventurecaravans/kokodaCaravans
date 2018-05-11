@@ -82,16 +82,19 @@ a:hover, a:focus {
 }
 
 .caret {
-	background-image: url('_img/arrow-down-black.png');
+	background-image: url('_img/arrow_down_black_bold.png');
 	background-repeat: no-repeat;
-	background-size: 10px 5px;
+	background-size: 19px 19px;
+	background-position:-2px -2px;
 	display: inline-block;
-	width: 10px;
-	height: 5px;
-	margin-left: 2px;
+	width: 19px;
+	height: 15px;
+	margin-left: 0;
 	border: 0;
 }
-
+.caret.up-arrow {
+	background-image: url('_img/arrow_up_black_bold.png');
+}
 .caret-dark {
 	background-image: url('_img/arrow-down-black.png');
 	background-repeat: no-repeat;
@@ -4059,4 +4062,8 @@ at main Menu
 .products-navigation .product-list .product-list-item .item-img img
 {
 	width:100%;
+}
+body.page.no-scroll
+{
+	overflow-y: hidden;
 }
