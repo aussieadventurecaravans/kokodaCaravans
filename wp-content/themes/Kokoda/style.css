@@ -295,7 +295,7 @@ a:hover, a:focus {
 	width: 22px;
 	height: 22px;
 	display: block;
-	background: url('_img/ico-search.png') no-repeat center center;
+	background: url('_img/ico-search-black.png') no-repeat center center;
 	background-size: 22px 22px;
 	text-indent: -9999px;
 	position: absolute;
@@ -4069,4 +4069,27 @@ at main Menu
 body.page.no-scroll
 {
 	overflow-y: hidden;
+}
+
+
+/**
+customize the top mobile navigation
+ */
+
+#navbar-top-mob
+{
+	background-color: #fff;
+}
+#navbar-top-mob.navbar-default .navbar-toggle
+{
+	background-color: #fff;
+}
+#navbar-top-mob.navbar-default  .navbar-toggle .icon-bar
+{
+	background-color: #000;
+}
+
+#navbar-top-mob.navbar-default .navbar-collapse
+{
+	border-bottom:1px solid #e4e8e8;
 }
