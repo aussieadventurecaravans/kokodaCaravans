@@ -460,6 +460,14 @@ nav .container {
 	position: relative;
 	width: 100%;
 	height:auto;
+	margin-top: 50px;
+}
+@media (max-width: 2024px)
+{
+	.home.page .banner
+	{
+		margin-top: 0;
+	}
 }
 .home.page .banner .banner-list-wrap
 {
@@ -626,20 +634,29 @@ nav .container {
 /* BREAK */
 
 .break {
-	background: #202020;
+	background: #fff;
 	padding-top: 60px;
 	padding-bottom: 60px;
 	text-align: center;
 }
 
 .break h2 {
+	color:#202020;
 	margin: 0;
 	padding: 0;
-	color: #fff;
-	font-family: "Khula", Helvetica, Arial, sans-serif;
 	font-size: 28px;
 	font-weight: 300;
 	line-height: 1.3em;
+}
+
+@media (max-width: 900px)
+{
+	.break {
+		background: #202020;
+	}
+	.break h2 {
+		color: #fff;
+	}
 }
 
 /* FEATURED */
