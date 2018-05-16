@@ -661,12 +661,12 @@ nav .container {
 
 /* FEATURED */
 
-.featured{
+.home.page .featured{
 	background-color: #f8f9f9;
 	padding: 50px 30px;
 }
 
-.featured .item {
+.home.page  .featured .item {
 	width: 33.3334%;
 	display: block;
 	float: left;
@@ -676,14 +676,14 @@ nav .container {
 }
 
 
-.featured .item .item-img {
+.home.page .featured .item .item-img {
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
 }
 
-.featured .item .item-img .banner-badge {
+.home.page  .featured .item .item-img .banner-badge {
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -692,13 +692,13 @@ nav .container {
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
-.featured .item .item-img img
+.home.page  .featured .item .item-img img
 {
 	width: 100%;
 }
 
-.featured .item .item-img,
-.featured .item.item-details {
+.home.page  .featured .item .item-img,
+.home.page  .featured .item.item-details {
 	opacity: 1;
 	-webkit-transition: opacity 0.2s linear;
 	-moz-transition: opacity 0.2s linear;
@@ -706,7 +706,7 @@ nav .container {
 	transition: opacity 0.2s linear;
 }
 
-.featured .item:hover .item-img {
+.home.page .featured .item:hover .item-img {
 	opacity: 0.7;
 }
 
@@ -719,11 +719,11 @@ nav .container {
 	margin-right: 0;
 }
 
-.featured .item .item-details .details {
+.home.page .featured .item .item-details .details {
 	padding: 30px 30px 0 10px;
 }
 
-.featured .item .item-details .details h3 {
+.home.page .featured .item .item-details .details h3 {
 	font-family: 'Rubik', sans-serif;
 	color: #0c121c;
 	font-size: 17px;
@@ -734,7 +734,7 @@ nav .container {
 	letter-spacing: .1em;
 }
 
-.featured .item .item-details p {
+.home.page .featured .item .item-details p {
 	font-family: 'Roboto', sans-serif;
 	font-size: 13px;
 	font-weight: 300;
@@ -2900,9 +2900,9 @@ nav .container {
 		width: 60%;
 	}
 	
-	.featured .item {
-		width: 50%;
-	}
+	.home.page .featured .item {
+		  width: 50%;
+	  }
 	
 	.home .featured .item {
 		width: 33.3334%;
@@ -3182,17 +3182,17 @@ nav .container {
 	}
 	
 	.featured .item,
-	.home .featured .item {
+	.home.page .featured .item {
 		width: 100%;
 		float: none;
 	}
-	
-	.featured .item .item-img {
+
+	.home.page .featured .item .item-img {
 		border-right: 0;
 		height: 300px;
 	}
-	
-	.featured .item .item-details {
+
+	.home.page .featured .item .item-details {
 		height: 130px;
 		border-right: 0;
 	}
@@ -4101,7 +4101,7 @@ customize the homepage featured product
 
  */
 
-.featured .header-wrapper h2
+.home.page .featured .header-wrapper h2
 {
 	color: #0c121c;
 	text-transform: uppercase;
@@ -4113,3 +4113,93 @@ customize the homepage featured product
 	font-weight: bold;
 	margin: 0 0 40px;
 }
+
+/**
+customize the category page show product
+ */
+
+.page-template-page-listing .featured .item {
+	padding-left: 0;
+	padding-right: 0;
+	width: 33.3334%;
+	display: block;
+	float: left;
+	background-color: #000;
+}
+
+
+.page-template-page-listing .featured .item .item-img {
+	height: 300px;
+}
+.page-template-page-listing .featured .item .item-img {
+	height: 200px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.page-template-page-listing .featured .item .item-details {
+	height: 120px;
+	background-color: #404040;
+	background-image: url(_img/arrow-right-grey.png);
+	background-repeat: no-repeat;
+	background-position: 96% 45%;
+	background-size: 24px auto;
+	color: #fff;
+}
+.page-template-page-listing  .featured .item .item-img, .featured .item.item-details {
+	opacity: 1;
+	-webkit-transition: opacity 0.2s linear;
+	-moz-transition: opacity 0.2s linear;
+	-o-transition: opacity 0.2s linear;
+	transition: opacity 0.2s linear;
+}
+
+.page-template-page-listing .featured .item .item-img {
+	height: 300px;
+}
+.page-template-page-listing  .featured .item:hover .item-img {
+	opacity: 0.7;
+}
+.page-template-page-listing .featured .item:hover .item-details {
+	background-color: #333;
+}
+
+.page-template-page-listing .featured .item .item-details .details {
+	padding: 18px 30px 0 20px;
+}
+
+.page-template-page-listing .featured .item .item-details .details h3 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 0 0 10px 0;
+}
+
+.page-template-page-listing  .featured .item .item-details p {
+	font-family: "Khula", Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	font-weight: 300;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+
+@media only screen and (max-width:992px) {
+
+	.page-template-page-listing .featured .item {
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 767px)
+{
+	.page-template-page-listing .featured .item, .home .featured .item {
+		width: 100%;
+		float: none;
+	}
+}
+
