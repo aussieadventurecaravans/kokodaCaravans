@@ -90,8 +90,13 @@
 
 <?php if(have_rows('home_featured_caravans')): ?>
 
+
 	<div class="featured clearfix">
-	
+        <div class="row">
+            <div class="header-wrapper">
+                <h2>Our Caravans</h2>
+            </div>
+        </div>
 		<?php while (have_rows('home_featured_caravans')) : the_row(); ?>
 	
 			<?php $post_object = get_sub_field('home_featured_caravan');
