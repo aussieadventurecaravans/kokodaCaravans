@@ -105,10 +105,11 @@
 				
 			    <div class="item">
 			    	<a href="<?php the_permalink(); ?>">
-				    	<div class="item-img" style="background-image: url('<?php echo $product_img['sizes']['medium']; ?>');">
+				    	<div class="item-img">
 				    		<?php if(!empty($badge_img)): ?>
 								<div class="banner-badge" style="background-image:url('<?php echo $badge_img['url'] ?>')"></div>
 							<?php endif; ?>
+                            <img src="<?php echo $product_img['sizes']['medium']; ?>" alt="product image"/>
 				    	</div>
 				    	<div class="item-details clearfix">
 				    		<div class="details">

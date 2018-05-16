@@ -661,20 +661,22 @@ nav .container {
 
 /* FEATURED */
 
-.featured.item-list {
+.featured{
+	background-color: #f8f9f9;
+	padding: 50px 30px;
 }
 
 .featured .item {
-	padding-left: 0;
-	padding-right: 0;
 	width: 33.3334%;
 	display: block;
 	float: left;
-	background-color: #000;
+	background-color: #f8f9f9;
+	padding: 0px 20px 30px;
+	vertical-align: top;
 }
 
+
 .featured .item .item-img {
-	height: 200px;
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -689,6 +691,10 @@ nav .container {
 	height: 104px;
 	background-repeat: no-repeat;
 	background-size: 100%;
+}
+.featured .item .item-img img
+{
+	width: 100%;
 }
 
 .featured .item .item-img,
@@ -706,16 +712,7 @@ nav .container {
 
 .featured .item .item-details {
 	height: 120px;
-	background-color: #404040;
-	background-image: url('_img/arrow-right-grey.png');
-	background-repeat: no-repeat;
-	background-position: 96% 45%;
-	background-size: 24px auto;
-	color: #fff;
-}
-
-.featured .item:hover .item-details {
-	background-color: #333;
+	color: #4a4f54;
 }
 
 .featured .item:last-child .item {
@@ -723,24 +720,27 @@ nav .container {
 }
 
 .featured .item .item-details .details {
-	padding: 18px 30px 0 20px;
+	padding: 30px 30px 0 10px;
 }
 
 .featured .item .item-details .details h3 {
 	font-family: 'Rubik', sans-serif;
-	font-weight: 400;
-	font-size: 22px;
-	letter-spacing: 1px;
+	color: #0c121c;
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 1em;
 	text-transform: uppercase;
-	margin: 0 0 10px 0;
+	margin: 0 0 14px 0;
+	letter-spacing: .1em;
 }
 
 .featured .item .item-details p {
-	font-family: "Khula", Helvetica, Arial, sans-serif;
-	font-size: 17px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 13px;
 	font-weight: 300;
 	margin: 0 0 10px 0;
 	padding: 0;
+	color:#4a4f54;
 }
 
 /* BENEFITS */
@@ -2768,19 +2768,7 @@ nav .container {
 	.banner-wrap .banner .lead {
 		font-size: 16px;
 	}
-	
-	.featured .item .item-img {
-		height: 240px;
-	}
-	
-	.featured .item .item-details .details h3 {
-		font-size: 24px;	
-	}
-	
-	.home .featured .item .item-details {
-		height: 110px;
-	}
-	
+
 	.stripe.listing .featured .item .item-details .details .product-meta span {
 		padding-left: 25px;
 		font-size: 20px;
@@ -2800,11 +2788,6 @@ nav .container {
 		font-size: 20px;
 		line-height: 23px;
 	}
-	
-	.featured .item .item-details p {
-		font-size: 18px;
-	}
-	
 	.stripe.listing .featured .item .item-details .details .tare, 
 	.stripe.listing .featured .item .item-details .details .ball {
 		font-size: 16px;
@@ -2835,10 +2818,6 @@ nav .container {
 
 /* X-large Desktop and up */
 @media only screen and (min-width:1500px) {
-
-	.featured .item .item-img {
-		height: 300px;
-	}
 
 	#map.slp_map,
 	#map_sidebar_cont {
