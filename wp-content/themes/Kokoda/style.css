@@ -771,21 +771,20 @@ nav .container {
 /* BLOG */
 
 .home .blog {
-	background: #202020;
+	background: #f8f9f9;
 	padding-top: 60px;
 	padding-bottom: 60px;
 }
 
 .home .blog h2 {
-	font-size: 28px;
-	font-family: "Khula", Helvetica, Arial, sans-serif;
+	font-size: 20px;
 	font-weight: 400;
-	color: #aeaeae;
+	color: #0c121d;
 	margin: 0 0 30px 0;
 }
 
 .blog .item {
-	color: #9a9a9a;
+	color: #0c121d;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -797,17 +796,17 @@ nav .container {
 }
 
 .blog .item a {
-	color: #bdbdbd;
+	color: #0c121d;
 }
 
 .blog .item a:hover {
-	color: #fff;
+	color: #1a1a1a;
 }
 
 .blog .item h3 {
 	font-size: 24px;
 	font-weight: 400;
-	color: #fff;
+	color: #0c121d;
 	margin: 0 0 10px 0;
 }
 
@@ -826,7 +825,7 @@ nav .container {
 
 .blog .item p {
 	margin: 10px 0 0 0;
-	font-size: 17px;
+	font-size:14px;
 }
 
 .blog .item.article {
