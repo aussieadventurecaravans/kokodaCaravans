@@ -777,14 +777,14 @@ nav .container {
 }
 
 .home .blog h2 {
-	font-size: 40px;
-	font-weight: 400;
-	margin: 0 0 40px 0;
 	color: #0c121c;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	text-align: center;
 	width: auto;
+	height: 40px;
+	font-size: 30px;
+	margin: 0 0 40px 0;
 }
 
 .blog .item {
@@ -4109,8 +4109,7 @@ customize the homepage featured product
 	text-align: center;
 	width: auto;
 	height: 40px;
-	font-size: 40px;
-	font-weight: bold;
+	font-size: 30px;
 	margin: 0 0 40px;
 }
 
