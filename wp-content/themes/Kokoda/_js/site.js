@@ -219,7 +219,7 @@ jQuery(function($) {
 
 
 
-	//customizre the main menu style
+	//customize the main menu style
     $('#navbar-top .main-navi-panel li.menu-item').click(function(){
         //other main menu link remove up arrow
         $('#navbar-top .main-navi-panel li.menu-item span.caret').removeClass('up-arrow');
@@ -267,10 +267,26 @@ jQuery(function($) {
 		}
 
 
-
-
-
 	});
+
+    $('.all-caravans-menu a.caravans-header').click(function() {
+        //other main menu link remove up arrow
+
+        if($(this).hasClass('active'))
+        {
+            $(this).find('span.caret').removeClass('up-arrow');
+            $(this).removeClass('active');
+            $('body.page').removeClass('no-scroll');
+            $('.products-navigation').removeClass('show-nav');
+        }
+        else {
+            $(this).addClass('active');
+            $('body.page').addClass('no-scroll');
+            $(this).find('span.caret').addClass('up-arrow');
+            $('.products-navigation').addClass('show-nav');
+		}
+
+    });
 
 
 

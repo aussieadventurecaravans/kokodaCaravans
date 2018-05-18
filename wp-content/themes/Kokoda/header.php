@@ -66,6 +66,9 @@
 		<nav id="navbar-top-mob" class="visible-xs navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid nav-container">
 				<div class="navbar-header">
+                    <div class="all-caravans-menu">
+                        <a class="caravans-header" href="#"><h3>Caravans <span class="caret"></span></h3></a>
+                    </div>
 					<div class="nav-search visible-xs">
 						<a href="#" data-toggle="modal" data-target="#mobileSearch">Search</a><li class="menu-item menu-search visible-xs">
 					</div>
@@ -77,6 +80,7 @@
 					</button>
 					<a class="brand auto-top" href="<?php bloginfo('url') ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/log-blacko.png"></a>
 				</div>
+
 				<div class="collapse navbar-collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav navbar-left">
 						<?php wp_nav_menu( array( 
