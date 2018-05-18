@@ -230,7 +230,7 @@ jQuery(function($) {
             if($('#navbar-top .main-navi-panel .our-range-class.menu-item').hasClass('active'))
             {
                 $('#navbar-top .main-navi-panel li.menu-item.our-range-class').removeClass('active');
-                $('body.page').removeClass('no-scroll');
+                $('body').removeClass('no-scroll');
                 $(this).find('span.caret').removeClass('up-arrow');
                 $('.products-navigation').removeClass('show-nav');
             }
@@ -238,7 +238,7 @@ jQuery(function($) {
             {
 
                 $('#navbar-top .main-navi-panel li.menu-item.our-range-class').addClass('active');
-                $('body.page').addClass('no-scroll');
+                $('body').addClass('no-scroll');
                 $(this).find('span.caret').addClass('up-arrow');
                 $('.products-navigation').addClass('show-nav');
 
@@ -276,12 +276,12 @@ jQuery(function($) {
         {
             $(this).find('span.caret').removeClass('up-arrow');
             $(this).removeClass('active');
-            $('body.page').removeClass('no-scroll');
+            $('body').removeClass('no-scroll');
             $('.products-navigation').removeClass('show-nav');
         }
         else {
             $(this).addClass('active');
-            $('body.page').addClass('no-scroll');
+            $('body').addClass('no-scroll');
             $(this).find('span.caret').addClass('up-arrow');
             $('.products-navigation').addClass('show-nav');
 		}

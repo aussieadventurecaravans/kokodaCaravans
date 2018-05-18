@@ -124,7 +124,9 @@
                     <div class="product-list-item col-lg-4">
                         <div class="item-img">
                             <?php if($product_img): ?>
+                            <a href="<?php the_permalink(); ?>">
                                 <img src="<?php echo $product_img['sizes']['medium']; ?>" alt="<?php echo $product_img['alt']; ?>" class="product-img" />
+                            </a>
                             <?php endif; ?>
                         </div>
                         <div class="item-details">
