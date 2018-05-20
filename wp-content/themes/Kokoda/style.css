@@ -3845,7 +3845,16 @@ nav .container {
 	cursor:pointer;
 }
 
+@media(max-width:550px)
+{
+	.home.page .banner .arrow-right img,
+	.home.page .banner .arrow-left img
+	{
+		width:20px;
 
+	}
+
+}
 .home.page .scroll-btn {
 	text-transform: uppercase;
 	color: #fff;
