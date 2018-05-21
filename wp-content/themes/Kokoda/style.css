@@ -3580,7 +3580,12 @@ nav .container {
 	display: inline-block;
 	vertical-align: middle;
 	float: right;
-	padding: 6px 10px;
+	padding: 6px 10px 6px 10px;
+	background-image: url(_img/arrow-right-black.png);
+	background-size: 4px;
+	background-repeat: no-repeat;
+	background-position: 12px 14px;
+
 }
 .top-nav-panel .top-menu li.menu-item:hover
 {
@@ -4164,6 +4169,7 @@ body.product-template-default .products-navigation
 {
 	width: 5px;
 	margin-right: 10px;
+	vertical-align: baseline;
 }
 .products-navigation .product-list .product-list-item .item-details .overview a
 {
