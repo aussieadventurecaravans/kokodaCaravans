@@ -131,15 +131,17 @@
                         </div>
                         <div class="item-details">
                             <div class="details">
-                                <h3><?php the_title(); ?></h3>
-                                <div class="product-meta clearfix">
-                                    <?php if(get_field('price_thousands')): ?><span class="price">$<?php the_field('price_thousands'); ?>,<?php the_field('price_hundreds'); ?><i>+ORC</i></span><?php endif; ?>
-                                    <?php if(get_field('size_feet')): ?><span class="size"><?php the_field('size_feet'); ?>'<?php if(get_field('size_inches')): ?><?php the_field('size_inches'); ?>"<?php endif; ?></span><?php endif; ?>
-                                    <?php if(get_field('occupants')): ?><span class="occupants"><?php the_field('occupants'); ?></span><?php endif; ?>
-                                </div>
+                                <h4 class="item-title"><?php the_title(); ?></h4>
                                 <?php if(get_field('banner_description')): ?><p><?php the_field('banner_description'); ?></p><?php endif; ?>
-                                <?php if(get_field('tare')): ?><span class="tare">Tare (approx): <?php the_field('tare'); ?></span><br><?php endif; ?>
-                                <?php if(get_field('ball_weight')): ?><span class="ball">Ball weight (approx): <?php the_field('ball_weight'); ?></span><?php endif; ?>
+                               <!-- <div class="product-meta clearfix">
+                                    <?php /*if(get_field('price_thousands')): */?><span class="price">$<?php /*the_field('price_thousands'); */?>,<?php /*the_field('price_hundreds'); */?><i>+ORC</i></span><?php /*endif; */?>
+                                    <?php /*if(get_field('size_feet')): */?><span class="size"><?php /*the_field('size_feet'); */?>'<?php /*if(get_field('size_inches')): */?><?php /*the_field('size_inches'); */?>"<?php /*endif; */?></span><?php /*endif; */?>
+                                    <?php /*if(get_field('occupants')): */?><span class="occupants"><?php /*the_field('occupants'); */?></span><?php /*endif; */?>
+                                </div>-->
+
+                            </div>
+                            <div class="overview">
+                               <a href="<?php the_permalink(); ?>"> <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/arrow-right-black.png"/> overview </a>
                             </div>
                         </div>
                     </div>
