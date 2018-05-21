@@ -2363,7 +2363,7 @@ nav .container {
 	line-height: normal;
 }
 .footer-wrap {
-	background: #404040;
+	background: #4a4f53;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -2389,7 +2389,7 @@ nav .container {
 }
 
 .footer-wrap ul li a {
-	color: #a9a9a9;
+	color: #ffffff;
 }
 
 .footer-wrap ul li a:hover {
@@ -2568,9 +2568,9 @@ nav .container {
 .slp_ui_button,
 .frm_forms .frm_submit input,
 #form_dealerenquiry .frm_submit input {
-	background-color: #030303;
+	background-color: #fff;
 	border: 0;
-	color: #fff;
+	color: #030303;
 	font-weight: 500;
 	letter-spacing: 1px;
 	padding: 10px 25px;
@@ -2584,8 +2584,8 @@ nav .container {
 .slp_ui_button:hover,
 .frm_forms .frm_submit input:hover,
 #form_dealerenquiry .frm_submit input:hover {
-	background-color: #e6e6e6;
-	color: #333;
+	background-color: #fff;
+	color: #030303;
 }
 
 .btn-sub,
