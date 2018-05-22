@@ -746,7 +746,7 @@ nav .container {
 
 .home.page .featured .item .item-details p {
 	font-family: 'Roboto', sans-serif;
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: 300;
 	margin: 0 0 10px 0;
 	padding: 0;
@@ -4130,10 +4130,7 @@ body.product-template-default .products-navigation
 		text-align: left;
 		padding: 0;
 	}
-	.products-navigation .product-list .product-list-item .item-details p
-	{
-		margin:0;
-	}
+
 	.products-navigation .product-list .product-list-item .item-details .tare,
 	.products-navigation .product-list .product-list-item .item-details .ball
 	{
@@ -4159,6 +4156,15 @@ body.product-template-default .products-navigation
 {
 	height:130px;
 }
+@media only screen and (max-width: 767px)
+{
+	.products-navigation .product-list .product-list-item .item-details .details
+	{
+		margin: 15px auto;
+		height: auto;
+		padding: 20px 0;
+	}
+}
 .products-navigation .product-list .product-list-item .item-details .details .item-title
 {
 	display: inline-block;
@@ -4167,9 +4173,28 @@ body.product-template-default .products-navigation
 	text-transform: uppercase;
 	padding: 2px 0;
 }
+@media only screen and (max-width: 767px)
+{
+	.products-navigation .product-list .product-list-item .item-details .details .item-title
+	{
+		border-bottom: none;
+		border-top: none;
+		padding: 0;
+	}
+}
 .products-navigation .product-list .product-list-item  .item-details .details p
 {
-	color: #4a4f54;font-size: 13px;    margin: 20px 0;
+	color: #4a4f54;
+	font-size: 14px;
+	margin: 20px 0;
+	text-transform: capitalize;
+}
+@media only screen and (max-width:767px)
+{
+	.products-navigation .product-list .product-list-item .item-details .details p
+	{
+		margin: 10px 0;
+	}
 }
 
 .products-navigation .product-list .product-list-item .item-details .overview
@@ -4178,6 +4203,13 @@ body.product-template-default .products-navigation
 	width: 100%;
 	display: table;
 	line-height: 1;
+}
+@media only screen and (max-width:767px)
+{
+	.products-navigation .product-list .product-list-item .item-details .overview
+	{
+		display:none;
+	}
 }
 .products-navigation .product-list .product-list-item .item-details .overview img
 {
