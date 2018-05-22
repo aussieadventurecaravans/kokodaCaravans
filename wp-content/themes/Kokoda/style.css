@@ -470,13 +470,13 @@ nav .container {
 	position: relative;
 	width: 100%;
 	height:auto;
-	margin-top: 50px;
+	margin-top: 1.5%;
 }
 @media (max-width: 2024px)
 {
 	.home.page .banner
 	{
-		margin-top: 0;
+		margin-top: -1px;
 	}
 }
 .home.page .banner .banner-list-wrap
@@ -746,7 +746,7 @@ nav .container {
 
 .home.page .featured .item .item-details p {
 	font-family: 'Roboto', sans-serif;
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: 300;
 	margin: 0 0 10px 0;
 	padding: 0;

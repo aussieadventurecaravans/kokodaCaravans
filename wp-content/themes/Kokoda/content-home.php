@@ -48,12 +48,12 @@
             </div>
         <?php endif; ?>
     </div>
-    <div class="arrow-left">
+  <!--  <div class="arrow-left">
         <img src="/wp-content/themes/Kokoda/_img/banner-arrow-left.png" class="white-arrow-left"/>
     </div>
     <div class="arrow-right">
         <img src="/wp-content/themes/Kokoda/_img/banner-arrow-right.png" class="white-arrow-right"/>
-    </div>
+    </div>-->
 </div>
 
 <div class="scroll-btn">
@@ -254,24 +254,12 @@
 
         }
 
-        $(".home.page .banner .arrow-left img").on('click', function(){
+      /*  $(".home.page .banner .arrow-left img").on('click', function(){
             $("#banner-list").trigger('owl.prev');
         });
         $(".home.page .banner .arrow-right img").on('click',function(){
             $("#banner-list").trigger('owl.next');
-        });
-
-        $(".home.page .banner .arrow-left img").hover(function(){
-            $(".home.page .banner .arrow-left img").attr('src','/wp-content/themes/Kokoda/_img/banner-arrow-left-glow.png');
-        },function(){
-            $(".home.page .banner .arrow-left img").attr('src','/wp-content/themes/Kokoda/_img/banner-arrow-left.png');
-        });
-        $(".home.page .banner .arrow-right img").hover(function(){
-            $(".home.page .banner .arrow-right img").attr('src','/wp-content/themes/Kokoda/_img/banner-arrow-right-glow.png');
-        },function(){
-            $(".home.page .banner .arrow-right img").attr('src','/wp-content/themes/Kokoda/_img/banner-arrow-right.png');
-        });
-
+        });*/
 
     });
 </script>
