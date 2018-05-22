@@ -640,7 +640,12 @@ nav .container {
 .home .banner h1 {
 	text-shadow: none;
 }
-
+@media only screen and (max-width:767px)
+{
+	.banner h1 {
+		margin-bottom: 15px;
+	}
+}
 /* BREAK */
 
 .break {
@@ -1182,8 +1187,10 @@ nav .container {
 }
 .home .mobile-banner-wrap .banner.container p
 {
-	font-size:14px;
+	font-size:16px;
+	margin-bottom: 25px;
 }
+
 .home .mobile-banner-wrap .banner.container a.btn-default{
 	color: #fff;
 	background-color: #202020;
