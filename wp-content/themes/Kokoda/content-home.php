@@ -109,23 +109,25 @@
 				$product_img = get_field('banner_image'); ?>
 				
 			    <div class="item">
-			    	<a href="<?php the_permalink(); ?>">
+
 				    	<div class="item-img">
 				    		<?php if(!empty($badge_img)): ?>
 								<div class="banner-badge" style="background-image:url('<?php echo $badge_img['url'] ?>')"></div>
 							<?php endif; ?>
-                            <img src="<?php echo $product_img['sizes']['medium']; ?>" alt="product image"/>
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php echo $product_img['sizes']['medium']; ?>" alt="product image"/>
+                            </a>
 				    	</div>
 				    	<div class="item-details clearfix">
 				    		<div class="details">
 				    			<h3><?php the_title(); ?></h3>
 				    			<p><?php the_field('banner_description'); ?></p>
 				    		</div>
-				    		<div class="arrow">
-				    			<span></span>
-				    		</div>
+                            <div class="find-out-more">
+                                <a href="<?php the_permalink(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/arrow-right-black.png"/> Find Out More</a>
+                            </div>
 				    	</div>
-			    	</a>
+
 			    </div>
 			    
 			    <?php wp_reset_postdata(); ?>
