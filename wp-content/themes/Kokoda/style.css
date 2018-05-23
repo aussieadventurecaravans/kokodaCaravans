@@ -768,8 +768,9 @@ nav .container {
 	margin-right: 0;
 }
 
-.home.page .featured .item .item-details .details {
-	padding: 30px 30px 0 10px;
+.home.page .featured .item .item-details .details
+{
+	padding: 30px 10px 0 10px;
 }
 
 .home.page .featured .item .item-details .details h3 {
@@ -2931,7 +2932,10 @@ nav .container {
 	.featured .item .item-img {
 		height: 220px;
 	}
-	
+	.home .featured .item .item-img
+	{
+		height:auto;
+	}
 	.home .featured .item .item-details {
 		height: 130px;
 	}
