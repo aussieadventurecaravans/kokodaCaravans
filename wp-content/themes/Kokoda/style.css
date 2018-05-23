@@ -137,6 +137,13 @@ a:hover, a:focus {
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 	border-bottom: 1px solid #e4e8e8;
 }
+@media all and (width:768px)
+{
+	.navbar-default
+	{
+		height: 85px;
+	}
+}
 
 .navbar-default .nav-container {
 	padding-left: 0;
@@ -164,7 +171,14 @@ a:hover, a:focus {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
+@media all and (max-width:768px) {
+	.navbar-default .navbar-nav > li
+	{
+		font-size: 12px;
+		height: 50px;
+	}
 
+}
 .navbar-default .navbar-nav > li > a {
 	padding-top: 31px;
 	padding-bottom: 31px;
@@ -175,7 +189,13 @@ a:hover, a:focus {
 	background-color: #fff;
 	line-height: 18px;
 }
-
+@media all and (width:768px) {
+	.navbar-default .navbar-nav > li > a
+	{
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+}
 .navbar-default .navbar-nav > li.current-menu-parent > a {
 	background-color: #e4e8e8;
 }
@@ -250,6 +270,13 @@ a:hover, a:focus {
 	border: 0;
 	padding: 0;
 	min-width: 100%;
+}
+
+@media all and (width:768px)
+{
+	.navbar-default .nav li .dropdown-menu {
+		top:20px;
+	}
 }
 
 .navbar-default .nav li .dropdown-menu li a {
@@ -477,6 +504,13 @@ nav .container {
 	.home.page .banner
 	{
 		margin-top: -1px;
+	}
+}
+@media (width: 768px)
+{
+	.home.page .banner
+	{
+		margin-top: -15px;
 	}
 }
 .home.page .banner .banner-list-wrap
@@ -2747,24 +2781,6 @@ nav .container {
 @media only screen and (min-width:768px) {
 	
 	/* fluid nav */
-	.navbar-default .navbar-header {
-		width: 15%;
-	}
-	
-	.navbar-default .navbar-header .brand {
-		width: 80%;
-		margin: 35px auto;
-		position: relative;
-	}
-	
-	.navbar-default .navbar-header .brand img {
-		max-height: 46px;
-		position: relative;
-		display: block;
-		margin: 0 auto;
-		margin-top: 22px;
-	}
-	
 	.navbar-default .navbar-nav {
 		width: 85%;
 	}
@@ -2780,24 +2796,9 @@ nav .container {
 	
 }
 
-/* Small Desktop and up */
-@media only screen and (min-width:990px) {
-	.navbar-default .navbar-header .brand img {
-		margin-top: 19px;
-	}
-}
 
 /* Large Desktop and up */
 @media only screen and (min-width:1200px) {
-	
-	.navbar-default .navbar-header .brand {
-
-	}
-	
-	.navbar-default .navbar-header .brand img {
-		width: auto;
-		margin-top: 35px;
-	}
 	
 	.page-nav .navbar-right {
 	  margin-right: 0;
@@ -2817,15 +2818,7 @@ nav .container {
 		line-height: 23px;
 		background-size: 16px auto;
 	}
-	
-	.stripe.listing .featured .item .item-details .details .product-meta .size {
 
-	}
-	
-	.stripe.listing .featured .item .item-details .details .product-meta .occupants {
-
-	}
-	
 	.stripe.listing .featured .item .item-details .details .product-meta .price {
 		font-size: 20px;
 		line-height: 23px;
@@ -2840,10 +2833,6 @@ nav .container {
 	}
 	.stripe.gallery .flex-viewport {
 		width: 95%;
-	}
-	
-	.stripe.gallery .flexslider .slides li {
-
 	}
 
 	#map.slp_map,
@@ -2909,15 +2898,7 @@ nav .container {
 
 /* Tablet and down */
 @media only screen and (max-width:992px) {
-	
-	.navbar-default .navbar-header .brand img {
-		max-width: 100%;
-	}
-	
-	.page-nav ul li {
-		font-size: 12px;
-	}
-	
+
 	.page-nav .nav > li > a {
 		padding-left: 17px;
 		padding-right: 17px;
@@ -4439,4 +4420,53 @@ All Caravans Menu
 
 .all-caravans-menu a h3 .caret.up-arrow {
 	background-image: url(_img/arrow_up_black_bold.png);
+}
+
+
+/**
+Logo at top
+ */
+@media only screen and (min-width: 768px)
+{
+	.navbar-default .navbar-header {
+		width: 15%;
+	}
+}
+
+.navbar-default .navbar-header .brand
+{
+	margin: auto;
+	text-align: center;
+}
+
+.navbar-default .navbar-header .brand img
+{
+	width: 150px;
+	max-height: 102px;
+	margin-top: 20px;
+}
+
+@media only screen and (max-width:767px) {
+
+	/* fluid nav */
+	.navbar-default .navbar-header .brand {
+		width: 119px;
+		display: inline-block;
+		position: absolute;
+	}
+
+	.navbar-default .navbar-header .brand img {
+
+		position: relative;
+		display: block;
+		margin: 0 auto;
+		width: 120px;
+		max-height: 100px;
+	}
+}
+@media only screen and (max-width:992px) {
+
+	.navbar-default .navbar-header .brand img {
+		max-width: 100%;
+	}
 }
