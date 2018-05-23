@@ -171,14 +171,7 @@ a:hover, a:focus {
 	text-transform: uppercase;
 	letter-spacing: 2px;
 }
-@media all and (max-width:768px) {
-	.navbar-default .navbar-nav > li
-	{
-		font-size: 12px;
-		height: 50px;
-	}
 
-}
 .navbar-default .navbar-nav > li > a {
 	padding-top: 31px;
 	padding-bottom: 31px;
@@ -4074,7 +4067,22 @@ at main Menu
 	transition: opacity 600ms, visibility 600ms;
 	opacity: 0;
 
+
 }
+@media only screen and (max-width: 768px)  {
+	.products-navigation
+	{
+		top: 68px;
+	}
+}
+@media only screen and (max-width: 420px)
+{
+	.products-navigation
+	{
+		top: 58px;
+	}
+}
+
 body.product-template-default .products-navigation
 {
 	top:129px;
@@ -4271,6 +4279,7 @@ customize the top mobile navigation
 #navbar-top-mob.navbar-default .navbar-collapse
 {
 	border-bottom:1px solid #e4e8e8;
+	background: #fff;
 }
 
 
@@ -4392,6 +4401,7 @@ All Caravans Menu
 	top: 0;
 	width: 100%;
 	text-align: center;
+	left:14px;
 }
 .all-caravans-menu a{
 	display: inline-block;
@@ -4406,7 +4416,9 @@ All Caravans Menu
 	border-bottom: 1px solid #d9dcdc;
 }
 .all-caravans-menu a h3{
-	margin: 27px 0;
+	margin: 0;
+	margin-top:30px;
+	margin-bottom:25px;
 	line-height: 1;
 	font-size: 1em;
 	text-transform: uppercase;
