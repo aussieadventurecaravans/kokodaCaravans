@@ -4121,6 +4121,8 @@ body.product-template-default .products-navigation
 	.products-navigation .product-list .product-list-item
 	{
 		display: inline-flex;
+		width: 100%;
+		padding-right: 15px;
 	}
 	.products-navigation .product-list .product-list-item h3
 	{
