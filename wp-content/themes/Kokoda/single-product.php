@@ -11,7 +11,7 @@
 			<?php if(get_field('floor_plan')): ?><li><a href="#floorplan">Floor Plan</a></li><?php endif; ?>
 			<?php if(have_rows('features')): ?><li><a href="#features">Features</a></li><?php endif; ?>
 			<?php if(have_rows('specifications')): ?><li><a href="#specifications">Specifications</a></li><?php endif; ?>
-			<?php if($images): ?><li><a href="#gallery">Gallery</a></li><?php endif; ?>
+			<?php if(have_rows('gallery')): ?><li><a href="#gallery">Gallery</a></li><?php endif; ?>
 			<?php if(get_field('brochure_pdf')): ?><li><a href="<?php the_field('brochure_pdf'); ?>" target="_blank">Brochure</a></li><?php endif; ?>
 			<?php $post_objects = get_field('other_models');
 			if( $post_objects ): ?>
