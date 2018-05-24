@@ -791,8 +791,9 @@ nav .container {
 	line-height: 1;
 	padding: 0 10px;
 	color: #898d90;
-	font-size: 12px;
+	font-size: 13px;
 	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 .home.page .featured .item .item-details .find-out-more a,
 .home.page .featured .item .item-details .find-out-more a:hover
