@@ -4257,7 +4257,24 @@ body.no-scroll
 {
 	overflow-y: hidden;
 }
-
+.products-navigation .product-list .show-all
+{
+	text-align: center;
+	margin-top: 50px;
+}
+.products-navigation .product-list .show-all a
+{
+	color: #4a4f54;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 18px;
+	text-transform: uppercase;
+	width: 100%;
+}
+.products-navigation .product-list .show-all a:hover
+{
+	color: #ababab;
+}
 
 /**
 customize the top mobile navigation

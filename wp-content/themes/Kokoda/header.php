@@ -161,6 +161,14 @@
                 <?php echo "</div>"; ?>
             <?php endif; ?>
 
+            <div class="row">
+                <div class="col-lg-12 show-all">
+                    <h4>
+                        <a href="<?php echo get_home_url(); ?>/range/caravans/"> >>> Explore The Range <<< </a>
+                    </h4>
+                </div>
+            </div>
+
         </div>
 
     </div>
