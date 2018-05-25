@@ -1046,7 +1046,8 @@ nav .container {
 
 .page-nav .nav > li > a:focus {
     text-decoration: none;
-    background-color: #bbb;
+	background-color: #1a1a1a;
+	color: #fff;
 }
 
 .page-nav ul li a:hover {
