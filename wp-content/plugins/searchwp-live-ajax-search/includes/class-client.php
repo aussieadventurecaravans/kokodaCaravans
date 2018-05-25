@@ -39,7 +39,15 @@ class SearchWP_Live_Search_Client extends SearchWP_Live_Search {
 	function search() {
 		if ( isset( $_REQUEST['swpquery'] ) && ! empty( $_REQUEST['swpquery'] ) ) {
 			$query = sanitize_text_field( $_REQUEST['swpquery'] );
-			if ( class_exists( 'SearchWP' ) ) {
+
+			/*** customize the plugin searchwp-live-ajax plugin ****/
+			/**the SearchWP powered search function doesn't
+             * work well compare to the native Wordpress search
+             * so I decide use the native Wordpress search
+             * for our main search
+             */
+        //ORIGINAL CODE
+		/*if ( class_exists( 'SearchWP' ) ) {
 				// SearchWP powered search
 				$posts = $this->searchwp( $query );
 				$args = array(
@@ -49,6 +57,7 @@ class SearchWP_Live_Search_Client extends SearchWP_Live_Search {
 					'orderby'       => 'post__in',
 				);
 			} else {
+
 				// native WordPress search
 				$args = array(
 					's'             => $query,
@@ -59,7 +68,21 @@ class SearchWP_Live_Search_Client extends SearchWP_Live_Search {
 							'exclude_from_search' => false,
 						) ),
 				);
-			}
+			}*/
+
+            // NEW CODE
+            // native WordPress search
+            $args = array(
+                's'             => $query,
+                'post_status'   => 'publish',
+                'post_type'     => get_post_types( array(
+                    'public'   => true,
+                    // '_builtin' => true,
+                    'exclude_from_search' => false,
+                ) ),
+            );
+
+
 			$args['posts_per_page'] = $this->get_posts_per_page();
 			$args = apply_filters( 'searchwp_live_search_query_args', $args );
 			$this->show_results( $args );
