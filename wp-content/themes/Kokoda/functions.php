@@ -386,6 +386,24 @@ function the_pagination($pages = '', $range = 2)
          echo "</div>\n";
      }
 }
+
+add_filter('searchwp_live_search_posts_per_page','search_live_search_post_per_page',10);
+
+
+function search_live_search_post_per_page()
+{
+	return 20;
+}
+
+
+
+add_filter('searchwp_posts_per_page','search_post_per_page',10);
+
+function search_post_per_page()
+{
+	return 50;
+}
+
 ?>
 
 
