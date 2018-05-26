@@ -48,12 +48,12 @@
             </div>
         <?php endif; ?>
     </div>
-    <div class="arrow-left">
+   <!-- <div class="arrow-left">
         <img src="/wp-content/themes/kokoda/_img/banner-arrow-left.png" class="white-arrow-left"/>
     </div>
     <div class="arrow-right">
         <img src="/wp-content/themes/kokoda/_img/banner-arrow-right.png" class="white-arrow-right"/>
-    </div>
+    </div>-->
 </div>
 
 <div class="scroll-btn">
