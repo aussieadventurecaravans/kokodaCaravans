@@ -267,5 +267,16 @@
         });
 
 
+        var logo_offset = $('.navbar-default .navbar-header .brand img').offset();
+
+        $('.page.home .banner-wrap .banner .row .banner-content').css({'left' : logo_offset.left});
+        $( window ).resize(function(){
+            if($(window).width() > 776 )
+            {
+                var logo_offset = $('.navbar-default .navbar-header .brand img').offset();
+                $('.page.home .banner-wrap .banner .row .banner-content').css({'left' : logo_offset.left});
+            }
+
+        });
     });
 </script>
