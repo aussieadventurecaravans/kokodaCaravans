@@ -543,7 +543,8 @@ nav .container {
 	min-width: 450px;
 	height: 210px;
 	left: 5%;
-	top: 27%;
+	top: 0;
+	margin: 18% 0;
 }
 @media only screen and (max-width:900px)
 {
