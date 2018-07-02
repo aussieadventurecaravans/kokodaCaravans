@@ -1,0 +1,21 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+#wpmpRegisterForm .alert, #wpmpLoginForm .alert, #wpmpResetPasswordSection .alert{
+ font-size: 14px;
+}
+
+.wpmp-loader{
+ font-size: 12px;
+ padding: 10px 0;
+}
+.wpmp-loader img{
+ padding-right: 8px;
+}
+
+.wpmp-required-asterisk{
+    color: #ff0000;
+}
+
