@@ -608,7 +608,6 @@ nav .container {
 	.page.home .banner-wrap .banner .row .banner-content
 	{
 		left: 0%;
-		top: 23%;
 		height: 200px;
 	}
 }
@@ -4044,6 +4043,7 @@ nav .container {
 	}
 }
 
+<<<<<<< HEAD
 
 /*
 
@@ -4507,3 +4507,16 @@ Logo at top
 		max-width: 100%;
 	}
 }
+
+.archive-item-list.featured {
+	text-align: left;
+	background: #202020;
+	margin: 0 5%;
+}
+
+
+.archive-item-list.featured  .archive-item.item .item-details
+{
+	background-image:none;
+}
+
