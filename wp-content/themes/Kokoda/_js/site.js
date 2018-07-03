@@ -74,7 +74,7 @@ jQuery(function($) {
 	    for ( var prop in filters ) {
 	      isoFilters.push( filters[ prop ] )
 	    }
-	    console.log(filters);
+
 	    var selector = isoFilters.join('');
 	    $container.isotope({ filter: selector });
 	    return false;

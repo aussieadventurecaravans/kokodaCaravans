@@ -3988,3 +3988,15 @@ nav .container {
 		transform: translateX(-15px);
 	}
 }
+
+.archive-item-list.featured {
+	text-align: left;
+	background: #202020;
+	margin: 0 5%;
+}
+
+
+.archive-item-list.featured  .archive-item.item .item-details
+{
+	background-image:none;
+}
