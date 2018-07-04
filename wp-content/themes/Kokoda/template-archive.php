@@ -35,7 +35,7 @@ get_header(); ?>
 </div>
 <?php endif; ?>
 
-<div class="stripe center listing">
+<div class="stripe center archive-listing">
 	<div class="container">
 		<div class="row">
 		
@@ -130,8 +130,8 @@ get_header(); ?>
             <?php endif; ?>
 
              <?php if($count <  3): ?>
-                    <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?>  col-sm-4">
-                        <a href="<?php the_permalink(); ?>">
+                    <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?>  col-lg-4 col-md-4  col-sm-6">
+                        <a href="<?php the_permalink($caravan->ID); ?>">
                             <div class="item-img" <?php if($product_img): ?>style="background-image: url('<?php echo $product_img['sizes']['medium']; ?>');"<?php endif; ?>>
                                 <?php if(!empty($badge_img)): ?>
                                     <div class="banner-badge" style="background-image:url('<?php echo $badge_img['url'] ?>')"></div>

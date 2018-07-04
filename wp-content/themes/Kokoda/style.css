@@ -4506,16 +4506,83 @@ Logo at top
 		max-width: 100%;
 	}
 }
+/**
+CUSTOMIZE THE ARCHIVE PAGE
+ */
 
-.archive-item-list.featured {
-	text-align: left;
-	background: #202020;
-	margin: 0 5%;
+.stripe.archive-listing {
+	background: #ffffff;
+	padding-bottom: 0;
 }
 
 
+.archive-listing .filter .form-group label {
+	color: #1a1a1a;
+	text-transform: uppercase;
+}
+.archive-listing .filter h2 {
+	font-size: 20px;
+	color: #1a1a1a !important;
+	letter-spacing: normal;
+	font-weight: 400;
+	margin: 0 0 15px 0;
+}
+
+.archive-item-list.featured {
+	text-align: left;
+	background: #ffffff;
+	margin: 0 5%;
+}
+@media only screen and (max-width:1250px) {
+	.archive-item-list.featured {
+		margin: 0 2%;
+	}
+}
+.archive-item-list.featured .archive-item.item {
+	padding-left: 0;
+	padding-right: 30px;
+	display: block;
+	float: left;
+	background-color: #fff;
+}
 .archive-item-list.featured  .archive-item.item .item-details
 {
-	background-image:none;
+	height: 190px;
+	background-color: #ffffff;
+	color: #404040;
+	background-image: none;
+}
+.archive-item-list.featured  .archive-item.item .item-details .details {
+	padding: 18px 30px 0 20px;
+}
+.archive-item-list.featured .archive-item.item .item-img {
+	height: 300px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+@media only screen and (max-width:1350px) {
+	.archive-item-list.featured .archive-item.item .item-img
+	{
+		background-size: contain;
+		height: 225px;
+	}
+}@media only screen and (max-width:767px) {
+	.archive-item-list.featured .archive-item.item .item-img
+	{
+		background-size: cover;
+		background-position: center;
+		height: 300px;
+	}
+}
+
+.archive-item-list.featured  .archive-item.item .item-details .details h3 {
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin: 0 0 10px 0;
 }
 
