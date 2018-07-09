@@ -53,36 +53,37 @@ jQuery(function($) {
 	
 	
 	// Isotope Filtering
-	$(function(){
-	  var $container = $('.item-list'),
-	      filters = {};
-	
-	  $container.isotope({
-	    itemSelector : '.item',
-	    percentPosition: true,
-	    transitionDuration: 0
-	  });
-	  	  
-	  $('.filters-select').change(function(){
-	    var $this = $(this);
-	    
-	    // store filter value in object
-	    var group = $this.attr('data-filter-group');
-	    
-	    filters[ group ] = $this.find(':selected').attr('data-filter-value');
+	$(function() {
+        var $container = $('.item-list'),
+            filters = {};
 
-	    // convert object into array
-	    var isoFilters = [];
-	    for ( var prop in filters ) {
-	      isoFilters.push( filters[ prop ] )
-	    }
+        $container.isotope({
+            itemSelector: '.item',
+            percentPosition: true,
+            transitionDuration: 0
+        });
 
-	    var selector = isoFilters.join('');
-	    $container.isotope({ filter: selector });
-	    return false;
-	  });
-	});
-	
+        $('.filters-select').change(function () {
+            var $this = $(this);
+
+            // store filter value in object
+            var group = $this.attr('data-filter-group');
+
+            filters[group] = $this.find(':selected').attr('data-filter-value');
+
+            // convert object into array
+            var isoFilters = [];
+            for (var prop in filters) {
+                isoFilters.push(filters[prop])
+            }
+
+            var selector = isoFilters.join('');
+            $container.isotope({filter: selector});
+            return false;
+        });
+
+
+    });
 	
 	// Search box
 	
