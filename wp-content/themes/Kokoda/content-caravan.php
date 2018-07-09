@@ -39,12 +39,20 @@ setup_postdata($post);
     <div class="stripe center floorplan" id="floorplan">
         <?php if(get_field('floor_plan')): ?>
             <h2>Floor Plan</h2>
-
             <img src="<?php the_field('floor_plan'); ?>" class="img-responsive">
         <?php endif; ?>
 
-        <?php if(get_field('tech_specs')): ?><button data-toggle="modal" data-target="#techSpecs" class="btn btn-sub" target="_blank">Tech Specs</button><?php endif; ?>
         <?php if(get_field('virtual_tour_link')): ?><a href="<?php the_field('virtual_tour_link'); ?>" class="btn btn-sub virtual-tour" target="_blank">Virtual Tour</a><?php endif; ?>
+
+        <?php if(have_rows('tech_specs')): ?>
+            <?php while (have_rows('tech_specs')) : the_row(); ?>
+               <p>
+                   <span><?php the_sub_field('left'); ?></span>
+                   <span><?php the_sub_field('right'); ?></span>
+               </p>
+            <?php endwhile; ?>
+        <?php endif; ?>
+
 
     </div>
 <?php endif; ?>

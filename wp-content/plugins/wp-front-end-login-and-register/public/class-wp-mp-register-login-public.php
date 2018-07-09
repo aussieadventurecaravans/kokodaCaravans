@@ -66,7 +66,7 @@ class Wp_Mp_Register_Login_Public extends Wp_Mp_Register_Login_Generic_Public
     {
 
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wp-mp-register-login-public.js', array('jquery'), $this->version, false);
-        wp_enqueue_script($this->plugin_name . '-bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js', array('jquery'), $this->version, false);
+        /*wp_enqueue_script($this->plugin_name . '-bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js', array('jquery'), $this->version, false);*/
         wp_enqueue_script($this->plugin_name . '-formValidation.min', plugin_dir_url(__FILE__) . 'js/validator/formValidation.min.js', array('jquery'), $this->version, false);
         wp_enqueue_script($this->plugin_name . '-bootstrap-validator', plugin_dir_url(__FILE__) . 'js/validator/bootstrap-validator.min.js', array('jquery'), $this->version, false);
         // localizing gloabl js objects

@@ -39,11 +39,6 @@ body {
 	overflow-x: hidden;
 }
 
-body.single,
-body.page-template-page-listing {
-	padding-top: 146px;
-}
-
 h1, h2, h3, h4, h5 {
 	font-family: 'Rubik', sans-serif;
 }
@@ -968,6 +963,7 @@ nav .container {
 		padding: 15px 8px;
 		background-color: white;
 		margin-bottom: 0px;
+		border-bottom: 1px solid #eceded;
 	}
 	.single-product .page-nav.navbar-fixed-top ul.navbar-nav
 	{
@@ -4535,7 +4531,8 @@ body.page-template-template-archive
 }
 .page-template-template-archive .banner-wrap .banner .row .banner-content
 {
-	float:left
+	float:left;
+	left: 25px;
 }
 .stripe.archive-listing {
 	background: #ffffff;
@@ -4996,7 +4993,7 @@ body.page-template-template-archive
 	width: 90%;
 	height: 100%;
 	top: 0;
-	background: #dbe2e9;
+	background: #ffffff;
 	z-index: 1;
 	-webkit-transition: -webkit-transform 0.3s 0.3s;
 	transition: -webkit-transform 0.3s 0.3s;
@@ -5053,31 +5050,30 @@ body.page-template-template-archive
 	margin: 2em 0;
 }
 
-.archive-listing-item-detail-pane.cd-panel--from-right .cd-panel__content p:first-of-type
+.archive-listing-item-detail-pane .banner-wrap
+{
+	height: 100%;
+	background-color: #1a1a1a;
+}
+.archive-listing-item-detail-pane .banner-wrap .banner
+{
+	width:100%;
+}
+.archive-listing-item-detail-pane .banner-wrap .banner .row .banner-content p.lead
 {
 	margin: 0;
 	color: #fff;
 }
-
 @media only screen and (min-width: 768px) {
-	.archive-listing-item-detail-pane.cd-panel--from-right .cd-panel__content p {
+	.archive-listing-item-detail-pane .banner-wrap .banner .row .banner-content p.lead {
 		font-size: 1.6rem;
 		line-height: 1.6;
 	}
 }
 
-.archive-listing-item-detail-pane .banner-wrap .banner
-{
-	width:100%;
-}
-
 .archive-listing-item-detail-pane .banner-wrap .banner .row .banner-content
 {
-	width: auto;
-	top: 20px;
-	position: absolute;
-	height: auto;
-	left: 20px;
+
 }
 .archive-listing-item-detail-pane .banner-wrap .banner .product-meta
 {
@@ -5142,7 +5138,12 @@ body.page-template-template-archive
 	padding-top: 50px;
 	padding-bottom: 0;
 }
-
+.archive-listing-item-detail-pane .stripe.floorplan p
+{
+	font-size: 20px;
+	text-transform: capitalize;
+	margin: 5px 0;
+}
 .archive-listing-item-detail-pane .stripe.floorplan img {
 	width: 100%;
 	margin: 0;
@@ -5159,7 +5160,7 @@ body.page-template-template-archive
 	color: #000000;
 	background-size: 100% auto;
 	background-color: #fff;
-	padding: 40px 10px 5px;
+	padding: 0 10px 5px;
 }
 .archive-listing-item-detail-pane  #specifications  .panel-heading
 {
