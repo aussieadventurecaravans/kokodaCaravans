@@ -35,53 +35,24 @@ setup_postdata($post);
     </div>
 </div>
 
-<div class="mobile-banner-wrap stripe center">
-    <div class="banner container">
-        <div class="row">
-            <div class="banner-content">
-                <h1><?php the_title(); ?></h1>
-                <p class="lead"><?php the_field('banner_description'); ?></p>
-
-                <div class="product-meta">
-                    <?php if(get_field('price_thousands')): ?><span class="price">$<?php the_field('price_thousands'); ?>,<?php the_field('price_hundreds'); ?><i>+ORC</i></span><?php endif; ?>
-                    <?php if(get_field('size_feet')): ?><span class="size"><?php the_field('size_feet'); ?>'<?php if(get_field('size_inches')): ?><?php the_field('size_inches'); ?>"<?php endif; ?></span><?php endif; ?>
-                    <?php if(get_field('occupants')): ?><span class="occupants"><?php the_field('occupants'); ?></span><?php endif; ?>
-                </div>
-                <?php if(get_field('brochure_pdf')): ?>
-                    <div class="product-brochure-button">
-                        <a href="<?php the_field('brochure_pdf'); ?>" target="_blank">Download Brochure</a>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
 <?php if(get_field('floor_plan') || get_field('tech_specs') || get_field('virtual_tour_link')): ?>
     <div class="stripe center floorplan" id="floorplan">
-        <div class="container">
-            <div>
+        <?php if(get_field('floor_plan')): ?>
+            <h2>Floor Plan</h2>
 
-                <?php if(get_field('floor_plan')): ?>
-                    <h2>Floor Plan</h2>
+            <img src="<?php the_field('floor_plan'); ?>" class="img-responsive">
+        <?php endif; ?>
 
-                    <img src="<?php the_field('floor_plan'); ?>" class="img-responsive">
-                <?php endif; ?>
+        <?php if(get_field('tech_specs')): ?><button data-toggle="modal" data-target="#techSpecs" class="btn btn-sub" target="_blank">Tech Specs</button><?php endif; ?>
+        <?php if(get_field('virtual_tour_link')): ?><a href="<?php the_field('virtual_tour_link'); ?>" class="btn btn-sub virtual-tour" target="_blank">Virtual Tour</a><?php endif; ?>
 
-                <?php if(get_field('tech_specs')): ?><button data-toggle="modal" data-target="#techSpecs" class="btn btn-sub" target="_blank">Tech Specs</button><?php endif; ?>
-                <?php if(get_field('virtual_tour_link')): ?><a href="<?php the_field('virtual_tour_link'); ?>" class="btn btn-sub virtual-tour" target="_blank">Virtual Tour</a><?php endif; ?>
-
-            </div>
-        </div>
     </div>
 <?php endif; ?>
 
 <?php if(have_rows('specifications')): ?>
 
     <div class="stripe specs" id="specifications">
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="row">
                 <div class="header-wrapper">

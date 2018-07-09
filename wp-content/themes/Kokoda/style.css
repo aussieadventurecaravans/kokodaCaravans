@@ -927,11 +927,17 @@ nav .container {
 
 .page-nav.navbar-fixed-top {
 	position: fixed;
-	top: 116px;
+	top: 114px;
 	right: 0;
 	left: 0;
 	z-index: 1020;
 	background: #fff;
+}
+@media only screen and (max-width: 768px)
+{
+	.page-nav.navbar-fixed-top {
+		top:85px;
+	}
 }
 .single-product .page-nav.navbar-fixed-top input#product-list-toggle
 {
@@ -1026,7 +1032,13 @@ nav .container {
 	font-weight: 700;
 	letter-spacing: 1px;
 }
-
+@media only screen and (max-width: 768px)
+{
+	.page-nav ul li
+	{
+		font-size: 13px;
+	}
+}
 .page-nav ul li.active a {
 	background-color: #4F4F4F;
 }
@@ -4521,6 +4533,10 @@ body.page-template-template-archive
 {
 	display: none !important;
 }
+.page-template-template-archive .banner-wrap .banner .row .banner-content
+{
+	float:left
+}
 .stripe.archive-listing {
 	background: #ffffff;
 	padding-bottom: 0;
@@ -4841,7 +4857,11 @@ body.page-template-template-archive
 	-ms-transform: translateY(0px);
 	transform: translateY(0px);
 }
-
+@media only screen and (min-width: 368px) {
+	.archive-listing-item-detail-pane.cd-panel--from-right  .cd-panel__header {
+		width: 100%;
+	}
+}
 @media only screen and (min-width: 768px) {
 	.archive-listing-item-detail-pane.cd-panel--from-right  .cd-panel__header {
 		width: 70%;
@@ -4997,7 +5017,11 @@ body.page-template-template-archive
 	-webkit-transition-delay: 0s;
 	transition-delay: 0s;
 }
-
+@media only screen and (min-width: 368px) {
+	.archive-listing-item-detail-pane.cd-panel--from-right .cd-panel__container {
+		width: 100%;
+	}
+}
 @media only screen and (min-width: 768px) {
 	.archive-listing-item-detail-pane.cd-panel--from-right .cd-panel__container {
 		width: 70%;
@@ -5029,8 +5053,10 @@ body.page-template-template-archive
 	margin: 2em 0;
 }
 
-.archive-listing-item-detail-pane.cd-panel--from-right .cd-panel__content p:first-of-type {
-	margin-top: 0;
+.archive-listing-item-detail-pane.cd-panel--from-right .cd-panel__content p:first-of-type
+{
+	margin: 0;
+	color: #fff;
 }
 
 @media only screen and (min-width: 768px) {
@@ -5038,4 +5064,120 @@ body.page-template-template-archive
 		font-size: 1.6rem;
 		line-height: 1.6;
 	}
+}
+
+.archive-listing-item-detail-pane .banner-wrap .banner
+{
+	width:100%;
+}
+
+.archive-listing-item-detail-pane .banner-wrap .banner .row .banner-content
+{
+	width: auto;
+	top: 20px;
+	position: absolute;
+	height: auto;
+	left: 20px;
+}
+.archive-listing-item-detail-pane .banner-wrap .banner .product-meta
+{
+	display: block;
+	position: relative;
+	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	background: hsl(0, 0%, 100%);
+	padding: 9px 5%;
+	text-align: center;
+	width: auto;
+	opacity: .8;
+	float: left;
+	margin: 15px 0;
+}
+
+.archive-listing-item-detail-pane .banner-wrap  .banner h1
+{
+	margin:5px 0;
+}
+.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button
+{
+	display: block;
+	min-width: 40%;
+	position: relative;
+	background: #0c121c;
+	padding: 9px 5%;
+	text-align: center;
+	top: 0;
+	left: 0;
+	float: left;
+}
+.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button:hover,
+.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button:focus
+{
+	background: #fff;
+	color:#0c121c;
+}
+.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button a
+{
+	color: #fff;
+	font-size: 12px;
+	font-weight: normal;
+	background-size: 22px auto;
+	background-repeat: no-repeat;
+	display: block;
+	float: left;
+	height: 26px;
+	text-transform: uppercase;
+	padding: 4px 0;
+}
+
+.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button a:hover,
+.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button a:focus{
+	background-color: #fff;
+	color:#000;
+}
+
+
+.archive-listing-item-detail-pane  .stripe.floorplan {
+	background: #ffffff;
+	color: #fff;
+	padding-top: 50px;
+	padding-bottom: 0;
+}
+
+.archive-listing-item-detail-pane .stripe.floorplan img {
+	width: 100%;
+	margin: 0;
+	text-align: center;
+}
+
+.archive-listing-item-detail-pane  #specifications .panel-collapse .panel-body p {
+	font-size: 17px;
+	margin-bottom: 0;
+	color: #0c121c;
+}
+.archive-listing-item-detail-pane  #specifications
+{
+	color: #000000;
+	background-size: 100% auto;
+	background-color: #fff;
+	padding: 40px 10px 5px;
+}
+.archive-listing-item-detail-pane  #specifications  .panel-heading
+{
+	cursor: pointer;
+}
+.archive-listing-item-detail-pane  #specifications .panel-group .panel
+{
+	box-shadow:none;border-color: #fff;
+}
+
+.archive-listing-item-detail-pane  #specifications .header-wrapper h2 {
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-align: center;
+	width: auto;
+	height: 100px;
+	line-height: 100px;
+	margin: 0 auto 20px;
+	font-size: 38px;
 }
