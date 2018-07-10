@@ -360,13 +360,13 @@ get_header(); ?>
                             url: url,
                             data: data,
                             type: "POST",
-                            beforeSend:function(xhr){
-                                //filter.find('button').text('Processing...'); // changing the button label
+                            beforeSend: function() {
+                                $('#loading-icon-panel').show();
                             },
                             success:function(data){
 
                                 $('div.archive-listing-item-detail-pane .cd-panel__container .cd-panel__content').html(data); // insert data
-
+                                $('#loading-icon-panel').hide();
                                 addClass(panel, 'cd-panel--is-visible');
                             }
                         });
