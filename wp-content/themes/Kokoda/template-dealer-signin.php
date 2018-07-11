@@ -56,7 +56,7 @@ get_header();
                     </div>
                     <div class="col-lg-8 col-md-8 user-content">
 
-                        test
+
                     </div>
                 <?php endif; ?>
         </div>

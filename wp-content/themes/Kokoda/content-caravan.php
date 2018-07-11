@@ -178,7 +178,7 @@ setup_postdata($post);
 
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <span><?php the_sub_field('left'); ?></span>
+                                    <span><?php the_sub_field('left'); ?>:</span>
                                 </div>
                                 <div class="col-xs-6 pull-right">
                                     <span><?php the_sub_field('right'); ?></span>
@@ -200,4 +200,40 @@ setup_postdata($post);
         </div>
     </div>
 </div>
+
+
+<?php $images = get_field('gallery'); ?>
+<?php if($images): ?>
+    <div class="stripe center gallery" id="gallery">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="header-wrapper">
+                    <h2>Gallery</h2>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-xs-12">
+
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <?php foreach( $images as $image ): ?>
+                                <li>
+                                    <a data-lightbox="product-gallery" href="<?php echo $image['url']; ?>">
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/bg-black-20.png" class="overlay">
+                                        <img src="<?php echo $image['sizes']['medium_large']; ?>" alt="<?php echo $image['alt']; ?>" class="gallery-img">
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+
 <?php wp_reset_postdata();?>

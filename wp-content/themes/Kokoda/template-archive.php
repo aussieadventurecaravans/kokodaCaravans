@@ -316,6 +316,9 @@ get_header(); ?>
 
 
            <div class="col-lg-4 col-md-5 col-sm-6">
+                <div class="archive-listing-item-detail-pane-notice">
+                    <h3>Select the caravan to display the detail on this panel </h3>
+                </div>
                <div class="archive-item-detail-loading-panel">
                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/loading-progress.svg" class="loading-icon" alt="loading icon" width="250"/>
                </div>
@@ -389,6 +392,7 @@ get_header(); ?>
                                 }
                                 else
                                 {
+                                    $(".archive-listing-item-detail-pane.js-cd-panel-main.cd-panel--stay-right").removeClass('cd-panel--is-visible');
                                     $('.archive-item-detail-loading-panel').show();
                                 }
 
@@ -396,6 +400,17 @@ get_header(); ?>
                             success:function(data){
 
                                 $('div.archive-listing-item-detail-pane .cd-panel__container .cd-panel__content').html(data); // insert data
+
+                                // Product Gallery
+                                $('.archive-listing-item-detail-pane .flexslider').flexslider({
+                                    slideshow: false,
+                                    animation: "slide",
+                                    animationLoop: true,
+                                    itemWidth: 300,
+                                    itemMargin: 2,
+                                    maxItems: 3,
+                                    controlNav: false
+                                });
 
                                 if($(window).width() <= 767)
                                 {
