@@ -3781,7 +3781,7 @@ nav .container {
 **/
 
 
-.loading-icon-panel
+#loading-icon-panel
 {
 	position: fixed;
 	display: none;
@@ -3794,7 +3794,7 @@ nav .container {
 	opacity: .8;
 	z-index: 999;
 }
-.loading-icon-panel img.loading-icon
+#loading-icon-panel img.loading-icon
 {
 	position: absolute;
 	top: 50%;
@@ -4537,7 +4537,7 @@ body.page-template-template-archive
 }
 .stripe.archive-listing {
 	background: #ffffff;
-	padding-bottom: 0;
+	padding-bottom: 50px;
 }
 .archive-listing .filter
 {
@@ -4584,8 +4584,18 @@ body.page-template-template-archive
 	text-align: left;
 	background: #ffffff;
 	margin: 0px;
+
 }
-@media only screen and (max-width:1250px) {
+@media only screen and (min-width:767px)
+{
+	.archive-item-list.featured
+	{
+		overflow-y: scroll;
+		max-height: 900px;
+	}
+}
+@media only screen and (max-width:1250px)
+{
 	.archive-item-list.featured {
 		margin: 0px;
 		margin-bottom: 25px;
@@ -4782,7 +4792,7 @@ body.page-template-template-archive
 	background-color: #edeff5;
 }
 /* CUSTOMIZE THE ARCHIVE ITEM DETAIL PANEL */
-.archive-listing-item-detail-pane
+.archive-listing-item-detail-pane.cd-panel--from-right
 {
 	position: fixed;
 	top: 0;
@@ -4795,7 +4805,7 @@ body.page-template-template-archive
 	z-index: 9;
 }
 
-.archive-listing-item-detail-pane::after {
+.archive-listing-item-detail-pane.cd-panel--from-right::after {
 	/* overlay layer */
 	content: '';
 	position: absolute;
@@ -4809,7 +4819,7 @@ body.page-template-template-archive
 	transition: background 0.3s 0.3s;
 }
 
-.archive-listing-item-detail-pane.cd-panel--is-visible {
+.archive-listing-item-detail-pane.cd-panel--from-right.cd-panel--is-visible {
 	visibility: visible;
 	-webkit-transition: visibility 0s 0s;
 	transition: visibility 0s 0s;
@@ -5059,116 +5069,22 @@ body.page-template-template-archive
 	margin: 2em 0;
 }
 
-.archive-listing-item-detail-pane .banner-wrap
+.archive-listing-item-detail-pane.cd-panel--from-right .banner-wrap
 {
-	height: 100%;
-	background-color: #1a1a1a;
+	height:auto;
 }
-@media only screen and (max-width: 767px)
-{
-	.archive-listing-item-detail-pane .banner-wrap
-	{
-		height: 40%;
-	}
-}
-.archive-listing-item-detail-pane .banner-wrap .banner
-{
-	width:100%;
-}
-.archive-listing-item-detail-pane .banner-wrap .banner .row .banner-content p.lead
-{
-	color: #000;
-	text-shadow: none;
-	margin: 10px 0;
-}
-@media only screen and (min-width: 768px) {
-	.archive-listing-item-detail-pane .banner-wrap .banner .row .banner-content p.lead {
-		font-size: 1.6rem;
-		line-height: 1.6;
-	}
-}
-
-.archive-listing-item-detail-pane .banner-wrap .banner .row .banner-content
-{
-	float: left;
-	left: 25px;
-	top:20%;
-
-	color: #000;
-	background-color: hsla(0,0%,100%,.9);
-	padding: 19px 25px 21px;
-	min-width: 450px;
-
-}
-.archive-listing-item-detail-pane .banner-wrap .banner .product-meta
+.archive-listing-item-detail-pane.cd-panel--from-right .banner-wrap .banner-grad
 {
 	display: block;
-	position: relative;
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
-	background: hsl(0, 0%, 100%);
-	padding: 9px 5%;
-	text-align: center;
-	width: auto;
-	opacity: .8;
-	float: left;
-	margin: 15px 0;
 }
-
-.archive-listing-item-detail-pane .banner-wrap  .banner h1
-{
-	margin: 5px 0;
-	color: #000;
-	text-shadow: none;
-	font-weight: bold;
-}
-.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button
-{
-	display: block;
-	min-width: 40%;
-	position: relative;
-	background: #0c121c;
-	padding: 9px 5%;
-	text-align: center;
-	top: 0;
-	left: 0;
-	float: left;
-}
-.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button:hover,
-.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button:focus
-{
-	background: #fff;
-	color:#0c121c;
-}
-.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button a
-{
-	color: #fff;
-	font-size: 14px;
-	font-weight: 600;
-	background-size: 22px auto;
-	background-repeat: no-repeat;
-	display: block;
-	float: left;
-	height: 26px;
-	text-transform: uppercase;
-	padding: 4px 0;
-	letter-spacing: 1px;
-}
-
-.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button a:hover,
-.archive-listing-item-detail-pane .banner-wrap .banner .product-brochure-button a:focus{
-	background-color: #fff;
-	color:#000;
-}
-
-
-.archive-listing-item-detail-pane .stripe.floorplan{
+.archive-listing-item-detail-pane.cd-panel--from-right .stripe.floorplan{
 	background: #ffffff;
 	color: #fff;
 	padding-top: 20px;
 	padding-bottom: 0;
 }
 
-.archive-listing-item-detail-pane .stripe.floorplan h2 {
+.archive-listing-item-detail-pane.cd-panel--from-right .stripe.floorplan h2 {
 	color: #303235;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -5178,40 +5094,40 @@ body.page-template-template-archive
 	font-size: 38px;
 	font-weight: bold;
 }
-.archive-listing-item-detail-pane .stripe.floorplan p
+.archive-listing-item-detail-pane.cd-panel--from-right .stripe.floorplan p
 {
 	font-size: 20px;
 	text-transform: capitalize;
 	margin: 5px 0;
 }
-.archive-listing-item-detail-pane .stripe.floorplan img {
+.archive-listing-item-detail-pane.cd-panel--from-right .stripe.floorplan img {
 	width: 100%;
 	margin: 0;
 	text-align: center;
 }
 
-.archive-listing-item-detail-pane  #specifications .panel-collapse .panel-body p {
+.archive-listing-item-detail-pane.cd-panel--from-right  #specifications .panel-collapse .panel-body p {
 	font-size: 17px;
 	margin-bottom: 0;
 	color: #0c121c;
 }
-.archive-listing-item-detail-pane  #specifications
+.archive-listing-item-detail-pane.cd-panel--from-right  #specifications
 {
 	color: #000000;
 	background-size: 100% auto;
 	background-color: #fff;
 	padding: 0 10px 5px;
 }
-.archive-listing-item-detail-pane  #specifications  .panel-heading
+.archive-listing-item-detail-pane.cd-panel--from-right  #specifications  .panel-heading
 {
 	cursor: pointer;
 }
-.archive-listing-item-detail-pane  #specifications .panel-group .panel
+.archive-listing-item-detail-pane.cd-panel--from-right  #specifications .panel-group .panel
 {
 	box-shadow:none;border-color: #fff;
 }
 
-.archive-listing-item-detail-pane  #specifications .header-wrapper h2 {
+.archive-listing-item-detail-pane.cd-panel--from-right  #specifications .header-wrapper h2 {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 1px;
@@ -5222,26 +5138,26 @@ body.page-template-template-archive
 	margin: 0 auto 20px;
 	font-size: 38px;
 }
-.archive-listing-item-detail-pane .mobile-banner-wrap
+.archive-listing-item-detail-pane.cd-panel--from-right .mobile-banner-wrap
 {
 	display: none;
 	padding-bottom: 10px;
 }
 @media only screen and (max-width: 767px)
 {
-	.archive-listing-item-detail-pane .mobile-banner-wrap
+	.archive-listing-item-detail-pane.cd-panel--from-right .mobile-banner-wrap
 	{
 		display: block;
 	}
 }
-.archive-listing-item-detail-pane .mobile-banner-wrap h1
+.archive-listing-item-detail-pane.cd-panel--from-right .mobile-banner-wrap h1
 {
 	margin-bottom: 5px;
 	color: #000;
 	text-shadow: none;
 	font-weight: bold;
 }
-.archive-listing-item-detail-pane .mobile-banner-wrap p.lead
+.archive-listing-item-detail-pane.cd-panel--from-right .mobile-banner-wrap p.lead
 {
 	color: #000;
 	text-shadow: none;
@@ -5249,7 +5165,7 @@ body.page-template-template-archive
 	margin: 10px 0;
 }
 
-.archive-listing-item-detail-pane .mobile-banner-wrap .product-meta
+.archive-listing-item-detail-pane.cd-panel--from-right .mobile-banner-wrap .product-meta
 {
 	display: block;
 	min-width: 40%;
@@ -5261,7 +5177,7 @@ body.page-template-template-archive
 }
 
 
-.archive-listing-item-detail-pane  .mobile-banner-wrap .product-brochure-button {
+.archive-listing-item-detail-pane.cd-panel--from-right  .mobile-banner-wrap .product-brochure-button {
 	display: block;
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 	background: #0c121c;
@@ -5271,7 +5187,7 @@ body.page-template-template-archive
 	margin: 0 auto;
 }
 
-.archive-listing-item-detail-pane  .mobile-banner-wrap .product-brochure-button a {
+.archive-listing-item-detail-pane.cd-panel--from-right  .mobile-banner-wrap .product-brochure-button a {
 	color: #fff;
 	font-size: 16px;
 	font-weight: normal;
@@ -5283,4 +5199,346 @@ body.page-template-template-archive
 	padding: 4px 0;
 }
 
-stripe.center.user-panel
+
+
+
+/* CUSTOMIZE THE ARCHIVE ITEM DETAIL AT RIGHT PANEL  */
+.archive-listing-item-detail-pane.cd-panel--stay-right
+{
+	position: relative;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	visibility: hidden;
+	-webkit-transition: visibility 0s 0.6s;
+	transition: visibility 0s 0.6s;
+	z-index: 9;
+
+	height: 900px;
+	overflow-y: scroll;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right::after {
+	/* overlay layer */
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	cursor: pointer;
+	-webkit-transition: background 0.3s 0.3s;
+	transition: background 0.3s 0.3s;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right.cd-panel--is-visible {
+	visibility: visible;
+	-webkit-transition: visibility 0s 0s;
+	transition: visibility 0s 0s;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right.cd-panel--is-visible::after {
+	background: rgba(0, 0, 0, 0.6);
+	-webkit-transition: background 0.3s 0s;
+	transition: background 0.3s 0s;
+}
+
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__header {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background: rgba(255, 255, 255, 0.96);
+	z-index: 2;
+	right: 0;
+
+	-webkit-transition: -webkit-transform 0.3s 0.3s;
+	transition: -webkit-transform 0.3s 0.3s;
+	transition: transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s;
+	-webkit-transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
+
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right.cd-panel--is-visible .cd-panel__header {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__header h1
+{
+	color: #303235;
+	padding-left: 5%;
+	margin: 0;
+	font-size: 25px;
+	line-height: 50px;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right  .cd-panel__close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 60px;
+	/* image replacement */
+	display: inline-block;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right  .cd-panel__close::before, .cd-panel__close::after {
+	/* close icon created in CSS */
+	content: '';
+	position: absolute;
+	top: 22px;
+	left: 20px;
+	height: 3px;
+	width: 20px;
+	background-color: #424f5c;
+	/* this fixes a bug where pseudo elements are slighty off position */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__close::before {
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__close::after {
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__close:hover {
+	background-color: #424f5c;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right  .cd-panel__close:hover::before, .cd-panel__close:hover::after {
+	background-color: #ffffff;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__close:hover::before {
+	-webkit-transform: rotate(220deg);
+	-ms-transform: rotate(220deg);
+	transform: rotate(220deg);
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__close:hover::after {
+	-webkit-transform: rotate(135deg);
+	-ms-transform: rotate(135deg);
+	transform: rotate(135deg);
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right.cd-panel--is-visible .cd-panel__close::before {
+	-webkit-animation: cd-close-1 0.6s 0.3s;
+	animation: cd-close-1 0.6s 0.3s;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right.cd-panel--is-visible .cd-panel__close::after {
+	-webkit-animation: cd-close-2 0.6s 0.3s;
+	animation: cd-close-2 0.6s 0.3s;
+}
+
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background: #ffffff;
+	z-index: 1;
+	-webkit-transition: -webkit-transform 0.3s 0.3s;
+	transition: -webkit-transform 0.3s 0.3s;
+	transition: transform 0.3s 0.3s;
+	transition: transform 0.3s 0.3s, -webkit-transform 0.3s 0.3s;
+
+	right: 0;
+	-webkit-transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
+}
+
+
+.archive-listing-item-detail-pane.cd-panel--stay-right.cd-panel--is-visible .cd-panel__container {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+.archive-item-detail-loading-panel
+{
+	display: none;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	margin: auto;
+	background: #ffffff;
+	opacity: .8;
+	z-index: 999;
+}
+.archive-item-detail-loading-panel  img.loading-icon
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 150px;
+	height: 150px;
+	margin-top: -75px; /* Half the height */
+	margin-left: -75px; /* Half the width */
+}
+
+
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 70px 0;
+	overflow: visible;
+	/* smooth scrolling on touch devices */
+	-webkit-overflow-scrolling: touch;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .cd-panel__content p {
+	font-size: 1.4rem;
+	color: #424f5c;
+	line-height: 1.4;
+	margin: 2em 0;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .banner-wrap
+{
+	height: auto;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .stripe.floorplan{
+	background: #ffffff;
+	color: #fff;
+	padding-top: 20px;
+	padding-bottom: 0;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .stripe.floorplan h2 {
+	color: #303235;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	width: auto;
+	margin: 30px 0 0px;
+	font-size: 38px;
+	font-weight: bold;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right .stripe.floorplan p
+{
+	font-size: 20px;
+	text-transform: capitalize;
+	margin: 5px 0;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right .stripe.floorplan img {
+	width: 100%;
+	margin: 0;
+	text-align: center;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right  #specifications .panel-collapse .panel-body p {
+	font-size: 17px;
+	margin-bottom: 0;
+	color: #0c121c;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right  #specifications
+{
+	color: #000000;
+	background-size: 100% auto;
+	background-color: #fff;
+	padding: 0 10px 5px;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right  #specifications  .panel-heading
+{
+	cursor: pointer;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right  #specifications .panel-group .panel
+{
+	box-shadow:none;border-color: #fff;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right  #specifications .header-wrapper h2 {
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-align: center;
+	width: auto;
+	height: 100px;
+	line-height: 100px;
+	margin: 0 auto 20px;
+	font-size: 38px;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right .mobile-banner-wrap
+{
+	display: block;
+	padding-bottom: 10px;
+	display: block;
+	padding-top: 16px;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .mobile-banner-wrap h1
+{
+	margin-bottom: 5px;
+	color: #000;
+	text-shadow: none;
+	font-weight: bold;
+}
+.archive-listing-item-detail-pane.cd-panel--stay-right .mobile-banner-wrap p.lead
+{
+	color: #000;
+	text-shadow: none;
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right .mobile-banner-wrap .product-meta
+{
+	display: block;
+	min-width: 40%;
+	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	padding: 9px 5%;
+	text-align: center;
+	width: 100%;
+	margin: 10px 0;
+}
+
+
+.archive-listing-item-detail-pane.cd-panel--stay-right  .mobile-banner-wrap .product-brochure-button {
+	display: block;
+	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	background: #0c121c;
+	padding: 9px 3%;
+	text-align: center;
+	width: 250px;
+	margin: 0 auto;
+}
+
+.archive-listing-item-detail-pane.cd-panel--stay-right  .mobile-banner-wrap .product-brochure-button a {
+	color: #fff;
+	font-size: 16px;
+	font-weight: normal;
+	background-size: 22px auto;
+	background-repeat: no-repeat;
+	display: block;
+	height: 33px;
+	text-transform: uppercase;
+	padding: 4px 0;
+}
+

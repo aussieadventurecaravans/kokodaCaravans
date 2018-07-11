@@ -213,7 +213,7 @@ get_header(); ?>
                        <!-- end adding -->
                    </div>
            </div>
-           <div class="col-lg-10 col-md-9 col-sm-9 right-archive-list-panel">
+           <div class="col-lg-6 col-md-4 col-sm-3">
                <div class="featured clearfix item-list archive-item-list">
                    <?php
                             $listing_category = get_field('page_category');
@@ -276,7 +276,7 @@ get_header(); ?>
                        <?php endif; ?>
 
                            <?php if($count <  3): ?>
-                               <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?>  col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                               <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?>  col-lg-4 col-md-6 col-sm-12 col-xs-12">
                                    <a class="cd-btn js-cd-panel-trigger" data-panel="main" href="#" caravan-id="<?php echo $caravan->ID; ?>"  caravan-title="<?php echo get_the_title($caravan); ?>" >
                                        <?php if($product_img): ?>
                                            <div class="item-img">
@@ -294,9 +294,6 @@ get_header(); ?>
                                                    <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
                                                    <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
                                                </div>
-                                               <?php if(get_field('banner_description',$caravan->ID)): ?><p><?php the_field('banner_description',$caravan->ID); ?></p><?php endif; ?>
-                                               <?php if(get_field('tare',$caravan->ID)): ?><span class="tare">Tare (approx): <?php the_field('tare',$caravan->ID); ?></span><br><?php endif; ?>
-                                               <?php if(get_field('ball_weight',$caravan->ID)): ?><span class="ball">Ball weight (approx): <?php the_field('ball_weight',$caravan->ID); ?></span><?php endif; ?>
                                            </div>
                                        </div>
                                    </a>
@@ -316,9 +313,31 @@ get_header(); ?>
                         <?php endif; ?>
                 </div>
             </div>
-        </div>
+
+
+           <div class="col-lg-4 col-md-5 col-sm-6">
+               <div class="archive-item-detail-loading-panel">
+                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/loading-progress.svg" class="loading-icon" alt="loading icon" width="250"/>
+               </div>
+                <div class="archive-listing-item-detail-pane js-cd-panel-main cd-panel--stay-right">
+                        <header class="cd-panel__header">
+                            <h1>Title Goes Here</h1>
+                            <a href="#0" class="cd-panel__close js-cd-close">Close</a>
+                        </header>
+
+                        <div class="cd-panel__container">
+                            <div class="cd-panel__content">
+                            </div> <!-- cd-panel__content -->
+                        </div> <!-- cd-panel__container -->
+
+                        <div id="clear" style="clear:both;"></div>
+                </div>
+           </div>
+       </div>
     </div>
 </div>
+
+
 <div class="archive-listing-item-detail-pane cd-panel--from-right js-cd-panel-main">
     <header class="cd-panel__header">
         <h1>Title Goes Here</h1>
@@ -331,6 +350,9 @@ get_header(); ?>
         </div> <!-- cd-panel__content -->
     </div> <!-- cd-panel__container -->
 </div>
+
+
+
 <?php get_footer(); ?>
 
 
@@ -341,11 +363,11 @@ get_header(); ?>
         if (panelTriggers.length > 0) {
             for (var i = 0; i < panelTriggers.length; i++) {
                 (function (i) {
-                    var panelClass = 'js-cd-panel-' + panelTriggers[i].getAttribute('data-panel'),
-                        panel = document.getElementsByClassName(panelClass)[0];
+                    var panelClass = 'js-cd-panel-' + panelTriggers[i].getAttribute('data-panel') + ' cd-panel--from-right';
+                    var  panel = document.getElementsByClassName(panelClass)[0];
+
                     // open panel when clicking on trigger btn
                     panelTriggers[i].addEventListener('click', function (event) {
-
                         var data = {
                             'action':'archiveitem',
                             'post_id': $(this).attr('caravan-id')
@@ -361,18 +383,36 @@ get_header(); ?>
                             data: data,
                             type: "POST",
                             beforeSend: function() {
-                                $('#loading-icon-panel').show();
+                                if($(window).width() <= 767)
+                                {
+                                    $('#loading-icon-panel').show();
+                                }
+                                else
+                                {
+                                    $('.archive-item-detail-loading-panel').show();
+                                }
+
                             },
                             success:function(data){
 
                                 $('div.archive-listing-item-detail-pane .cd-panel__container .cd-panel__content').html(data); // insert data
-                                $('#loading-icon-panel').hide();
-                                addClass(panel, 'cd-panel--is-visible');
+
+                                if($(window).width() <= 767)
+                                {
+                                    $('#loading-icon-panel').hide();
+                                    addClass(panel, 'cd-panel--is-visible');
+                                }
+                                else
+                                {
+                                    $('.archive-item-detail-loading-panel').hide();
+                                    $(".archive-listing-item-detail-pane.js-cd-panel-main.cd-panel--stay-right").addClass('cd-panel--is-visible');
+                                }
                             }
                         });
                         event.preventDefault();
 
                     });
+
                     //close panel when clicking on 'x' or outside the panel
                     panel.addEventListener('click', function (event) {
                         if (hasClass(event.target, 'js-cd-close') || hasClass(event.target, panelClass)) {
@@ -380,6 +420,13 @@ get_header(); ?>
                             removeClass(panel, 'cd-panel--is-visible');
                         }
                     });
+                    $(".archive-listing-item-detail-pane.js-cd-panel-main.cd-panel--stay-right").on('click',function(event){
+                        if (hasClass(event.target, 'js-cd-close') || hasClass(event.target, panelClass)) {
+                            event.preventDefault();
+                            $(".archive-listing-item-detail-pane.js-cd-panel-main.cd-panel--stay-right").removeClass('cd-panel--is-visible');
+                        }
+                    });
+
                 })(i);
             }
         }
