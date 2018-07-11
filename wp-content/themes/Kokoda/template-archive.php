@@ -323,11 +323,6 @@ get_header(); ?>
                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/loading-progress.svg" class="loading-icon" alt="loading icon" width="250"/>
                </div>
                 <div class="archive-listing-item-detail-pane js-cd-panel-main cd-panel--stay-right">
-                        <header class="cd-panel__header">
-                            <h1>Title Goes Here</h1>
-                            <a href="#0" class="cd-panel__close js-cd-close">Close</a>
-                        </header>
-
                         <div class="cd-panel__container">
                             <div class="cd-panel__content">
                             </div> <!-- cd-panel__content -->
@@ -435,13 +430,6 @@ get_header(); ?>
                             removeClass(panel, 'cd-panel--is-visible');
                         }
                     });
-                    $(".archive-listing-item-detail-pane.js-cd-panel-main.cd-panel--stay-right").on('click',function(event){
-                        if (hasClass(event.target, 'js-cd-close') || hasClass(event.target, panelClass)) {
-                            event.preventDefault();
-                            $(".archive-listing-item-detail-pane.js-cd-panel-main.cd-panel--stay-right").removeClass('cd-panel--is-visible');
-                        }
-                    });
-
                 })(i);
             }
         }
