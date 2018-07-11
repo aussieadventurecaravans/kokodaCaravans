@@ -38,7 +38,7 @@ get_header(); ?>
 <div class="stripe center archive-listing">
     <div class="container-fluid">
        <div class="row">
-           <div class="col-lg-2  col-md-3 col-sm-3">
+           <div class="col-lg-2  col-md-2 col-sm-2">
                    <div class="filter">
                        <h2>Filter By</h2>
                        <!--- add new size select --->
@@ -213,7 +213,7 @@ get_header(); ?>
                        <!-- end adding -->
                    </div>
            </div>
-           <div class="col-lg-6 col-md-4 col-sm-3">
+           <div class="col-lg-5 col-md-5 col-sm-5">
                <div class="featured clearfix item-list archive-item-list">
                    <?php
                             $listing_category = get_field('page_category');
@@ -235,7 +235,6 @@ get_header(); ?>
 
 
                    <?php $archive  =  get_posts($args); ?>
-                   <?php  $count = 0; ?>
 
                    <?php foreach ($archive as $caravan):  ?>
                        <?php
@@ -270,52 +269,38 @@ get_header(); ?>
                        endif;
 
                        ?>
-                       <?php //Starting Element Row ?>
-                       <?php if($count ==  0): ?>
-                           <div class="row">
-                       <?php endif; ?>
 
-                           <?php if($count <  3): ?>
-                               <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?>  col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                                   <a class="cd-btn js-cd-panel-trigger" data-panel="main" href="#" caravan-id="<?php echo $caravan->ID; ?>"  caravan-title="<?php echo get_the_title($caravan); ?>" >
-                                       <?php if($product_img): ?>
-                                           <div class="item-img">
-                                               <?php if(!empty($badge_img)): ?>
-                                                   <div class="banner-badge" style="background-image:url('<?php echo $badge_img['url'] ?>')"></div>
-                                               <?php endif; ?>
-                                               <img alt="caravan image" src="<?php echo $product_img['sizes']['medium']; ?>"/>
-                                           </div>
-                                       <?php endif; ?>
-                                       <div class="item-details">
-                                           <div class="details">
-                                               <h3><?php echo get_the_title($caravan); ?></h3>
-                                               <div class="product-meta clearfix">
-                                                   <?php if(get_field('price_thousands',$caravan->ID)): ?><span class="price">$<?php the_field('price_thousands',$caravan->ID); ?>,<?php the_field('price_hundreds',$caravan->ID); ?><i>+ORC</i></span><?php endif; ?>
-                                                   <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
-                                                   <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
-                                               </div>
+                       <?php //Starting Element Row ?>
+                       <div class="row">
+                           <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?>  col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                               <a class="cd-btn js-cd-panel-trigger" data-panel="main" href="#" caravan-id="<?php echo $caravan->ID; ?>"  caravan-title="<?php echo get_the_title($caravan); ?>" >
+                                   <?php if($product_img): ?>
+                                       <div class="item-img">
+                                           <?php if(!empty($badge_img)): ?>
+                                               <div class="banner-badge" style="background-image:url('<?php echo $badge_img['url'] ?>')"></div>
+                                           <?php endif; ?>
+                                           <img alt="caravan image" src="<?php echo $product_img['sizes']['medium']; ?>"/>
+                                       </div>
+                                   <?php endif; ?>
+                                   <div class="item-details">
+                                       <div class="details">
+                                           <h3><?php echo get_the_title($caravan); ?></h3>
+                                           <div class="product-meta clearfix">
+                                               <?php if(get_field('price_thousands',$caravan->ID)): ?><span class="price">$<?php the_field('price_thousands',$caravan->ID); ?>,<?php the_field('price_hundreds',$caravan->ID); ?><i>+ORC</i></span><?php endif; ?>
+                                               <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
+                                               <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
                                            </div>
                                        </div>
-                                   </a>
-                               </div>
-                               <?php  $count++; $open_element = true ;?>
-                               <?php //close element Row ?>
-                               <?php if($count ==  3): ?>
                                    </div>
-                                   <?php  $count= 0; $open_element = false; ?>
-                               <?php endif; ?>
-                           <?php endif; ?>
+                               </a>
+                           </div>
+                       </div>
                    <?php endforeach; ?>
-
-                       <?php //close element Row at last product ?>
-                       <?php if($open_element ==  true): ?>
-                            </div>
-                        <?php endif; ?>
                 </div>
             </div>
 
 
-           <div class="col-lg-4 col-md-5 col-sm-6">
+           <div class="col-lg-5 col-md-5 col-sm-5">
                 <div class="archive-listing-item-detail-pane-notice">
                     <h3>Select the caravan to display the detail on this panel </h3>
                 </div>
