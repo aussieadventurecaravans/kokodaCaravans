@@ -38,7 +38,7 @@ get_header(); ?>
 <div class="stripe center archive-listing">
     <div class="container-fluid">
        <div class="row">
-           <div class="col-lg-2  col-md-2 col-sm-2">
+           <div class="col-lg-2  col-md-3 col-sm-12 filter-archive-panel">
                    <div class="filter">
                        <h2>Filter By</h2>
                        <!--- add new size select --->
@@ -213,7 +213,7 @@ get_header(); ?>
                        <!-- end adding -->
                    </div>
            </div>
-           <div class="col-lg-5 col-md-5 col-sm-5">
+           <div class="col-lg-5 col-md-4 col-sm-12 archive-list-panel">
                <div class="featured clearfix item-list archive-item-list">
                    <?php
                             $listing_category = get_field('page_category');
@@ -286,9 +286,13 @@ get_header(); ?>
                                        <div class="details">
                                            <h3><?php echo get_the_title($caravan); ?></h3>
                                            <div class="product-meta clearfix">
-                                               <?php if(get_field('price_thousands',$caravan->ID)): ?><span class="price">$<?php the_field('price_thousands',$caravan->ID); ?>,<?php the_field('price_hundreds',$caravan->ID); ?><i>+ORC</i></span><?php endif; ?>
-                                               <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
-                                               <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
+                                               <?php if(get_field('price_thousands',$caravan->ID)): ?><span class="price"><strong>Price: </strong>$<?php the_field('price_thousands',$caravan->ID); ?>,<?php the_field('price_hundreds',$caravan->ID); ?><i>+ORC</i></span><?php endif; ?>
+                                               <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><strong>Size: </strong><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
+                                               <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><strong>Occupants: </strong><?php the_field('occupants',$caravan->ID); ?></span><br/><br/><?php endif; ?>
+
+                                               <?php if(get_field('tare',$caravan->ID)): ?><span class="tare"><strong>Tare (approx): </strong><?php the_field('tare',$caravan->ID); ?></span><?php endif; ?>
+                                               <?php if(get_field('ball_weight',$caravan->ID)): ?><span class="ball"><strong>Ball weight (approx): </strong><?php the_field('ball_weight',$caravan->ID); ?></span><?php endif; ?>
+
                                            </div>
                                        </div>
                                    </div>
@@ -300,7 +304,7 @@ get_header(); ?>
             </div>
 
 
-           <div class="col-lg-5 col-md-5 col-sm-5">
+           <div class="col-lg-5 col-md-5 col-sm-12 archive-item-detail-panel">
                 <div class="archive-listing-item-detail-pane-notice">
                     <h3>Select the caravan to display the detail on this panel </h3>
                 </div>
@@ -366,7 +370,7 @@ get_header(); ?>
                             data: data,
                             type: "POST",
                             beforeSend: function() {
-                                if($(window).width() <= 767)
+                                if(window.outerWidth <= 991)
                                 {
                                     $('#loading-icon-panel').show();
                                 }
@@ -392,7 +396,7 @@ get_header(); ?>
                                     controlNav: false
                                 });
 
-                                if($(window).width() <= 767)
+                                if(window.outerWidth <= 991)
                                 {
                                     $('#loading-icon-panel').hide();
                                     addClass(panel, 'cd-panel--is-visible');
