@@ -94,6 +94,77 @@ get_header(); ?>
                            </div>
                            <!-- Custom select structure for filter size-->
                        </div>
+                       <!-- Custom select structure for filter type -->
+                       <div class="form-group" class="filter-terrain-form">
+                           <label>Terrain</label>
+                           <div class="select_mate" data-mate-select="active" >
+                               <select class="filters-select"  data-filter-group="filter-terrain">
+                                   <option value="*" data-filter-value="">All</option>
+                                   <option value=".terrain-on-road" data-filter-value=".terrain-on-road">On Road</option>
+                                   <option value=".terrain-off-road" data-filter-value=".terrain-off-road">Off Road</option>
+                                   <option value=".terrain-semi-off-road" data-filter-value=".terrain-semi-off-road">Semi Off Road</option>
+                               </select>
+                               <p class="selecionado_opcion"  onclick="open_select(this)" ></p>
+                               <span onclick="open_select(this)" class="icon_select_mate" >
+                               <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                <path d="M0-.75h24v24H0z" fill="none"/>
+                            </svg>
+                           </span>
+                               <div class="cont_list_select_mate">
+                                   <ul class="cont_select_int">  </ul>
+                               </div>
+                           </div>
+                           <!-- Custom select structure for filter size-->
+                       </div>
+
+                       <!-- Custom select structure for filter type -->
+                       <div class="form-group" class="filter-type-form">
+                           <label>Type</label>
+                           <div class="select_mate" data-mate-select="active" >
+                               <select class="filters-select"  data-filter-group="filter-type">
+                                   <option value="*" data-filter-value="">All</option>
+                                   <option value=".type-caravan" data-filter-value=".type-caravan">caravan</option>
+                                   <option value=".type-hyprid" data-filter-value=".type-hyprid">Hyprid</option>
+                                   <option value=".type-camper" data-filter-value=".type-camper">Camper</option>
+                               </select>
+                               <p class="selecionado_opcion"  onclick="open_select(this)" ></p>
+                               <span onclick="open_select(this)" class="icon_select_mate" >
+                               <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                <path d="M0-.75h24v24H0z" fill="none"/>
+                            </svg>
+                           </span>
+                               <div class="cont_list_select_mate">
+                                   <ul class="cont_select_int">  </ul>
+                               </div>
+                           </div>
+                           <!-- Custom select structure for filter size-->
+                       </div>
+
+                       <!-- Custom select structure for filter type -->
+                       <div class="form-group" class="filter-type-form">
+                           <label>Family</label>
+                           <div class="select_mate" data-mate-select="active" >
+                               <select class="filters-select"  data-filter-group="filter-family-bunk">
+                                   <option value="*" data-filter-value="">All</option>
+                                   <option value=".family-bunk" data-filter-value=".family-bunk">Family Bunk</option>
+                               </select>
+                               <p class="selecionado_opcion"  onclick="open_select(this)" ></p>
+                               <span onclick="open_select(this)" class="icon_select_mate" >
+                               <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                <path d="M0-.75h24v24H0z" fill="none"/>
+                            </svg>
+                           </span>
+                               <div class="cont_list_select_mate">
+                                   <ul class="cont_select_int">  </ul>
+                               </div>
+                           </div>
+                           <!-- Custom select structure for filter size-->
+                       </div>
+
+
 
                        <script type="text/javascript">
                            window.onload = function(){
@@ -148,15 +219,6 @@ get_header(); ?>
                                var hg = 0;
                                var slect_open = document.querySelectorAll("[data-indx-select='"+idx1+"']")[0].getAttribute('data-selec-open');
                                var slect_element_open = document.querySelectorAll("[data-indx-select='"+idx1+"'] select")[0];
-                              /* if (Mobile_ || FirfoxMobile) {
-                                   if (window.document.createEvent) { // All
-                                       var evt = window.document.createEvent("MouseEvents");
-                                       evt.initMouseEvent("mousedown", false, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                                       slect_element_open.dispatchEvent(evt);
-                                   } else if (slect_element_open.fireEvent) { // IE
-                                       slect_element_open.fireEvent("onmousedown");
-                                   }
-                               }else {*/
                                    for (var i = 0; i < ul_cont_li.length; i++) {
                                        hg += ul_cont_li[i].offsetHeight;
                                    };
@@ -172,7 +234,6 @@ get_header(); ?>
                                        document.querySelectorAll("[data-indx-select='"+idx1+"'] > .icon_select_mate")[0].style.transform = 'rotate(0deg)';
                                        document.querySelectorAll("[data-indx-select='"+idx1+"'] > .cont_list_select_mate > ul")[0].style.height = "0px";
                                    }
-                               /*}*/
 
                            } // fin function open_select
 
@@ -187,9 +248,7 @@ get_header(); ?>
 
                            function _select_option(indx,selc)
                            {
-                               /*if (Mobile_ || FirfoxMobile) {
-                                   selc = selc -1;
-                               }*/
+
                                var select_ = document.querySelectorAll("[data-indx-select='"+selc+"'] > select")[0];
 
                                var li_s = document.querySelectorAll("[data-indx-select='"+selc+"'] .cont_select_int > li");
@@ -243,6 +302,8 @@ get_header(); ?>
                        $product_img = get_field('banner_image',$caravan->ID);
                        $badge_img = get_field('banner_badge',$caravan->ID);
 
+                       //add filter value for each item
+                       //filter price and size
                        $filter_price = get_field('price_thousands',$caravan->ID);
                        $filter_size = get_field('size_feet',$caravan->ID);
 
@@ -270,11 +331,58 @@ get_header(); ?>
                            $filter_size = "size-26";
                        endif;
 
+                       //fitler type, terrain and family bunk
+                       $terms =  get_the_terms( $caravan, 'product-cat' );
+                       $hyprid_filter = array('Hybrid - Semi Off-Road','Hybrid - On-Road','Hybrid - Off-Road');
+                       $caravan_filter= array('Caravan - Off-Road','Caravan - On-Road','Caravan - Semi Off-Road');
+                       $camper_filter = array('Camper - Off-Road','Camper - On-Road','Camper - Semi Off-Road');
+                       $filter_type = '';
+                       $filter_terrain='';
+                       $filter_family = '';
+                       foreach ( $terms as $term )
+                       {
+                           if(in_array( $term->name ,array('Caravan - Family Bunk')))
+                           {
+                               $filter_family = 'family-bunk';
+                           }
+
+
+                           if(in_array( $term->name ,$hyprid_filter))
+                           {
+                                $split = explode(' - ',$term->name);
+                                $filter_type = 'type-hyprid';
+                                $filter_terrain= 'terrain-' .  str_replace(' ','-',strtolower($split[1])) ;
+                                break;
+
+                           }
+                           elseif(in_array( $term->name ,$camper_filter))
+                           {
+                               $split = explode(' - ',$term->name);
+                               $filter_type = 'type-camper';
+                               $filter_terrain= 'terrain-' . str_replace(' ','-',strtolower($split[1])) ;
+                               break;
+                           }
+                           elseif(in_array( $term->name ,$caravan_filter))
+                           {
+                               $split = explode(' - ',$term->name);
+                               $filter_type = 'type-caravan';
+                               $filter_terrain= 'terrain-' .  str_replace(' ','-',strtolower($split[1])) ;
+                               break;
+                           }
+                           else
+                           {
+
+                                //do nothing
+                           }
+                       }
+
+
+
                        ?>
 
                        <?php //Starting Element Row ?>
                        <div class="row">
-                           <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?>  col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                           <div class="item archive-item <?php echo $filter_price; ?> <?php echo $filter_size; ?> <?php echo $filter_type ?> <?php echo $filter_terrain; ?> <?php echo $filter_family; ?> col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                <a class="cd-btn js-cd-panel-trigger" data-panel="main" href="#" caravan-id="<?php echo $caravan->ID; ?>"  caravan-title="<?php echo get_the_title($caravan); ?>" >
                                    <?php if($product_img): ?>
                                        <div class="item-img">
