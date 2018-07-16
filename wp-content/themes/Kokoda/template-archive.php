@@ -43,11 +43,12 @@ get_header(); ?>
                        <h2>Filter By</h2>
                        <!--- add new size select --->
 
-                       <!-- Custom select structure for filter size -->
-                       <div class="form-group">
+                       <!-- Custom select structure for filter price -->
+                       <div class="form-group" class="filter-price-form">
+                           <label>Price</label>
                            <div class="select_mate" data-mate-select="active" >
                                <select class="filters-select" data-filter-group="filter-price" >
-                                   <option value="*" data-filter-value="">Price</option>
+                                   <option value="*" data-filter-value="">All</option>
                                    <option value=".price-41-50" data-filter-value=".price-41-50">$41k - $50k</option>
                                    <option value=".price-51-60" data-filter-value=".price-51-60">$51k - $60k</option>
                                    <option value=".price-61-70" data-filter-value=".price-61-70">$61k - $70k</option>
@@ -71,10 +72,11 @@ get_header(); ?>
                        </div> <!-- End div center   -->
 
                        <!-- Custom select structure for filter size -->
-                       <div class="form-group">
+                       <div class="form-group" class="filter-size-form">
+                           <label>Size</label>
                            <div class="select_mate" data-mate-select="active" >
                                <select class="filters-select"  data-filter-group="filter-size">
-                                   <option value="*" data-filter-value="">Size</option>
+                                   <option value="*" data-filter-value="">All</option>
                                    <option value=".size-14-19" data-filter-value=".size-14-19">14" - 19"</option>
                                    <option value=".size-20-25" data-filter-value=".size-20-25">20" - 25"</option>
                                    <option value=".size-26" data-filter-value=".size-26">26"+</option>
