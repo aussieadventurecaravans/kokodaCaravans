@@ -4749,7 +4749,7 @@ body.page-template-template-archive
 	font-weight: 400;
 	background-color: #eceff3;
 	transition: all 375ms ease-in-out;
-	box-shadow: 1px 4px 10px -2px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 4px 10px 4px rgba(0, 0, 0, 0.2);
 }
 .archive-listing .filter .form-group .select_mate select {
 	position: absolute;
@@ -5261,6 +5261,10 @@ body.page-template-template-archive
 
 
 /* CUSTOMIZE THE ARCHIVE ITEM DETAIL AT RIGHT PANEL  */
+.archive-item-detail-panel
+{
+	border-left: 1px solid #ececec;
+}
 @media only screen and (max-width: 991px)
 {
 	.archive-item-detail-panel
