@@ -98,14 +98,12 @@
 
 <?php
     //retrieve the product that are included to main navigation
-    $listing_category = get_field('page_category');
     $args = array(
         'post_type' => 'product',
         'orderby' => 'menu_order',
         'order' => 'ASC',
         'nopaging' => true
     ); ?>
-
     <?php query_posts($args); ?>
     <?php if (have_posts()) : $count = 0; ?>
     <div class="products-navigation">
@@ -133,12 +131,6 @@
                             <div class="details">
                                 <h4 class="item-title"><?php the_title(); ?></h4>
                                 <?php if(get_field('banner_description')): ?><p><?php the_field('banner_description'); ?></p><?php endif; ?>
-                               <!-- <div class="product-meta clearfix">
-                                    <?php /*if(get_field('price_thousands')): */?><span class="price">$<?php /*the_field('price_thousands'); */?>,<?php /*the_field('price_hundreds'); */?><i>+ORC</i></span><?php /*endif; */?>
-                                    <?php /*if(get_field('size_feet')): */?><span class="size"><?php /*the_field('size_feet'); */?>'<?php /*if(get_field('size_inches')): */?><?php /*the_field('size_inches'); */?>"<?php /*endif; */?></span><?php /*endif; */?>
-                                    <?php /*if(get_field('occupants')): */?><span class="occupants"><?php /*the_field('occupants'); */?></span><?php /*endif; */?>
-                                </div>-->
-
                             </div>
                             <div class="overview">
                                <a href="<?php the_permalink(); ?>"> <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/arrow-right-black.png"/> overview </a>

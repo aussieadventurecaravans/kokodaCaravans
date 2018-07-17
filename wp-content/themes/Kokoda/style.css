@@ -1729,10 +1729,6 @@ nav .container {
 	background: #202020;
 }
 
-.stripe.listing .featured .item {
-
-}
-
 .stripe.listing .featured .item i {
 	font-style: normal;
 }
@@ -4336,12 +4332,7 @@ customize the category page show product
  */
 
 .page-template-page-listing .featured .item {
-	padding-left: 0;
-	padding-right: 0;
-	width: 33.3334%;
-	display: block;
-	float: left;
-	background-color: #000;
+
 }
 
 
@@ -4402,22 +4393,6 @@ customize the category page show product
 	font-weight: 300;
 	margin: 0 0 10px 0;
 	padding: 0;
-}
-
-
-@media only screen and (max-width:992px) {
-
-	.page-template-page-listing .featured .item {
-		width: 50%;
-	}
-}
-
-@media only screen and (max-width: 767px)
-{
-	.page-template-page-listing .featured .item, .home .featured .item {
-		width: 100%;
-		float: none;
-	}
 }
 
 /**
@@ -4749,7 +4724,6 @@ body.page-template-template-archive
 	font-weight: 400;
 	background-color: #eceff3;
 	transition: all 375ms ease-in-out;
-	box-shadow: 1px 4px 10px 4px rgba(0, 0, 0, 0.2);
 }
 .archive-listing .filter .form-group .select_mate select {
 	position: absolute;
