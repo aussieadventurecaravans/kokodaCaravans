@@ -51,11 +51,11 @@ get_header(); ?>
 	<div class="container">
 		<div class="row">
 		
-			<div class="filter col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+			<div class="filter col-lg-12">
 				<h2>Display By</h2>
 				<form class="form-inline">
 					<div class="form-group">
-						<label>Price</label>
+                        <h3 class="header">Price</h3>
 						<select class="form-control" data-filter-group="filter-price">
 							<option value="*" data-filter-value="">All</option>
 							<option value=".price-41-50" data-filter-value=".price-41-50">$41k - $50k</option>
@@ -68,13 +68,11 @@ get_header(); ?>
 						</select>
 					</div>
 					<div class="form-group">
-						<label>Size</label>
-						<select class="form-control" data-filter-group="filter-size">
-							<option value="*" data-filter-value="">All</option>
-							<option value=".size-14-19" data-filter-value=".size-14-19">14" - 19"</option>
-							<option value=".size-20-25" data-filter-value=".size-20-25">20" - 25"</option>
-							<option value=".size-26" data-filter-value=".size-26">26"+</option>
-						</select>
+                        <h3 class="header">Size</h3>
+                        <label><input type="radio" data-filter-group="filter-size" name="filter-size" value="*" data-filter-value="">All</label><br />
+                        <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-14-19" data-filter-value=".size-14-19">14" - 19"</label><br />
+                        <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-20-25" data-filter-value=".size-20-25">20" - 25"</label><br />
+                        <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-26" data-filter-value=".size-26">26"+</label><br />
 					</div>
 				</form>
 			</div>
@@ -85,14 +83,35 @@ get_header(); ?>
 	<div class="container featured clearfix list">
 	
 		<?php $listing_category = get_field('page_category');
+
+        $terms = get_terms('product-cat','orderby=name' );
+
+        //get the archive category ID
+        $caravan_archive_category_id = 0;
+        foreach ( $terms as $term ){
+            if(in_array( $term->name ,array('Caravan Archive')))
+            {
+                $caravan_archive_category_id = $term->term_id;
+                break;
+            }
+        }
+        //query find the caravans belong to cateogory specified by page
+        // and these caravanas also don't belong to archive category.
 		$args = array(
 			'post_type' => 'product',
 			'tax_query' => array(
+                'relation' => 'AND',
 				array(
 					'taxonomy' => 'product-cat',
 					'field'    => 'term_id',
 					'terms'    => $listing_category,
 				),
+                array(
+                    'taxonomy' => 'product-cat',
+                    'field'    => 'term_id',
+                    'terms'    => array($caravan_archive_category_id),
+                    'operator' => 'NOT IN'
+                )
 			),
 			'orderby' => 'menu_order',
 			'order' => 'ASC',
@@ -102,13 +121,6 @@ get_header(); ?>
 		<?php query_posts($args); ?>
 			<?php if (have_posts()) : $count = 0; ?>
 				<?php while (have_posts()) : the_post(); ?>
-                    <?php //Starting Element Row ?>
-                     <?php if($count ==  0): ?>
-                            <?php //echo "<div class='row'>"; ?>
-                    <?php endif; ?>
-
-                    <?php $count++ ?>
-
                     <?php
                     $product_img = get_field('banner_image');
                     $badge_img = get_field('banner_badge');
@@ -171,12 +183,6 @@ get_header(); ?>
                     <?php endif; ?>
 				<?php endwhile; ?>
 
-
-                <?php //close element Row ?>
-                <?php if($count <  3): ?>
-                    <?php   //echo "</div>"; ?>
-                <?php endif; ?>
-
             <?php else: ?>
 
             <?php endif; ?>
@@ -191,59 +197,85 @@ get_header(); ?>
 
 
 <script type="text/javascript">
-    (function($) {
+    jQuery(document).ready(function($){
 
-        'use strict';
+        var $boxes = $('.page-template-page-listing .featured .item'),
+            filters = {};
 
-        var $filters = $('.filter [data-filter]'),
-            $boxes = $('.boxes [data-category]');
 
-        $filters.on('click', function(e) {
+        $('select.form-control[data-filter-group]').change(function(e) {
+                e.preventDefault();
+                var $this = $(this);
+
+                // store filter value in object
+                var group = $this.attr('data-filter-group');
+                filters[group] = $this.find(':selected').attr('data-filter-value');
+
+                var filter_lines='';
+                for (var prop in filters)
+                {
+                    filter_lines +=  filters[prop];
+
+                }
+
+                if (filter_lines == '' ) {
+                    $boxes.removeClass('is-animated')
+                        .fadeOut(300).finish().promise().done(function() {
+                        $boxes.each(function(i) {
+                            $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+                        });
+                    });
+                }
+                else
+                    {
+                    $boxes.removeClass('is-animated')
+                        .fadeOut(300).finish().promise().done(function() {
+                        $boxes.filter(filter_lines ).each(function(i) {
+                            $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+                        });
+                    });
+                }
+
+        });
+
+
+        $('input[type=radio][data-filter-group=filter-size]').change(function(e) {
             e.preventDefault();
             var $this = $(this);
 
-            $filters.removeClass('active');
-            $this.addClass('active');
 
-            var $filterColor = $this.attr('data-filter');
+            // store filter value in object
+            var group = $this.attr('data-filter-group');
+            filters[group] = $this.attr('data-filter-value');
 
-            if ($filterColor == 'all') {
+
+            var filter_lines='';
+            for (var prop in filters)
+            {
+                filter_lines +=  filters[prop];
+
+            }
+
+            if (filter_lines == '' ) {
                 $boxes.removeClass('is-animated')
-                    .fadeOut().finish().promise().done(function() {
+                    .fadeOut(300).finish().promise().done(function() {
                     $boxes.each(function(i) {
                         $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
                     });
                 });
             }
-            else if ($filterColor == 'red-blue')
+            else
             {
                 $boxes.removeClass('is-animated')
-                    .fadeOut().finish().promise().done(function() {
-                    $boxes.filter('[data-category = red],[data-category = blue]').each(function(i) {
+                    .fadeOut(300).finish().promise().done(function() {
+                    $boxes.filter(filter_lines ).each(function(i) {
                         $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
                     });
                 });
+            }
 
-            }
-            else if ($filterColor == 'blue-green')
-            {
-                $boxes.removeClass('is-animated')
-                    .fadeOut().finish().promise().done(function() {
-                    $boxes.filter('[data-category = blue],[data-category = green]').each(function(i) {
-                        $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
-                    });
-                });
-
-            }
-            else {
-                $boxes.removeClass('is-animated')
-                    .fadeOut().finish().promise().done(function() {
-                    $boxes.filter('[data-category = "' + $filterColor + '"]').each(function(i) {
-                        $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
-                    });
-                });
-            }
         });
 
-    })(jQuery);
+    });
 
+</script>
