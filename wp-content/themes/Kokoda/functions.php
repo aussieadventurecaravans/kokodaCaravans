@@ -434,6 +434,35 @@ function restrict_archive_caravan_at_search($args)
 
 /** ENDING THE CUSTOMIZE **/
 
+/** redirect all the archive product template to 404 page or hide them from user.  **/
+function redirect_archive_item($params=array()) {
+
+    if( is_single()  && !is_user_logged_in() && !is_admin())
+    {
+        global $post;
+        if ( get_query_var('post_type') ) {
+            $post_type = get_query_var('post_type');
+        }
+        else
+        {
+            if ( $post )
+                $post_type = $post->post_type;
+        }
+
+        if ( $post_type != 'product' )
+            return;
+        else
+        {
+            //redirect all archive item's access to homepage.
+            if(has_term('Caravan Archive','product-cat',$post))
+            {
+                wp_redirect( home_url());
+            }
+        }
+    }
+}
+add_action( 'template_redirect', 'redirect_archive_item' );
+/** ENDING THE CUSTOMIZE **/
 
 
 ?>
