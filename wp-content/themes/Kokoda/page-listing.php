@@ -59,33 +59,33 @@ get_header(); ?>
                         <?php  if(get_field('page_category') == '' ): ?>
                             <div class="form-group col-lg-3">
                                 <h3 class="header">Type</h3>
-                                <label><input type="radio" checked data-filter-group="filter-type" name="filter-type" value="*" data-filter-value="">All</label><br />
-                                <label><input type="radio" data-filter-group="filter-type" name="filter-type" value=".type-caravan" data-filter-value=".type-caravan">Caravans</label><br />
-                                <label><input type="radio" data-filter-group="filter-type" name="filter-type" value=".type-hybrid" data-filter-value=".type-hybrid">Hybrid</label><br />
-                                <label><input type="radio" data-filter-group="filter-type" name="filter-type" value=".type-camper" data-filter-value=".type-camper">Camper</label><br />
+                                <label><input type="radio" checked data-filter-group="filter-type" name="filter-type" value="*" data-filter-value="">All<span class="checkmark"></span></label><br />
+                                <label><input type="radio" data-filter-group="filter-type" name="filter-type" value=".type-caravan" data-filter-value=".type-caravan">Caravans<span class="checkmark"></span></label><br />
+                                <label><input type="radio" data-filter-group="filter-type" name="filter-type" value=".type-hybrid" data-filter-value=".type-hybrid">Hybrid<span class="checkmark"></span></label><br />
+                                <label><input type="radio" data-filter-group="filter-type" name="filter-type" value=".type-camper" data-filter-value=".type-camper">Camper<span class="checkmark"></span></label><br />
                             </div>
                         <?php endif; ?>
                         <div class="form-group col-lg-2">
                             <h3 class="header">Size</h3>
-                            <label><input type="radio" checked data-filter-group="filter-size" name="filter-size" value="*" data-filter-value="">All</label><br />
-                            <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-14-19" data-filter-value=".size-14-19">14" - 19"</label><br />
-                            <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-20-25" data-filter-value=".size-20-25">20" - 25"</label><br />
-                            <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-26" data-filter-value=".size-26">26" + </label><br />
+                            <label><input type="radio" checked data-filter-group="filter-size" name="filter-size" value="*" data-filter-value="">All<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-14-19" data-filter-value=".size-14-19">14" - 19"<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-20-25" data-filter-value=".size-20-25">20" - 25"<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-size" name="filter-size" value=".size-26" data-filter-value=".size-26">26" + <span class="checkmark"></span></label><br />
                         </div>
 
                         <div class="form-group col-lg-2">
                             <h3 class="header">Sleeps</h3>
-                            <label><input type="radio" checked data-filter-group="filter-occupant" name="filter-occupant" value="*" data-filter-value="">All</label><br />
-                            <label><input type="radio" data-filter-group="filter-occupant" name="filter-occupant" value=".occupant-2" data-filter-value=".occupant-2">0 - 2</label><br />
-                            <label><input type="radio" data-filter-group="filter-occupant" name="filter-occupant" value=".occupant-3-4" data-filter-value=".occupant-3-4">3 - 4</label><br />
-                            <label><input type="radio" data-filter-group="filter-occupant" name="filter-occupant" value=".occupant-5" data-filter-value=".occupant-5">5 +</label><br />
+                            <label><input type="radio" checked data-filter-group="filter-occupant" name="filter-occupant" value="*" data-filter-value="">All<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-occupant" name="filter-occupant" value=".occupant-2" data-filter-value=".occupant-2">0 - 2<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-occupant" name="filter-occupant" value=".occupant-3-4" data-filter-value=".occupant-3-4">3 - 4<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-occupant" name="filter-occupant" value=".occupant-5" data-filter-value=".occupant-5">5 +<span class="checkmark"></span></label><br />
                         </div>
                         <div class="form-group col-lg-2">
                             <h3 class="header">Terrain</h3>
-                            <label><input type="radio" checked data-filter-group="filter-terrain" name="filter-terrain" value="*" data-filter-value="">All</label><br />
-                            <label><input type="radio" data-filter-group="filter-terrain" name="filter-terrain" value=".terrain-on-road" data-filter-value=".terrain-on-road">On Road</label><br />
-                            <label><input type="radio" data-filter-group="filter-terrain" name="filter-terrain" value=".terrain-semi-off-road" data-filter-value=".terrain-semi-off-road">Semi Off Road</label><br />
-                            <label><input type="radio" data-filter-group="filter-terrain" name="filter-terrain" value=".terrain-off-road" data-filter-value=".terrain-off-road">Off Road</label><br />
+                            <label><input type="radio" checked data-filter-group="filter-terrain" name="filter-terrain" value="*" data-filter-value="">All<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-terrain" name="filter-terrain" value=".terrain-on-road" data-filter-value=".terrain-on-road">On Road<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-terrain" name="filter-terrain" value=".terrain-semi-off-road" data-filter-value=".terrain-semi-off-road">Semi Off Road<span class="checkmark"></span></label><br />
+                            <label><input type="radio" data-filter-group="filter-terrain" name="filter-terrain" value=".terrain-off-road" data-filter-value=".terrain-off-road">Off Road<span class="checkmark"></span></label><br />
                         </div>
 
                         <div class="form-group col-lg-3">

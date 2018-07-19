@@ -1924,7 +1924,7 @@ nav .container {
 	border-radius: 0;
 }
 
-/**  customize the look of dropdown select, radio, checkbox form **/
+/**  customize the look of dropdown select, radio form **/
 /*the container must be positioned relative:*/
 .page-template-page-listing .filter .form-group .custom-select {
 	position: relative;
@@ -1978,6 +1978,69 @@ nav .container {
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
+/**  customize the look of radio form **/
+.page-template-page-listing .filter .form-group label{
+	display: block;
+	position: relative;
+	padding-left: 25px;
+	margin-bottom: 0px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.page-template-page-listing .filter .form-group label input[type=radio] {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Create a custom radio button */
+.page-template-page-listing .filter .form-group label .checkmark {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	height: 16px;
+	width: 16px;
+	background-color: #eee;
+	border-radius: 50%;
+	border: 1px solid #343434;
+}
+
+/* On mouse-over, add a grey background color */
+.page-template-page-listing .filter .form-group label:hover input ~ .checkmark {
+	background-color: #eee;
+}
+
+/* When the radio button is checked, add a blue background */
+.page-template-page-listing .filter .form-group label input:checked ~ .checkmark {
+	background-color: #eee;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.page-template-page-listing .filter .form-group label .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.page-template-page-listing .filter .form-group label input[type=radio]:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.page-template-page-listing .filter .form-group label .checkmark:after {
+	top: 4px;
+	left: 4px;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: #1a1a1a;
+}
 
 /* CONTENT PAGE */
 
