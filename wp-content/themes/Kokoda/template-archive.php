@@ -106,11 +106,11 @@ get_header(); ?>
                                </select>
                                <p class="selecionado_opcion"  onclick="open_select(this)" ></p>
                                <span onclick="open_select(this)" class="icon_select_mate" >
-                               <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                                <path d="M0-.75h24v24H0z" fill="none"/>
-                            </svg>
-                           </span>
+                                   <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                    <path d="M0-.75h24v24H0z" fill="none"/>
+                                    </svg>
+                                </span>
                                <div class="cont_list_select_mate">
                                    <ul class="cont_select_int">  </ul>
                                </div>
@@ -130,11 +130,11 @@ get_header(); ?>
                                </select>
                                <p class="selecionado_opcion"  onclick="open_select(this)" ></p>
                                <span onclick="open_select(this)" class="icon_select_mate" >
-                               <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                                <path d="M0-.75h24v24H0z" fill="none"/>
-                            </svg>
-                           </span>
+                                   <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                        <path d="M0-.75h24v24H0z" fill="none"/>
+                                    </svg>
+                                </span>
                                <div class="cont_list_select_mate">
                                    <ul class="cont_select_int">  </ul>
                                </div>
@@ -152,11 +152,11 @@ get_header(); ?>
                                </select>
                                <p class="selecionado_opcion"  onclick="open_select(this)" ></p>
                                <span onclick="open_select(this)" class="icon_select_mate" >
-                               <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                                <path d="M0-.75h24v24H0z" fill="none"/>
-                            </svg>
-                           </span>
+                                   <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                    <path d="M0-.75h24v24H0z" fill="none"/>
+                                    </svg>
+                                </span>
                                <div class="cont_list_select_mate">
                                    <ul class="cont_select_int">  </ul>
                                </div>
@@ -185,11 +185,7 @@ get_header(); ?>
                                    div_cont_select[e].setAttribute('data-selec-open','false');
                                    var ul_cont = document.querySelectorAll("[data-indx-select='"+e+"'] > .cont_list_select_mate > ul");
                                    select_ = document.querySelectorAll("[data-indx-select='"+e+"'] >select")[0];
-                                  /* if (Mobile_ || FirfoxMobile) {
-                                       select_.addEventListener('change', function () {
-                                           _select_option(select_.selectedIndex,e);
-                                       });
-                                   }*/
+
                                    var select_optiones = select_.options;
                                    document.querySelectorAll("[data-indx-select='"+e+"']  > .selecionado_opcion ")[0].setAttribute('data-n-select',e);
                                    document.querySelectorAll("[data-indx-select='"+e+"']  > .icon_select_mate ")[0].setAttribute('data-n-select',e);

@@ -90,16 +90,18 @@ get_header(); ?>
 
                         <div class="form-group col-lg-3">
                             <h3 class="header">Price</h3>
-                            <select class="form-control" data-filter-group="filter-price">
-                                <option value="*" data-filter-value="">All</option>
-                                <option value=".price-41-50" data-filter-value=".price-41-50">$41k - $50k</option>
-                                <option value=".price-51-60" data-filter-value=".price-51-60">$51k - $60k</option>
-                                <option value=".price-61-70" data-filter-value=".price-61-70">$61k - $70k</option>
-                                <option value=".price-71-80" data-filter-value=".price-71-80">$71k - $80k</option>
-                                <option value=".price-81-90" data-filter-value=".price-81-90">$81k - $90k</option>
-                                <option value=".price-91-100" data-filter-value=".price-91-100">$91k - $100k</option>
-                                <option value=".price-100" data-filter-value=".price-91">$100k+</option>
-                            </select>
+                            <div class="custom-select">
+                                <select class="form-control" data-filter-group="filter-price">
+                                    <option value="*" data-filter-value="">All</option>
+                                    <option value=".price-41-50" data-filter-value=".price-41-50">$41k - $50k</option>
+                                    <option value=".price-51-60" data-filter-value=".price-51-60">$51k - $60k</option>
+                                    <option value=".price-61-70" data-filter-value=".price-61-70">$61k - $70k</option>
+                                    <option value=".price-71-80" data-filter-value=".price-71-80">$71k - $80k</option>
+                                    <option value=".price-81-90" data-filter-value=".price-81-90">$81k - $90k</option>
+                                    <option value=".price-91-100" data-filter-value=".price-91-100">$91k - $100k</option>
+                                    <option value=".price-100" data-filter-value=".price-91">$100k+</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -387,6 +389,99 @@ get_header(); ?>
 
         });
 
+        //customize the look of  the dropdown select/radio button
+        var x, i, j, selElmnt, a, b, c;
+
+        var arrow = "<span class=\"icon-select\"><svg fill=\"#000000\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+                    "<path d=\"M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z\"/>\n" +
+                    "<path d=\"M0-.75h24v24H0z\" fill=\"none\"/>\n" +
+                    "</svg></span>";
+
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        for (i = 0; i < x.length; i++) {
+            selElmnt = x[i].getElementsByTagName("select")[0];
+            /*for each element, create a new DIV that will act as the selected item:*/
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML + arrow;
+            x[i].appendChild(a);
+            /*for each element, create a new DIV that will contain the option list:*/
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            for (j = 0; j < selElmnt.length; j++) {
+                /*for each option in the original select element,
+                create a new DIV that will act as an option item:*/
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                c.addEventListener("click", function (e) {
+                    /*when an item is clicked, update the original select box,
+                    and the selected item:*/
+                    var y, i, k, s, h;
+                    s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                    h = this.parentNode.previousSibling;
+                    for (i = 0; i < s.length; i++) {
+                        if (s.options[i].innerHTML == this.innerHTML) {
+                            s.selectedIndex = i;
+                            h.innerHTML = this.innerHTML + arrow;
+                            y = this.parentNode.getElementsByClassName("same-as-selected");
+                            for (k = 0; k < y.length; k++) {
+                                y[k].removeAttribute("class");
+                            }
+                            this.setAttribute("class", "same-as-selected");
+
+                            //trigger event change of select form to filter the product
+                            jQuery('select.form-control[data-filter-group]').change();
+                            break;
+                        }
+                    }
+                    h.click();
+                });
+                b.appendChild(c);
+            }
+            x[i].appendChild(b);
+            a.addEventListener("click", function (e) {
+                /*when the select box is clicked, close any other select boxes,
+                and open/close the current select box:*/
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+                //rotate arrow icon
+                if($('.page-template-page-listing .filter .form-group .select-selected').hasClass('select-arrow-active'))
+                {
+                    $('.page-template-page-listing .filter .form-group .icon-select').css('transform', 'rotate(180deg)');
+                }
+                else
+                {
+                    $('.page-template-page-listing .filter .form-group .icon-select').css('transform', 'rotate(0deg)');
+                }
+            });
+        }
+
+        function closeAllSelect(elmnt) {
+            /*a function that will close all select boxes in the document,
+            except the current select box:*/
+            var x, y, i, arrNo = [];
+            x = document.getElementsByClassName("select-items");
+            y = document.getElementsByClassName("select-selected");
+            for (i = 0; i < y.length; i++) {
+                if (elmnt == y[i]) {
+                    arrNo.push(i)
+                } else {
+                    y[i].classList.remove("select-arrow-active");
+                }
+            }
+            for (i = 0; i < x.length; i++) {
+                if (arrNo.indexOf(i)) {
+                    x[i].classList.add("select-hide");
+                }
+            }
+        }
+
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
     });
 
 </script>
