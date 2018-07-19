@@ -22,18 +22,6 @@ get_header(); ?>
 	</div>
 </nav>
 -->
-<?php $banner_img = get_field('page_banner'); ?>
-
-<div class="banner-wrap"<?php if(!empty($banner_img)) : ?> style="background-image: url('<?php echo $banner_img['url']; ?>');"<?php endif; ?>>
-	<div class="banner container">
-		<div class="row">
-			<div class="banner-content">
-				<h1><?php the_title(); ?></h1>
-			</div>
-		</div>
-	</div>
-</div>
-
 <?php if(get_field('page_intro_heading') || get_field('page_intro_text')): ?>
 <div class="stripe center intro">
 	<div class="container">
@@ -49,8 +37,16 @@ get_header(); ?>
 
 <div class="stripe center listing">
 	<div class="container-fluid filter">
-            <div class="row">
-                <div class="col-12">
+            <div class="row filter-header">
+                <div class="container">
+                    <div class="col-lg-12 col-md-12 filter-header-content">
+                        <a href="#togglePanel" title="Show Filter">
+                            <h3><span class="caravan-count">0</span> Caravans Remaining.</h3>
+                            <div class="toggle">
+                                Show / Hide Panel
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="row filter-form-group">
@@ -331,7 +327,7 @@ get_header(); ?>
                     filter_lines +=  filters[prop];
 
                 }
-
+                var count = 0;
                 if (filter_lines == '' ) {
                     $boxes.removeClass('is-animated')
                         .fadeOut(300).finish().promise().done(function() {
@@ -346,9 +342,12 @@ get_header(); ?>
                         .fadeOut(300).finish().promise().done(function() {
                         $boxes.filter(filter_lines ).each(function(i) {
                             $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+                            count++;
                         });
                     });
                 }
+            //var count = $('.page-template-page-listing .stripe.listing .featured .item:visible').length;
+            $('.filter-header .filter-header-content span.caravan-count').html(count);
 
         });
 
@@ -369,11 +368,12 @@ get_header(); ?>
                 filter_lines +=  filters[prop];
 
             }
+            var count = 0;
             if (filter_lines == '' ) {
                 $boxes.removeClass('is-animated')
                     .fadeOut(300).finish().promise().done(function() {
                     $boxes.each(function(i) {
-                        $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+                        $(this).addClass('is-animated').delay((i++) * 200).fadeIn();count++
                     });
                 });
             }
@@ -383,11 +383,36 @@ get_header(); ?>
                     .fadeOut(300).finish().promise().done(function() {
                     $boxes.filter(filter_lines ).each(function(i) {
                         $(this).addClass('is-animated').delay((i++) * 200).fadeIn();
+                        count++;
                     });
                 });
             }
+            //var count = $('.page-template-page-listing .stripe.listing .featured .item:visible').length;
+            $('.filter-header .filter-header-content span.caravan-count').html(count);
+        });
+        //customize the toggle icon at filter menu
+        $('.filter-header .filter-header-content a').click(function(e){
+            if($('.filter-header .filter-header-content a').hasClass('toggle-active'))
+            {
+                $('.filter-header .filter-header-content a').removeClass('toggle-active',500);
+                $('.page-template-page-listing .stripe.listing .filter').removeClass('active',500);
+            }
+            else {
+                $('.filter-header .filter-header-content a').addClass('toggle-active',500);
+                $('.page-template-page-listing .stripe.listing .filter').addClass('active',500);
+            }
 
         });
+
+
+        //initialize the toggle icon at filter menu to turn on
+        $('.filter-header .filter-header-content a').addClass('toggle-active');
+        $('.page-template-page-listing .stripe.listing .filter').addClass('active');
+
+        //initialize the form radio run to display all caravans number
+        var count = $('.page-template-page-listing .stripe.listing .featured .item:visible').length;
+        $('.filter-header .filter-header-content span.caravan-count').html(count);
+
 
         //customize the look of  the dropdown select/radio button
         var x, i, j, selElmnt, a, b, c;

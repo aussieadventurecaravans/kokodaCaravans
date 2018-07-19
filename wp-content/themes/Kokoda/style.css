@@ -1743,6 +1743,7 @@ nav .container {
 	background: #ffffff;
 	min-height: 800px;
 	margin-bottom: 30px;
+	padding: 0;
 }
 
 .page-template-page-listing .stripe.listing .featured .item i {
@@ -1830,6 +1831,7 @@ nav .container {
 .page-template-page-listing .featured .item .item-details .details {
 	padding: 10px 30px 20px;
 	text-align: center;
+	min-height: 230px;
 }
 
 .page-template-page-listing .featured .item .item-details .details h3 {
@@ -1883,14 +1885,66 @@ nav .container {
 .page-template-page-listing  .filter
 {
 	background-color: #eee;
-	margin: 0 0 35px;
-	padding-bottom: 30px;
+	margin: 0;
 	padding-top: 30px;
+	padding-bottom: 0;
 }
+.page-template-page-listing  .filter .filter-header .filter-header-content
+{
+	padding:0;
+}
+.page-template-page-listing  .filter .filter-header .filter-header-content a
+{
+	width: 100%;
+	display: inline-block;
+	padding: 20px 0 15px;
+}
+.page-template-page-listing  .filter .filter-header .filter-header-content a  h3
+{
+	margin: 0;
+	float: left;
+	position: relative;
+	font-size: 1.8em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #343434;
+}
+.page-template-page-listing  .filter .filter-header a .toggle
+{
+	display: inline-block;
+	float: right;
+	width: 41px;
+	height: 25px;
+
+	outline: none;
+	text-indent: -119988px;
+	overflow: hidden;
+	text-align: left;
+	background: url('_img/new-spite.png') 0 -4890px no-repeat;
+}
+.page-template-page-listing  .filter .filter-header a.toggle-active
+{
+	transform: rotate(0deg);
+}
+.page-template-page-listing  .filter .filter-header a.toggle-active .toggle
+{
+	transform: rotate(180deg);
+}
+
 .page-template-page-listing .filter .filter-form-group
 {
-	border-top: 1.5px solid #ddd;
-	border-bottom: 1.8px solid #c1c1c1;
+	border-top: 1.8px solid #c1c1c1;
+	overflow: hidden;
+	display: block;
+	height: 0px;
+	transition: none;
+}
+.page-template-page-listing .filter.active .filter-form-group
+{
+	overflow: visible;
+	display: block;
+	height: 230px;
+	transition: none;
 }
 .page-template-page-listing .filter .form-group .header{
 	font-size: 1.3em;
