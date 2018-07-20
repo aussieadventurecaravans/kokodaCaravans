@@ -17,7 +17,7 @@ jQuery(function($) {
 		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755 && $(window).width() != 768) {
 			$('body.home').css({'padding-top': '96px','transition': 'padding .3s'});
 			$('body.page').css({'padding-top': '96px','transition': 'padding .3s'});
-			$('body.page-template-page-listing').css({'padding-top': '146px','transition': 'padding .3s'});
+			$('body.page-template-page-listing').css({'padding-top': '114px','transition': 'padding .3s'});
 			$('body.single-product').css({'padding-top': '146px'});
 			$('nav#navbar-top.navbar-default').css({'height': '114px','transition': 'height .3s'});
 			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '31px', 'padding-bottom': '31px','transition': 'padding .3s'});
