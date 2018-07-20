@@ -8,7 +8,7 @@ jQuery(function($) {
 			$('nav#navbar-top.navbar-default').css({'height': '80px','transition': 'height .3s'});
 			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '14px', 'padding-bottom': '13px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '80px','transition': 'height .3s'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '10px', 'padding-bottom': '13px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '15px', 'padding-bottom': '13px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '12px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '0px', 'padding-bottom': '14px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '0px','height' : '58%','transition': 'padding .3s'});
@@ -22,7 +22,7 @@ jQuery(function($) {
 			$('nav#navbar-top.navbar-default').css({'height': '114px','transition': 'height .3s'});
 			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '31px', 'padding-bottom': '31px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '96px','transition': 'height .3s'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '32px', 'padding-top': '28px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '34px', 'padding-top': '28px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '49px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '20px', 'padding-bottom': '0','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '','transition': 'padding .3s','height' : 'auto'});
