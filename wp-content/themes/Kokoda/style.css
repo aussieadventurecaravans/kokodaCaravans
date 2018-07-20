@@ -1886,7 +1886,7 @@ nav .container {
 {
 	background-color: #eee;
 	margin: 0;
-	padding-top: 30px;
+	padding-top: 15px;
 	padding-bottom: 0;
 }
 .page-template-page-listing  .filter .filter-header .filter-header-content
@@ -1945,6 +1945,14 @@ nav .container {
 	display: block;
 	height: 230px;
 	transition: none;
+}
+@media screen and (max-width:1200px)
+{
+	.page-template-page-listing .filter.active .filter-form-group
+	{
+		height: auto;
+		margin-bottom: 30px;
+	}
 }
 .page-template-page-listing .filter .form-group .header{
 	font-size: 1.3em;
