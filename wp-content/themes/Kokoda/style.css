@@ -1849,7 +1849,7 @@ nav .container {
 .page-template-page-listing  .featured .item .item-details p
 {
 	color: #4a4f54;
-	font-size: 14px;
+	font-size: 16px;
 	margin: 20px 0;
 	text-transform: capitalize;
 }
@@ -1940,7 +1940,6 @@ nav .container {
 
 .page-template-page-listing .filter .filter-form-group
 {
-	border-top: 1.8px solid #c1c1c1;
 	overflow: hidden;
 	display: block;
 	height: 0px;
@@ -1952,6 +1951,7 @@ nav .container {
 	display: block;
 	height: 230px;
 	transition: none;
+	border-top: 1.8px solid #c1c1c1;
 }
 @media screen and (max-width:1200px)
 {
@@ -2671,8 +2671,9 @@ nav .container {
 }
 
 .cta .contact a:hover{
-	background: #000;
-	color: #fff;
+	color: #111;
+	background: #fff;
+	border: 1px solid #111;
 }
 .cta .contact p{
 	color: #111;
@@ -2734,8 +2735,12 @@ nav .container {
 	text-transform: uppercase;
 	line-height: normal;
 }
+.cta .dealer button:hover
+{
+	opacity: 0.8;
+}
 .footer-wrap {
-	background: #4a4f53;
+	background: #1a1a1a;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -4394,7 +4399,10 @@ body.product-template-default .products-navigation
 		font-size: 18px;
 	}
 }
-
+.products-navigation .product-list .product-list-item:hover .item-details
+{
+	background: #eee;
+}
 .products-navigation .product-list .product-list-item .item-details
 {
 	text-align: center;
@@ -4418,6 +4426,10 @@ body.product-template-default .products-navigation
 	{
 		display: none;
 	}
+}
+.products-navigation .product-list .product-list-item:hover .item-img img
+{
+	opacity: 0.8;
 }
 .products-navigation .product-list .product-list-item .item-img img
 {
@@ -4461,6 +4473,7 @@ body.product-template-default .products-navigation
 	border-top: 2px solid #000;
 	text-transform: uppercase;
 	padding: 2px 0;
+	font-size: 24px;
 }
 @media only screen and (max-width: 767px)
 {
@@ -4475,7 +4488,7 @@ body.product-template-default .products-navigation
 .products-navigation .product-list .product-list-item  .item-details .details p
 {
 	color: #4a4f54;
-	font-size: 14px;
+	font-size: 16px;
 	margin: 20px 0;
 	text-transform: capitalize;
 }
@@ -5717,4 +5730,22 @@ body.page-template-template-archive
 }
 .archive-listing-item-detail-pane.cd-panel--stay-right .stripe.gallery .flex-viewport {
 	width: 88%;
+}
+
+
+/** CUSTOMIZE THE DEALER SIGN IN PAGE **/
+.page-template-template-dealer-signin
+{
+
+}
+
+.page-template-template-dealer-signin #wpmpLoginForm .btn-primary {
+	color: #FFF;
+	background-color: #1a1a1a;
+	border-color: #FFF;
+}
+.page-template-template-dealer-signin #wpmpLoginForm .btn-primary:hover {
+	color: #1a1a1a;
+	background-color: #fff;
+	border-color: #1a1a1a;
 }

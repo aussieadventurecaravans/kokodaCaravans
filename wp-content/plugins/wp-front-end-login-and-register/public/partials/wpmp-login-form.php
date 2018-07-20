@@ -15,7 +15,7 @@
 
 <div id="wpmpLoginSection" class="container-fluid">
     <div class="row">
-        <div class="col-xs-8 col-md-10"> 
+        <div class="col-xs-12 col-md-12">
             <?php
             $wpmp_redirect_settings = get_option('wpmp_redirect_settings');
             $wpmp_form_settings = get_option('wpmp_form_settings');
