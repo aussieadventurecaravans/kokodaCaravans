@@ -48,11 +48,11 @@
             </div>
         <?php endif; ?>
     </div>
-   <!-- <div class="arrow-left">
-        <img src="/wp-content/themes/kokoda/_img/banner-arrow-left.png" class="white-arrow-left"/>
+  <!--  <div class="arrow-left">
+        <img src="/wp-content/themes/Kokoda/_img/banner-arrow-left.png" class="white-arrow-left"/>
     </div>
     <div class="arrow-right">
-        <img src="/wp-content/themes/kokoda/_img/banner-arrow-right.png" class="white-arrow-right"/>
+        <img src="/wp-content/themes/Kokoda/_img/banner-arrow-right.png" class="white-arrow-right"/>
     </div>-->
 </div>
 
@@ -90,8 +90,13 @@
 
 <?php if(have_rows('home_featured_caravans')): ?>
 
+
 	<div class="featured clearfix">
-	
+        <div class="row">
+            <div class="header-wrapper">
+                <h2>Our Caravans</h2>
+            </div>
+        </div>
 		<?php while (have_rows('home_featured_caravans')) : the_row(); ?>
 	
 			<?php $post_object = get_sub_field('home_featured_caravan');
@@ -104,22 +109,25 @@
 				$product_img = get_field('banner_image'); ?>
 				
 			    <div class="item">
-			    	<a href="<?php the_permalink(); ?>">
-				    	<div class="item-img" style="background-image: url('<?php echo $product_img['sizes']['medium']; ?>');">
+
+				    	<div class="item-img">
 				    		<?php if(!empty($badge_img)): ?>
 								<div class="banner-badge" style="background-image:url('<?php echo $badge_img['url'] ?>')"></div>
 							<?php endif; ?>
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php echo $product_img['sizes']['medium']; ?>" alt="product image"/>
+                            </a>
 				    	</div>
 				    	<div class="item-details clearfix">
 				    		<div class="details">
 				    			<h3><?php the_title(); ?></h3>
 				    			<p><?php the_field('banner_description'); ?></p>
 				    		</div>
-				    		<div class="arrow">
-				    			<span></span>
-				    		</div>
+                            <div class="find-out-more">
+                                <a href="<?php the_permalink(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/arrow-right-black.png"/> Find Out More</a>
+                            </div>
 				    	</div>
-			    	</a>
+
 			    </div>
 			    
 			    <?php wp_reset_postdata(); ?>
@@ -248,24 +256,12 @@
 
         }
 
-        $(".home.page .banner .arrow-left img").on('click', function(){
+      /*  $(".home.page .banner .arrow-left img").on('click', function(){
             $("#banner-list").trigger('owl.prev');
         });
         $(".home.page .banner .arrow-right img").on('click',function(){
             $("#banner-list").trigger('owl.next');
-        });
-
-        $(".home.page .banner .arrow-left img").hover(function(){
-            $(".home.page .banner .arrow-left img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-left-glow.png');
-        },function(){
-            $(".home.page .banner .arrow-left img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-left.png');
-        });
-        $(".home.page .banner .arrow-right img").hover(function(){
-            $(".home.page .banner .arrow-right img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-right-glow.png');
-        },function(){
-            $(".home.page .banner .arrow-right img").attr('src','/wp-content/themes/kokoda/_img/banner-arrow-right.png');
-        });
-
+        });*/
 
         var logo_offset = $('.navbar-default .navbar-header .brand img').offset();
 

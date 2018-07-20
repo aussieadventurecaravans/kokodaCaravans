@@ -404,6 +404,27 @@ function search_post_per_page()
 	return 50;
 }
 
+
+
+/** load caravan detail to detail panel at archive page by using AJAX **/
+
+add_action('wp_ajax_archiveitem', 'loading_archive_item_detail_function');
+add_action('wp_ajax_nopriv_archiveitem', 'loading_archive_item_detail_function');
+
+function loading_archive_item_detail_function()
+{
+
+    if( isset( $_POST['post_id'] ))
+	{
+
+        set_query_var('caravan_id', $_POST['post_id']);
+
+        get_template_part( 'content', 'caravan' );
+
+    }
+    die();
+}
+
 /** add filter to restrict the prodducts with category "Caravan Archive"  show on search result  **/
 
 add_filter('searchwp_live_search_query_args','restrict_archive_caravan_at_search',10,1);
@@ -463,6 +484,7 @@ function redirect_archive_item($params=array()) {
 }
 add_action( 'template_redirect', 'redirect_archive_item' );
 /** ENDING THE CUSTOMIZE **/
+
 
 
 ?>

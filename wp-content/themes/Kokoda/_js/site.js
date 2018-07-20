@@ -3,31 +3,33 @@ jQuery(function($) {
 	// Shrink navbar on scroll
 	
 	$(document).scroll(function() {
-		if ($(window).scrollTop() >= 200 && $(window).width() > 755) {
-			$('body.home').css({'padding-top': '54px'});
-			$('nav#navbar-top.navbar-default').css({'height': '80px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '10px', 'padding-bottom': '13px'});
-			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '80px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '10px', 'padding-bottom': '13px'});
-			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '12px'});
-			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '20px', 'padding-bottom': '14px'});
-			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '0px','height' : '50%'});
+		if ($(window).scrollTop() >= 200 && $(window).width() > 755 &&  $(window).width() != 768) {
+			$('body.home').css({'padding-top': '54px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default').css({'height': '80px','transition': 'height .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '14px', 'padding-bottom': '13px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '80px','transition': 'height .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-top': '10px', 'padding-bottom': '13px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '12px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '0px', 'padding-bottom': '14px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '0px','height' : '58%','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .search-box input[type="text"]').css({'padding-bottom' : '13px'});
 			$('nav.page-nav.navbar-fixed-top').css({'top': '78px'});
-		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755) {
-			$('body.home').css({'padding-top': '96px'});
-			$('body.page').css({'padding-top': '96px'});
-			$('body.page-template-page-listing').css({'padding-top': '146px'});
+		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755 && $(window).width() != 768) {
+			$('body.home').css({'padding-top': '96px','transition': 'padding .3s'});
+			$('body.page').css({'padding-top': '96px','transition': 'padding .3s'});
+			$('body.page-template-page-listing').css({'padding-top': '114px','transition': 'padding .3s'});
 			$('body.single-product').css({'padding-top': '146px'});
-			$('nav#navbar-top.navbar-default').css({'height': '117px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '28px', 'padding-bottom': '32px'});
-			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '96px'});
-			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '32px', 'padding-top': '28px'});
-			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '49px'});
-			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '35px', 'padding-bottom': '0'});
-			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': ''});
-			$('nav.page-nav.navbar-fixed-top').css({'top': '116px'});
+			$('nav#navbar-top.navbar-default').css({'height': '114px','transition': 'height .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li > a').css({'padding-top': '31px', 'padding-bottom': '31px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .navbar-header').css({'height': '96px','transition': 'height .3s'});
+			$('nav#navbar-top.navbar-default .navbar-nav > li.nav-search > a').css({'padding-bottom': '32px', 'padding-top': '28px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .nav li .dropdown-menu').css({'top': '49px','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '20px', 'padding-bottom': '0','transition': 'padding .3s'});
+			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '','transition': 'padding .3s','height' : 'auto'});
+            $('nav#navbar-top.navbar-default .search-box input[type="text"]').css({'padding-bottom' : '25px'});
+			$('nav.page-nav.navbar-fixed-top').css({'top': '116px','transition': 'padding .3s'});
 		} else if ($(window).scrollTop() && $(window).width() < 755) {
-			$('body').css({'padding-top': '74px'});
+			$('body').css({'padding-top': '74px','transition': 'padding .3s'});
 		}
 	});
 	
@@ -51,36 +53,37 @@ jQuery(function($) {
 	
 	
 	// Isotope Filtering
-	$(function(){
-	  var $container = $('.item-list'),
-	      filters = {};
-	
-	  $container.isotope({
-	    itemSelector : '.item',
-	    percentPosition: true,
-	    transitionDuration: 0
-	  });
-	  	  
-	  $('.filters-select').change(function(){
-	    var $this = $(this);
-	    
-	    // store filter value in object
-	    var group = $this.attr('data-filter-group');
-	    
-	    filters[ group ] = $this.find(':selected').attr('data-filter-value');
+	$(function() {
+        var $container = $('.item-list'),
+            filters = {};
 
-	    // convert object into array
-	    var isoFilters = [];
-	    for ( var prop in filters ) {
-	      isoFilters.push( filters[ prop ] )
-	    }
+        $container.isotope({
+            itemSelector: '.item',
+            percentPosition: true,
+            transitionDuration: 0
+        });
 
-	    var selector = isoFilters.join('');
-	    $container.isotope({ filter: selector });
-	    return false;
-	  });
-	});
-	
+        $('.filters-select').change(function () {
+            var $this = $(this);
+
+            // store filter value in object
+            var group = $this.attr('data-filter-group');
+
+            filters[group] = $this.find(':selected').attr('data-filter-value');
+
+            // convert object into array
+            var isoFilters = [];
+            for (var prop in filters) {
+                isoFilters.push(filters[prop])
+            }
+
+            var selector = isoFilters.join('');
+            $container.isotope({filter: selector});
+            return false;
+        });
+
+
+    });
 	
 	// Search box
 	
@@ -216,5 +219,78 @@ jQuery(function($) {
 			}
 		});
 	});
+
+
+
+	//customize the main menu style
+    $('#navbar-top .main-navi-panel li.menu-item').click(function(){
+        //other main menu link remove up arrow
+        $('#navbar-top .main-navi-panel li.menu-item span.caret').removeClass('up-arrow');
+
+        //customize the "Our Range" custom link at Main Menu
+    	if($(this).hasClass('our-range-class'))
+		{
+            if($('#navbar-top .main-navi-panel .our-range-class.menu-item').hasClass('active'))
+            {
+                $('#navbar-top .main-navi-panel li.menu-item.our-range-class').removeClass('active');
+                $('body').removeClass('no-scroll');
+                $(this).find('span.caret').removeClass('up-arrow');
+                $('.products-navigation').removeClass('show-nav');
+            }
+            else
+            {
+
+                $('#navbar-top .main-navi-panel li.menu-item.our-range-class').addClass('active');
+                $('body').addClass('no-scroll');
+                $(this).find('span.caret').addClass('up-arrow');
+                $('.products-navigation').addClass('show-nav');
+
+            }
+
+            $('#navbar-top .main-navi-panel li.menu-item.our-range-class ul.dropdown-menu').hide();
+
+		}
+		else
+		{
+			//hide the product navigation of custom link "our range"
+            $('.products-navigation').removeClass('show-nav');
+            $('#navbar-top .main-navi-panel li.menu-item.our-range-class').removeClass('active');
+
+			//this clicked menu link will have up arrow or not
+			//this link drop donw open then should add up-arrow icon
+            if($(this).find('a').attr('aria-expanded') == 'true')
+            {
+                $(this).find('span.caret').removeClass('up-arrow');
+            }
+            else
+            {
+            	//if not, then remove the up arrow icon
+                $(this).find('span.caret').addClass('up-arrow');
+            }
+		}
+
+
+	});
+
+    $('.all-caravans-menu a.caravans-header').click(function() {
+        //other main menu link remove up arrow
+
+        if($(this).hasClass('active'))
+        {
+            $(this).find('span.caret').removeClass('up-arrow');
+            $(this).removeClass('active');
+            $('body').removeClass('no-scroll');
+            $('.products-navigation').removeClass('show-nav');
+        }
+        else {
+            $(this).addClass('active');
+            $('body').addClass('no-scroll');
+            $(this).find('span.caret').addClass('up-arrow');
+            $('.products-navigation').addClass('show-nav');
+		}
+
+    });
+
+
 
 });

@@ -66,6 +66,9 @@
 		<nav id="navbar-top-mob" class="visible-xs navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid nav-container">
 				<div class="navbar-header">
+                    <div class="all-caravans-menu">
+                        <a class="caravans-header" href="#"><h3>Caravans <span class="caret"></span></h3></a>
+                    </div>
 					<div class="nav-search visible-xs">
 						<a href="#" data-toggle="modal" data-target="#mobileSearch">Search</a><li class="menu-item menu-search visible-xs">
 					</div>
@@ -75,8 +78,9 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand auto-top" href="<?php bloginfo('url') ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/logo.png"></a>
+					<a class="brand auto-top" href="<?php bloginfo('url') ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/logo_black_text.png"></a>
 				</div>
+
 				<div class="collapse navbar-collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav navbar-left">
 						<?php wp_nav_menu( array( 
@@ -91,3 +95,74 @@
 				</div>
 			</div>
 		</nav>
+
+<?php
+    //retrieve the product that are included to main navigation
+    $args = array(
+        'post_type' => 'product',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
+        'nopaging' => true
+    ); ?>
+    <?php query_posts($args); ?>
+    <?php if (have_posts()) : $count = 0; ?>
+    <div class="products-navigation">
+        <div class="product-list container-fluid">
+            <?php while (have_posts()) : the_post(); ?>
+
+             <?php  $add_navigation = get_field('add_to_main_menu');  ?>
+             <?php if($add_navigation == true): ?>
+                <?php if($count ==  0): ?>
+                    <?php echo "<div class=\"row\">"; ?>
+
+                <?php endif; ?>
+
+                <?php if($count <  3): ?>
+                    <?php $product_img = get_field('banner_image');  ?>
+                    <div class="product-list-item col-lg-4">
+                        <div class="item-img">
+                            <?php if($product_img): ?>
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="<?php echo $product_img['sizes']['medium']; ?>" alt="<?php echo $product_img['alt']; ?>" class="product-img" />
+                            </a>
+                            <?php endif; ?>
+                        </div>
+                        <div class="item-details">
+                            <div class="details">
+                                <h4 class="item-title"><?php the_title(); ?></h4>
+                                <?php if(get_field('banner_description')): ?><p><?php the_field('banner_description'); ?></p><?php endif; ?>
+                            </div>
+                            <div class="overview">
+                               <a href="<?php the_permalink(); ?>"> <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/arrow-right-black.png"/> overview </a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php  $count++; $open_element = true ;?>
+                 <?php endif; ?>
+
+                <?php if($count ==  3): ?>
+                        <?php echo "</div>"; ?>
+                        <?php  $count= 0; $open_element = false; ?>
+                <?php endif; ?>
+
+             <?php endif; ?>
+
+            <?php endwhile; ?>
+
+            <?php if($open_element ==  true): ?>
+                <?php echo "</div>"; ?>
+            <?php endif; ?>
+
+            <div class="row">
+                <div class="col-lg-12 show-all">
+                    <h4>
+                        <a href="<?php echo get_home_url(); ?>/range/"> >>> Explore The Range <<< </a>
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <?php endif; ?>
+<?php wp_reset_query();?>
