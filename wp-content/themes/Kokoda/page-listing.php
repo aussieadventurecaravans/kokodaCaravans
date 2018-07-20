@@ -40,7 +40,7 @@ get_header(); ?>
             <div class="row filter-header">
                 <div class="container">
                     <div class="col-lg-12 col-md-12 filter-header-content">
-                        <a href="#togglePanel" title="Show Filter">
+                        <a href="#" title="Show Filter">
                             <h3><span class="caravan-count">0</span> Caravans Remaining.</h3>
                             <div class="toggle">
                                 Show / Hide Panel
@@ -391,7 +391,9 @@ get_header(); ?>
             $('.filter-header .filter-header-content span.caravan-count').html(count);
         });
         //customize the toggle icon at filter menu
-        $('.filter-header .filter-header-content a').click(function(e){
+        $('.filter-header .filter-header-content a').click(function(e)
+        {
+
             if($('.filter-header .filter-header-content a').hasClass('toggle-active'))
             {
                 $('.filter-header .filter-header-content a').removeClass('toggle-active',500);
@@ -401,6 +403,8 @@ get_header(); ?>
                 $('.filter-header .filter-header-content a').addClass('toggle-active',500);
                 $('.page-template-page-listing .stripe.listing .filter').addClass('active',500);
             }
+
+            return false;
 
         });
 
