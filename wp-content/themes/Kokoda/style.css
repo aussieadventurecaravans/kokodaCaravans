@@ -4403,7 +4403,7 @@ body.product-template-default .products-navigation
 	{
 		display: inline-flex;
 		width: 100%;
-		padding-right: 15px;
+		padding-right: 0px;
 	}
 	.products-navigation .product-list .product-list-item h3
 	{
@@ -4426,12 +4426,12 @@ body.product-template-default .products-navigation
 {
 	.products-navigation .product-list .product-list-item .item-details
 	{
-		margin-left: 15px;
 		position: relative;
 		float: left;
 		width: 100%;
 		text-align: left;
-		padding: 0;
+		padding: 0 0 0 15px;
+		margin: 0;
 	}
 
 	.products-navigation .product-list .product-list-item .item-details .tare,
