@@ -68,11 +68,11 @@
             </div>
             <div class="banner-content content-2">
                 <?php the_field('home_banner_text_2'); ?>
-                <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                <a href="<?php the_field('home_banner_button_link_2'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text_2'); ?></a>
             </div>
             <div class="banner-content content-3">
                 <?php the_field('home_banner_text_3'); ?>
-                <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                <a href="<?php the_field('home_banner_button_link_3'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text_3'); ?></a>
             </div>
         </div>
     </div>
