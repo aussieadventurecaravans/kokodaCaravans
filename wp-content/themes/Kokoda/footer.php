@@ -103,7 +103,7 @@
 					<ul>
 						<?php while (have_rows('footer_association_logos', 'options')) : the_row(); ?>
 						<li>
-							<?php if(get_sub_field('link')): ?><a href="<?php the_sub_field('link'); ?>"><?php endif; ?><img src="<?php the_sub_field('logo'); ?>"><?php if(get_sub_field('link')): ?></a><?php endif; ?>
+							<?php if(get_sub_field('link')): ?><a href="<?php the_sub_field('link'); ?>"><?php endif; ?><img src="<?php the_sub_field('logo'); ?>" style="width:50px"><?php if(get_sub_field('link')): ?></a><?php endif; ?>
 						</li>
 						<?php endwhile; ?>
 					</ul>
