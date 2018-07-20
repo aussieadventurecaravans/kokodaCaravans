@@ -41,7 +41,7 @@ get_header(); ?>
                 <div class="container">
                     <div class="col-lg-12 col-md-12 filter-header-content">
                         <a href="#" title="Show Filter">
-                            <h3><span class="caravan-count">0</span> Caravans Remaining.</h3>
+                            <h3><span class="caravan-count">0</span> Caravan Models.</h3>
                             <div class="toggle">
                                 Show / Hide Panel
                             </div>
@@ -53,7 +53,7 @@ get_header(); ?>
                 <div class="container">
                     <div class="row">
                         <?php  if(get_field('page_category') == '' ): ?>
-                            <div class="form-group col-lg-3">
+                            <div class="form-group col-lg-2">
                                 <h3 class="header">Type</h3>
                                 <label><input type="radio" checked data-filter-group="filter-type" name="filter-type" value="*" data-filter-value="">All<span class="checkmark"></span></label><br />
                                 <label><input type="radio" data-filter-group="filter-type" name="filter-type" value=".type-caravan" data-filter-value=".type-caravan">Caravans<span class="checkmark"></span></label><br />
