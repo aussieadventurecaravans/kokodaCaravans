@@ -1909,6 +1909,13 @@ nav .container {
 	text-transform: uppercase;
 	color: #343434;
 }
+@media screen and (max-width:767px)
+{
+	.page-template-page-listing  .filter .filter-header .filter-header-content a  h3
+	{
+		font-size: 1.6em;
+	}
+}
 .page-template-page-listing  .filter .filter-header a .toggle
 {
 	display: inline-block;
@@ -1977,7 +1984,15 @@ nav .container {
 {
 	text-align: left;
 }
-
+@media screen and (max-width:1200px)
+{
+	.page-template-page-listing .filter .form-group
+	{
+		display: inline-block;
+		float: left;
+		min-width: 160px;
+	}
+}
 .page-template-page-listing .filter .form-group select {
 	width: 100%;
 	color: #383838;
