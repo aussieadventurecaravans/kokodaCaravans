@@ -1787,15 +1787,16 @@ nav .container {
 
 .page-template-page-listing .stripe.listing  .featured .item.is-animated
 {
-	animation: .6s zoom-in;
+	animation: 2s zoom-in;
 }
 
 @keyframes zoom-in {
 	0% {
-		transform: scale(.1);
+		opacity: 0;
+
 	}
 	100% {
-		transform: none;
+		opacity: 1;
 	}
 }
 .page-template-page-listing .stripe.listing  .featured .item .item-img img{
@@ -1882,24 +1883,32 @@ nav .container {
 	font-size: 16px;
 }
 
-.page-template-page-listing  .filter
+.page-template-page-listing .filter
 {
 	background-color: #eee;
 	margin: 0;
 	padding-top: 15px;
 	padding-bottom: 0;
 }
-.page-template-page-listing  .filter .filter-header .filter-header-content
+.page-template-page-listing .filter.stick-to-top
+{
+	top: 70px;
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+}
+
+.page-template-page-listing .filter .filter-header .filter-header-content
 {
 	padding:0;
 }
-.page-template-page-listing  .filter .filter-header .filter-header-content a
+.page-template-page-listing .filter .filter-header .filter-header-content a
 {
 	width: 100%;
 	display: inline-block;
 	padding: 20px 0 15px;
 }
-.page-template-page-listing  .filter .filter-header .filter-header-content a  h3
+.page-template-page-listing .filter .filter-header .filter-header-content a  h3
 {
 	margin: 0;
 	float: left;
@@ -1911,7 +1920,7 @@ nav .container {
 }
 @media screen and (max-width:767px)
 {
-	.page-template-page-listing  .filter .filter-header .filter-header-content a  h3
+	.page-template-page-listing .filter .filter-header .filter-header-content a  h3
 	{
 		font-size: 1.6em;
 	}
@@ -4401,7 +4410,7 @@ body.product-template-default .products-navigation
 }
 .products-navigation .product-list .product-list-item:hover .item-details
 {
-	background: #eee;
+	background:#e5e8e8;
 }
 .products-navigation .product-list .product-list-item .item-details
 {
@@ -4538,14 +4547,14 @@ body.no-scroll
 .products-navigation .product-list .show-all
 {
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 20px;
 }
 .products-navigation .product-list .show-all a
 {
 	color: #4a4f54;
 	vertical-align: middle;
 	text-align: center;
-	font-size: 18px;
+	font-size: 26px;
 	text-transform: uppercase;
 	width: 100%;
 }
