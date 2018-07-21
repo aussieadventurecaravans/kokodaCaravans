@@ -485,8 +485,54 @@ function redirect_archive_item($params=array()) {
 add_action( 'template_redirect', 'redirect_archive_item' );
 /** ENDING THE CUSTOMIZE **/
 
+//add version number to all JS and Style files to clear the cache
+
+add_action('admin_init', 'set_up_js_css_version_setting_function');
+function set_up_js_css_version_setting_function()
+{
+    register_setting('general', 'js-css_version-id', 'esc_attr');
+    add_settings_field(
+        'js-css_version-id',
+        'JS and Css Version Number',
+        'js_css_version_number_setting_callback_function',
+        'general',
+        'default',
+        array( 'label_for' => 'js-css_version-id' )
+    );
+}
+function js_css_version_number_setting_callback_function()
+{
+    $value = get_option( 'js-css_version-id');
+    echo '<input type="text" id="js-css_version-id" name="js-css_version-id" value="' . $value . '" />';
+}
+
+function set_custom_ver_css_js( $src ) {
+    // version number from settings / general field
+    //add default value when option isnot set yet
+    if ( get_option( 'js-css_version-id' ) === false ) // Nothing yet saved
+        update_option( 'js-css_version-id', '1' );
+
+    $version =  get_option( 'js-css_version-id');
+    if (!empty($version) ) {
+
+        if ( strpos( $src, 'ver=' ) )
+            // use the WP function add_query_arg()
+            // to set the ver parameter in
+            $src = add_query_arg( 'ver', $version, $src );
+        return esc_url( $src );
+    }
+}
+add_action('init', 'css_js_versioning');
+function css_js_versioning() {
+    add_filter( 'style_loader_src', 'set_custom_ver_css_js', 9999 ); 	// css files versioning
+    add_filter( 'script_loader_src', 'set_custom_ver_css_js', 9999 ); // js files versioning
+}
+/**  ENDING FUNCTION  **/
+
 
 
 ?>
+
+
 
 
