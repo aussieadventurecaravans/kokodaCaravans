@@ -72,7 +72,7 @@
 					<div class="nav-search visible-xs">
 						<a href="#" data-toggle="modal" data-target="#mobileSearch">Search</a><li class="menu-item menu-search visible-xs">
 					</div>
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+					<button type="button" class="navbar-toggle" data-target="#navbar-collapse">
 						<span class="sr-only">Toggle Navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -82,9 +82,9 @@
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbar-collapse">
-					<ul class="nav navbar-nav navbar-left">
+					<ul class="nav navbar-nav">
 						<?php wp_nav_menu( array( 
-							'theme_location' => 'primary',
+							'theme_location' => 'mobile-main-menu',
 							'depth' => 2,
 							'container' => 'false',
 							'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
@@ -96,6 +96,32 @@
 			</div>
 		</nav>
 
+
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+
+
+                $('nav#navbar-top-mob button.navbar-toggle').on('click', function (e) {
+                    event.stopPropagation();
+                    var selected = $('nav#navbar-top-mob  .navbar-collapse').hasClass('mobile-active');
+                    $('nav#navbar-top-mob  .navbar-collapse').toggleClass('mobile-active', !selected);
+
+                    $('nav#navbar-top-mob .navbar-collapse:not(.mobile-active)').stop().animate({
+                        right: '-100%'
+                    });
+
+                    $('nav#navbar-top-mob .navbar-collapse.mobile-active').stop().animate({
+                        right: '15px'
+                    });
+                    //close other menu
+                    $('.all-caravans-menu a.caravans-header').find('span.caret').removeClass('up-arrow');
+                    $('.all-caravans-menu a.caravans-header').removeClass('active');
+                    $('body').removeClass('no-scroll');
+                    $('.products-navigation').removeClass('show-nav');
+                });
+
+            });
+        </script>
 <?php
     //retrieve the product that are included to main navigation
     $args = array(

@@ -289,6 +289,11 @@ jQuery(function($) {
             $('.products-navigation').addClass('show-nav');
 		}
 
+		//close other menu
+        $('nav#navbar-top-mob  .navbar-collapse').removeClass('mobile-active');
+        $('nav#navbar-top-mob .navbar-collapse:not(.mobile-active)').stop().animate({
+            right: '-100%'
+        });
     });
 
 
