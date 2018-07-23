@@ -98,28 +98,29 @@
 
 
         <script type="text/javascript">
-            jQuery(document).ready(function($) {
+            jQuery(function($) {
+                $(document).ready(function ($) {
+                    
+                    $('nav#navbar-top-mob button.navbar-toggle').on('click', function (e) {
+                        event.stopPropagation();
+                        var selected = $('nav#navbar-top-mob  .navbar-collapse').hasClass('mobile-active');
+                        $('nav#navbar-top-mob  .navbar-collapse').toggleClass('mobile-active', !selected);
 
+                        $('nav#navbar-top-mob .navbar-collapse:not(.mobile-active)').stop().animate({
+                            right: '-100%'
+                        });
 
-                $('nav#navbar-top-mob button.navbar-toggle').on('click', function (e) {
-                    event.stopPropagation();
-                    var selected = $('nav#navbar-top-mob  .navbar-collapse').hasClass('mobile-active');
-                    $('nav#navbar-top-mob  .navbar-collapse').toggleClass('mobile-active', !selected);
-
-                    $('nav#navbar-top-mob .navbar-collapse:not(.mobile-active)').stop().animate({
-                        right: '-100%'
+                        $('nav#navbar-top-mob .navbar-collapse.mobile-active').stop().animate({
+                            right: '15px'
+                        });
+                        //close other menu
+                        $('.all-caravans-menu a.caravans-header').find('span.caret').removeClass('up-arrow');
+                        $('.all-caravans-menu a.caravans-header').removeClass('active');
+                        $('body').removeClass('no-scroll');
+                        $('.products-navigation').removeClass('show-nav');
                     });
 
-                    $('nav#navbar-top-mob .navbar-collapse.mobile-active').stop().animate({
-                        right: '15px'
-                    });
-                    //close other menu
-                    $('.all-caravans-menu a.caravans-header').find('span.caret').removeClass('up-arrow');
-                    $('.all-caravans-menu a.caravans-header').removeClass('active');
-                    $('body').removeClass('no-scroll');
-                    $('.products-navigation').removeClass('show-nav');
                 });
-
             });
         </script>
 <?php
