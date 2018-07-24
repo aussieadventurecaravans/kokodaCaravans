@@ -5792,28 +5792,36 @@ body.page-template-template-archive
 	margin-left: 1.1rem;
 	font-size: 1.25em;
 
-	columns: 2;
-	-webkit-columns: 2;
-	-moz-columns: 2;
+	columns: 3;
+	-webkit-columns: 3;
+	-moz-columns: 3;
 }
-@media all and (max-width: 464px)
+@media all and (max-width: 1000px)
+{
+	.stripe.upgrade ul
+	{
+		columns: 2;
+		-webkit-columns: 2;
+		-moz-columns: 2;
+	}
+}
+@media all and (max-width: 767px)
 {
 	.stripe.upgrade ul
 	{
 		columns: 1;
 		-webkit-columns: 1;
 		-moz-columns: 1;
-		padding-left: 12px;
+		padding: 18px 45px;
 	}
 }
 .stripe.upgrade ul li
 {
 	padding-bottom: 10px;
 	padding-left: 10px;
-	font-weight: 600;
 	margin-left: 15px;
 }
-@media all and (max-width: 464px)
+@media all and (max-width: 767px)
 {
 	.stripe.upgrade ul li
 	{
@@ -5828,6 +5836,6 @@ body.page-template-template-archive
 	text-align: center;
 	width: auto;
 	height: 100px;
-	margin: 0 auto 35px;
+	margin: 0 auto 0;
 	font-size: 38px;
 }
