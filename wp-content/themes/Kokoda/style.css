@@ -1024,7 +1024,7 @@ nav .container {
 	float: left;
 	list-style-type: none;
 	text-transform: uppercase;
-	font-size: 14px;
+	font-size: 0.9em;
 	font-weight: 700;
 	letter-spacing: 1px;
 }
@@ -1233,7 +1233,7 @@ nav .container {
 	background-color: #202020;
 	font-size: 13px;
 }
-@media (max-width: 768px)
+@media (max-width: 1020px)
 {
 	.banner-wrap .banner-grad
 	{
