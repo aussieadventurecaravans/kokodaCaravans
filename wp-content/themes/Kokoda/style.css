@@ -5771,3 +5771,63 @@ body.page-template-template-archive
 	background-color: #fff;
 	border-color: #1a1a1a;
 }
+
+
+/** CUSTOMIZE THE SINGLE PRODUCT UPDGRADE PACKAGE **/
+.stripe.upgrade {
+	color: #333333;
+	background-size: 100% auto;
+	background-color: #eceded;
+	padding-top: 40px;
+}
+
+.stripe.upgrade ~ .stripe.gallery {
+	background: #ffffff;
+	padding-top: 30px;
+}
+
+.stripe.upgrade ul
+{
+	list-style-type: disc;
+	margin-left: 1.1rem;
+	font-size: 1.25em;
+
+	columns: 2;
+	-webkit-columns: 2;
+	-moz-columns: 2;
+}
+@media all and (max-width: 464px)
+{
+	.stripe.upgrade ul
+	{
+		columns: 1;
+		-webkit-columns: 1;
+		-moz-columns: 1;
+		padding-left: 12px;
+	}
+}
+.stripe.upgrade ul li
+{
+	padding-bottom: 10px;
+	padding-left: 10px;
+	font-weight: 600;
+	margin-left: 15px;
+}
+@media all and (max-width: 464px)
+{
+	.stripe.upgrade ul li
+	{
+		padding-left: 0px;
+	}
+}
+
+.stripe.upgrade  .header-wrapper h2 {
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-align: center;
+	width: auto;
+	height: 100px;
+	margin: 0 auto 35px;
+	font-size: 38px;
+}

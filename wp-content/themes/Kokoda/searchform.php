@@ -11,7 +11,7 @@ $form = '<form role="search" method="get" id="searchform" class="searchform" act
 				<div>
 					<label class="screen-reader-text" for="s">' . _x( 'Search for:', 'label' ) . '</label>
 					<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="What are you looking for?"/>
-					<input type="submit" id="searchsubmit" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
+					<input type="submit" id="searchsubmit" value="'. esc_attr_x( '', 'submit button' ) .'" />
 				</div>
 			</form>';
 

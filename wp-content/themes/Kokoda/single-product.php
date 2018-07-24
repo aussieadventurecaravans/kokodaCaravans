@@ -261,7 +261,30 @@
     	</div>
     </div>
 <?php endif; //specifications ?>
+<?php if(have_rows('upgrade_package')): ?>
 
+<div class="stripe upgrade" id="upgrade-package">
+    <div class="container">
+        <div class="row">
+            <div class="header-wrapper">
+                <h2>Upgrade Package</h2>
+            </div>
+        </div>
+        <div class="row">
+            <!-- show spec items for upgradte package-->
+            <?php  $upgrade_package = get_field('upgrade_package');?>
+            <?php foreach ($upgrade_package as $upgrade): ?>
+                <?php $spec_its = $upgrade['specification_item'];?>
+                <ul>
+                    <?php foreach($spec_its as $spec_it): ?>
+                        <li><?php echo $spec_it['heading']; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<?php endif; //specifications ?>
 
 <?php $images = get_field('gallery'); ?>
 <?php if($images): ?>

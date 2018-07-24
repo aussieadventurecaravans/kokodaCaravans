@@ -294,6 +294,7 @@ jQuery(function($) {
         $('nav#navbar-top-mob .navbar-collapse:not(.mobile-active)').stop().animate({
             right: '-100%'
         });
+        $('.single-product .page-nav.navbar-fixed-top input[type="checkbox"]').prop('checked', false);
     });
 
 	//customize for top mobile menu
@@ -316,8 +317,18 @@ jQuery(function($) {
             $('.all-caravans-menu a.caravans-header').removeClass('active');
             $('body').removeClass('no-scroll');
             $('.products-navigation').removeClass('show-nav');
+
+            $('.single-product .page-nav.navbar-fixed-top input[type="checkbox"]').prop('checked', false);
         });
 
+        //customize the product menu button
+        $('.single-product .page-nav.navbar-fixed-top input[type="checkbox"]').click(function(e){
+
+            $('.all-caravans-menu a.caravans-header').find('span.caret').removeClass('up-arrow');
+            $('.all-caravans-menu a.caravans-header').removeClass('active');
+            $('body').removeClass('no-scroll');
+            $('.products-navigation').removeClass('show-nav');
+        });
     });
 
 });
