@@ -66,6 +66,9 @@
 		<nav id="navbar-top-mob" class="visible-xs navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid nav-container">
 				<div class="navbar-header">
+                    <a class="brand auto-top" href="<?php bloginfo('url') ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/logo_black_text.png">
+                    </a>
                     <div class="all-caravans-menu">
                         <a class="caravans-header" href="#"><h3>Caravans <span class="caret"></span></h3></a>
                     </div>
@@ -78,7 +81,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand auto-top" href="<?php bloginfo('url') ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/logo_black_text.png"></a>
+
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbar-collapse">

@@ -218,14 +218,6 @@ a:hover, a:focus {
 	border-color: #e4e8e8;
 }
 
-.navbar-default .navbar-toggle {
-	margin-bottom: 0;
-	margin-right: 0;
-	background-color: #000;
-	border: 0;
-	padding-top: 2px;
-}
-
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: #fff;
 	height: 4px;
@@ -3372,20 +3364,12 @@ nav .container {
 		background-color: #000;
 		height: 74px;
 	}
-
-	.navbar-default .navbar-header {
-		padding: 15px 20px 15px 20px;
+	.navbar-default .navbar-header
+	{
+		padding: 0 15px;
 		border-left: 0;
 		height: 74px;
 	}
-	
-	.navbar-default .navbar-header .brand {
-		padding-left: 5px;
-		width: 119px;
-		display: inline-block;
-		position: absolute;
-	}
-	
 	.navbar-default .navbar-header .brand img {
 		width: 100%;
 	}
@@ -4347,13 +4331,14 @@ at main Menu
 
 	transition: opacity 600ms, visibility 600ms;
 	opacity: 0;
+	top: 57px;
 
 
 }
 @media only screen and (max-width: 768px)  {
 	.products-navigation
 	{
-		top: 68px;
+		top: 57px;
 	}
 }
 @media only screen and (max-width: 420px)
@@ -4403,7 +4388,6 @@ body.product-template-default .products-navigation
 	{
 		display: inline-flex;
 		width: 100%;
-		padding-right: 0px;
 	}
 	.products-navigation .product-list .product-list-item h3
 	{
@@ -4412,6 +4396,7 @@ body.product-template-default .products-navigation
 		font-size: 18px;
 	}
 }
+
 .products-navigation .product-list .product-list-item:hover .item-details
 {
 	background:#e5e8e8;
@@ -4468,17 +4453,17 @@ body.product-template-default .products-navigation
 	.products-navigation .product-list .product-list-item .item-details .details
 	{
 		height: auto;
-		padding: 6% 0;
+		padding: 16px 0;
 	}
 }
-@media only screen and (max-width: 380px)
+@media only screen and (max-width: 420px)
 {
 	.products-navigation .product-list .product-list-item .item-details .details
 	{
-		height: auto;
 		padding: 0;
 	}
 }
+
 .products-navigation .product-list .product-list-item .item-details .details .item-title
 {
 	display: inline-block;
@@ -4607,6 +4592,10 @@ customize the top mobile navigation
 #navbar-top-mob.navbar-default .navbar-toggle
 {
 	background-color: #fff;
+	border: 0;
+	float: right;
+	top: 22px;
+	margin: 0;
 }
 #navbar-top-mob.navbar-default  .navbar-toggle .icon-bar
 {
@@ -4648,24 +4637,28 @@ customize the homepage featured product
 	margin: 0 0 40px;
 }
 
-
-
 /**
 All Caravans Menu
  **/
 
-.all-caravans-menu{
+.all-caravans-menu
+{
 	height: 74px;
-	position: absolute;
-	top: 0;
-	width: 100%;
 	text-align: center;
-	left:14px;
+	float: left;
+	width: 50%;
+	background: #e4e8e8;
+}
+@media only screen and (max-width:424px)
+{
+	.all-caravans-menu
+	{
+		width: 40%;
+	}
 }
 .all-caravans-menu a{
-	display: inline-block;
+	display: block;
 	width: auto;
-	min-width:30%;
 	color: #0c121c;
 	background: #e4e8e8;
 }
@@ -4724,19 +4717,29 @@ Logo at top
 @media only screen and (max-width:767px) {
 
 	/* fluid nav */
-	.navbar-default .navbar-header .brand {
-		width: 119px;
+	.navbar-default .navbar-header .brand
+	{
 		display: inline-block;
-		position: absolute;
+		height: 100%;
+		float: left;
+		width: 168px;
 	}
 
-	.navbar-default .navbar-header .brand img {
-
+	.navbar-default .navbar-header .brand img
+	{
 		position: relative;
 		display: block;
 		margin: 0 auto;
 		width: 120px;
 		max-height: 100px;
+		top: 10px;
+	}
+}
+@media only screen and (max-width:424px) {
+	.navbar-default .navbar-header .brand
+	{
+		width: 140px;
+		height: 75px;
 	}
 }
 @media only screen and (max-width:992px) {

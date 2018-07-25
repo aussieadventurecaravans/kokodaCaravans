@@ -273,7 +273,14 @@ jQuery(function($) {
 	});
 
     $('.all-caravans-menu a.caravans-header').click(function() {
-        //other main menu link remove up arrow
+
+    	//resize the caravan images and detail at menu
+		if($(window).width() <= 767 )
+		{
+			console.log($('.navbar-default .navbar-header .brand').outerWidth());
+            $('.products-navigation .product-list .product-list-item .item-img img').css({'width': $('.navbar-default .navbar-header .brand').width()});
+        }
+
 
         if($(this).hasClass('active'))
         {
