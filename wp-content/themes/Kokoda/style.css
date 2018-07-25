@@ -4612,6 +4612,14 @@ customize the top mobile navigation
 	margin: 0;
 	right: 15px;
 }
+@media only screen and (max-width:400px)
+{
+	#navbar-top-mob.navbar-default .navbar-toggle
+	{
+		right: 0;
+	}
+}
+
 #navbar-top-mob.navbar-default  .navbar-toggle .icon-bar
 {
 	background-color: #000;
