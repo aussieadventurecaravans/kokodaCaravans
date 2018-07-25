@@ -72,16 +72,15 @@
                     <div class="all-caravans-menu">
                         <a class="caravans-header" href="#"><h3>Caravans <span class="caret"></span></h3></a>
                     </div>
-					<div class="nav-search visible-xs">
+					<!--<div class="nav-search visible-xs">
 						<a href="#" data-toggle="modal" data-target="#mobileSearch">Search</a><li class="menu-item menu-search visible-xs">
-					</div>
+					</div>-->
 					<button type="button" class="navbar-toggle" data-target="#navbar-collapse">
 						<span class="sr-only">Toggle Navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbar-collapse">

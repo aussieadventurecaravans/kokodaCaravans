@@ -4589,6 +4589,20 @@ customize the top mobile navigation
 {
 	background-color: #fff;height: auto;
 }
+#navbar-top-mob.navbar-default .nav-search.visible-xs
+{
+	display: block !important;
+	float: right;
+}
+#navbar-top-mob.navbar-default .nav-search.visible-xs a
+{
+	width: 22px;
+	height: 22px;
+	display: block;
+	background: url(_img/ico-search-black.png) no-repeat center center;
+	background-size: 22px 22px;
+	text-indent: -9999px;
+}
 #navbar-top-mob.navbar-default .navbar-toggle
 {
 	background-color: #fff;
@@ -4596,6 +4610,7 @@ customize the top mobile navigation
 	float: right;
 	top: 22px;
 	margin: 0;
+	right: 15px;
 }
 #navbar-top-mob.navbar-default  .navbar-toggle .icon-bar
 {
