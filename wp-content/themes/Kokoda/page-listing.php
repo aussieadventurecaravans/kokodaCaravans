@@ -41,7 +41,7 @@ get_header(); ?>
                 <div class="container">
                     <div class="col-lg-12 col-md-12 filter-header-content">
                         <a href="#" title="Show Filter">
-                            <h3><span class="caravan-count">0</span> Caravan Models.</h3>
+                            <h3><span class="caravan-count">0 Caravan Model</span>  Available.</h3>
                             <div class="toggle">
                                 Show / Hide Panel
                             </div>
@@ -93,9 +93,6 @@ get_header(); ?>
                                     <option value=".price-51-60" data-filter-value=".price-51-60">$51k - $60k</option>
                                     <option value=".price-61-70" data-filter-value=".price-61-70">$61k - $70k</option>
                                     <option value=".price-71-80" data-filter-value=".price-71-80">$71k - $80k</option>
-                                    <option value=".price-81-90" data-filter-value=".price-81-90">$81k - $90k</option>
-                                    <option value=".price-91-100" data-filter-value=".price-91-100">$91k - $100k</option>
-                                    <option value=".price-100" data-filter-value=".price-91">$100k+</option>
                                 </select>
                             </div>
                         </div>
@@ -189,14 +186,8 @@ get_header(); ?>
                         $filter_price = "price-51-60";
                     elseif($filter_price > 61 && $filter_price <= 71) :
                         $filter_price = "price-61-70";
-                    elseif($filter_price > 71 && $filter_price <= 81) :
+                    elseif($filter_price > 71) :
                         $filter_price = "price-71-80";
-                    elseif($filter_price > 81 && $filter_price <= 91) :
-                        $filter_price = "price-81-90";
-                    elseif($filter_price > 91 && $filter_price <= 101) :
-                        $filter_price = "price-91-100";
-                    elseif($filter_price > 100) :
-                        $filter_price = "price-91";
                     endif;
 
                     if($filter_size <= 19) :
@@ -346,8 +337,25 @@ get_header(); ?>
                         });
                     });
                 }
-            //var count = $('.page-template-page-listing .stripe.listing .featured .item:visible').length;
-            $('.filter-header .filter-header-content span.caravan-count').html(count);
+
+            if(count > 1)
+            {
+                $('.filter-header .filter-header-content span.caravan-count').html(count + '  Caravan Models');
+            }
+            else
+            {
+                $('.filter-header .filter-header-content span.caravan-count').html(count + '  Caravan Model');
+
+            }
+
+            //scroll window to the list of caravans
+            var target = $('.page-template-page-listing .featured .item:first-child');
+            if (target.length && count > 0)
+            {
+                $('html, body').animate({
+                    scrollTop: $('.page-template-page-listing .featured').offset().top - 80
+                }, 1000);
+            }
 
         });
 
@@ -387,8 +395,21 @@ get_header(); ?>
                     });
                 });
             }
-            //var count = $('.page-template-page-listing .stripe.listing .featured .item:visible').length;
-            $('.filter-header .filter-header-content span.caravan-count').html(count);
+            if(count > 1)
+            {
+                $('.filter-header .filter-header-content span.caravan-count').html(count + '  Caravan Models');
+            }else {
+                $('.filter-header .filter-header-content span.caravan-count').html(count + '  Caravan Model');
+            }
+
+            //scroll window to the list of caravans
+            var target = $('.page-template-page-listing .featured .item:first-child');
+            if (target.length && count > 0)
+            {
+                $('html, body').animate({
+                    scrollTop: $('.page-template-page-listing .featured').offset().top - 80
+                }, 1000);
+            }
         });
         //customize the toggle icon at filter menu
         $('.filter-header .filter-header-content a').click(function(e)
