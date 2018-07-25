@@ -154,8 +154,11 @@
 
             <div class="row">
                 <div class="col-lg-12 show-all">
-                    <h4>
+                    <h4 class="desktop-range-button">
                         <a href="<?php echo get_home_url(); ?>/range/"> >>> Explore The Range <<< </a>
+                    </h4>
+                    <h4 class="mobile-range-button">
+                        <a href="<?php echo get_home_url(); ?>/range/">Explore The Range</a>
                     </h4>
                 </div>
             </div>
