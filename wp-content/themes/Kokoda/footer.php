@@ -73,7 +73,7 @@
 							<?php while (have_rows('social_media', 'options')) : the_row(); ?>
 							<li>
                                 <a href="<?php the_sub_field('link'); ?>" title="Follow us on <?php the_sub_field('label'); ?>" target="_blank">
-                                   <?php if(get_sub_field('icon')): ?>
+                                   <?php if(!empty(get_sub_field('icon'))): ?>
                                         <img src="<?php  the_sub_field('icon'); ?>" alt="Follow us on <?php the_sub_field('label'); ?>">
                                   <?php else: ?>
                                         <span class="icon-moon icon-<?php echo strtolower(get_sub_field('label')) ?> "></span>
