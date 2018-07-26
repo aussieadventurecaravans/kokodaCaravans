@@ -525,6 +525,12 @@ nav .container {
 	background-repeat: no-repeat;
 	top: 70px;
 }
+@media(max-width: 768px)
+{
+	.single-product .banner-wrap {
+		top:21px;
+	}
+}
 @media(max-width: 1020px)
 {
 	.single-product .banner-wrap {
