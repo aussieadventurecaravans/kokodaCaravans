@@ -2793,19 +2793,17 @@ nav .container {
 	transition: opacity 0.2s linear;
 }
 
-.footer-wrap .social ul li a {
+.footer-wrap .social ul li a
+{
 	display: inline-block;
+	font-size: 33px;
+	margin-right: 30px;
 }
 
-.footer-wrap .social ul li:hover {
+.footer-wrap .social ul li:hover a{
 	opacity: 0.7;
 }
 
-.footer-wrap .social ul li:hover a {
-	-webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.4);
-	-moz-box-shadow:    0px 0px 5px 0px rgba(255, 255, 255, 0.4);
-	box-shadow:         0px 0px 5px 0px rgba(255, 255, 255, 0.4);
-}
 
 .footer-wrap .newsletter {
 	margin-top: 20px;
@@ -5815,7 +5813,6 @@ body.page-template-template-archive
 {
 
 }
-
 .page-template-template-dealer-signin #wpmpLoginForm .btn-primary {
 	color: #FFF;
 	background-color: #1a1a1a;
@@ -5893,4 +5890,50 @@ body.page-template-template-archive
 	height: 100px;
 	margin: 0 auto 0;
 	font-size: 38px;
+}
+
+/** ADD FREE ICOMOON ICON  **/
+
+@font-face {
+	font-family: 'IcoMoon-Free';
+	src: url('_css/fonts/IcoMoon-Free.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-moon
+{
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'IcoMoon-Free' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Enable Ligatures ================ */
+	letter-spacing: 0;
+	-webkit-font-feature-settings: "liga";
+	-moz-font-feature-settings: "liga=1";
+	-moz-font-feature-settings: "liga";
+	-ms-font-feature-settings: "liga" 1;
+	-o-font-feature-settings: "liga";
+	font-feature-settings: "liga";
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-facebook:before
+{
+	content: "\ea91";
+}
+.icon-youtube:before
+{
+	content: "\ea9d";
+}
+.icon-instagram:before
+{
+	content: "\ea92";
 }

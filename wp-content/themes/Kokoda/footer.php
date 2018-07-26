@@ -71,7 +71,15 @@
 					<div class="social">
 						<ul>
 							<?php while (have_rows('social_media', 'options')) : the_row(); ?>
-							<li><a href="<?php the_sub_field('link'); ?>" title="Follow us on <?php the_sub_field('label'); ?>" target="_blank"><img src="<?php the_sub_field('icon'); ?>" alt="Follow us on <?php the_sub_field('label'); ?>"></a></li>
+							<li>
+                                <a href="<?php the_sub_field('link'); ?>" title="Follow us on <?php the_sub_field('label'); ?>" target="_blank">
+                                   <?php if(get_sub_field('icon')): ?>
+                                        <img src="<?php  the_sub_field('icon'); ?>" alt="Follow us on <?php the_sub_field('label'); ?>">
+                                  <?php else: ?>
+                                        <span class="icon-moon icon-<?php echo strtolower(get_sub_field('label')) ?> "></span>
+                                  <?php endif; ?>
+                                </a>
+                            </li>
 							<?php endwhile; ?>
 						</ul>
 					</div>
