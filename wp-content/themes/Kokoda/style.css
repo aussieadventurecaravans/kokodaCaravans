@@ -523,7 +523,7 @@ nav .container {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	top: 19px;
+	top: 70px;
 }
 @media(max-width: 1020px)
 {
@@ -5838,6 +5838,28 @@ body.page-template-template-archive
 	padding-top: 30px;
 }
 
+
+.stripe.upgrade ul.primary-upgrade-item
+{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+.stripe.upgrade ul.primary-upgrade-item li{
+	padding-left: 0;
+	margin-left: 0;
+
+	color: #0c121c;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1em;
+	text-transform: uppercase;
+
+}
+.stripe.upgrade ul.primary-upgrade-item li img
+{
+	width:70px;
+}
 .stripe.upgrade ul
 {
 	list-style-type: disc;
@@ -5891,7 +5913,15 @@ body.page-template-template-archive
 	margin: 0 auto 0;
 	font-size: 38px;
 }
-
+.stripe.upgrade  .package-price
+{
+	color: #0c121c;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1em;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+}
 /** ADD FREE ICOMOON ICON  **/
 
 @font-face {

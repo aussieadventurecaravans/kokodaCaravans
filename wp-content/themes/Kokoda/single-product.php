@@ -263,6 +263,10 @@
 <?php endif; //specifications ?>
 <?php if(have_rows('upgrade_package')): ?>
 
+<?php  $upgrade_packages = get_field('upgrade_package');?>
+
+
+
 <div class="stripe upgrade" id="upgrade-package">
     <div class="container">
         <div class="row">
@@ -270,18 +274,43 @@
                 <h2>Upgrade Package</h2>
             </div>
         </div>
-        <div class="row">
-            <!-- show spec items for upgradte package-->
-            <?php  $upgrade_package = get_field('upgrade_package');?>
-            <?php foreach ($upgrade_package as $upgrade): ?>
-                <?php $spec_its = $upgrade['specification_item'];?>
+        <?php foreach ($upgrade_packages as $package): ?>
+            <div class="row">
+                <!-- show spec items for upgradte package with image icon -->
+                <?php $spec_its = $package['specification_item'];?>
+                <ul class="primary-upgrade-item">
+                    <?php foreach($spec_its as $spec_it): ?>
+                        <?php if(!empty($spec_it['icon'])): ?>
+                            <li><img src="<?php echo $spec_it['icon']; ?>" class="overlay" /><?php echo $spec_it['heading']; ?></li>
+                        <?php endif; ?>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+            <div class="row">
+                <hr style="border-top: 1px solid #0c121d;"/>
+            </div>
+            <div class="row">
+                <!-- show spec items for upgradte package without Icon Image-->
+                <?php $spec_its = $package['specification_item'];?>
                 <ul>
                     <?php foreach($spec_its as $spec_it): ?>
-                        <li><?php echo $spec_it['heading']; ?></li>
+                        <?php if(empty($spec_it['icon'])): ?>
+                            <li><?php echo $spec_it['heading']; ?></li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
-            <?php endforeach; ?>
-        </div>
+            </div>
+            <div class="row">
+                <hr style="border-top: 1px solid #0c121d;"/>
+            </div>
+            <div class="row">
+                <div class="package-price">
+                    <p>
+                       Package Price : $<?php echo $package['price']  ?>
+                    </p>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
 <?php endif; //specifications ?>
