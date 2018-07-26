@@ -523,7 +523,7 @@ nav .container {
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	top: 70px;
+	top: auto;
 }
 @media(max-width: 768px)
 {
