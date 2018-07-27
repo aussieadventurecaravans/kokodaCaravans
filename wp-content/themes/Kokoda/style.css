@@ -4620,10 +4620,16 @@ customize the top mobile navigation
 {
 	#navbar-top-mob.navbar-default .navbar-toggle
 	{
+		right: 4%;
+	}
+}
+@media only screen and (max-width:32px)
+{
+	#navbar-top-mob.navbar-default .navbar-toggle
+	{
 		right: 0;
 	}
 }
-
 #navbar-top-mob.navbar-default  .navbar-toggle .icon-bar
 {
 	background-color: #000;
