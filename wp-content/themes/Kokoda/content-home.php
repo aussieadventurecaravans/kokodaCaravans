@@ -206,7 +206,7 @@
 										<a href="<?php bloginfo('url'); ?>/whats-on/<?php echo $cat_link; ?>"><?php the_title(); ?></a>
 									<?php endif; ?>
 								</h3>
-								<em><?php echo get_the_date(); ?><?php if(get_field('end_date')):?> - <?php the_field('end_date'); endif; ?></em>
+								<!--<em><?php /*echo get_the_date(); */?><?php /*if(get_field('end_date')):*/?> - <?php /*the_field('end_date'); endif; */?></em>-->
 								<p><?php the_field('post_snippet'); ?></p>
 							</div>
 						
