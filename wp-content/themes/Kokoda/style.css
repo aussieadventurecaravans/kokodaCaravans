@@ -5995,3 +5995,9 @@ body.page-template-template-archive
 {
 	content: "\ea92";
 }
+
+/** CUSTOMIZE PAGE LISTING NEWS/EVENTS **/
+
+.page-template-news-listing a{
+	color: #ffffff;
+}
