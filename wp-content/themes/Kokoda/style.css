@@ -5863,7 +5863,7 @@ body.page-template-template-archive
 	text-transform: uppercase;
 
 }
-@media all and (max-width: px)
+@media all and (max-width: 767px)
 {
 	.stripe.upgrade ul.primary-upgrade-item li
 	{
