@@ -13,7 +13,7 @@ jQuery(function($) {
 			$('nav#navbar-top.navbar-default .brand img').css({'margin-top': '0px', 'padding-bottom': '14px','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .search-box').css({'padding-top': '0px','height' : '58%','transition': 'padding .3s'});
 			$('nav#navbar-top.navbar-default .search-box input[type="text"]').css({'padding-bottom' : '13px'});
-			$('nav.page-nav.navbar-fixed-top').css({'top': '78px'});
+			$('nav.page-nav.navbar-fixed-top').css({'top': '75px'});
 		} else if ($(window).scrollTop() <= 200 && $(window).width() > 755 && $(window).width() != 768) {
 			$('body.home').css({'padding-top': '96px','transition': 'padding .3s'});
 			$('body.page').css({'padding-top': '96px','transition': 'padding .3s'});

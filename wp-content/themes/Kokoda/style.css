@@ -5851,7 +5851,8 @@ body.page-template-template-archive
 	margin:0;
 	padding:0;
 }
-.stripe.upgrade ul.primary-upgrade-item li{
+.stripe.upgrade ul.primary-upgrade-item li
+{
 	padding-left: 0;
 	margin-left: 0;
 
@@ -5862,6 +5863,14 @@ body.page-template-template-archive
 	text-transform: uppercase;
 
 }
+@media all and (max-width: 767px)
+{
+	.stripe.upgrade ul.primary-upgrade-item li
+	{
+		margin-left: 38px;
+	}
+}
+
 .stripe.upgrade ul.primary-upgrade-item li img
 {
 	width:70px;

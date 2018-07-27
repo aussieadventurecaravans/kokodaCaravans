@@ -18,7 +18,7 @@
 		<![endif]-->
 
 	</head>
-	<body <?php body_class($class); ?>>
+	<body <?php if( isset($class) && !empty($class)){ body_class($class); }else{ body_class(); } ?> >
 		<nav id="navbar-top" class="hidden-xs navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid nav-container">
                 <div class="row">
