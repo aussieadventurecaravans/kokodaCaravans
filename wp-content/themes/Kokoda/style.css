@@ -4623,7 +4623,7 @@ customize the top mobile navigation
 		right: 4%;
 	}
 }
-@media only screen and (max-width:32px)
+@media only screen and (max-width:320px)
 {
 	#navbar-top-mob.navbar-default .navbar-toggle
 	{
