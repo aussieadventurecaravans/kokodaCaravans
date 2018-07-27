@@ -5863,7 +5863,7 @@ body.page-template-template-archive
 	text-transform: uppercase;
 
 }
-@media all and (max-width: 767px)
+@media all and (max-width: px)
 {
 	.stripe.upgrade ul.primary-upgrade-item li
 	{
@@ -5936,6 +5936,13 @@ body.page-template-template-archive
 	line-height: 1em;
 	text-transform: uppercase;
 	letter-spacing: .1em;
+}
+@media all and (max-width: 767px)
+{
+	.stripe.upgrade  .package-price
+	{
+		margin-left: 50px;
+	}
 }
 /** ADD FREE ICOMOON ICON  **/
 
