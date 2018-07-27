@@ -5998,6 +5998,8 @@ body.page-template-template-archive
 
 /** CUSTOMIZE PAGE LISTING NEWS/EVENTS **/
 
-.page-template-news-listing a{
+.page-template-news-listing .item a,
+.page-template-news-listing .item a:hover
+{
 	color: #ffffff;
 }
