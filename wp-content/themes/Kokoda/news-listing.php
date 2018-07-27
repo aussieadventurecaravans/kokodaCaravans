@@ -69,7 +69,7 @@ get_header(); ?>
 							
 								<div class="item <?php echo $cat_slug; ?> col-xs-12">
 									<h3><?php if(get_field('post_link')): ?><a href="<?php the_field('post_link'); ?>"><?php endif; ?><?php the_title(); ?><?php if(get_field('post_link')): ?></a><?php endif; ?></h3>
-									<em><?php echo get_the_date(); ?> <?php if(get_field('end_date')):?> - <?php the_field('end_date'); endif; ?></em>
+									<!--<em><?php /*echo get_the_date(); */?> <?php /*if(get_field('end_date')):*/?> - <?php /*the_field('end_date'); endif; */?></em>-->
 									<?php the_field('post_content'); ?>
 								</div>
 							
