@@ -240,11 +240,11 @@
        $("#banner-list").owlCarousel({
 
             navigation : false, // Show next and prev buttons
-            slideSpeed :1000,
+            slideSpeed :2000,
             pagination: true,
-            paginationSpeed : 1000,
+            paginationSpeed : 2000,
             singleItem:true,
-            autoPlay: 5000,
+            autoPlay: 7000,
             afterAction : afterOwlAction
         });
 
