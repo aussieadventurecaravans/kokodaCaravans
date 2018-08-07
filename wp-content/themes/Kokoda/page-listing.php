@@ -347,16 +347,6 @@ get_header(); ?>
                 $('.filter-header .filter-header-content span.caravan-count').html(count + '  Caravan Model');
 
             }
-
-            //scroll window to the list of caravans
-            var target = $('.page-template-page-listing .featured .item:first-child');
-            if (target.length && count > 0)
-            {
-                $('html, body').animate({
-                    scrollTop: $('.page-template-page-listing .featured').offset().top - 80
-                }, 1000);
-            }
-
         });
 
 
@@ -402,14 +392,6 @@ get_header(); ?>
                 $('.filter-header .filter-header-content span.caravan-count').html(count + '  Caravan Model');
             }
 
-            //scroll window to the list of caravans
-            var target = $('.page-template-page-listing .featured .item:first-child');
-            if (target.length && count > 0)
-            {
-                $('html, body').animate({
-                    scrollTop: $('.page-template-page-listing .featured').offset().top - 80
-                }, 1000);
-            }
         });
         //customize the toggle icon at filter menu
         $('.filter-header .filter-header-content a').click(function(e)
