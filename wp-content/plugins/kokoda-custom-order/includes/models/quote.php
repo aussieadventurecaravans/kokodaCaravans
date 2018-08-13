@@ -181,7 +181,10 @@ class Quote
 
         //update the date modified
 
+        date_default_timezone_set('Australia/Melbourne');
         $quote_data['date_modified'] = date("Y-m-d H:i:s");
+
+
 
         return $quote_data;
     }
