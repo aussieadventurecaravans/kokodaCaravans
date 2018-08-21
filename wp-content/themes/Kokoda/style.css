@@ -4786,20 +4786,11 @@ CUSTOMIZE THE ARCHIVE PAGE
  */
 
 /*  Hide the main mennu at archive page only */
-body.page-template-template-archive
-{
-	padding-top:0px !important;
-}
-.page-template-template-archive .navbar-fixed-top,
-.page-template-template-archive  #navbar-top-mob,
-.page-template-template-archive .products-navigation
-{
-	display: none !important;
-}
+
 .page-template-template-archive .banner-wrap .banner .row .banner-content
 {
 	float:left;
-	left: 25px;
+	left: 4%;
 }
 .stripe.archive-listing {
 	background: #ffffff;
@@ -4875,6 +4866,10 @@ body.page-template-template-archive
 {
 	display: inline-block;
 	width: 100%;
+}
+.archive-item-list.featured .archive-item.item:first-child
+{
+	border-top: 1px solid #fff;
 }
 .archive-item-list.featured .archive-item.item {
 	padding-left: 0;
