@@ -12,16 +12,6 @@ get_header(); ?>
 
 <?php $banner_img = get_field('page_banner'); ?>
 
-<div class="banner-wrap"<?php if(!empty($banner_img)) : ?> style="background-image: url('<?php echo $banner_img['url']; ?>');"<?php endif; ?>>
-	<div class="banner container">
-		<div class="row">
-			<div class="banner-content">
-				<h1><?php the_title(); ?></h1>
-			</div>
-		</div>
-	</div>
-</div>
-
 <?php if(get_field('page_intro_heading') || get_field('page_intro_text')): ?>
 <div class="stripe center intro">
 	<div class="container">
