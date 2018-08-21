@@ -8,32 +8,19 @@
  * dealer go to this page to check the specs and other details
  */
 
-get_header(); ?>
+get_template_part('archive-header'); ?>
 
 <?php $banner_img = get_field('page_banner'); ?>
 
-<div class="banner-wrap"<?php if(!empty($banner_img)) : ?> style="background-image: url('<?php echo $banner_img['url']; ?>');"<?php endif; ?>>
-	<div class="banner container">
-		<div class="row">
-			<div class="banner-content">
-				<h1><?php the_title(); ?></h1>
-			</div>
-		</div>
-	</div>
+<div class="banner-wrap">
+    <div class="banner container-fluid">
+        <div class="row">
+            <div class="banner-content">
+                <h1>Caravans Archive</h1>
+            </div>
+        </div>
+    </div>
 </div>
-
-<?php if(get_field('page_intro_heading') || get_field('page_intro_text')): ?>
-<div class="stripe center intro">
-	<div class="container">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-	
-			<?php if(get_field('page_intro_heading')): ?><h2><?php the_field('page_intro_heading'); ?></h2><?php endif; ?>
-			
-			<?php if(get_field('page_intro_text')): ?><p><?php the_field('page_intro_text'); ?></p><?php endif; ?>
-		</div>
-	</div>
-</div>
-<?php endif; ?>
 
 <div class="stripe center archive-listing">
     <div class="container-fluid">

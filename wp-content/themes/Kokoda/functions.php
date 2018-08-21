@@ -280,6 +280,7 @@ function register_kokoda_menus() {
   register_nav_menu( 'category-listing-caravan', __( 'Caravan Category Listing', 'theme-slug' ) );
   register_nav_menu( 'category-listing-camper', __( 'Camper Category Listing', 'theme-slug' ) );
   register_nav_menu( 'category-listing-hybrid', __( 'Hybrids Category Listing', 'theme-slug' ) );
+  register_nav_menu( 'archive-primary', __( 'Primary Menu Archive Page', 'theme-slug' ) );
 }
 
 function wpse45700_get_menu_by_location( $location ) {
