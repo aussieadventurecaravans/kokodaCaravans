@@ -148,6 +148,13 @@ a:hover, a:focus {
 	width: 100%;
 }
 
+.navbar-default .nav-container .row > div
+{
+	background: #fff;
+	border-bottom: 1px solid #eceff0;
+}
+
+
 .navbar-default .navbar-header {
 	position: relative;
 }
@@ -6003,3 +6010,146 @@ body.page-template-template-archive
 {
 	color: #ffffff;
 }
+
+
+/** CUSTOMIZE THE QUOTE ORDER FORM **/
+.page-template-custom-order-template .banner-wrap
+{
+	top:20px;
+	height: 150px;
+	background-color: #1a1a1a;
+}
+
+.custom-quote-section
+{
+	display: block;
+	padding-top: 60px;
+	position: relative;
+	padding-bottom: 60px;
+}
+
+.custom-quote-section .tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+}
+
+@media only screen and (min-width: 768px)
+{
+	.custom-quote-section .cd-breadcrumb.triangle {
+		background-color: transparent;
+		padding: 0;
+		float: left;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.custom-quote-section .cd-breadcrumb.triangle li
+	{
+		position: relative;
+		padding: 0;
+		margin: 4px 4px 4px 0;
+		max-width: 19%;
+		width: 100%;
+	}
+	.custom-quote-section .cd-breadcrumb.triangle li > *
+	{
+		position: relative;
+		padding: 1em .8em 1em 2.5em;
+		color: #2c3f4c;
+		background-color: #edeff0;
+		border-color: #edeff0;
+		width: 100%;
+		font-size: 17px;
+		cursor: default;
+	}
+	.custom-quote-section .cd-breadcrumb.triangle li.next > *
+	{
+		background-color: #edeff0;
+		border-color: #edeff0;
+		cursor: pointer;
+	}
+	.custom-quote-section .cd-breadcrumb.triangle li.complete > *
+	{
+		background-color: #d5d6d6;
+		border-color: #d5d6d6;
+		cursor: pointer;
+	}
+
+	.custom-quote-section .cd-breadcrumb.triangle li.current > * {
+		color: #ffffff;
+		background-color: #4d617f;
+		border-color: #4d617f;
+	}
+
+
+	.cd-breadcrumb.triangle li::after, .cd-breadcrumb.triangle li > *::after
+	{
+		border: 29px solid transparent;
+	}
+
+}
+
+.custom-quote-section .option-select-value-section .tab-header {
+	padding-bottom: 9px;
+	margin: 20px 0 20px;
+	border-bottom: 1px solid #eee;
+}
+
+.custom-quote-section .option-select-value-section  #models .model-list
+{
+	margin:0;
+}
+
+.custom-quote-section .option-select-value-section  #models .item
+{
+	border: 1px solid #eff1f1;
+	opacity: 1;
+	transition-delay: 0ms;
+	transition: opacity .4s;
+	padding: 0;
+	cursor:pointer;
+}
+.custom-quote-section .option-select-value-section  #models .item.selected,
+.custom-quote-section .option-select-value-section  #models .item:hover
+{
+	background-color: #edeff0;
+}
+.custom-quote-section .option-select-value-section  #models .item:hover .item-img img
+{
+	opacity: 0.7;
+}
+.custom-quote-section .option-select-value-section  #models .item-img img
+{
+	width:100%
+}
+.custom-quote-section .option-select-value-section #models .item-details
+{
+	text-align: center;
+	padding: 15px 0;
+
+}
+.custom-quote-section .option-select-value-section  #models .item-details details
+{
+	height: 130px;
+}
+.custom-quote-section .option-select-value-section  #models .item-details h3
+{
+	display: inline-block;
+	border-bottom: 2px solid #000;
+	border-top: 2px solid #000;
+	text-transform: uppercase;
+	padding: 2px 0;
+	font-size: 24px;
+	margin-top: 10px;
+}
+
+
+.custom-quote-section .option-select-value-section #exterior .option-select-image-section
+{
+	padding-bottom: 9px;
+	margin: 20px 0 20px;
+	border-bottom: 1px solid #eee;
+}
+
+
