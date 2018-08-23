@@ -6122,7 +6122,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 {
 	text-align: center;
 	padding: 15px 0;
-
+	color: #1a1a1a;
 }
 .custom-quote-section .option-select-value-section  #models .item-details details
 {
@@ -6146,5 +6146,27 @@ CUSTOMIZE THE ARCHIVE PAGE
 	margin: 20px 0 20px;
 	border-bottom: 1px solid #eee;
 }
+.custom-quote-section .option-select-value-section #floorplan .floorplan-list {
+	margin: 0;
+}
 
-
+.custom-quote-section .option-select-value-section #floorplan .item {
+	cursor: pointer;
+}
+.custom-quote-section .option-select-value-section #floorplan .item.selected,
+.custom-quote-section .option-select-value-section #floorplan .item:hover {
+	background-color: #eef1f1;
+	color: #4d607e;
+}
+.custom-quote-section .option-select-value-section #floorplan .item-details {
+	text-align: center;
+	padding: 0;
+}
+.custom-quote-section .option-select-value-section #floorplan .item-details h3 {
+	display: inline-block;
+	text-transform: uppercase;
+	padding:0;
+	font-size: 24px;
+	margin-top: 0;
+	margin-bottom: 15px;
+}

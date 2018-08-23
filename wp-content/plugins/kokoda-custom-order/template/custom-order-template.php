@@ -219,17 +219,10 @@ foreach ($caravans as $caravan)
                             Choose Your Floorplan
                         </h4>
                     </div>
-                    <div class="row option-select-image-section">
-                        <div class="col-sm-12">
-                            <div class="option-display-image-wrapper">
+                    <div class="option-select-image-section">
+                        <div class="option-display-image-wrapper row floorplan-list">
                                 IMAGE
-                            </div>
                         </div>
-                    </div>
-
-                    <div class="row custom-options-form">
-
-
                     </div>
                 </div>
 
@@ -252,13 +245,13 @@ foreach ($caravans as $caravan)
                     </div>
                     <div class="custom-options-form">
 
-                        <form class="form-horizontal">
+                        <form id="customer_details_form" class="form-horizontal" method="post">
                             <fieldset>
                                 <!-- Text input-->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_name">Full Name</label>
                                     <div class="col-md-5">
-                                        <input id="customer_name" name="customer_name" type="text" placeholder="" class="form-control input-md" required/>
+                                        <input id="customer_name" name="customer_name" type="text" placeholder="Firstname Lastname" class="form-control input-md" required autocomplete="off"/>
 
                                     </div>
                                 </div>
@@ -267,7 +260,7 @@ foreach ($caravans as $caravan)
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_address">Address</label>
                                     <div class="col-md-5">
-                                        <input id="customer_address" name="customer_address" type="text" placeholder="" class="form-control input-md" required>
+                                        <input id="customer_address" name="customer_address" type="text" placeholder="" class="form-control input-md" required autocomplete="off" />
 
                                     </div>
                                 </div>
@@ -276,7 +269,7 @@ foreach ($caravans as $caravan)
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_postcode">Postcode</label>
                                     <div class="col-md-2">
-                                        <input id="customer_postcode" type="number" name="customer_postcode" placeholder="" class="form-control input-md" maxlength="4" required>
+                                        <input id="customer_postcode" type="number" name="customer_postcode" placeholder="" class="form-control input-md" maxlength="4" required autocomplete="off" />
 
                                     </div>
                                 </div>
@@ -302,8 +295,7 @@ foreach ($caravans as $caravan)
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_phone">Phone</label>
                                     <div class="col-md-5">
-                                        <input id="customer_phone" name="customer_phone" type="text" placeholder="" class="form-control input-md" required>
-
+                                        <input id="customer_phone" name="customer_phone" type="number" placeholder="" class="form-control input-md" required autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -311,7 +303,7 @@ foreach ($caravans as $caravan)
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_email">Email</label>
                                     <div class="col-md-5">
-                                        <input id="customer_email" name="customer_email" type="email" placeholder="" class="form-control input-md">
+                                        <input id="customer_email" name="customer_email" type="email" placeholder="" class="form-control input-md" required autocomplete="off" />
 
                                     </div>
                                 </div>
@@ -320,11 +312,13 @@ foreach ($caravans as $caravan)
                                 <!-- Button -->
                                 <div class="form-group">
                                     <div class="col-md-4">
+
                                     </div>
                                     <div class="col-md-5 text-right">
-                                        <button id="singlebutton" name="singlebutton" class="btn btn-primary btn-lg">Submit</button>
+                                        <input id="submit_order" type="submit" class="btn btn-primary btn-lg" />
                                     </div>
                                     <div class="col-md-3">
+
                                     </div>
                                 </div>
 
@@ -348,26 +342,19 @@ foreach ($caravans as $caravan)
     var custom_order = {
         customer: {},
         caravan : '',
-        caravan_options :{}
+        caravan_options :{},
+        floorplan: ''
     };
     jQuery(document).ready(function($)
     {
 
-
+        actionsListener();
         document.getElementById($('li.current a.tablinks').attr('tab-content')).style.display = "block";
-        $('#models .model-list .item').click(function (e)
-        {
-            $('#models .model-list .item').removeClass('selected');
-            $(this).addClass('selected');
-            select_model_id = $(this).attr('select-model');
-            custom_order.caravan = select_model_id;
 
-            //we can go to next tab when we complete this tab
-            $('a.tablinks[tab-content="models"]').parent('li').next().addClass('next');
-        });
 
 
         $('a.tablinks ').click(function(event){
+
             event.preventDefault();
 
 
@@ -402,24 +389,20 @@ foreach ($caravans as $caravan)
                 $('#' + current_tab + '.tabcontent').show();
             }
 
-
-
-
-
             renderCustomOptions($(this).attr('tab-content'));
             renderDisplayImageWrapper($(this).attr('tab-content'));
-            actionsListener($(this).attr('tab-content'));
 
         });
 
 
         function renderCustomOptions(tab)
         {
-
-
             switch(tab)
             {
                 case 'exterior' :
+
+                    var options = custom_order.caravan_options;
+
                     for (var i = 0; i < custom_exterior[select_model_id].length; i++)
                     {
                         if(custom_exterior[select_model_id][i]['custom_option'] == 'composite panel')
@@ -429,22 +412,32 @@ foreach ($caravans as $caravan)
 
                             for(var e  = 0;e < custom_options_value.length; e++ )
                             {
-                                var el = '  <option value="'+ custom_options_value[e].value  +'">' + custom_options_value[e].value + '</option>';
+                                var el = '<option value="'+ custom_options_value[e].value  +'">' + custom_options_value[e].value + '</option>';
 
                                 $('select#composite_panel').append(el);
                             }
+                            if(typeof options.panel != 'undefined')
+                            {
+                                $('select#composite_panel').val(options.panel);
+                            }
+                            custom_order.caravan_options.panel =  $('select#composite_panel').val();
+
                         }
                         if(custom_exterior[select_model_id][i]['custom_option'] == 'checker plate')
                         {
                             $('select#checker_plate').html('');
 
-                            var custom_options_value =custom_exterior[select_model_id][i]['option_value'];
+                            var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
                             for(var e = 0;e < custom_options_value.length; e++ )
                             {
                                 var el = '  <option value="'+ custom_options_value[e].value  +'">' + custom_options_value[e].value + '</option>';
                                 $('select#checker_plate').append(el);
                             }
-
+                            if(typeof options.checker_plate != 'undefined')
+                            {
+                                $('select#checker_plate').val(options.checker_plate);
+                            }
+                            custom_order.caravan_options.checker_plate  = $('select#checker_plate').val();;
                         }
                     }
 
@@ -455,48 +448,26 @@ foreach ($caravans as $caravan)
             }
         }
 
-
-
         function renderDisplayImageWrapper(tab)
         {
             switch(tab)
             {
                 case 'exterior' :
-                    var exteriorImageWrapper = new Konva.Stage({
-                        container: 'exterior-display-image-wrapper',
-                        width: $('#exterior-display-image-wrapper').width(),
-                        height: 600
-                    });
 
+                    exteriorRenderImageWrapper();
 
-                    var layer = new Konva.Layer();
-
-                    var imageObj = new Image();
-                    imageObj.onload = function () {
-                        var caravan = new Konva.Image({
-                            x: 0,
-                            y: 0,
-                            image: imageObj,
-                            width: 762,
-                            height: 600
-                        });
-
-                        // add the shape to the layer
-                        layer.add(caravan);
-
-                        // add the layer to the stage
-                        exteriorImageWrapper.add(layer);
-                    };
-                    imageObj.src = '<?php echo $uploads['baseurl'] . '/custom_order/'; ?>/' + select_model_id + '/default.png';
                     break;
                 case 'floorplan' :
                     if(!Array.isArray( custom_floorplan[select_model_id]))
                     {
-                        $('#floorplan .option-display-image-wrapper').html('<img src="' +  custom_floorplan[select_model_id]  +'" style="width:100%" />');
+                        var el = '<div class="item col-md-6 selected" floorplan="default"><img src="' +  custom_floorplan[select_model_id]  +'" style="width:100%" />';
+                            el += '<div class="item-details"><div class="details"><h3> Default Floor Plan </h3></div></div></div>';
+                            $('#floorplan .option-display-image-wrapper').html(el);
+                            custom_order.floorplan = 'default';
                     }
                     else
                     {
-
+                        $('#floorplan .option-display-image-wrapper').html('');
                     }
 
                     break;
@@ -505,67 +476,135 @@ foreach ($caravans as $caravan)
             }
         }
 
-        function actionsListener(tab)
+        function actionsListener()
         {
-
-            switch(tab)
+            $('#models .model-list .item').click(function (e)
             {
-                case 'models' :
-                    break;
-                case 'exterior' :
-                    $('#exterior select').change(function(e){
+                $('#models .model-list .item').removeClass('selected');
+                $(this).addClass('selected');
+                select_model_id = $(this).attr('select-model');
+                custom_order.caravan = select_model_id;
 
-                        var composite_panel_select =  $('select#composite_panel').val();
+                //we can go to next tab when we complete this tab
+                $('a.tablinks[tab-content="models"]').parent('li').next().addClass('next');
 
-                        var checker_plate_select =  $('select#checker_plate').val();
-
-                        custom_order.caravan_options = {panel_select : composite_panel_select, checker_plate : checker_plate_select };
-
-
-                        var exteriorImageWrapper = new Konva.Stage({
-                            container: 'exterior-display-image-wrapper',
-                            width: $('#exterior-display-image-wrapper').width(),
-                            height: 600
-                        });
+                $('a.tablinks[tab-content="exterior"]').click();
+            });
 
 
-                        var layer = new Konva.Layer();
+            $('#exterior select').change(function(e){
 
-                        var imageObj = new Image();
-                        imageObj.onload = function () {
-                            var caravan = new Konva.Image({
-                                x: 0,
-                                y: 0,
-                                image: imageObj,
-                                width: 762,
-                                height: 600
-                            });
+                var composite_panel_select =  $('select#composite_panel').val();
+                var checker_plate_select =  $('select#checker_plate').val();
+                custom_order.caravan_options = {panel : composite_panel_select, checker_plate : checker_plate_select };
 
-                            // add the shape to the layer
-                            layer.add(caravan);
+                exteriorRenderImageWrapper();
 
-                            // add the layer to the stage
-                            exteriorImageWrapper.add(layer);
-                        };
-                        var image = composite_panel_select + '_' + checker_plate_select;
-                        imageObj.src = '<?php echo $uploads['baseurl'] . '/custom_order/'; ?>/' + select_model_id  + '/' + image + '.png';
+            });
 
-                    });
-                    break;
-                default:
 
-                    //do nothing is gold
+            $('#floorplan .floorplan-list').on('click','.item',function(e)
+            {
 
-            }
+                $('#floorplan .floorplan-list .item').removeClass('selected');
+                $(this).addClass('selected');
+                custom_order.floorplan =  $(this).attr('floorplan');
+
+                //we can go to next tab when we complete this tab
+                $('a.tablinks[tab-content="floorplan"]').parent('li').next().addClass('next');
+                $('a.tablinks[tab-content="accessories"]').click();
+
+            });
+
+            $( window ).resize(function(){
+                exteriorRenderImageWrapper();
+
+            });
+
+            $('form#customer_details_form').submit(function(event){
+
+                submitCustomOrder();
+                return false;
+            });
 
         }
 
+
+        function exteriorRenderImageWrapper()
+        {
+            options = custom_order.caravan_options;
+            var image_name = 'default';
+            if(typeof options.panel != 'undefined' && typeof options.checker_plate != 'undefined')
+            {
+                image_name = options.panel + '_' + options.checker_plate;
+            }
+
+            var image_wrapper_width = $('#exterior .option-display-image-wrapper').width();
+
+            var exteriorImageWrapper = new Konva.Stage({
+                container: 'exterior-display-image-wrapper',
+                width: image_wrapper_width
+            });
+
+
+            var layer = new Konva.Layer();
+            var caravan = new Konva.Image();
+
+            var imageObj = new Image();
+            imageObj.src = '<?php echo $uploads['baseurl'] . '/custom_order/'; ?>/' + select_model_id  + '/' + image_name + '.png';
+            imageObj.onload = function ()
+            {
+                var image_width = image_wrapper_width;
+                caravan.setImage(imageObj);
+                caravan.setWidth(image_width);
+                caravan.setHeight(image_width * imageObj.height / imageObj.width);
+
+                // add the shape to the layer
+                layer.add(caravan);
+                // add the layer to the stage
+                exteriorImageWrapper.add(layer);
+                // set height of stage canvas
+                exteriorImageWrapper.setHeight(caravan.getHeight());
+            };
+        }
+
+
+        function submitCustomOrder()
+        {
+
+            custom_order.customer.customer_name= $('input#customer_name').val();
+            custom_order.customer.customer_address= $('input#customer_address').val();
+            custom_order.customer.customer_postcode = $('input#customer_postcode').val();
+            custom_order.customer.customer_state = $('select#customer_state').val();
+            custom_order.customer.customer_phone = $('input#customer_phone').val();
+            custom_order.customer.customer_email = $('input#customer_email').val();
+
+            var data = {
+                'action':'submit_customorder',
+                'custom_order' : custom_order
+
+            };
+            var url = "<?php echo site_url() ?>/wp-admin/admin-ajax.php";
+            //loading the caravan detail before open panel
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                beforeSend: function() {
+
+
+                },
+                success:function(data){
+
+
+                }
+            });
+        }
     });
 </script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css'?>" >
 
 <?php
-
 get_footer();
 ?>
 

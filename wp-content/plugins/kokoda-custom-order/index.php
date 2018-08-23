@@ -160,3 +160,23 @@ class Kokoda_Custom_Order_Plugin {
 
 }
 
+add_action('wp_ajax_submit_customorder', 'submit_customorder');
+add_action('wp_ajax_nopriv_submit_customorder', 'submit_customorder');
+
+
+function submit_customorder()
+{
+
+    $custom_order = $_POST['custom_order'];
+
+    echo $custom_order['caravan'] . '<br/>';
+    echo $custom_order['caravan_options']['panel'] . '<br/>' ;
+    echo $custom_order['caravan_options']['checker_plate'] . '<br/>';
+    echo $custom_order['floorplan'] . '<br/>';
+    if(empty($custom_order['customer']['customer_email']))
+    {
+        echo $custom_order['customer']['customer_email'];
+    }
+    die();
+
+}
