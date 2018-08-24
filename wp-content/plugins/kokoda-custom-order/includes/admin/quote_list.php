@@ -139,13 +139,13 @@ class Quote_List extends WP_List_Table
      *
      * @return string
      */
-    function column_product_name( $item ) {
+    function column_customer_name( $item ) {
 
         $delete_nonce = wp_create_nonce( 'delete_quote_action' );
 
         $edit_nonce =  wp_create_nonce( 'edit_quote_action' );
 
-        $title = '<strong>' . $item['product_name'] . '</strong>';
+        $title = '<strong>' . $item['customer_name'] . '</strong>';
         $actions = array();
 
 
@@ -167,15 +167,15 @@ class Quote_List extends WP_List_Table
         $columns = [
             'cb'      => '<input type="checkbox" />',
             'quote_id'    => __( 'ID' ),
-            'product_name' => __( 'Product Name'),
-            'total_cost'  => __( 'Quote Price'),
-            'payment_method'  => __( 'Payment'),
             'customer_name' => __( 'Customer Name'),
             'customer_address' => __( 'Customer Address'),
             'customer_postcode' => __( 'Postcode'),
             'customer_state' => __( 'State'),
             'customer_email' => __( 'Email'),
             'customer_phone' => __( 'Phone'),
+            'product_name' => __( 'Product Name'),
+            'total_cost'  => __( 'Quote Price'),
+            'payment_method'  => __( 'Payment'),
             'date_created' => __( 'Date Created'),
             'date_modified' => __( 'Date Modified'),
         ];

@@ -244,6 +244,16 @@ foreach ($caravans as $caravan)
                         </h4>
                     </div>
                     <div class="custom-options-form">
+                        <div class="feedback-notice-messages">
+                            <div class="alert alert-danger alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Failed!</strong> This quote is failed to submit, please contact to our dealer for more info or reload the page.
+                            </div>
+                            <div class="alert alert-success alert-dismissible fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Success!</strong> This quote is successfully submited, our dealer will contact to you shortly.
+                            </div>
+                        </div>
 
                         <form id="customer_details_form" class="form-horizontal" method="post">
                             <fieldset>
@@ -251,7 +261,7 @@ foreach ($caravans as $caravan)
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_name">Full Name</label>
                                     <div class="col-md-5">
-                                        <input id="customer_name" name="customer_name" type="text" placeholder="Firstname Lastname" class="form-control input-md" required autocomplete="off"/>
+                                        <input id="customer_name" name="customer_name" type="text" placeholder="" class="form-control input-md" required autocomplete="off"/>
 
                                     </div>
                                 </div>
@@ -278,8 +288,8 @@ foreach ($caravans as $caravan)
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_state">State</label>
                                     <div class="col-md-2">
-                                        <select class="form-control input-lg" id="customer_state">
-                                            <option selected>Choose State</option>
+                                        <select class="form-control input-lg" id="customer_state" required>
+                                            <option selected value="">Choose State</option>
                                             <option value="vic">Victoria</option>
                                             <option value="nsw">New South Wales</option>
                                             <option value="sa">South Australia</option>
@@ -308,6 +318,17 @@ foreach ($caravans as $caravan)
                                     </div>
                                 </div>
 
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="payment_method">Payment Methods</label>
+                                    <div class="col-md-2">
+                                        <select class="form-control input-lg" id="payment_method" required>
+                                            <option selected value="">Choose Payment</option>
+                                            <option value="cash">Cash</option>
+                                            <option value="loan">Loan</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <!-- Button -->
                                 <div class="form-group">
@@ -315,7 +336,7 @@ foreach ($caravans as $caravan)
 
                                     </div>
                                     <div class="col-md-5 text-right">
-                                        <input id="submit_order" type="submit" class="btn btn-primary btn-lg" />
+                                        <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit Quote" />
                                     </div>
                                     <div class="col-md-3">
 
@@ -330,8 +351,9 @@ foreach ($caravans as $caravan)
             </div>
         </div>
     </div>
-
 </div>
+
+
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
 <script type="text/javascript">
     var select_model_id ='';
@@ -578,6 +600,7 @@ foreach ($caravans as $caravan)
             custom_order.customer.customer_state = $('select#customer_state').val();
             custom_order.customer.customer_phone = $('input#customer_phone').val();
             custom_order.customer.customer_email = $('input#customer_email').val();
+            custom_order.customer.payment_method = $('select#payment_method').val();
 
             var data = {
                 'action':'submit_customorder',
@@ -590,12 +613,26 @@ foreach ($caravans as $caravan)
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function() {
-
+                beforeSend: function()
+                {
+                    $('.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert').hide();
+                    $('#review input#submit_order').attr("disabled", true);
+                    $('#review input#submit_order').attr('value','Loading....');
 
                 },
-                success:function(data){
-
+                success:function(data)
+                {
+                    if (data == true)
+                    {
+                        $('.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert.alert-success').show();
+                        $('#review input#submit_order').attr('value', 'Complete');
+                    }
+                    else
+                        {
+                        $('.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert.alert-danger').show();
+                        $('#review input#submit_order').attr('value', 'Submit Quote');
+                        $('#review input#submit_order').removeAttr("disabled");
+                    }
 
                 }
             });

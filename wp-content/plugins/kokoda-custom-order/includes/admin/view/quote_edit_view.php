@@ -100,7 +100,15 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                         </tr>
                                         <tr>
                                             <td class="first"><label for="payment_method"><?php _e( 'Payment Method:' ); ?></label></td>
-                                            <td><input type="text" name="payment_method" size="30" value="<?php echo esc_attr( $quote->payment_method ); ?>" id="payment_method" /></td>
+                                            <td>
+
+                                                <?php $payment_method = esc_attr( $quote->payment_method ); ?>
+                                                <select name="payment_method" id="payment_method" value="<?php echo esc_attr( $quote->payment_method ); ?>" style=" width:250px; ">
+                                                     <option value="cash" <?php if($payment_method == 'cash' ){ echo 'selected'; } ?> >Cash</option>
+                                                     <option value="loan" <?php if($payment_method == 'loan' ){ echo 'selected'; } ?> >Loan</option>
+                                                </select>
+
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -205,35 +213,36 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
         function submitUpdate()
         {
             var ajax_url = "<?php echo $ajax_edit_url; ?>";
-            jQuery.ajax({
-                type:'POST',
-                url:ajax_url,
-                data: $('form#quote_edit_form').serialize(),
-                success:function(msg)
-                {
-                    if (msg.valid == true)
-                    {
-                        jQuery('form#quote_edit_form .header .notice-wrapper').html('<div class="notice notice-success is-dismissible"><p>'+ msg.message + '</p>' +
-                            '<button type="button" class="notice-dismiss">' +
-                            '<span class="screen-reader-text">Dismiss this notice.</span>' +
-                            '</button>' +
-                            '</div>');
+            if(confirm('Are you sure you want to update this quote ?'))
+            {
+                jQuery.ajax({
+                    type: 'POST',
+                    url: ajax_url,
+                    data: $('form#quote_edit_form').serialize(),
+                    success: function (msg) {
+                        if (msg.valid == true)
+                        {
+                            jQuery('form#quote_edit_form .header .notice-wrapper').html('<div class="notice notice-success is-dismissible"><p>' + msg.message + '</p>' +
+                                '<button type="button" class="notice-dismiss">' +
+                                '<span class="screen-reader-text">Dismiss this notice.</span>' +
+                                '</button>' +
+                                '</div>');
+                        }
+                    },
+                    error: function (html) {
+                        if (msg.valid == true)
+                        {
+                            jQuery('form#quote_edit_form .header .notice-wrapper').html('<div class="error is-dismissible"><p>' + msg.message + '</p>' +
+                                '<button type="button" class="notice-dismiss">' +
+                                '<span class="screen-reader-text">Dismiss this notice.</span>' +
+                                '</button>' +
+                                '</div>');
+                        }
                     }
-                },
-                error:function(html)
-                {
-                    if (msg.valid == true)
-                    {
-                        jQuery('form#quote_edit_form .header .notice-wrapper').html('<div class="error is-dismissible"><p>'+ msg.message + '</p>' +
-                        '<button type="button" class="notice-dismiss">' +
-                        '<span class="screen-reader-text">Dismiss this notice.</span>' +
-                        '</button>' +
-                        '</div>');
-                    }
-                }
-             }).done(function (res) {
+                }).done(function (res) {
 
-            });
+                });
+            }
         }
         function submitDelete()
         {

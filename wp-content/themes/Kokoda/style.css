@@ -6170,3 +6170,10 @@ CUSTOMIZE THE ARCHIVE PAGE
 	margin-top: 0;
 	margin-bottom: 15px;
 }
+
+
+
+.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert
+{
+	display:none;
+}

@@ -169,14 +169,29 @@ function submit_customorder()
 
     $custom_order = $_POST['custom_order'];
 
-    echo $custom_order['caravan'] . '<br/>';
-    echo $custom_order['caravan_options']['panel'] . '<br/>' ;
-    echo $custom_order['caravan_options']['checker_plate'] . '<br/>';
-    echo $custom_order['floorplan'] . '<br/>';
-    if(empty($custom_order['customer']['customer_email']))
+    require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'includes/models/quote.php' );
+
+    try
     {
-        echo $custom_order['customer']['customer_email'];
+
+        $quote_object =  Quote::new_quote($custom_order);
+
+        if($quote_object != false)
+        {
+            echo true;
+        }
+        else
+        {
+            echo false;
+        }
     }
+    catch (Exception $e)
+    {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+        echo false;
+    }
+
+
     die();
 
 }

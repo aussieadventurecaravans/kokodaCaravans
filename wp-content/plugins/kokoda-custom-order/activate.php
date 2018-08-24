@@ -48,6 +48,8 @@ function install_custom_order_tables() {
 
     $sql = "CREATE TABLE $table_name (
       quote_id mediumint NOT NULL AUTO_INCREMENT,
+      customer_name varchar(255) NOT NULL  DEFAULT '',
+      product_id varchar(255)  NOT NULL DEFAULT '',
       product_name varchar(255)  NOT NULL DEFAULT '',
       custom_options longtext default NULL,
       add_on_options longtext default NULL,
@@ -56,7 +58,6 @@ function install_custom_order_tables() {
       total_cost double NOT NULL DEFAULT '0',
       add_on_cost double NOT NULL DEFAULT '0',
       payment_method varchar(80) NOT NULL  DEFAULT '',
-      customer_name varchar(255) NOT NULL  DEFAULT '',
       customer_address varchar(255) NOT NULL  DEFAULT '',
       customer_postcode varchar(255) NOT NULL  DEFAULT '',
       customer_state varchar(255) NOT NULL  DEFAULT '',
