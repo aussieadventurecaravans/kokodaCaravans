@@ -6093,7 +6093,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 
 .custom-quote-section .option-select-value-section  #models .model-list
 {
-	margin:0;
+	margin:0 0 20px 0;
 }
 
 .custom-quote-section .option-select-value-section  #models .item
@@ -6138,18 +6138,23 @@ CUSTOMIZE THE ARCHIVE PAGE
 	font-size: 24px;
 	margin-top: 10px;
 }
-
-
 .custom-quote-section .option-select-value-section #exterior .option-select-image-section
 {
 	padding-bottom: 9px;
 	margin: 20px 0 20px;
 	border-bottom: 1px solid #eee;
 }
+.custom-quote-section .option-select-value-section #exterior .custom-options-form
+{
+	margin-bottom: 20px;
+}
 .custom-quote-section .option-select-value-section #floorplan .floorplan-list {
 	margin: 0;
 }
-
+.custom-quote-section .option-select-value-section #floorplan .option-select-image-section
+{
+	margin-bottom: 50px;
+}
 .custom-quote-section .option-select-value-section #floorplan .item {
 	cursor: pointer;
 }
@@ -6171,9 +6176,14 @@ CUSTOMIZE THE ARCHIVE PAGE
 	margin-bottom: 15px;
 }
 
-
-
 .custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert
 {
 	display:none;
+}
+
+.custom-quote-section .tabcontent button.btn-next,
+.custom-quote-section .tabcontent button.btn-pre
+{
+	margin-bottom: 15px;
+	width: 120px;
 }

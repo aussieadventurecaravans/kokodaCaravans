@@ -63,6 +63,13 @@ function install_custom_order_tables() {
       customer_state varchar(255) NOT NULL  DEFAULT '',
       customer_email varchar(255) NOT NULL  DEFAULT '',
       customer_phone varchar(15) NOT NULL  DEFAULT '',
+      dealer_id mediumint NOT NULL DEFAULT 0,
+      dealer_name varchar(255)  NOT NULL DEFAULT '',
+      dealer_email varchar(255)  NOT NULL DEFAULT '',
+      dealer_phone varchar(15)  NOT NULL DEFAULT '',
+      dealer_address varchar(255)  NOT NULL DEFAULT '',
+      dealer_city varchar(255)  NOT NULL DEFAULT '',
+      dealer_postcode varchar(255)  NOT NULL DEFAULT '',
       date_created datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
       date_modified datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
       PRIMARY KEY (quote_id)

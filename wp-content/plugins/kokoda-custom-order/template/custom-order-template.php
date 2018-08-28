@@ -118,11 +118,21 @@ foreach ($caravans as $caravan)
         $custom_accessories[$caravan->ID] = get_field('custom_accessories',$caravan->ID);
     }
     else
-        {
+     {
         $custom_accessories[$caravan->ID] = 'custom_accessories';
     }
 
 }
+
+
+
+
+//get all dealers from the plugin store locator
+$sql = "SELECT * FROM wp_store_locator";
+$sql .= " WHERE sl_tags = 'Dealer'";
+$sql .= " ORDER BY sl_id asc";
+$dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
+
 
 ?>
 
@@ -211,6 +221,14 @@ foreach ($caravans as $caravan)
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="floorplan" class="tabcontent">
@@ -224,6 +242,14 @@ foreach ($caravans as $caravan)
                                 IMAGE
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="accessories" class="tabcontent">
@@ -234,6 +260,14 @@ foreach ($caravans as $caravan)
                     </div>
                     <div class="row custom-options-form">
 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                        </div>
                     </div>
                 </div>
 
@@ -300,6 +334,17 @@ foreach ($caravans as $caravan)
                                         </select>
                                     </div>
                                 </div>
+                                <!-- Text input-->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="dealer_name">Dealers:</label>
+                                    <div class="col-md-2">
+                                        <select class="form-control input-lg" id="dealer_name" required disabled>
+                                            <option selected value="">Choose Dealer</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
 
                                 <!-- Text input-->
                                 <div class="form-group">
@@ -336,6 +381,7 @@ foreach ($caravans as $caravan)
 
                                     </div>
                                     <div class="col-md-5 text-right">
+                                        <input id="reset_order" type="reset" class="btn btn-primary btn-lg" value="Reset Quote" />
                                         <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit Quote" />
                                     </div>
                                     <div class="col-md-3">
@@ -360,6 +406,7 @@ foreach ($caravans as $caravan)
     var current_tab ='';
     var custom_exterior = <?php echo json_encode($custom_exterior); ?>;
     var custom_floorplan = <?php echo json_encode($custom_floorplan); ?>;
+    var dealers = <?php echo json_encode($dealers); ?>;
 
     var custom_order = {
         customer: {},
@@ -462,9 +509,7 @@ foreach ($caravans as $caravan)
                             custom_order.caravan_options.checker_plate  = $('select#checker_plate').val();;
                         }
                     }
-
                     break;
-
                 default:
                     //do nothing is gold
             }
@@ -547,6 +592,63 @@ foreach ($caravans as $caravan)
 
                 submitCustomOrder();
                 return false;
+            });
+
+
+            $('form#customer_details_form select#customer_state').change(function(e)
+            {
+
+                var el = '<option selected value="">Choose Dealer</option>';
+                var count = 0;
+                for(var i = 0 ; i < dealers.length; i++ )
+                {
+                    var state = dealers[i]['sl_state'];
+                    if(state.toLowerCase() == $(this).val() )
+                    {
+                        el += '<option value="' + dealers[i]['sl_id']   + '" dealers_name=" ' + dealers[i]['sl_store']  + '"  >' + dealers[i]['sl_store']  +  ' </option>';
+
+                        count++;
+                    }
+
+                }
+
+                if(count != 0)
+                {
+                    $('form#customer_details_form select#dealer_name').removeAttr("disabled");
+                }
+                else
+                {
+                    $('form#customer_details_form select#dealer_name').attr("disabled",true);
+                }
+
+
+                $('form#customer_details_form select#dealer_name').html(el);
+
+            });
+
+
+            $('.tabcontent button.btn-next').click(function(e)
+            {
+                event.preventDefault();
+
+                var next_tabcontent = $(this).parent().parent().parent('div.tabcontent').next().attr('id');
+                if(typeof next_tabcontent != 'undefined')
+                {
+                    $("a.tablinks[tab-content='" + next_tabcontent + "']" ).click();
+                }
+            });
+
+
+
+            $('.tabcontent button.btn-pre').click(function(e)
+            {
+                event.preventDefault();
+                var prev_tabcontent = $(this).parent().parent().parent('div.tabcontent').prev().attr('id');
+
+                if(typeof prev_tabcontent != 'undefined')
+                {
+                    $("a.tablinks[tab-content='" + prev_tabcontent +  "']").click();
+                }
             });
 
         }
