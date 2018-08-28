@@ -208,8 +208,10 @@ class Quote
 
         $quote_data =  array();
         $columns= array('product_name','custom_options','add_on_options','product_cost','orc_cost','total_cost',
-            'add_on_cost','payment_method','customer_name','customer_address','customer_postcode','customer_state',
-            'customer_email','customer_phone','date_created','date_modified');
+            'add_on_cost','payment_method',
+            'customer_name','customer_address','customer_postcode','customer_state','customer_email','customer_phone',
+            'dealer_id','dealer_name','dealer_phone','dealer_email','dealer_address','dealer_city','dealer_state','dealer_postcode',
+            'date_created','date_modified');
 
         //prepare the custom options(panel/checkerplate) from custom order
         $custom_options = array();
@@ -245,6 +247,17 @@ class Quote
                 $quote_data[$key] = $value;
             }
         }
+
+        //prepare for dealer details
+        $dealer = $data["dealer"];
+        foreach ($dealer as $key => $value)
+        {
+            if(in_array($key,$columns))
+            {
+                $quote_data[$key] = $value;
+            }
+        }
+
 
         //add the date modified and date created of quote
         date_default_timezone_set('Australia/Melbourne');

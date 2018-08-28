@@ -69,7 +69,9 @@ function install_custom_order_tables() {
       dealer_phone varchar(15)  NOT NULL DEFAULT '',
       dealer_address varchar(255)  NOT NULL DEFAULT '',
       dealer_city varchar(255)  NOT NULL DEFAULT '',
+      dealer_state varchar(255)  NOT NULL DEFAULT '',
       dealer_postcode varchar(255)  NOT NULL DEFAULT '',
+      status varchar(255)  NOT NULL DEFAULT 'In Progress',
       date_created datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
       date_modified datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
       PRIMARY KEY (quote_id)

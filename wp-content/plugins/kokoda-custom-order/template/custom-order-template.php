@@ -321,7 +321,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 <!-- Text input-->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="customer_state">State</label>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <select class="form-control input-lg" id="customer_state" required>
                                             <option selected value="">Choose State</option>
                                             <option value="vic">Victoria</option>
@@ -337,7 +337,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 <!-- Text input-->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="dealer_name">Dealers:</label>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <select class="form-control input-lg" id="dealer_name" required disabled>
                                             <option selected value="">Choose Dealer</option>
                                         </select>
@@ -366,7 +366,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 <!-- Text input-->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="payment_method">Payment Methods</label>
-                                    <div class="col-md-2">
+                                    <div class="col-md-3">
                                         <select class="form-control input-lg" id="payment_method" required>
                                             <option selected value="">Choose Payment</option>
                                             <option value="cash">Cash</option>
@@ -410,6 +410,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
     var custom_order = {
         customer: {},
+        dealer:{},
         caravan : '',
         caravan_options :{},
         floorplan: ''
@@ -621,7 +622,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     $('form#customer_details_form select#dealer_name').attr("disabled",true);
                 }
 
-
                 $('form#customer_details_form select#dealer_name').html(el);
 
             });
@@ -650,7 +650,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     $("a.tablinks[tab-content='" + prev_tabcontent +  "']").click();
                 }
             });
-
         }
 
 
@@ -704,6 +703,24 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             custom_order.customer.customer_email = $('input#customer_email').val();
             custom_order.customer.payment_method = $('select#payment_method').val();
 
+            custom_order.dealer.dealer_id = $('select#dealer_name').val();
+            custom_order.dealer.dealer_name = $('select#dealer_name option:selected').attr('dealers_name');
+            var selected_dealer_id = custom_order.dealer.dealer_id;
+            for(var i= 0; i < dealers.length; i++)
+            {
+                if(dealers[i]['sl_id'] == selected_dealer_id)
+                {
+                    custom_order.dealer.dealer_phone = dealers[i]['sl_phone'];
+                    custom_order.dealer.dealer_email = dealers[i]['sl_email'];
+                    custom_order.dealer.dealer_address = dealers[i]['sl_address'];
+                    custom_order.dealer.dealer_city = dealers[i]['sl_city'];
+                    custom_order.dealer.dealer_state = dealers[i]['sl_state'];
+                    custom_order.dealer.dealer_postcode = dealers[i]['sl_zip'];
+                }
+            }
+
+
+
             var data = {
                 'action':'submit_customorder',
                 'custom_order' : custom_order
@@ -728,6 +745,11 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     {
                         $('.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert.alert-success').show();
                         $('#review input#submit_order').attr('value', 'Complete');
+
+                        //refresh page after successfully submit quote to system
+                        setTimeout(function () {
+                            location = ''
+                        }, 3000);
                     }
                     else
                         {

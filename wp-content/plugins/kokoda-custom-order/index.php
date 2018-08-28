@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: Custom Order and Quote for Kokoda
- * Plugin URI: http://www.wordpress.org/plugins
  * Description: Custom order/quote  pluggin for kokoda website
  * Version: 1.0
  * Author: Son Nguyen
