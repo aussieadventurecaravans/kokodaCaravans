@@ -6015,6 +6015,8 @@ CUSTOMIZE THE ARCHIVE PAGE
 	background-color: #1a1a1a;
 }
 
+
+
 .custom-quote-section
 {
 	display: block;
@@ -6022,11 +6024,17 @@ CUSTOMIZE THE ARCHIVE PAGE
 	position: relative;
 	padding-bottom: 60px;
 }
+.custom-quote-section  .option-select-header-section.row,
+.custom-quote-section  .option-select-value-section.row{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
 
 .custom-quote-section .tabcontent {
 	display: none;
 	padding: 6px 12px;
-	border: 1px solid #ccc;
+	border: 1px solid #fff;
 }
 
 @media only screen and (min-width: 768px)
@@ -6044,7 +6052,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 		position: relative;
 		padding: 0;
 		margin: 4px 4px 4px 0;
-		max-width: 19%;
+		max-width: 16%;
 		width: 100%;
 	}
 	.custom-quote-section .cd-breadcrumb.triangle li > *
@@ -6083,6 +6091,15 @@ CUSTOMIZE THE ARCHIVE PAGE
 		border: 29px solid transparent;
 	}
 
+}
+
+@media only screen and (max-width: 991px)
+{
+	.custom-quote-section .cd-breadcrumb.triangle li > *
+	{
+		font-size: 15px;
+		padding: 18px 0 18px 26px;
+	}
 }
 
 .custom-quote-section .option-select-value-section .tab-header {
@@ -6176,7 +6193,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 	margin-bottom: 15px;
 }
 
-.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert
+.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert
 {
 	display:none;
 }
@@ -6186,4 +6203,131 @@ CUSTOMIZE THE ARCHIVE PAGE
 {
 	margin-bottom: 15px;
 	width: 120px;
+}
+
+fieldset.form-finance-section
+{
+	display:none;
+}
+@media only screen and (max-width: 991px)
+{
+	fieldset.form-finance-section
+	{
+		display:block;
+	}
+}
+
+
+fieldset.form-finance-section,
+fieldset.finance-section {
+	border: 1px solid #d5d6d6 !important;
+	padding: 0 1.4em 1.4em 1.4em !important;
+	margin: 0 0 1.5em 0 !important;
+	-webkit-box-shadow: 0px 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px 0px #d5d6d6;
+}
+
+@media only screen and (max-width: 991px)
+{
+	fieldset.finance-section
+	{
+		display:none;
+	}
+}
+
+fieldset.finance-section  legend.finance-header {
+	font-size: 1.2em !important;
+	font-weight: bold !important;
+	text-align: left !important;
+	width:auto;
+	padding:0 10px;
+	border-bottom:none;
+}
+
+fieldset.finance-section .loan-detail-section
+{
+	border: 1px solid #d5d6d6 !important;
+	padding: 0 1.4em 1.4em 1.4em !important;
+	margin: 0 0 1.5em 0 !important;
+	-webkit-box-shadow: 0px 0px 0px 0px #000;
+	box-shadow: 0px 0px 0px 0px #d5d6d6;
+	border-radius: 8px;
+}
+fieldset.finance-section .loan-detail-section legend.loan-section-header {
+	border-bottom: none;
+	width: auto;
+	padding: 0 10px;
+	font-weight: 400;
+}
+
+
+fieldset.finance-section .loan-detail-section .monthly-payment-sec
+{
+	margin: 20px 0 20px;
+	border-top: 1px solid #eee;
+	padding-top: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+fieldset.finance-section .cash-summary h2.total-price
+{
+	margin: 20px 0 10px;
+	border-top: 1px solid #eee;
+	padding-top: 10px;
+}
+fieldset.finance-section .cash-summary p.add-on-price-label,
+fieldset.finance-section .cash-summary p.primary-price-label
+{
+	font-weight: 100;
+	font-size: 15px;
+}
+fieldset.finance-section .loan-summary input.drive-away-price
+{
+	letter-spacing: 2px;
+}
+fieldset.finance-section .loan-summary input.drive-away-price::first-letter
+{
+	content:"$";
+}
+
+.apply-finance-company .panel-body .outside
+{
+	background: #f7f7f7;
+	cursor: pointer;
+	height: 62px;
+	display: inline-block;
+	border: 1px solid #ccc;
+}
+.apply-finance-company .panel-body .outside.active {
+
+	background: #337ab7;
+	border: 1px solid #337ab7;
+}
+
+.apply-finance-company .panel-body .outside .inside
+{
+	background: #f7f7f7;
+	color: #000;
+	font-size: 16px;
+	height: 56px;
+	text-align: center;
+	width: 208px;
+	line-height: 56px;
+	padding: 0;
+	position: relative;
+	top: 2px;
+	margin: 0 2px;
+}
+
+.apply-finance-company .panel-body .outside .inside span {
+	display: inline-block;
+	line-height: normal;
+	margin: 0 auto;
+	vertical-align: middle;
+}
+
+.apply-finance-company .panel-body #apply_button
+{
+	margin-top: 25px;
 }

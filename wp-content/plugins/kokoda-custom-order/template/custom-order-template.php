@@ -91,13 +91,17 @@ else
         ),
     );
 }
-//Custom Exterior of all Models
+//all caravans object
 $caravans  =  get_posts($args);
+
+
+//Custom Exterior of all Models
 $custom_exterior= array();
 foreach ($caravans as $caravan)
 {
     $custom_exterior[$caravan->ID] = get_field('custom_exterior',$caravan->ID);
 }
+
 //Floor Plan of All Models
 foreach ($caravans as $caravan)
 {
@@ -110,6 +114,15 @@ foreach ($caravans as $caravan)
         $custom_floorplan[$caravan->ID] = get_field('floor_plan',$caravan->ID);
     }
 }
+//drive away prices for all caravans
+$primary_prices = array();
+foreach ($caravans as $caravan)
+{
+    $primary_prices[$caravan->ID] = get_field('price_thousands',$caravan->ID) . get_field('price_hundreds',$caravan->ID); ;
+}
+
+
+
 //custom_accessories
 foreach ($caravans as $caravan)
 {
@@ -118,14 +131,11 @@ foreach ($caravans as $caravan)
         $custom_accessories[$caravan->ID] = get_field('custom_accessories',$caravan->ID);
     }
     else
-     {
+    {
         $custom_accessories[$caravan->ID] = 'custom_accessories';
     }
 
 }
-
-
-
 
 //get all dealers from the plugin store locator
 $sql = "SELECT * FROM wp_store_locator";
@@ -150,7 +160,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 </div>
 
 <div class="custom-quote-section">
-    <div class="container">
+    <div class="fluid-container">
         <div class="row option-select-header-section">
             <div class="col-sm-12">
                <nav>
@@ -159,13 +169,14 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <li><a href="#" class="tablinks" tab-content="exterior" >Exterior</a></li>
                         <li><a href="#" class="tablinks" tab-content="floorplan">Floor Plan</a></li>
                         <li><a href="#" class="tablinks" tab-content="accessories">Accessories</a></li>
-                        <li><a href="#" class="tablinks"  tab-content="review">Review</a></li>
+                        <li><a href="#" class="tablinks"  tab-content="summary">Summary</a></li>
+                        <li><a href="#" class="tablinks"  tab-content="enquiry">Enquiry</a></li>
                     </ol>
                 </nav>
             </div>
         </div>
         <div class="row option-select-value-section">
-            <div class="col-sm-12">
+            <div class="col-sm-10">
                 <div id="models" class="tabcontent">
                     <div class="tab-header">
                         <h4>
@@ -270,129 +281,269 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </div>
                     </div>
                 </div>
+                <div id="summary" class="tabcontent">
+                    <div class="tab-header">
+                        <h4>
+                            Caravan Summary
+                        </h4>
+                    </div>
+                    <div class="row custom-options-form">
 
-                <div id="review" class="tabcontent">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="enquiry" class="tabcontent">
                     <div class="tab-header">
                         <h4>
                             Submit Your Details
                         </h4>
                     </div>
-                    <div class="custom-options-form">
-                        <div class="feedback-notice-messages">
-                            <div class="alert alert-danger alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Failed!</strong> This quote is failed to submit, please contact to our dealer for more info or reload the page.
-                            </div>
-                            <div class="alert alert-success alert-dismissible fade in">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Success!</strong> This quote is successfully submited, our dealer will contact to you shortly.
-                            </div>
+                    <div class="feedback-notice-messages">
+                        <div class="alert alert-danger alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Failed!</strong> This quote is failed to submit, please contact to our dealer for more info or reload the page.
+                        </div>
+                        <div class="alert alert-success alert-dismissible fade in">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Success!</strong> This quote is successfully submited, our dealer will contact to you shortly.
+                        </div>
+                    </div>
+                    <div class="row custom-options-form ">
+                        <div class="col-md-7">
+                            <form id="customer_details_form" class="form-horizontal" method="post">
+                                <fieldset>
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="customer_name">Full Name</label>
+                                        <div class="col-md-7">
+                                            <input id="customer_name" name="customer_name" type="text" placeholder="" class="form-control input-md" required autocomplete="off"/>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="customer_address">Address</label>
+                                        <div class="col-md-7">
+                                            <input id="customer_address" name="customer_address" type="text" placeholder="" class="form-control input-md" required autocomplete="off" />
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="customer_postcode">Postcode</label>
+                                        <div class="col-md-3">
+                                            <input id="customer_postcode" type="number" name="customer_postcode" placeholder="" class="form-control input-md" maxlength="4" required autocomplete="off" />
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="customer_state">State</label>
+                                        <div class="col-md-5">
+                                            <select class="form-control input-lg" id="customer_state" required>
+                                                <option selected value="">Choose State</option>
+                                                <option value="vic">Victoria</option>
+                                                <option value="nsw">New South Wales</option>
+                                                <option value="sa">South Australia</option>
+                                                <option value="nt">Northern Territory</option>
+                                                <option value="qld">Queensland</option>
+                                                <option value="wa">Western Australia</option>
+                                                <option value="tas">Tasmania</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="dealer_name">Dealers:</label>
+                                        <div class="col-md-5">
+                                            <select class="form-control input-lg" id="dealer_name" required disabled>
+                                                <option selected value="">Choose Dealer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="customer_phone">Phone</label>
+                                        <div class="col-md-7">
+                                            <input id="customer_phone" name="customer_phone" type="number" placeholder="" class="form-control input-md" required autocomplete="off" />
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="customer_email">Email</label>
+                                        <div class="col-md-7">
+                                            <input id="customer_email" name="customer_email" type="email" placeholder="" class="form-control input-md" required autocomplete="off" />
+
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="payment_method">Payment Methods</label>
+                                        <div class="col-md-5">
+                                            <select class="form-control input-lg" id="payment_method" required>
+                                                <option selected value="">Choose Payment</option>
+                                                <option value="cash">Cash</option>
+                                                <option value="loan">Loan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <fieldset class="form-finance-section">
+                                        <legend class="finance-header">Payment Details</legend>
+                                        <div class="finance-section-details">
+
+
+                                        </div>
+                                    </fieldset>
+                                    <!-- Button -->
+                                    <div class="form-group">
+                                        <div class="col-md-12 text-center">
+                                            <input id="reset_order" type="reset" class="btn btn-primary btn-lg" value="Reset Quote" />
+                                            <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit Quote" />
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </form>
                         </div>
 
-                        <form id="customer_details_form" class="form-horizontal" method="post">
+                        <div class="col-md-4 text-left">
+                            <fieldset class="finance-section">
+                                <legend class="finance-header">Payment Details</legend>
+                                <div class="finance-section-details loan-summary"  style="display: none">
+                                    <p>
+                                        <span>Total Price:<input type="text" class="form-control input-md drive-away-price" disabled/>
+                                    </p>
+                                    <fieldset class="loan-detail-section">
+                                        <legend class="loan-section-header">Loan Estimate</legend>
+                                        <div class="loan-amount-sec">
+                                            <p><span>Loan Amount($):<input type="text" class="form-control input-md loan-amount"  value="0"/></p>
+                                        </div>
+                                        <div class="interest-sec">
+                                            <p><span>Interest Rate(%):<input type="text" class="form-control input-md interest-rate" placeholder="4.59" value="4.59"/></p>
+                                        </div>
+                                        <div class="period-sec">
+                                            <p><span>Loan Term(months):<input type="text" class="form-control input-md loan-terms"  value="0"/></p>
+                                        </div>
+
+                                        <div class="balloon-amount-sec">
+                                            <p><span>Balloon Amount($):<input type="text" class="form-control input-md balloon-amount" placeholder="$" value="0"/></p>
+                                        </div>
+
+                                        <div class="monthly-payment-sec">
+                                            <p>
+                                                Payment: $<span class="mp-amount">0</span> /month
+                                            </p>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="finance-section-details cash-summary text-center" style="display: none">
+                                    <h2 class="price-label primary-price">
+                                        $0 + ORC
+                                    </h2>
+                                    <p class="primary-price-label">
+                                        Drive Away Price
+                                    </p>
+                                    <h2> + </h2>
+                                    <h2 class="price-label add-on-price">
+                                        $0
+                                    </h2>
+                                    <p class="add-on-price-label">
+                                        Accessories Price
+                                    </p>
+
+                                    <h2 class="price-label total-price">
+                                        $0
+                                    </h2>
+                                    <p class="total-price-label">
+                                       Total Price (EST)
+                                    </p>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="row apply-finance-company" style="display: none;">
+                        <div class="col-md-12">
                             <fieldset>
-                                <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="customer_name">Full Name</label>
-                                    <div class="col-md-5">
-                                        <input id="customer_name" name="customer_name" type="text" placeholder="" class="form-control input-md" required autocomplete="off"/>
+                                    <div class="col-md-12 text-center">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                Apply Caravan Finance
+                                            </div>
+                                            <div class="panel-body">
+                                                <p class="description">
+                                                    <span class="apply_later" style="display:none">
+                                                        Our dealer will contact and help you to arrange financing.
+                                                    </span>
+                                                    <span class="apply_now" style="display:none">
+                                                       We will pass your contact information to our preferred financier to begin a credit application.
+                                                    </span>
+                                                    <span class="self_arrange" style="display:none">
+                                                        If you have already applied your financier, our dealer will contact to you shortly
+                                                    </span>
+                                                </p>
 
-                                    </div>
-                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                    </div>
+                                                    <div class="col-md-8 text-center">
 
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="customer_address">Address</label>
-                                    <div class="col-md-5">
-                                        <input id="customer_address" name="customer_address" type="text" placeholder="" class="form-control input-md" required autocomplete="off" />
+                                                        <div class="outside" id="apply_later" value="apply later">
+                                                            <div class="inside">
+                                                                <span>Apply Later</span>
+                                                            </div>
+                                                        </div>
 
-                                    </div>
-                                </div>
+                                                        <div class="outside" id="self_arrange"  value="self arrange">
+                                                            <div class="inside">
+                                                                <span>Self-Arranged Finance</span>
+                                                            </div>
+                                                        </div>
 
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="customer_postcode">Postcode</label>
-                                    <div class="col-md-2">
-                                        <input id="customer_postcode" type="number" name="customer_postcode" placeholder="" class="form-control input-md" maxlength="4" required autocomplete="off" />
+                                                        <div class="outside" id="apply_now" value="creditone">
+                                                            <div class="inside">
+                                                                <span>
+                                                                    Apply Now
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
 
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="customer_state">State</label>
-                                    <div class="col-md-3">
-                                        <select class="form-control input-lg" id="customer_state" required>
-                                            <option selected value="">Choose State</option>
-                                            <option value="vic">Victoria</option>
-                                            <option value="nsw">New South Wales</option>
-                                            <option value="sa">South Australia</option>
-                                            <option value="nt">Northern Territory</option>
-                                            <option value="qld">Queensland</option>
-                                            <option value="wa">Western Australia</option>
-                                            <option value="tas">Tasmania</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="dealer_name">Dealers:</label>
-                                    <div class="col-md-3">
-                                        <select class="form-control input-lg" id="dealer_name" required disabled>
-                                            <option selected value="">Choose Dealer</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="customer_phone">Phone</label>
-                                    <div class="col-md-5">
-                                        <input id="customer_phone" name="customer_phone" type="number" placeholder="" class="form-control input-md" required autocomplete="off" />
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="customer_email">Email</label>
-                                    <div class="col-md-5">
-                                        <input id="customer_email" name="customer_email" type="email" placeholder="" class="form-control input-md" required autocomplete="off" />
-
-                                    </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="payment_method">Payment Methods</label>
-                                    <div class="col-md-3">
-                                        <select class="form-control input-lg" id="payment_method" required>
-                                            <option selected value="">Choose Payment</option>
-                                            <option value="cash">Cash</option>
-                                            <option value="loan">Loan</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <div class="form-group">
-                                    <div class="col-md-4">
-
-                                    </div>
-                                    <div class="col-md-5 text-right">
-                                        <input id="reset_order" type="reset" class="btn btn-primary btn-lg" value="Reset Quote" />
-                                        <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit Quote" />
-                                    </div>
-                                    <div class="col-md-3">
-
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <div id="apply_button" class="btn btn-primary btn-lg">Submit</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                             </fieldset>
-                        </form>
-
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -407,20 +558,23 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var custom_exterior = <?php echo json_encode($custom_exterior); ?>;
     var custom_floorplan = <?php echo json_encode($custom_floorplan); ?>;
     var dealers = <?php echo json_encode($dealers); ?>;
+    var primary_prices = <?php echo json_encode($primary_prices); ?>
 
     var custom_order = {
         customer: {},
         dealer:{},
+        finance:{},
         caravan : '',
         caravan_options :{},
+        accessories:{},
         floorplan: ''
     };
     jQuery(document).ready(function($)
     {
 
         actionsListener();
-        document.getElementById($('li.current a.tablinks').attr('tab-content')).style.display = "block";
 
+        document.getElementById($('li.current a.tablinks').attr('tab-content')).style.display = "block";
 
 
         $('a.tablinks ').click(function(event){
@@ -528,7 +682,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 case 'floorplan' :
                     if(!Array.isArray( custom_floorplan[select_model_id]))
                     {
-                        var el = '<div class="item col-md-6 selected" floorplan="default"><img src="' +  custom_floorplan[select_model_id]  +'" style="width:100%" />';
+                        var el = '<div class="item col-md-12 text-center selected" floorplan="default"><img src="' +  custom_floorplan[select_model_id]  +'" style="width:80%" />';
                             el += '<div class="item-details"><div class="details"><h3> Default Floor Plan </h3></div></div></div>';
                             $('#floorplan .option-display-image-wrapper').html(el);
                             custom_order.floorplan = 'default';
@@ -590,8 +744,17 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             });
 
             $('form#customer_details_form').submit(function(event){
+                if($('select#payment_method').val() == 'cash')
+                {
+                    custom_order.finance.option = 'none';
+                    submitCustomOrder();
+                }
+                else
+                {
+                    $('div#enquiry .custom-options-form ').hide();
+                    $('div#enquiry .apply-finance-company ').show();
+                }
 
-                submitCustomOrder();
                 return false;
             });
 
@@ -626,19 +789,17 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             });
 
-
             $('.tabcontent button.btn-next').click(function(e)
             {
                 event.preventDefault();
 
                 var next_tabcontent = $(this).parent().parent().parent('div.tabcontent').next().attr('id');
+
                 if(typeof next_tabcontent != 'undefined')
                 {
                     $("a.tablinks[tab-content='" + next_tabcontent + "']" ).click();
                 }
             });
-
-
 
             $('.tabcontent button.btn-pre').click(function(e)
             {
@@ -650,12 +811,70 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     $("a.tablinks[tab-content='" + prev_tabcontent +  "']").click();
                 }
             });
+            $("form#customer_details_form select#payment_method").change(function(e)
+            {
+
+                finance_section_display();
+                $(".finance-section-details").hide();
+                if('cash' == $(this).val() )
+                {
+                    $(".finance-section-details.cash-summary").show()
+                    $(".finance-section .finance-header").html('Cash Detail');
+                }
+                if('loan' == $(this).val())
+                {
+                    $(".finance-section-details.loan-summary").show();
+                    $(".finance-section .finance-header").html('Loan Detail');
+                }
+            });
+
+            $(".finance-section-details.loan-summary input").change(function(e){
+
+                finance_section_display();
+
+            });
+            $(".finance-section-details.loan-summary input[type=text]").on('keyup', function (e) {
+
+                finance_section_display();
+
+                var $this = $( this );
+                var raw_input = $this.val();
+
+                var input = raw_input.replace(/[\D\s\._\-]+/g, "");
+
+                input = input ? parseInt( input, 10 ) : 0;
+                if(!$this.hasClass('interest-rate'))
+                {
+                    $this.val( function() {
+                        return ( input === 0 ) ? "" : input.toLocaleString( "en-US" );
+                    } );
+                }
+            });
+
+            $(".apply-finance-company div.outside").click(function(e)
+            {
+
+                $(".apply-finance-company div.outside").removeClass('active');
+                $(this).addClass('active');
+                custom_order.finance.option =  $(this).attr('value');
+
+                $(".apply-finance-company p.description span").hide();
+                $(".apply-finance-company p.description span" + "." + $(this).attr('id')).show();
+            });
+
+            $(".apply-finance-company div#apply_button").click(function(e)
+            {
+
+                submitCustomOrder();
+
+            });
+
         }
 
 
         function exteriorRenderImageWrapper()
         {
-            options = custom_order.caravan_options;
+            var options = custom_order.caravan_options;
             var image_name = 'default';
             if(typeof options.panel != 'undefined' && typeof options.checker_plate != 'undefined')
             {
@@ -695,7 +914,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         function submitCustomOrder()
         {
 
-            custom_order.customer.customer_name= $('input#customer_name').val();
+            custom_order.customer.customer_name = $('input#customer_name').val();
             custom_order.customer.customer_address= $('input#customer_address').val();
             custom_order.customer.customer_postcode = $('input#customer_postcode').val();
             custom_order.customer.customer_state = $('select#customer_state').val();
@@ -718,9 +937,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     custom_order.dealer.dealer_postcode = dealers[i]['sl_zip'];
                 }
             }
-
-
-
             var data = {
                 'action':'submit_customorder',
                 'custom_order' : custom_order
@@ -734,32 +950,82 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 type: "POST",
                 beforeSend: function()
                 {
-                    $('.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert').hide();
-                    $('#review input#submit_order').attr("disabled", true);
-                    $('#review input#submit_order').attr('value','Loading....');
+                    $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert').hide();
+                    $('#enquiry input#submit_order').attr("disabled", true);
+                    $('#enquiry input#submit_order').attr('value','Loading....');
 
                 },
                 success:function(data)
                 {
                     if (data == true)
                     {
-                        $('.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert.alert-success').show();
-                        $('#review input#submit_order').attr('value', 'Complete');
+                        $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
+                        $('#enquiry input#submit_order').attr('value', 'Complete');
 
                         //refresh page after successfully submit quote to system
-                        setTimeout(function () {
+                        setTimeout(function ()
+                        {
                             location = ''
                         }, 3000);
                     }
                     else
-                        {
-                        $('.custom-quote-section .option-select-value-section  #review .feedback-notice-messages .alert.alert-danger').show();
-                        $('#review input#submit_order').attr('value', 'Submit Quote');
-                        $('#review input#submit_order').removeAttr("disabled");
+                     {
+                        $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-danger').show();
+                        $('#enquiry input#submit_order').attr('value', 'Submit Quote');
+                        $('#enquiry input#submit_order').removeAttr("disabled");
                     }
-
                 }
             });
+        }
+
+
+        function finance_section_display()
+        {
+            var caravan_price = primary_prices;
+
+            var accessories_prices = 0 ;
+
+            var total_price =  Number(caravan_price[select_model_id]) + accessories_prices;
+
+            $(".finance-section-details.loan-summary input.drive-away-price").val("$" + total_price.toLocaleString( "en-US" ) + " + ORC");
+
+
+
+            $(".finance-section-details.cash-summary h2.primary-price").html("$" + Number(caravan_price[select_model_id]).toLocaleString( "en-US" ) + " + ORC");
+
+
+            $(".finance-section-details.cash-summary h2.total-price").html('$' +  total_price.toLocaleString( "en-US" ) + " + ORC");
+
+
+            var loan =  Number($(".finance-section-details.loan-summary input.loan-amount").val().replace(/[\D\s\._\-]+/g, ""));
+            var rate =  Number($(".finance-section-details.loan-summary input.interest-rate").val());
+            var terms = Number($(".finance-section-details.loan-summary input.loan-terms").val().replace(/[\D\s\._\-]+/g, ""));
+            var balloon = Number($(".finance-section-details.loan-summary input.balloon-amount").val().replace(/[\D\s\._\-]+/g, ""));
+
+            var monthly_payment = 0;
+            var factor = rate / 1200;
+
+            if(balloon === 0 )
+            {
+                if(terms !== 0 && loan !== 0 && rate !== 0)
+                {
+                    monthly_payment = loan * factor / (1 - (Math.pow(1/(1 + factor), terms)));
+                }
+            }
+            else
+            {
+                if(terms !== 0 && loan !== 0 && rate !== 0)
+                {
+                    var step_1 = loan * (factor * Math.pow(1+factor,terms) / (Math.pow(1+factor,terms) - 1) );
+                    var step_2 =  balloon *  ( factor / (  Math.pow(1+factor,terms) - 1) );
+
+                    monthly_payment = step_1 - step_2;
+
+                }
+            }
+            $(".finance-section-details.loan-summary .monthly-payment-sec span.mp-amount").html(monthly_payment.toFixed(2));
+
+
         }
     });
 </script>
