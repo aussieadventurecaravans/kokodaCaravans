@@ -6189,7 +6189,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 }
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
 {
-	margin-bottom: 20px;
+	margin: 20px 0 20px;
 }
 .custom-quote-section .option-select-value-section #floorplan .floorplan-list {
 	margin: 0;
@@ -6335,7 +6335,8 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 	margin: 0 2px;
 }
 
-.apply-finance-company .panel-body .outside .inside span {
+.apply-finance-company .panel-body .outside .inside span
+{
 	display: inline-block;
 	line-height: normal;
 	margin: 0 auto;
@@ -6345,4 +6346,10 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 .apply-finance-company .panel-body #apply_button
 {
 	margin-top: 25px;
+}
+
+.tabcontent#summary .display-image-wrapper,
+.tabcontent#summary  .display-features-wrapper
+{
+	margin: 20px 0 20px;
 }

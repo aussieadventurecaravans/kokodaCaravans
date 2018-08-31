@@ -72,6 +72,9 @@ function install_custom_order_tables() {
       dealer_state varchar(255)  NOT NULL DEFAULT '',
       dealer_postcode varchar(255)  NOT NULL DEFAULT '',
       status varchar(255)  NOT NULL DEFAULT 'In Progress',
+      has_loan varchar(15)  NOT NULL DEFAULT '',
+      loan_status varchar(50)  NOT NULL DEFAULT '',
+      loan_detail longtext default NULL,
       date_created datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
       date_modified datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP,
       PRIMARY KEY (quote_id)

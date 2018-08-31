@@ -162,6 +162,9 @@ class Kokoda_Custom_Order_Plugin {
 add_action('wp_ajax_submit_customorder', 'submit_customorder');
 add_action('wp_ajax_nopriv_submit_customorder', 'submit_customorder');
 
+add_action('wp_ajax_get_caravan', 'get_caravan');
+add_action('wp_ajax_nopriv_get_caravan', 'get_caravan');
+
 
 function submit_customorder()
 {
@@ -193,4 +196,21 @@ function submit_customorder()
 
     die();
 
+}
+
+
+function get_caravan()
+{
+
+
+    if( isset( $_POST['caravan_id'] ))
+    {
+
+        set_query_var('caravan_id', $_POST['caravan_id']);
+
+        require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/caravan-specs-part.php' );
+
+    }
+
+    die();
 }

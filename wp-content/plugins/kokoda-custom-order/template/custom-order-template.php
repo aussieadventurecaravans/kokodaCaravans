@@ -271,6 +271,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 </div>
 
                 <div id="accessories" class="tabcontent">
+
                     <div class="tab-header">
                         <h4>
                             Add Extra Accessories
@@ -288,13 +289,18 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </div>
                     </div>
                 </div>
+
                 <div id="summary" class="tabcontent">
                     <div class="tab-header">
                         <h4>
                             Caravan Summary
                         </h4>
                     </div>
-                    <div class="row custom-options-form">
+                    <div class="display-image-wrapper row" id="summary-display-image-wrapper">
+
+                    </div>
+
+                    <div class="display-features-wrapper row">
 
                     </div>
                     <div class="row">
@@ -693,6 +699,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     }
 
                     break;
+                case 'summary':
+                    //render the model specs at summary page
+                    summary_section_update();
+                    break;
                 default:
                 //do nothing is gold
             }
@@ -715,6 +725,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                 //render total price detail after we select the model
                 finance_section_update();
+
             });
 
 
@@ -1021,6 +1032,67 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
         function summary_section_update()
         {
+            var data = {
+                'action':'get_caravan',
+                'caravan_id' : custom_order.caravan
+            };
+            var url = "<?php echo site_url() ?>/wp-admin/admin-ajax.php";
+            //loading the caravan detail before open panel
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                beforeSend: function()
+                {
+
+
+                },
+                success:function(data)
+                {
+                    $(".tabcontent#summary .display-features-wrapper").html(data);
+
+                }
+            });
+
+
+            var options = custom_order.caravan_options;
+            var image_name = 'default';
+            if(typeof options.panel != 'undefined' && typeof options.checker_plate != 'undefined')
+            {
+                image_name = options.panel + '_' + options.checker_plate;
+            }
+            else
+            {
+                return;
+            }
+
+            var image_wrapper_width = $('#summary .display-image-wrapper').width();
+
+            var exteriorImageWrapper = new Konva.Stage({
+                container: 'summary-display-image-wrapper',
+                width: image_wrapper_width
+            });
+
+
+            var layer = new Konva.Layer();
+            var caravan = new Konva.Image();
+
+            var imageObj = new Image();
+            imageObj.src = '<?php echo $uploads['baseurl'] . '/custom_order/'; ?>/' + select_model_id  + '/' + image_name + '.png';
+            imageObj.onload = function ()
+            {
+                var image_width = image_wrapper_width;
+                caravan.setImage(imageObj);
+                caravan.setWidth(image_width);
+                caravan.setHeight(image_width * imageObj.height / imageObj.width);
+
+                // add the shape to the layer
+                layer.add(caravan);
+                // add the layer to the stage
+                exteriorImageWrapper.add(layer);
+                // set height of stage canvas
+                exteriorImageWrapper.setHeight(caravan.getHeight());
+            };
 
         }
     });
