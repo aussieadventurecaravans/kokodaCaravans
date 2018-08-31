@@ -170,13 +170,13 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <li><a href="#" class="tablinks" tab-content="floorplan">Floor Plan</a></li>
                         <li><a href="#" class="tablinks" tab-content="accessories">Accessories</a></li>
                         <li><a href="#" class="tablinks"  tab-content="summary">Summary</a></li>
-                        <li><a href="#" class="tablinks"  tab-content="enquiry">Enquiry</a></li>
+                        <li><a href="#" class="tablinks"  tab-content="enquiry">Submit</a></li>
                     </ol>
                 </nav>
             </div>
         </div>
         <div class="row option-select-value-section">
-            <div class="col-sm-10">
+            <div class="col-md-8">
                 <div id="models" class="tabcontent">
                     <div class="tab-header">
                         <h4>
@@ -194,7 +194,14 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 <div class="item-details">
                                     <div class="details">
                                         <h3><?php echo get_the_title($caravan); ?></h3>
+                                        <div class="product-meta clearfix">
+                                            <?php if(get_field('price_thousands',$caravan->ID)): ?><span class="price">$<?php the_field('price_thousands',$caravan->ID); ?>,<?php the_field('price_hundreds',$caravan->ID); ?><i>+ORC</i></span><?php endif; ?>
+                                            <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
+                                            <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
+                                        </div>
                                         <?php if(get_field('banner_description',$caravan->ID)): ?><p><?php the_field('banner_description',$caravan->ID); ?></p><?php endif; ?>
+                                        <?php if(get_field('tare',$caravan->ID)): ?><span class="tare">Tare (approx): <?php the_field('tare',$caravan->ID); ?></span><br><?php endif; ?>
+                                        <?php if(get_field('ball_weight',$caravan->ID)): ?><span class="ball">Ball weight (approx): <?php the_field('ball_weight',$caravan->ID); ?></span><?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -317,7 +324,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </div>
                     </div>
                     <div class="row custom-options-form ">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <form id="customer_details_form" class="form-horizontal" method="post">
                                 <fieldset>
                                     <!-- Text input-->
@@ -404,13 +411,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                         </div>
                                     </div>
 
-                                    <fieldset class="form-finance-section">
-                                        <legend class="finance-header">Payment Details</legend>
-                                        <div class="finance-section-details">
-
-
-                                        </div>
-                                    </fieldset>
                                     <!-- Button -->
                                     <div class="form-group">
                                         <div class="col-md-12 text-center">
@@ -422,62 +422,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 </fieldset>
                             </form>
                         </div>
-
-                        <div class="col-md-4 text-left">
-                            <fieldset class="finance-section">
-                                <legend class="finance-header">Payment Details</legend>
-                                <div class="finance-section-details loan-summary"  style="display: none">
-                                    <p>
-                                        <span>Total Price:<input type="text" class="form-control input-md drive-away-price" disabled/>
-                                    </p>
-                                    <fieldset class="loan-detail-section">
-                                        <legend class="loan-section-header">Loan Estimate</legend>
-                                        <div class="loan-amount-sec">
-                                            <p><span>Loan Amount($):<input type="text" class="form-control input-md loan-amount"  value="0"/></p>
-                                        </div>
-                                        <div class="interest-sec">
-                                            <p><span>Interest Rate(%):<input type="text" class="form-control input-md interest-rate" placeholder="4.59" value="4.59"/></p>
-                                        </div>
-                                        <div class="period-sec">
-                                            <p><span>Loan Term(months):<input type="text" class="form-control input-md loan-terms"  value="0"/></p>
-                                        </div>
-
-                                        <div class="balloon-amount-sec">
-                                            <p><span>Balloon Amount($):<input type="text" class="form-control input-md balloon-amount" placeholder="$" value="0"/></p>
-                                        </div>
-
-                                        <div class="monthly-payment-sec">
-                                            <p>
-                                                Payment: $<span class="mp-amount">0</span> /month
-                                            </p>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="finance-section-details cash-summary text-center" style="display: none">
-                                    <h2 class="price-label primary-price">
-                                        $0 + ORC
-                                    </h2>
-                                    <p class="primary-price-label">
-                                        Drive Away Price
-                                    </p>
-                                    <h2> + </h2>
-                                    <h2 class="price-label add-on-price">
-                                        $0
-                                    </h2>
-                                    <p class="add-on-price-label">
-                                        Accessories Price
-                                    </p>
-
-                                    <h2 class="price-label total-price">
-                                        $0
-                                    </h2>
-                                    <p class="total-price-label">
-                                       Total Price (EST)
-                                    </p>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
 
                     <div class="row apply-finance-company" style="display: none;">
                         <div class="col-md-12">
@@ -545,6 +489,62 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
 
                 </div>
+            </div>
+            </div>
+
+            <div class="col-md-4 text-left">
+                <fieldset class="finance-section">
+                    <legend class="finance-header">Total Price</legend>
+                    <!-- TOTAL PRICE SUMMARY  -->
+                    <div class="finance-section-details cash-summary text-center">
+                        <h2 class="price-label primary-price">
+                            $0 + ORC
+                        </h2>
+                        <p class="primary-price-label">
+                            Drive Away Price
+                        </p>
+                        <h2> + </h2>
+                        <h2 class="price-label add-on-price">
+                            $0
+                        </h2>
+                        <p class="add-on-price-label">
+                            Accessories Price
+                        </p>
+
+                        <h2 class="price-label total-price">
+                            $0
+                        </h2>
+                        <p class="total-price-label">
+                            Total Price (EST)
+                        </p>
+                    </div>
+                    <!-- LOAN ESTIMATE SUMMARY  -->
+                    <div class="finance-section-details loan-summary">
+                        <fieldset class="loan-detail-section">
+                            <legend class="loan-section-header">Loan Estimate</legend>
+                            <div class="loan-amount-sec">
+                                <p><span>Loan Amount($):<input type="text" class="form-control input-md loan-amount"  value="0"/></p>
+                            </div>
+                            <div class="interest-sec">
+                                <p><span>Interest Rate(%):<input type="text" class="form-control input-md interest-rate" placeholder="4.59" value="4.59"/></p>
+                            </div>
+                            <div class="period-sec">
+                                <p><span>Loan Term(months):<input type="text" class="form-control input-md loan-terms"  value="60"/></p>
+                            </div>
+
+                            <div class="balloon-amount-sec">
+                                <p><span>Balloon Amount($):<input type="text" class="form-control input-md balloon-amount" placeholder="$" value="0"/></p>
+                            </div>
+
+                            <div class="monthly-payment-sec">
+                                <p>
+                                    Payment: $<span class="mp-amount">0</span> /month
+                                </p>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                </fieldset>
             </div>
         </div>
     </div>
@@ -707,10 +707,14 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 select_model_id = $(this).attr('select-model');
                 custom_order.caravan = select_model_id;
 
-                //we can go to next tab when we complete this tab
+                //we are allowed to go to next tab when we complete this tab
                 $('a.tablinks[tab-content="models"]').parent('li').next().addClass('next');
 
+                //go to the next tab
                 $('a.tablinks[tab-content="exterior"]').click();
+
+                //render total price detail after we select the model
+                finance_section_update();
             });
 
 
@@ -811,32 +815,16 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     $("a.tablinks[tab-content='" + prev_tabcontent +  "']").click();
                 }
             });
-            $("form#customer_details_form select#payment_method").change(function(e)
+            $(".finance-section-details.loan-summary input[type=text]").click(function(e){
+                $(this).select();
+            });
+            $(".finance-section-details.loan-summary input[type=text]").on('keyup', function (e)
             {
 
-                finance_section_display();
-                $(".finance-section-details").hide();
-                if('cash' == $(this).val() )
-                {
-                    $(".finance-section-details.cash-summary").show()
-                    $(".finance-section .finance-header").html('Cash Detail');
-                }
-                if('loan' == $(this).val())
-                {
-                    $(".finance-section-details.loan-summary").show();
-                    $(".finance-section .finance-header").html('Loan Detail');
-                }
-            });
+                //update finance section everytime, enter new amount
+                finance_section_update();
 
-            $(".finance-section-details.loan-summary input").change(function(e){
-
-                finance_section_display();
-
-            });
-            $(".finance-section-details.loan-summary input[type=text]").on('keyup', function (e) {
-
-                finance_section_display();
-
+                //add the input value , comma
                 var $this = $( this );
                 var raw_input = $this.val();
 
@@ -979,7 +967,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         }
 
 
-        function finance_section_display()
+        function finance_section_update()
         {
             var caravan_price = primary_prices;
 
@@ -987,17 +975,19 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             var total_price =  Number(caravan_price[select_model_id]) + accessories_prices;
 
-            $(".finance-section-details.loan-summary input.drive-away-price").val("$" + total_price.toLocaleString( "en-US" ) + " + ORC");
-
-
 
             $(".finance-section-details.cash-summary h2.primary-price").html("$" + Number(caravan_price[select_model_id]).toLocaleString( "en-US" ) + " + ORC");
-
-
             $(".finance-section-details.cash-summary h2.total-price").html('$' +  total_price.toLocaleString( "en-US" ) + " + ORC");
 
 
+
             var loan =  Number($(".finance-section-details.loan-summary input.loan-amount").val().replace(/[\D\s\._\-]+/g, ""));
+            if(loan  ===  0 )
+            {
+                $(".finance-section-details.loan-summary input.loan-amount").val(total_price);
+                loan = total_price;
+            }
+
             var rate =  Number($(".finance-section-details.loan-summary input.interest-rate").val());
             var terms = Number($(".finance-section-details.loan-summary input.loan-terms").val().replace(/[\D\s\._\-]+/g, ""));
             var balloon = Number($(".finance-section-details.loan-summary input.balloon-amount").val().replace(/[\D\s\._\-]+/g, ""));
@@ -1005,7 +995,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             var monthly_payment = 0;
             var factor = rate / 1200;
 
-            if(balloon === 0 )
+            if(balloon === 0 && !isNaN(terms) && !isNaN(loan) && !isNaN(rate))
             {
                 if(terms !== 0 && loan !== 0 && rate !== 0)
                 {
@@ -1025,6 +1015,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             }
             $(".finance-section-details.loan-summary .monthly-payment-sec span.mp-amount").html(monthly_payment.toFixed(2));
 
+
+        }
+
+
+        function summary_section_update()
+        {
 
         }
     });
