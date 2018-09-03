@@ -208,6 +208,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <?php endforeach; ?>
                     </div>
                 </div>
+
                 <div id="exterior" class="tabcontent">
                     <div class="tab-header">
                         <h4>
@@ -428,7 +429,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 </fieldset>
                             </form>
                         </div>
-
+                    </div>
                     <div class="row apply-finance-company" style="display: none;">
                         <div class="col-md-12">
                             <fieldset>
@@ -452,22 +453,21 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                                 </p>
 
                                                 <div class="row">
-                                                    <div class="col-md-2">
-                                                    </div>
-                                                    <div class="col-md-8 text-center">
-
+                                                    <div class="col-md-4 text-center">
                                                         <div class="outside" id="apply_later" value="apply later">
                                                             <div class="inside">
                                                                 <span>Apply Later</span>
                                                             </div>
                                                         </div>
-
+                                                    </div>
+                                                    <div class="col-md-4 text-center">
                                                         <div class="outside" id="self_arrange"  value="self arrange">
                                                             <div class="inside">
                                                                 <span>Self-Arranged Finance</span>
                                                             </div>
                                                         </div>
-
+                                                    </div>
+                                                    <div class="col-md-4 text-center">
                                                         <div class="outside" id="apply_now" value="creditone">
                                                             <div class="inside">
                                                                 <span>
@@ -476,12 +476,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
-
-                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 text-center">
+                                                        <div id="back_button" class="btn btn-primary btn-lg">Back</div>
                                                         <div id="apply_button" class="btn btn-primary btn-lg">Submit</div>
                                                     </div>
                                                 </div>
@@ -493,10 +491,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             </fieldset>
                         </div>
                     </div>
-
                 </div>
             </div>
-            </div>
+
 
             <div class="col-md-4 text-left">
                 <fieldset class="finance-section">
@@ -549,7 +546,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             </div>
                         </fieldset>
                     </div>
-
                 </fieldset>
             </div>
         </div>
@@ -761,7 +757,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             $('form#customer_details_form').submit(function(event){
                 if($('select#payment_method').val() == 'cash')
                 {
-                    custom_order.finance.option = 'none';
+                    custom_order.finance.apply_loan_option = 'none';
                     submitCustomOrder();
                 }
                 else
@@ -855,10 +851,15 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                 $(".apply-finance-company div.outside").removeClass('active');
                 $(this).addClass('active');
-                custom_order.finance.option =  $(this).attr('value');
+                custom_order.finance.apply_loan_option =  $(this).attr('value');
 
                 $(".apply-finance-company p.description span").hide();
                 $(".apply-finance-company p.description span" + "." + $(this).attr('id')).show();
+            });
+
+            $(".apply-finance-company div#back_button").click(function(e){
+                $('div#enquiry .custom-options-form ').show();
+                $('div#enquiry .apply-finance-company ').hide();
             });
 
             $(".apply-finance-company div#apply_button").click(function(e)
@@ -936,6 +937,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     custom_order.dealer.dealer_postcode = dealers[i]['sl_zip'];
                 }
             }
+            custom_order.product_price = Number(primary_prices[select_model_id]);
+            custom_order.accessories_price = 0;
+            custom_order.orc_price = 0;
+
             var data = {
                 'action':'submit_customorder',
                 'custom_order' : custom_order
@@ -950,6 +955,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 beforeSend: function()
                 {
                     $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert').hide();
+                    $('#enquiry input#reset_order').attr("disabled", true);
                     $('#enquiry input#submit_order').attr("disabled", true);
                     $('#enquiry input#submit_order').attr('value','Loading....');
 

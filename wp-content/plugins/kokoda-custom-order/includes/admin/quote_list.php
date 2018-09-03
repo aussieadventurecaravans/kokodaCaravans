@@ -104,15 +104,17 @@ class Quote_List extends WP_List_Table
             case 'product_name' :
             case 'total_cost':
             case 'payment_method' :
+            case 'status':
+            case 'loan_status':
             case 'customer_name':
             case 'customer_address' :
-            case 'customer_postcode' :
-            case 'customer_state':
             case 'customer_email' :
             case 'customer_phone' :
             case 'date_created' :
             case 'date_modified' :
                 return $item[ $column_name ];
+            case 'has_loan':
+                return  ($item[ $column_name ] == 1) ? 'true' : 'false';
             default:
                 return print_r( $item, true ); //Show the whole array for troubleshooting purposes
         }
@@ -168,14 +170,15 @@ class Quote_List extends WP_List_Table
             'cb'      => '<input type="checkbox" />',
             'quote_id'    => __( 'ID' ),
             'customer_name' => __( 'Customer Name'),
-            'customer_address' => __( 'Customer Address'),
-            'customer_postcode' => __( 'Postcode'),
-            'customer_state' => __( 'State'),
-            'customer_email' => __( 'Email'),
-            'customer_phone' => __( 'Phone'),
             'product_name' => __( 'Product Name'),
             'total_cost'  => __( 'Quote Price'),
             'payment_method'  => __( 'Payment'),
+            'status'=>__('status'),
+            'has_loan'=>__('has_loan'),
+            'loan_status'=>__('loan_status'),
+            'customer_address' => __( 'Customer Address'),
+            'customer_email' => __( 'Email'),
+            'customer_phone' => __( 'Phone'),
             'date_created' => __( 'Date Created'),
             'date_modified' => __( 'Date Modified'),
         ];

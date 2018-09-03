@@ -207,8 +207,7 @@ class Quote
     {
 
         $quote_data =  array();
-        $columns= array('product_name','custom_options','add_on_options','product_cost','orc_cost','total_cost',
-            'add_on_cost','payment_method',
+        $columns= array('product_name','custom_options','add_on_options','payment_method',
             'customer_name','customer_address','customer_postcode','customer_state','customer_email','customer_phone',
             'dealer_id','dealer_name','dealer_phone','dealer_email','dealer_address','dealer_city','dealer_state','dealer_postcode',
             'date_created','date_modified');
@@ -258,6 +257,38 @@ class Quote
             }
         }
 
+        //prepare data for finance detail
+        if($data['customer']['payment_method'] == 'loan')
+        {
+            $quote_data['apply_loan_option'] = $data['finance']['apply_loan_option'];
+            $quote_data['has_loan'] = TRUE;
+
+            if($quote_data['apply_loan_option'] == 'apply later')
+            {
+                $quote_data['loan_status'] = 'later';
+            }
+            else
+            {
+                $quote_data['loan_status'] = 'pending';
+            }
+
+            $quote_data['loan_detail'] = serialize($data['finance']);
+
+        }
+        else
+        {
+            $quote_data['has_loan'] = FALSE;
+            $quote_data['apply_loan_option'] = $data['finance']['apply_loan_option'];
+            $quote_data['loan_status'] = 'none';
+            $quote_data['loan_detail'] = '';
+
+        }
+        //prepare data for price detail
+        $quote_data['product_cost'] = $data['product_price'];
+        $quote_data['orc_cost'] = $data['orc_price'];
+        $quote_data['add_on_cost'] = $data['accessories_price'];
+        $quote_data['total_cost'] = $quote_data['product_cost'] + $quote_data['orc_cost'] + $quote_data['add_on_cost'];
+
 
         //add the date modified and date created of quote
         date_default_timezone_set('Australia/Melbourne');
@@ -290,6 +321,9 @@ class Quote
                 $quote_data[$key] = $value;
             }
         }
+
+        //update total price
+        $quote_data['total_cost'] =  $quote_data['orc_cost'] + $quote_data['add_on_cost'] + $quote_data['product_cost'];
 
         //update the date modified
         date_default_timezone_set('Australia/Melbourne');

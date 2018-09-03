@@ -6313,6 +6313,7 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 	height: 62px;
 	display: inline-block;
 	border: 1px solid #ccc;
+	width: 100%;
 }
 .apply-finance-company .panel-body .outside.active {
 
@@ -6327,7 +6328,6 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 	font-size: 16px;
 	height: 56px;
 	text-align: center;
-	width: 208px;
 	line-height: 56px;
 	padding: 0;
 	position: relative;
@@ -6343,7 +6343,8 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 	vertical-align: middle;
 }
 
-.apply-finance-company .panel-body #apply_button
+.apply-finance-company .panel-body #apply_button,
+.apply-finance-company .panel-body #back_button
 {
 	margin-top: 25px;
 }

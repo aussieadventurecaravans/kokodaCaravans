@@ -80,23 +80,27 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                 </fieldset>
                                 <fieldset>
                                     <h2 class="hndle ui-sortable-handle"><?php _e( 'Quote Details' ) ?></h2>
-                                    <table class="form-table editquote">
+                                    <table class="form-table quote-finance-detail editquote">
                                         <tbody>
                                         <tr>
                                             <td class="first"><label for="product_name"><?php _e( 'Caravan:' ); ?></label></td>
-                                            <td><input type="text" name="product_name" size="30" value="<?php echo esc_attr( $quote->product_name ); ?>" id="product_name" /></td>
+                                            <td><input type="text" name="product_name" size="30" value="<?php echo esc_attr( $quote->product_name ); ?>" id="product_name"  disabled/></td>
                                         </tr>
                                         <tr>
                                             <td class="first"><label for="product_cost"><?php _e( 'Caravan Cost:' ); ?></label></td>
-                                            <td><input type="number" name="product_cost" size="30" value="<?php echo esc_attr( $quote->product_cost ); ?>" id="product_cost" /></td>
+                                            <td><input type="number" name="product_cost" size="30" value="<?php echo esc_attr( $quote->product_cost ); ?>" id="product_cost"/></td>
                                         </tr>
                                         <tr>
                                             <td class="first"><label for="add_on_cost"><?php _e( 'Add on Cost:' ); ?></label></td>
-                                            <td><input type="text" name="add_on_cost" size="30" value="<?php echo esc_attr( $quote->add_on_cost ); ?>" id="add_on_cost" /></td>
+                                            <td><input type="number" name="add_on_cost" size="30" value="<?php echo esc_attr( $quote->add_on_cost ); ?>" id="add_on_cost" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="first"><label for="orc_cost"><?php _e( 'ORC Cost:' ); ?></label></td>
+                                            <td><input type="number" name="orc_cost" size="30" value="<?php echo esc_attr( $quote->orc_cost ); ?>" id="orc_cost" /></td>
                                         </tr>
                                         <tr>
                                             <td class="first"><label for="total_cost"><?php _e( 'Total Cost:' ); ?></label></td>
-                                            <td><input type="text" name="total_cost" size="30" value="<?php echo esc_attr( $quote->total_cost ); ?>" id="total_cost" /></td>
+                                            <td><input type="text" name="total_cost" size="30" value="<?php echo esc_attr( $quote->total_cost ); ?>" id="total_cost" disabled/></td>
                                         </tr>
                                         <tr>
                                             <td class="first"><label for="payment_method"><?php _e( 'Payment Method:' ); ?></label></td>
@@ -209,6 +213,24 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
         $('.quote_edit_form_submit_ajax').click(submitUpdate);
         $('.quote_edit_form_delete_ajax').click(submitDelete);
         $('button.notice-dismiss').live('click' , dismissNotice);
+        $(".quote-finance-detail input[type=text][name=total_cost]").val(Number($(".quote-finance-detail input[type=text][name=total_cost]").val()).toLocaleString( "en-US" ));
+
+        $(".quote-finance-detail input[type=number]").click(function(e){
+            $(this).select();
+        });
+        $(".quote-finance-detail input[type=number]").on('keyup', function (e)
+        {
+
+            //update total price input  everytime, enter new amount at orc cost and accessories cost
+
+            var total_price  = Number($(".quote-finance-detail input[type=number][name=add_on_cost]").val()) + Number($(".quote-finance-detail input[type=number][name=orc_cost]").val()) + Number($(".quote-finance-detail input[type=number][name=product_cost]").val());
+
+
+
+            $(".quote-finance-detail input[type=text][name=total_cost]").val(total_price.toLocaleString( "en-US" ));
+
+        });
+
 
         function submitUpdate()
         {
