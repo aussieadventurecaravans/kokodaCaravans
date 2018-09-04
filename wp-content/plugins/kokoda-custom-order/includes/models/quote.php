@@ -265,11 +265,16 @@ class Quote
 
             if($quote_data['apply_loan_option'] == 'apply later')
             {
-                $quote_data['loan_status'] = 'later';
+                $quote_data['loan_status'] = 'none';
             }
-            else
+            if($quote_data['apply_loan_option'] == 'self arrange')
             {
-                $quote_data['loan_status'] = 'pending';
+                $quote_data['loan_status'] = 'review';
+            }
+
+            if($quote_data['apply_loan_option'] == 'apply creditone')
+            {
+                $quote_data['loan_status'] = 'review';
             }
 
             $quote_data['loan_detail'] = serialize($data['finance']);
@@ -311,6 +316,7 @@ class Quote
         $quote_data =  array();
         $columns= array('product_name','custom_options','add_on_options','product_cost','orc_cost','total_cost',
                         'add_on_cost','payment_method','customer_name','customer_address','customer_postcode','customer_state',
+                        'apply_loan_option','loan_status',
                         'customer_email','customer_phone','date_created','date_modified');
 
 

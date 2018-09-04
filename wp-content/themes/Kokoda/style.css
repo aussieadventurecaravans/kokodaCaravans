@@ -6354,3 +6354,31 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 {
 	margin: 20px 0 20px;
 }
+
+.tabcontent#accessories .accessories-list
+{
+	margin: 20px 0 20px;
+	padding: 40px 0;
+}
+
+.tabcontent#accessories .accessories-list .item
+{
+	padding: 0;
+	cursor: pointer;
+	margin: 0;
+	border: 5px solid #fff;
+}
+.tabcontent#accessories .accessories-list .item .item-detail
+{
+	border: 2px solid #d5d6d6;padding: 0 23px;
+}
+.tabcontent#accessories .accessories-list .item .item-detail p{
+	text-align: center;
+}
+.tabcontent#accessories .accessories-list .item .item-detail h3{
+	text-align: center;
+}
+.tabcontent#accessories .accessories-list .item .item-detail img
+{
+	width: 100%;
+}

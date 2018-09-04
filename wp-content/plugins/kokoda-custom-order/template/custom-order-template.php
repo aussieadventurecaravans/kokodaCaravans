@@ -114,7 +114,11 @@ foreach ($caravans as $caravan)
         $custom_floorplan[$caravan->ID] = get_field('floor_plan',$caravan->ID);
     }
 }
-//drive away prices for all caravans
+
+
+
+
+//product prices for all caravans
 $primary_prices = array();
 foreach ($caravans as $caravan)
 {
@@ -123,7 +127,8 @@ foreach ($caravans as $caravan)
 
 
 
-//custom_accessories
+//eacho caravan has custom add for accessories
+$custom_accessories = array();
 foreach ($caravans as $caravan)
 {
     if(!empty(get_field('custom_accessories',$caravan->ID)))
@@ -136,6 +141,8 @@ foreach ($caravans as $caravan)
     }
 
 }
+
+echo print_r($custom_accessories,true);
 
 //get all dealers from the plugin store locator
 $sql = "SELECT * FROM wp_store_locator";
@@ -278,7 +285,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             Add Extra Accessories
                         </h4>
                     </div>
-                    <div class="row custom-options-form">
+                    <div class="row accessories-list">
 
                     </div>
                     <div class="row">
@@ -468,7 +475,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 text-center">
-                                                        <div class="outside" id="apply_now" value="creditone">
+                                                        <div class="outside" id="apply_now" value="apply creditone">
                                                             <div class="inside">
                                                                 <span>
                                                                     Apply Now
@@ -560,7 +567,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var custom_exterior = <?php echo json_encode($custom_exterior); ?>;
     var custom_floorplan = <?php echo json_encode($custom_floorplan); ?>;
     var dealers = <?php echo json_encode($dealers); ?>;
-    var primary_prices = <?php echo json_encode($primary_prices); ?>
+    var primary_prices = <?php echo json_encode($primary_prices); ?>;
+    var custom_accessories = <?php echo json_encode($custom_accessories); ?>;
 
     var custom_order = {
         customer: {},
@@ -694,6 +702,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         $('#floorplan .option-display-image-wrapper').html('');
                     }
 
+                    break;
+                case "accessories":
+                    //render the accessories
+                    accessories_section_update();
                     break;
                 case 'summary':
                     //render the model specs at summary page
@@ -1100,6 +1112,28 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 exteriorImageWrapper.setHeight(caravan.getHeight());
             };
 
+        }
+
+
+        function accessories_section_update()
+        {
+            var accessories_wrapper = $(".tabcontent#accessories .accessories-list");
+
+            var accessories = custom_accessories[select_model_id];
+
+            accessories_wrapper.html('');
+            var el = "";
+
+            for(var i = 0 ; i < accessories.length; i++)
+            {
+                el += '<div class="item col-md-4"><div class="item-detail">';
+                el += '<img src="<?php echo $uploads['baseurl'] . '/custom_order/'; ?>' + select_model_id  + '/Accessories/' + accessories[i]['accessory_label'] +  '.png" />';
+                el += '<h3>' +  accessories[i]['accessory_label']  +'</h3>';
+                el += '<p>'  +   accessories[i]['accessory_price']  + '</p></div>';
+                el += '</div>';
+
+            }
+            accessories_wrapper.html(el);
         }
     });
 </script>
