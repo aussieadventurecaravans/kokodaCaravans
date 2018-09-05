@@ -142,8 +142,6 @@ foreach ($caravans as $caravan)
 
 }
 
-echo print_r($custom_accessories,true);
-
 //get all dealers from the plugin store locator
 $sql = "SELECT * FROM wp_store_locator";
 $sql .= " WHERE sl_tags = 'Dealer'";
@@ -576,7 +574,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         finance:{},
         caravan : '',
         caravan_options :{},
-        accessories:{},
+        accessories:[],
         floorplan: ''
     };
     jQuery(document).ready(function($)
@@ -980,10 +978,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         $('#enquiry input#submit_order').attr('value', 'Complete');
 
                         //refresh page after successfully submit quote to system
-                        setTimeout(function ()
+                       /* setTimeout(function ()
                         {
                             location = ''
-                        }, 3000);
+                        }, 3000);*/
                     }
                     else
                      {
@@ -1126,7 +1124,19 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             for(var i = 0 ; i < accessories.length; i++)
             {
-                el += '<div class="item col-md-4"><div class="item-detail">';
+                var sel = '';
+                if( custom_order.accessories.length > 0)
+                {
+                    for(var a = 0; a < custom_order.accessories.length; a++)
+                    {
+                        if(accessories[i]['accessory_label'] == custom_order.accessories[a]['accessory_label'])
+                        {
+                            sel = "selected";
+                        }
+                    }
+                }
+
+                el += '<div class="item ' + sel  +' col-md-4" access-id="' + i +'" ><div class="item-detail">';
                 el += '<img src="<?php echo $uploads['baseurl'] . '/custom_order/'; ?>' + select_model_id  + '/Accessories/' + accessories[i]['accessory_label'] +  '.png" />';
                 el += '<h3>' +  accessories[i]['accessory_label']  +'</h3>';
                 el += '<p>'  +   accessories[i]['accessory_price']  + '</p></div>';
@@ -1134,6 +1144,33 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             }
             accessories_wrapper.html(el);
+
+            //add event listener to the accessories
+
+            $(".tabcontent#accessories .accessories-list .item").click(function(e){
+
+                if($(this).hasClass('selected'))
+                {
+                    //remove accessories from the order
+                    $(this).removeClass('selected');
+                }
+                else
+                {
+                    //add accessories to the order
+                    $(this).addClass('selected');
+                }
+
+                var acc_list = [];
+                $(".tabcontent#accessories .accessories-list .item.selected").each(function(index)
+                {
+                    var accessId = $(this).attr('access-id');
+                    acc_list.push(custom_accessories[select_model_id][accessId]);
+
+                });
+
+                custom_order.accessories = acc_list;
+
+            });
         }
     });
 </script>

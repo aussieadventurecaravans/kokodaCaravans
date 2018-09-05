@@ -6370,7 +6370,13 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 }
 .tabcontent#accessories .accessories-list .item .item-detail
 {
-	border: 2px solid #d5d6d6;padding: 0 23px;
+	border:2px solid #d5d6d6;
+	padding: 0 23px;
+}
+.tabcontent#accessories .accessories-list .item.selected .item-detail
+{
+	border:2px solid #337ab7;
+	padding: 0 23px;
 }
 .tabcontent#accessories .accessories-list .item .item-detail p{
 	text-align: center;

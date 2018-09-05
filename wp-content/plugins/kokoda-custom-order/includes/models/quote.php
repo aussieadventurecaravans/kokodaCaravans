@@ -232,6 +232,12 @@ class Quote
         }
         $quote_data['custom_options'] = serialize($custom_options);
 
+
+        //prepare custom accessories for quote
+         $quote_data['add_on_options'] = serialize($data['accessories']);
+
+
+
         //prepare for product  details
         $caravan = get_post($data['caravan']);
         $quote_data['product_id'] = $data['caravan'];
