@@ -320,7 +320,7 @@ class Quote
     public function prepareDataForUpdate($data)
     {
         $quote_data =  array();
-        $columns= array('product_name','custom_options','add_on_options','product_cost','orc_cost','total_cost',
+        $columns= array('product_name','custom_options','add_on_options','product_cost','orc_cost','total_cost','status',
                         'add_on_cost','payment_method','customer_name','customer_address','customer_postcode','customer_state',
                         'apply_loan_option','loan_status',
                         'customer_email','customer_phone','date_created','date_modified');
@@ -336,6 +336,7 @@ class Quote
 
         //update total price
         $quote_data['total_cost'] =  $quote_data['orc_cost'] + $quote_data['add_on_cost'] + $quote_data['product_cost'];
+
 
         //update the date modified
         date_default_timezone_set('Australia/Melbourne');

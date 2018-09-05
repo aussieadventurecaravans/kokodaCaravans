@@ -6354,6 +6354,52 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 {
 	margin: 20px 0 20px;
 }
+.tabcontent#summary .display-accessories-wrapper
+{
+	margin: 20px 0 20px;
+	padding: 0;
+}
+.tabcontent#summary .display-image-wrapper .header-wrapper h2
+{
+	text-align: center;
+	font-size: 35px;
+	font-weight: bold;
+	margin-bottom: 60px;
+}
+.tabcontent#summary .display-accessories-wrapper .header-wrapper h2
+{
+	text-align: center;
+	font-size: 35px;
+	font-weight: bold;
+}
+.tabcontent#summary .display-accessories-wrapper .item
+{
+	border: 5px solid #fff;
+	display: inline-block;
+	max-width: 35%;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail
+{
+	padding: 0;
+}
+.tabcontent#summary .display-accessories-wrapper .item.selected .item-detail
+{
+	border:2px solid #337ab7;
+	padding: 0 23px;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail p
+{
+	text-align: center;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail h3
+{
+	text-align: center;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail img
+{
+	width: 100%;
+}
+
 
 .tabcontent#accessories .accessories-list
 {
@@ -6371,13 +6417,36 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 .tabcontent#accessories .accessories-list .item .item-detail
 {
 	border:2px solid #d5d6d6;
-	padding: 0 23px;
+	padding: 0;
 }
 .tabcontent#accessories .accessories-list .item.selected .item-detail
 {
-	border:2px solid #337ab7;
-	padding: 0 23px;
+	border:3px solid #4d607e;
+	padding: 0;
 }
+.tabcontent#accessories .accessories-list .item .item-detail .icon-moon
+{
+	color: #337ab7;
+	right: 5px;
+	top: 10px;
+	position: absolute;
+	font-size: 20px;
+}
+.tabcontent#accessories .accessories-list .item.selected .item-detail .icon-moon
+{
+	color: #ef1919;
+}
+
+.tabcontent#accessories .accessories-list .item .item-detail .icon-moon:before
+{
+	content:"\ea0a";
+}
+
+.tabcontent#accessories .accessories-list .item.selected .item-detail .icon-moon:before
+{
+	content:"\ea0f";
+}
+
 .tabcontent#accessories .accessories-list .item .item-detail p{
 	text-align: center;
 }

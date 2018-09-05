@@ -95,6 +95,13 @@ else
 $caravans  =  get_posts($args);
 
 
+//product title
+$caravan_title= array();
+foreach ($caravans as $caravan)
+{
+    $caravan_title[$caravan->ID] = $caravan->post_title;
+}
+
 //Custom Exterior of all Models
 $custom_exterior= array();
 foreach ($caravans as $caravan)
@@ -114,9 +121,6 @@ foreach ($caravans as $caravan)
         $custom_floorplan[$caravan->ID] = get_field('floor_plan',$caravan->ID);
     }
 }
-
-
-
 
 //product prices for all caravans
 $primary_prices = array();
@@ -280,7 +284,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                     <div class="tab-header">
                         <h4>
-                            Add Extra Accessories
+                            Choose Your Extra Accessories
                         </h4>
                     </div>
                     <div class="row accessories-list">
@@ -305,7 +309,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     <div class="display-image-wrapper row" id="summary-display-image-wrapper">
 
                     </div>
+                    <div class="display-accessories-wrapper row">
 
+                    </div>
                     <div class="display-features-wrapper row">
 
                     </div>
@@ -562,6 +568,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 <script type="text/javascript">
     var select_model_id ='';
     var current_tab ='';
+    var caravan_title = <?php echo json_encode($caravan_title); ?>;
     var custom_exterior = <?php echo json_encode($custom_exterior); ?>;
     var custom_floorplan = <?php echo json_encode($custom_floorplan); ?>;
     var dealers = <?php echo json_encode($dealers); ?>;
@@ -761,6 +768,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             $( window ).resize(function(){
                 exteriorRenderImageWrapper();
+                summary_section_update();
 
             });
 
@@ -968,6 +976,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     $('#enquiry input#reset_order').attr("disabled", true);
                     $('#enquiry input#submit_order').attr("disabled", true);
                     $('#enquiry input#submit_order').attr('value','Loading....');
+                    $('#enquiry .apply-finance-company #apply_button').attr("disabled", true);
+                    $('#enquiry .apply-finance-company #back_button').attr("disabled", true);
 
                 },
                 success:function(data)
@@ -978,16 +988,18 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         $('#enquiry input#submit_order').attr('value', 'Complete');
 
                         //refresh page after successfully submit quote to system
-                       /* setTimeout(function ()
+                        setTimeout(function ()
                         {
                             location = ''
-                        }, 3000);*/
+                        }, 3000);
                     }
                     else
                      {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-danger').show();
                         $('#enquiry input#submit_order').attr('value', 'Submit Quote');
                         $('#enquiry input#submit_order').removeAttr("disabled");
+                        $('#enquiry .apply-finance-company #apply_button').removeAttr("disabled");
+                        $('#enquiry .apply-finance-company #back_button').removeAttr("disabled");
                     }
                 }
             });
@@ -1048,6 +1060,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
         function summary_section_update()
         {
+
+            //render the the feature spec for the models
             var data = {
                 'action':'get_caravan',
                 'caravan_id' : custom_order.caravan
@@ -1070,7 +1084,29 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 }
             });
 
+            //render the list of accessories customer choose
+            var el='';
+            var accessories = custom_order.accessories;
+            if( accessories.length > 0)
+            {
+                el += '<h2 style="text-align: center;font-size: 40px"> + </h2>';
+                el += '<div class="header-wrapper">';
+                el +=  '<h2>Add-on Accessories</h2>';
+                el +=  '</div>';
 
+                el +=  '<div class="col-md-12 text-center">';
+                for(var i = 0 ; i < accessories.length; i++)
+                {
+                    el += '<div class="item" access-id="' + i +'" ><div class="item-detail">';
+                    el += '<img src="<?php echo $uploads['baseurl'] . '/custom_order/'; ?>' + select_model_id  + '/Accessories/' + accessories[i]['accessory_label'] +  '.png" />';
+                    el += '<h3>' +  accessories[i]['accessory_label']  +'</h3>';
+                    el += '</div></div>';
+                }
+                el += '</div>';
+                $(".tabcontent#summary .display-accessories-wrapper").html(el);
+            }
+
+            //render the caravan image with custom options
             var options = custom_order.caravan_options;
             var image_name = 'default';
             if(typeof options.panel != 'undefined' && typeof options.checker_plate != 'undefined')
@@ -1109,7 +1145,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 // set height of stage canvas
                 exteriorImageWrapper.setHeight(caravan.getHeight());
             };
-
+            var e= '<div class="header-wrapper">';
+                e +=  '<h2>Model: '+ caravan_title[select_model_id]  +'</h2>';
+                e +=  '</div>';
+            $('#summary .display-image-wrapper').prepend(e);
         }
 
 
@@ -1137,10 +1176,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 }
 
                 el += '<div class="item ' + sel  +' col-md-4" access-id="' + i +'" ><div class="item-detail">';
+                el+='<span class="icon-moon"></span>'
                 el += '<img src="<?php echo $uploads['baseurl'] . '/custom_order/'; ?>' + select_model_id  + '/Accessories/' + accessories[i]['accessory_label'] +  '.png" />';
                 el += '<h3>' +  accessories[i]['accessory_label']  +'</h3>';
-                el += '<p>'  +   accessories[i]['accessory_price']  + '</p></div>';
-                el += '</div>';
+                el += '</div></div>';
 
             }
             accessories_wrapper.html(el);
@@ -1167,9 +1206,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     acc_list.push(custom_accessories[select_model_id][accessId]);
 
                 });
-
                 custom_order.accessories = acc_list;
-
             });
         }
     });
