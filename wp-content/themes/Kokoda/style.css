@@ -6186,11 +6186,82 @@ CUSTOMIZE THE ARCHIVE PAGE
 	padding-bottom: 9px;
 	margin: 20px 0 20px;
 	border-bottom: 1px solid #eee;
+	min-height: 350px;
+}
+@media screen and (max-width: 767px)
+{
+	.custom-quote-section .option-select-value-section #exterior .option-select-image-section
+	{
+		min-height: 250px;
+	}
 }
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
 {
 	margin: 20px 0 20px;
 }
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose
+{
+	width: 100%;
+	margin: 15px 0;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li
+{
+	width: 80px;
+	height: 80px;
+	margin: 0 15px 15px 0;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose>li:first-child
+{
+	border-radius: unset;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose >li[data-value=black]{
+
+	background: #000;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose >li[data-value=silver]{
+
+	background: #f4f4f4;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=red]{
+
+	background: #ff0000;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=blue]{
+
+	background: #2da6e1;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=charcoal]{
+
+	background: #36454F;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=green]{
+
+	background: #b7ee2f;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=orange]{
+
+	background: #FFA500;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=pink]{
+
+	background: #FFC0CB;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=purple]{
+
+	background: #800080;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=white]{
+
+	background: #ffffff;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=yellow]{
+
+	background: #FFFF00;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li.selected{
+	border: 5px solid #ff0100;
+}
+
 .custom-quote-section .option-select-value-section #floorplan .floorplan-list {
 	margin: 0;
 }
@@ -6427,8 +6498,8 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 .tabcontent#accessories .accessories-list .item .item-detail .icon-moon
 {
 	color: #337ab7;
-	right: 5px;
-	top: 10px;
+	right: 15px;
+	top: 15px;
 	position: absolute;
 	font-size: 20px;
 }

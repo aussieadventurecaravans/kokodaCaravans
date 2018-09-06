@@ -234,14 +234,14 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     <div class="row custom-options-form">
                         <div class="form-group">
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label class="control-label" for="composite_panel">Composite Panel</label>
-                                <select class="form-control input-lg" id="composite_panel">
+                                <select class="form-control input-lg" id="composite_panel" class="comnposite-color-choose">
                                     <option selected>Choose Colour</option>
                                 </select>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label class="control-label" for="checker_plate">Checkerplate</label>
                                 <select class="form-control input-lg" id="checker_plate">
                                     <option selected>Choose Colour</option>
@@ -563,7 +563,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     </div>
 </div>
 
-
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'?>"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
 <script type="text/javascript">
     var select_model_id ='';
@@ -651,7 +651,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                             for(var e  = 0;e < custom_options_value.length; e++ )
                             {
-                                var el = '<option value="'+ custom_options_value[e].value  +'">' + custom_options_value[e].value + '</option>';
+                                var el = '<option value="'+ custom_options_value[e].value  +'"></option>';
 
                                 $('select#composite_panel').append(el);
                             }
@@ -661,6 +661,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             }
                             custom_order.caravan_options.panel =  $('select#composite_panel').val();
 
+                            //convert these select into the horizonal select menu
+                            $('select#composite_panel').ui_choose();
+
+
                         }
                         if(custom_exterior[select_model_id][i]['custom_option'] == 'checker plate')
                         {
@@ -669,14 +673,17 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
                             for(var e = 0;e < custom_options_value.length; e++ )
                             {
-                                var el = '  <option value="'+ custom_options_value[e].value  +'">' + custom_options_value[e].value + '</option>';
+                                var el = '  <option value="'+ custom_options_value[e].value  +'"></option>';
                                 $('select#checker_plate').append(el);
                             }
                             if(typeof options.checker_plate != 'undefined')
                             {
                                 $('select#checker_plate').val(options.checker_plate);
                             }
-                            custom_order.caravan_options.checker_plate  = $('select#checker_plate').val();;
+                            custom_order.caravan_options.checker_plate  = $('select#checker_plate').val();
+
+                            //convert these select into the horizonal select menu
+                            $('select#checker_plate').ui_choose();
                         }
                     }
                     break;
@@ -741,6 +748,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             });
 
+            $(".custom-quote-section .option-select-value-section #exterior").on('click','ul.ui-choose li',function(e)
+            {
+                $('#exterior select').change();
+            });
 
             $('#exterior select').change(function(e){
 
@@ -888,8 +899,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             });
 
         }
-
-
         function exteriorRenderImageWrapper()
         {
             var options = custom_order.caravan_options;
@@ -1212,7 +1221,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     });
 </script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css'?>" >
-
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css'?>" >
 <?php
 get_footer();
 ?>
