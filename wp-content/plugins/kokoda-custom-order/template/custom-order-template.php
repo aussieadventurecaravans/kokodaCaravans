@@ -564,8 +564,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/jspdf/jspdf.js'; ?>"></script>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/jspdf/html2canvas.min.js'; ?>"></script>
 <script type="text/javascript">
     var select_model_id ='';
     var current_tab ='';

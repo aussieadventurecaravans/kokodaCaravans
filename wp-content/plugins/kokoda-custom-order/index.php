@@ -166,6 +166,10 @@ add_action('wp_ajax_get_caravan', 'get_caravan');
 add_action('wp_ajax_nopriv_get_caravan', 'get_caravan');
 
 
+add_action('wp_ajax_export_pdf', 'export_pdf');
+add_action('wp_ajax_nopriv_export_pdf', 'export_pdf');
+
+
 function submit_customorder()
 {
 
@@ -192,25 +196,29 @@ function submit_customorder()
         echo 'Caught exception: ',  $e->getMessage(), "\n";
         echo false;
     }
-
-
     die();
-
 }
 
 
 function get_caravan()
 {
-
-
     if( isset( $_POST['caravan_id'] ))
     {
-
         set_query_var('caravan_id', $_POST['caravan_id']);
-
         require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/caravan-specs-part.php' );
-
     }
-
     die();
 }
+
+
+function export_pdf()
+{
+    if( isset( $_POST['caravan_id'] ))
+    {
+        set_query_var('caravan_id', $_POST['caravan_id']);
+        set_query_var('custom_order', $_POST['custom_order']);
+        require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/summary-report-template.php' );
+    }
+    die();
+}
+
