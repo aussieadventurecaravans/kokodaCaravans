@@ -307,14 +307,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </h4>
                     </div>
                     <div class="display-image-wrapper row" id="summary-display-image-wrapper">
-
                     </div>
-                    <div class="display-accessories-wrapper row">
-
+                    <div class="display-accessories-wrapper row" id="summary-display-accessories-wrapper">
                     </div>
-                    <div class="display-features-wrapper row">
-
+                    <div class="display-features-wrapper row" id="summary-display-specs-wrapper">
                     </div>
+
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
@@ -557,14 +555,17 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             </div>
                         </fieldset>
                     </div>
+                    <button type="button" class="btn btn-primary btn-lg btn-print">Print</button>
                 </fieldset>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'?>"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/jspdf/jspdf.js'; ?>"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/jspdf/html2canvas.min.js'; ?>"></script>
 <script type="text/javascript">
     var select_model_id ='';
     var current_tab ='';
@@ -584,6 +585,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         accessories:[],
         floorplan: ''
     };
+    var caravan_image_summary = '';
+
     jQuery(document).ready(function($)
     {
 
@@ -898,6 +901,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             });
 
+            $("button.btn-print").click(function(e){
+
+                exportPDFFromHTML();
+
+            });
+
         }
         function exteriorRenderImageWrapper()
         {
@@ -1137,7 +1146,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             var layer = new Konva.Layer();
             var caravan = new Konva.Image();
-
+            var image_data_url = '';
             var imageObj = new Image();
             imageObj.src = '<?php echo $uploads['baseurl'] . '/custom_order/'; ?>/' + select_model_id  + '/' + image_name + '.png';
             imageObj.onload = function ()
@@ -1154,10 +1163,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 // set height of stage canvas
                 exteriorImageWrapper.setHeight(caravan.getHeight());
             };
+
             var e= '<div class="header-wrapper">';
                 e +=  '<h2>Model: '+ caravan_title[select_model_id]  +'</h2>';
                 e +=  '</div>';
             $('#summary .display-image-wrapper').prepend(e);
+
         }
 
 
@@ -1218,6 +1229,65 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 custom_order.accessories = acc_list;
             });
         }
+        function exportPDFFromHTML()
+        {
+            //render the the feature spec for the models
+            var data = {
+                'action':'export_pdf',
+                'custom_order' : custom_order,
+                'caravan_id' : custom_order.caravan
+            };
+            var url = "<?php echo site_url() ?>/wp-admin/admin-ajax.php";
+            //loading the caravan detail before open panel
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                beforeSend: function()
+                {
+
+
+                },
+                success:function(data)
+                {
+                   var base64string =  data;
+                   exportPdfFile(base64ToArrayBuffer(base64string),'quote_summary.pdf','application/pdf')
+                }
+            });
+        }
+
+
+
+       function exportPdfFile(data, filename, type)
+       {
+            var file = new Blob([data], {type: type});
+            if (window.navigator.msSaveOrOpenBlob) // IE10+
+                window.navigator.msSaveOrOpenBlob(file, filename);
+            else { // Others
+                var a = document.createElement("a"),
+                    url = URL.createObjectURL(file);
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(function() {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 0);
+            }
+        }
+        function base64ToArrayBuffer(data)
+        {
+            var binaryString = window.atob(data);
+            var binaryLen = binaryString.length;
+            var bytes = new Uint8Array(binaryLen);
+            for (var i = 0; i < binaryLen; i++) {
+                var ascii = binaryString.charCodeAt(i);
+                bytes[i] = ascii;
+            }
+            return bytes;
+        }
+
     });
 </script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css'?>" >
@@ -1225,6 +1295,5 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 <?php
 get_footer();
 ?>
-
 
 

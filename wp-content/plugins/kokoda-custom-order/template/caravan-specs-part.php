@@ -93,7 +93,7 @@ setup_postdata($post);
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            <?php endforeach;   ?>
+                                            <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -109,6 +109,9 @@ setup_postdata($post);
             </div>
         </div>
     </div>
+
+
+
 <?php endif; //specifications ?>
 
 
