@@ -922,39 +922,59 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 image_name = options.panel + '_' + options.checker_plate;
             }
 
-            var image_wrapper_width = $('#exterior .option-display-image-wrapper').width();
+            var containerWidth = $('#exterior .option-display-image-wrapper').width();
 
             var exteriorImageWrapper = new Konva.Stage({
                 container: 'exterior-display-image-wrapper',
-                width: image_wrapper_width
+                width: containerWidth
             });
 
 
-            var layer = new Konva.Layer();
-            var caravan = new Konva.Image();
-
-            var imageObj = new Image();
-            imageObj.src = '<?php echo $uploads['baseurl'] . '/custom_order/'; ?>/' + select_model_id  + '/' + image_name + '.png';
-            imageObj.onload = function ()
+            //add checkerplate
+            var chekerPlateImg = new Konva.Image();
+            var chekerPlateObj = new Image();
+            chekerPlateObj.src = '<?php echo $uploads['baseurl']; ?>' + '/custom_order/' + select_model_id  + '/checkerplate/' + options.checker_plate + '.png';
+            chekerPlateObj.onload = function ()
             {
-                var image_width = image_wrapper_width;
-                caravan.setImage(imageObj);
-                caravan.setWidth(image_width);
-                caravan.setHeight(image_width * imageObj.height / imageObj.width);
+                chekerPlateImg.setImage(chekerPlateObj);
+                var layer = new Konva.Layer();
+                layer.add(chekerPlateImg);
 
-                // add the shape to the layer
-                layer.add(caravan);
-                // add the layer to the stage
-                exteriorImageWrapper.add(layer);
-                // set height of stage canvas
-                exteriorImageWrapper.setHeight(caravan.getHeight());
 
-                //save and send the cavnas to server for export pdf file
-                caravan.setWidth(650);
-                caravan.setHeight(650  * imageObj.height / imageObj.width);
-                caravan_image = caravan.toDataURL('image/jpeg',1);
+                var panelImg = new Konva.Image();
+                var panelObj = new Image();
+                panelObj.src = '<?php echo $uploads['baseurl']; ?>' + '/custom_order/' + select_model_id  + '/panel/' + options.panel + '.png';
+                panelObj.onload = function ()
+                {
+                    panelImg.setImage(panelObj);
+                    panelImg.setX(232);
+                    panelImg.setY(63);
+
+                    layer.add(panelImg);
+
+                    // add the layer to the stage
+                    exteriorImageWrapper.add(layer);
+
+                    //save the images to export pdf function
+                    var scale = 650  /chekerPlateImg.getWidth();
+                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    exteriorImageWrapper.scale({ x: scale, y: scale });
+                    exteriorImageWrapper.draw();
+                    caravan_image = exteriorImageWrapper.toDataURL('image/jpeg',1);
+
+                   //resize the canvas to fit the browser size
+                    var scale = containerWidth /chekerPlateImg.getWidth();
+
+                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    exteriorImageWrapper.scale({ x: scale, y: scale });
+                    exteriorImageWrapper.draw();
+
+                }
 
             };
+
         }
 
 
@@ -1147,32 +1167,56 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 return;
             }
 
-            var image_wrapper_width = $('#summary .display-image-wrapper').width();
+            var containerWidth = $('#summary .display-image-wrapper').width();
 
             var exteriorImageWrapper = new Konva.Stage({
                 container: 'summary-display-image-wrapper',
-                width: image_wrapper_width
+                width: containerWidth
             });
 
-
-            var layer = new Konva.Layer();
-            var caravan = new Konva.Image();
-            var image_data_url = '';
-            var imageObj = new Image();
-            imageObj.src = '<?php echo $uploads['baseurl'] . '/custom_order/'; ?>/' + select_model_id  + '/' + image_name + '.png';
-            imageObj.onload = function ()
+            //add checkerplate
+            var chekerPlateImg = new Konva.Image();
+            var chekerPlateObj = new Image();
+            chekerPlateObj.src = '<?php echo $uploads['baseurl']; ?>' + '/custom_order/' + select_model_id  + '/checkerplate/' + options.checker_plate + '.png';
+            chekerPlateObj.onload = function ()
             {
-                var image_width = image_wrapper_width;
-                caravan.setImage(imageObj);
-                caravan.setWidth(image_width);
-                caravan.setHeight(image_width * imageObj.height / imageObj.width);
+                chekerPlateImg.setImage(chekerPlateObj);
+                var layer = new Konva.Layer();
+                layer.add(chekerPlateImg);
 
-                // add the shape to the layer
-                layer.add(caravan);
-                // add the layer to the stage
-                exteriorImageWrapper.add(layer);
-                // set height of stage canvas
-                exteriorImageWrapper.setHeight(caravan.getHeight());
+
+                var panelImg = new Konva.Image();
+                var panelObj = new Image();
+                panelObj.src = '<?php echo $uploads['baseurl']; ?>' + '/custom_order/' + select_model_id  + '/panel/' + options.panel + '.png';
+                panelObj.onload = function ()
+                {
+                    panelImg.setImage(panelObj);
+                    panelImg.setX(232);
+                    panelImg.setY(63);
+
+                    layer.add(panelImg);
+
+                    // add the layer to the stage
+                    exteriorImageWrapper.add(layer);
+
+                     //save the images to export pdf function
+                    var scale = 650  /chekerPlateImg.getWidth();
+                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    exteriorImageWrapper.scale({ x: scale, y: scale });
+                    exteriorImageWrapper.draw();
+                    caravan_image = exteriorImageWrapper.toDataURL('image/jpeg',1);
+
+                    //resize the canvas to fit the browser size
+                    var scale = containerWidth /chekerPlateImg.getWidth();
+
+                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    exteriorImageWrapper.scale({ x: scale, y: scale });
+                    exteriorImageWrapper.draw();
+
+
+                }
 
             };
 
