@@ -6288,6 +6288,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 	font-size: 24px;
 	margin-top: 0;
 	margin-bottom: 15px;
+	color: #0c121c;
 }
 
 .custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert
@@ -6419,7 +6420,32 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 {
 	margin-top: 25px;
 }
-
+.tabcontent#summary .tab-header .btn-download
+{
+	color: #fff;
+	background-color: #0c121c;
+	border-color: #0c121c;
+	position: absolute;
+	right: 122px;
+	top: 18px;
+	text-transform: capitalize;
+}
+.tabcontent#summary .tab-header .btn-print
+{
+	color: #fff;
+	background-color: #0c121c;
+	border-color: #0c121c;
+	position: absolute;
+	right: 30px;
+	top: 18px;
+	text-transform: capitalize;
+}
+.tabcontent#summary .tab-header .btn-download span:before{
+	content:"\e933"
+}
+.tabcontent#summary .tab-header .btn-print span:before{
+	content:"\e954";
+}
 .tabcontent#summary .display-image-wrapper,
 .tabcontent#summary  .display-features-wrapper
 {

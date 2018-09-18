@@ -14771,7 +14771,7 @@ class Mpdf implements \Psr\Log\LoggerAwareInterface
 			$this->blk[0]['inner_width'] = & $this->pgwidth;
 			$this->blk[0]['blockContext'] = $this->blockContext;
 		}
-
+        ;
 		$zproperties = [];
 		if ($sub < 2) {
 			$this->ReadMetaTags($html);

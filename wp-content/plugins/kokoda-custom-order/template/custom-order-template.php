@@ -304,7 +304,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     <div class="tab-header">
                         <h4>
                             Caravan Summary
+
                         </h4>
+                        <button type="button" class="btn btn-primary btn-lg btn-download"><span class="icon-moon"></span> Download</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-print"><span class="icon-moon"></span> Print</button>
                     </div>
                     <div class="display-image-wrapper row" id="summary-display-image-wrapper">
                     </div>
@@ -395,7 +398,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                             </select>
                                         </div>
                                     </div>
-
 
 
                                     <!-- Text input-->
@@ -555,7 +557,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             </div>
                         </fieldset>
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg btn-print">Print</button>
                 </fieldset>
             </div>
         </div>
@@ -573,6 +574,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var dealers = <?php echo json_encode($dealers); ?>;
     var primary_prices = <?php echo json_encode($primary_prices); ?>;
     var custom_accessories = <?php echo json_encode($custom_accessories); ?>;
+    var caravan_image = '';
 
     var custom_order = {
         customer: {},
@@ -899,9 +901,14 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             });
 
+            $("button.btn-download").click(function(e){
+
+                downloadPDF();
+
+            });
             $("button.btn-print").click(function(e){
 
-                exportPDFFromHTML();
+                printPDF();
 
             });
 
@@ -941,6 +948,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 exteriorImageWrapper.add(layer);
                 // set height of stage canvas
                 exteriorImageWrapper.setHeight(caravan.getHeight());
+
+                //save and send the cavnas to server for export pdf file
+                caravan.setWidth(650);
+                caravan.setHeight(650  * imageObj.height / imageObj.width);
+                caravan_image = caravan.toDataURL('image/jpeg',1);
+
             };
         }
 
@@ -1105,7 +1118,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             var accessories = custom_order.accessories;
             if( accessories.length > 0)
             {
-                el += '<h2 style="text-align: center;font-size: 40px"> + </h2>';
+                el += '<h2 style="text-align: center;font-size: 40px">+</h2>';
                 el += '<div class="header-wrapper">';
                 el +=  '<h2>Add-on Accessories</h2>';
                 el +=  '</div>';
@@ -1160,6 +1173,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 exteriorImageWrapper.add(layer);
                 // set height of stage canvas
                 exteriorImageWrapper.setHeight(caravan.getHeight());
+
             };
 
             var e= '<div class="header-wrapper">';
@@ -1196,7 +1210,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 el += '<div class="item ' + sel  +' col-md-4" access-id="' + i +'" ><div class="item-detail">';
                 el+='<span class="icon-moon"></span>'
                 el += '<img src="<?php echo $uploads['baseurl'] . '/custom_order/'; ?>' + select_model_id  + '/Accessories/' + accessories[i]['accessory_label'] +  '.png" />';
-                el += '<h3>' +  accessories[i]['accessory_label']  +'</h3>';
+                el += '<h3>' +  accessories[i]['accessory_label'] + '</h3>';
                 el += '</div></div>';
 
             }
@@ -1227,13 +1241,44 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 custom_order.accessories = acc_list;
             });
         }
-        function exportPDFFromHTML()
+
+        function printPDF()
         {
             //render the the feature spec for the models
             var data = {
                 'action':'export_pdf',
                 'custom_order' : custom_order,
-                'caravan_id' : custom_order.caravan
+                'caravan_id' : custom_order.caravan,
+                'caravan_image': caravan_image
+            };
+            var url = "<?php echo site_url() ?>/wp-admin/admin-ajax.php";
+            //loading the caravan detail before open panel
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                beforeSend: function()
+                {
+
+
+                },
+                success:function(data)
+                {
+                    var base64string =  data;
+                    printPdfFile(base64ToArrayBuffer(base64string),'quote_summary.pdf','application/pdf')
+                }
+            });
+        }
+
+
+        function downloadPDF()
+        {
+            //render the the feature spec for the models
+            var data = {
+                'action':'export_pdf',
+                'custom_order' : custom_order,
+                'caravan_id' : custom_order.caravan,
+                'caravan_image': caravan_image
             };
             var url = "<?php echo site_url() ?>/wp-admin/admin-ajax.php";
             //loading the caravan detail before open panel
@@ -1255,12 +1300,36 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         }
 
 
+        function printPdfFile(data, filename, type)
+        {
+            var file = new Blob([data], {type: type});
+
+            var url = URL.createObjectURL(file);
+            var iframe = this._printIframe;
+            if (!this._printIframe) {
+                iframe = this._printIframe = document.createElement('iframe');
+                document.body.appendChild(iframe);
+
+                iframe.style.display = 'none';
+                iframe.onload = function() {
+                    setTimeout(function() {
+                        iframe.focus();
+                        iframe.contentWindow.print();
+                    }, 1);
+                };
+            }
+
+            iframe.src = url;
+        }
+
+
 
        function exportPdfFile(data, filename, type)
        {
             var file = new Blob([data], {type: type});
-            if (window.navigator.msSaveOrOpenBlob) // IE10+
+            if (window.navigator.msSaveOrOpenBlob){
                 window.navigator.msSaveOrOpenBlob(file, filename);
+            }
             else { // Others
                 var a = document.createElement("a"),
                     url = URL.createObjectURL(file);
@@ -1271,6 +1340,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 setTimeout(function() {
                     document.body.removeChild(a);
                     window.URL.revokeObjectURL(url);
+
                 }, 0);
             }
         }
