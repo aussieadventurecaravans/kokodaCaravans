@@ -250,10 +250,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6  col-xs-6  text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
                         </div>
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
                         </div>
                     </div>
@@ -271,10 +271,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
                         </div>
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
                         </div>
                     </div>
@@ -291,10 +291,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                     </div>
                     <div class="row">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
                         </div>
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
                         </div>
                     </div>
@@ -317,10 +317,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
                         </div>
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-6 col-xs-6 text-center">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
                         </div>
                     </div>
@@ -431,9 +431,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                                     <!-- Button -->
                                     <div class="form-group">
-                                        <div class="col-md-12 text-center">
-                                            <input id="reset_order" type="reset" class="btn btn-primary btn-lg" value="Reset Quote" />
-                                            <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit Quote" />
+                                        <div class="col-xs-6 text-center">
+                                            <button type="button" class="btn btn-primary btn-lg btn-pre">Back</button>
+
+                                        </div>
+                                        <div  class="col-xs-6 text-center">
+                                            <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit" />
                                         </div>
                                     </div>
 
@@ -489,8 +492,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-12 text-center">
+                                                    <div class="col-xs-6 text-center">
                                                         <div id="back_button" class="btn btn-primary btn-lg">Back</div>
+
+                                                    </div>
+
+                                                    <div class="col-xs-6 text-center">
                                                         <div id="apply_button" class="btn btn-primary btn-lg">Submit</div>
                                                     </div>
                                                 </div>
@@ -565,6 +572,11 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
+<script src="/wp-content/themes/Kokoda/owl-carousel/owl.carousel.js"></script>
+
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.css';?> ">
+<link rel="stylesheet"  href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.theme.css';?> ">
+
 <script type="text/javascript">
     var select_model_id ='';
     var current_tab ='';
@@ -595,10 +607,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         document.getElementById($('li.current a.tablinks').attr('tab-content')).style.display = "block";
 
 
-        $('a.tablinks ').click(function(event){
+        $('a.tablinks').click(function(event){
 
             event.preventDefault();
-
 
             if($(this).parent('li').hasClass('next'))
             {
@@ -667,7 +678,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             //convert these select into the horizonal select menu
                             $('select#composite_panel').ui_choose();
 
-
                         }
                         if(custom_exterior[select_model_id][i]['custom_option'] == 'checker plate')
                         {
@@ -689,6 +699,20 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             $('select#checker_plate').ui_choose();
                         }
                     }
+
+                    $("ul.ui-choose").owlCarousel({
+
+                        navigation : false, // Show next and prev buttons
+                        slideSpeed : 300,
+                        pagination: true,
+                        paginationSpeed : 400,
+                        items : 8,
+                        itemsMobile : [479,3],
+                        itemsTablet : [768, 6],
+                        itemsDesktop : [1199, 10],
+                        itemsDesktopSmall : [979, 8]
+                    });
+
                     break;
                 default:
                     //do nothing is gold
@@ -753,7 +777,11 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             $(".custom-quote-section .option-select-value-section #exterior").on('click','ul.ui-choose li',function(e)
             {
+                $(this).parent().parent().children().children('li').removeClass('selected');
+                $(this).addClass('selected');
+                $(this).parent().parent().parent().parent().prev('select').val($(this).attr('data-value'));
                 $('#exterior select').change();
+
             });
 
             $('#exterior select').change(function(e){
@@ -783,6 +811,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             $( window ).resize(function(){
                 exteriorRenderImageWrapper();
                 summary_section_update();
+
+                var current_tab = $('li.current a.tablinks').attr('tab-content');
+                renderCustomOptions(current_tab);
 
             });
 
@@ -859,7 +890,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             });
             $(".finance-section-details.loan-summary input[type=text]").on('keyup', function (e)
             {
-
                 //update finance section everytime, enter new amount
                 finance_section_update();
 
@@ -917,6 +947,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         {
             var options = custom_order.caravan_options;
             var image_name = 'default';
+
+
             if(typeof options.panel != 'undefined' && typeof options.checker_plate != 'undefined')
             {
                 image_name = options.panel + '_' + options.checker_plate;
@@ -1388,8 +1420,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 }, 0);
             }
         }
-        function base64ToArrayBuffer(data)
-        {
+       function base64ToArrayBuffer(data)
+       {
             var binaryString = window.atob(data);
             var binaryLen = binaryString.length;
             var bytes = new Uint8Array(binaryLen);
@@ -1398,7 +1430,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 bytes[i] = ascii;
             }
             return bytes;
-        }
+       }
 
     });
 </script>

@@ -6204,61 +6204,62 @@ CUSTOMIZE THE ARCHIVE PAGE
 	width: 100%;
 	margin: 15px 0;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value]
 {
 	width: 80px;
 	height: 80px;
 	margin: 0 15px 15px 0;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose>li:first-child
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li:first-child
 {
 	border-radius: unset;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose >li[data-value=black]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=black]{
 
 	background: #000;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose >li[data-value=silver]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=silver]{
 
 	background: #f4f4f4;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=red]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=red]{
 
 	background: #ff0000;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=blue]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=blue]{
 
 	background: #2da6e1;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=charcoal]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=charcoal]{
 
 	background: #36454F;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=green]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=green]{
 
 	background: #b7ee2f;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=orange]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=orange]{
 
 	background: #FFA500;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=pink]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=pink]{
 
 	background: #cf4985;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=purple]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=purple]{
 
 	background: #9e63c8;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=white]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=white]{
 
 	background: #ffffff;
+	border:1px solid #000;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li[data-value=yellow]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=yellow]{
 
 	background: #FFFF00;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose > li.selected{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li.selected{
 	border: 5px solid #ff0100;
 }
 
@@ -6290,21 +6291,21 @@ CUSTOMIZE THE ARCHIVE PAGE
 	margin-bottom: 15px;
 	color: #0c121c;
 }
-
 .custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert
 {
 	display:none;
 }
-
 .custom-quote-section .tabcontent button.btn-next,
 .custom-quote-section .tabcontent button.btn-pre
 {
-	margin-bottom: 15px;
+	margin-top: 15px;
 	width: 120px;
 }
-
-
-
+.custom-quote-section .tabcontent input.btn#submit_order
+{
+	margin-top: 15px;
+	width: 120px;
+}
 
 fieldset.finance-section {
 	border: 1px solid #d5d6d6 !important;
@@ -6422,9 +6423,9 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 }
 .tabcontent#summary .tab-header .btn-download
 {
-	color: #fff;
-	background-color: #0c121c;
-	border-color: #0c121c;
+	color: #0c121c;
+	background-color: #ffffff;
+	border-color: #ffffff;
 	position: absolute;
 	right: 122px;
 	top: 18px;
@@ -6432,13 +6433,21 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 }
 .tabcontent#summary .tab-header .btn-print
 {
-	color: #fff;
-	background-color: #0c121c;
-	border-color: #0c121c;
+	color: #0c121c;
+	background-color: #ffffff;
+	border-color: #ffffff;
 	position: absolute;
 	right: 30px;
 	top: 18px;
 	text-transform: capitalize;
+}
+.tabcontent#summary .tab-header .btn-download:focus,
+.tabcontent#summary .tab-header .btn-print:focus,
+.tabcontent#summary .tab-header .btn-print:active,
+.tabcontent#summary .tab-header .btn-download:active
+{
+	box-shadow: none;
+	outline: none;
 }
 .tabcontent#summary .tab-header .btn-download span:before{
 	content:"\e933"
