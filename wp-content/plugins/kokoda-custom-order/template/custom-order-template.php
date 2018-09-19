@@ -432,7 +432,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                     <!-- Button -->
                                     <div class="form-group">
                                         <div class="col-xs-6 text-center">
-                                            <button type="button" class="btn btn-primary btn-lg btn-pre">Back</button>
+                                            <button type="button" class="btn btn-primary btn-lg btn-back">Back</button>
 
                                         </div>
                                         <div  class="col-xs-6 text-center">

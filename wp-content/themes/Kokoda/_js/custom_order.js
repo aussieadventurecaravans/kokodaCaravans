@@ -264,6 +264,9 @@ jQuery(function($) {
                 if (typeof next_tabcontent != 'undefined') {
                     $("a.tablinks[tab-content='" + next_tabcontent + "']").click();
                 }
+                $('html, body').animate({
+                    scrollTop: $(".custom-quote-section").offset().top
+                }, 1000);
             });
 
             $('.tabcontent button.btn-pre').click(function (e) {
@@ -273,7 +276,22 @@ jQuery(function($) {
                 if (typeof prev_tabcontent != 'undefined') {
                     $("a.tablinks[tab-content='" + prev_tabcontent + "']").click();
                 }
+                $('html, body').animate({
+                    scrollTop: $(".custom-quote-section").offset().top
+                }, 1000);
             });
+            $('#customer_details_form button.btn-back').click(function (e) {
+                event.preventDefault();
+                var prev_tabcontent = $(this).parent().parent().parent().parent().parent().parent().parent('div.tabcontent').prev().attr('id');
+
+                if (typeof prev_tabcontent != 'undefined') {
+                    $("a.tablinks[tab-content='" + prev_tabcontent + "']").click();
+                }
+                $('html, body').animate({
+                    scrollTop: $(".custom-quote-section").offset().top
+                }, 1000);
+            });
+
             $(".finance-section-details.loan-summary input[type=text]").click(function (e) {
                 $(this).select();
             });

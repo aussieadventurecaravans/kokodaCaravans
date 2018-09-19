@@ -6209,6 +6209,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 	width: 80px;
 	height: 80px;
 	margin: 0 15px 15px 0;
+	cursor: pointer;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li:first-child
 {
@@ -6260,7 +6261,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 	background: #FFFF00;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li.selected{
-	border: 5px solid #ff0100;
+	border: 5px solid #0090ff;
 }
 
 .custom-quote-section .option-select-value-section #floorplan .floorplan-list {
@@ -6296,7 +6297,8 @@ CUSTOMIZE THE ARCHIVE PAGE
 	display:none;
 }
 .custom-quote-section .tabcontent button.btn-next,
-.custom-quote-section .tabcontent button.btn-pre
+.custom-quote-section .tabcontent button.btn-pre,
+.custom-quote-section .tabcontent button.btn-back
 {
 	margin-top: 15px;
 	width: 120px;
