@@ -442,7 +442,7 @@ jQuery(function($) {
                 'custom_order': custom_order
 
             };
-            var url = $site_url + "wp-admin/admin-ajax.php";
+            var url = $site_url + "/wp-admin/admin-ajax.php";
             //loading the caravan detail before open panel
             $.ajax({
                 url: url,

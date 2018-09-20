@@ -146,9 +146,11 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                             <td style="vertical-align: text-top">
                                                 <?php $custom_options =  unserialize($quote->custom_options); ?>
                                                 <?php if (is_array($custom_options) || is_object($custom_options)): ?>
+                                                    <p style="padding:0;">
                                                     <?php foreach($custom_options as $key => $value): ?>
-                                                        <p style="padding:0;"><strong><?php echo ucwords(str_replace('_',' ',$key)); ?>:</strong><span> <?php echo $value; ?> </span></p>
+                                                        <strong><?php echo ucwords(str_replace('_',' ',$key)); ?>:</strong><span style="text-transform: capitalize"> <?php echo $value; ?> </span><br/>
                                                     <?php endforeach; ?>
+                                                    </p>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>

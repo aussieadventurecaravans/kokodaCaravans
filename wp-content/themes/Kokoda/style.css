@@ -6167,7 +6167,7 @@ CUSTOMIZE THE ARCHIVE PAGE
 }
 .custom-quote-section .option-select-value-section  #models .item-details .details
 {
-	padding: 10px 30px 20px;
+	padding: 0 20px 0;
 	text-align: center;
 	min-height: 230px;
 }
@@ -6181,6 +6181,12 @@ CUSTOMIZE THE ARCHIVE PAGE
 	font-size: 1.3em;
 	margin-top: 10px;
 }
+
+.custom-quote-section .option-select-value-section #models .item-details .details .product-meta
+{
+	margin: 15px 0;
+}
+
 .custom-quote-section .option-select-value-section #exterior .option-select-image-section
 {
 	padding-bottom: 9px;

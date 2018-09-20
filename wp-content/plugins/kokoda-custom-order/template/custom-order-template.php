@@ -208,7 +208,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                             <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
                                             <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
                                         </div>
-                                        <?php if(get_field('banner_description',$caravan->ID)): ?><p><?php the_field('banner_description',$caravan->ID); ?></p><?php endif; ?>
+                                        <?php /* if(get_field('banner_description',$caravan->ID)): ?><p><?php the_field('banner_description',$caravan->ID); ?></p><?php endif; */ ?>
                                         <?php if(get_field('tare',$caravan->ID)): ?><span class="tare">Tare (approx): <?php the_field('tare',$caravan->ID); ?></span><br><?php endif; ?>
                                         <?php if(get_field('ball_weight',$caravan->ID)): ?><span class="ball">Ball weight (approx): <?php the_field('ball_weight',$caravan->ID); ?></span><?php endif; ?>
                                     </div>
@@ -450,8 +450,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 <div class="form-group">
                                     <div class="col-md-12 text-center">
                                         <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                Apply Caravan Finance
+                                            <div class="panel-heading" style="text-transform: uppercase">
+                                                Caravan Finance Options
                                             </div>
                                             <div class="panel-body">
                                                 <p class="description">
