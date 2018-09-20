@@ -6548,7 +6548,8 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 }
 .tabcontent#accessories .accessories-list .item.selected .item-detail .icon-moon
 {
-	color: #ef1919;
+	color: #70bf00;
+	font-size: 24px;
 }
 
 .tabcontent#accessories .accessories-list .item .item-detail .icon-moon:before
@@ -6558,7 +6559,7 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 
 .tabcontent#accessories .accessories-list .item.selected .item-detail .icon-moon:before
 {
-	content:"\ea0f";
+	content:"\ea10";
 }
 
 .tabcontent#accessories .accessories-list .item .item-detail p{

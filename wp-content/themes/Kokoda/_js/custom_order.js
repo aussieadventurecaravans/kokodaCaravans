@@ -297,7 +297,7 @@ jQuery(function($) {
             });
             $(".finance-section-details.loan-summary input[type=text]").on('keyup', function (e) {
                 //update finance section everytime, enter new amount
-                finance_section_update();
+                finance_section_update(false);
 
                 //add the input value , comma
                 var $this = $(this);
@@ -434,7 +434,6 @@ jQuery(function($) {
                 }
             }
             custom_order.product_price = Number(primary_prices[select_model_id]);
-            custom_order.accessories_price = 0;
             custom_order.orc_price = 0;
 
             var data = {
@@ -479,20 +478,27 @@ jQuery(function($) {
         }
 
 
-        function finance_section_update() {
+        function finance_section_update(refresh_amount) {
             var caravan_price = primary_prices;
 
             var accessories_prices = 0;
+            for( var i = 0 ; i < custom_order.accessories.length; i++)
+            {
+                accessories_prices += Number(custom_order.accessories[i]['accessory_price']);
+            }
+
+            custom_order.accessories_price = accessories_prices;
 
             var total_price = Number(caravan_price[select_model_id]) + accessories_prices;
 
 
             $(".finance-section-details.cash-summary h2.primary-price").html("$" + Number(caravan_price[select_model_id]).toLocaleString("en-US") + " + ORC");
             $(".finance-section-details.cash-summary h2.total-price").html('$' + total_price.toLocaleString("en-US") + " + ORC");
+            $(".finance-section-details.cash-summary h2.add-on-price").html('$' + accessories_prices.toLocaleString("en-US"));
 
 
             var loan = Number($(".finance-section-details.loan-summary input.loan-amount").val().replace(/[\D\s\._\-]+/g, ""));
-            if (loan === 0) {
+            if (refresh_amount === true) {
                 $(".finance-section-details.loan-summary input.loan-amount").val(total_price);
                 loan = total_price;
             }
@@ -622,8 +628,6 @@ jQuery(function($) {
                     exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
-
-
                 }
 
             };
@@ -683,6 +687,8 @@ jQuery(function($) {
 
                 });
                 custom_order.accessories = acc_list;
+
+                finance_section_update(true);
             });
         }
 
@@ -793,4 +799,4 @@ jQuery(function($) {
 
 
     });
-})
+});

@@ -122,11 +122,10 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                             <td class="first"><label for="payment_method"><?php _e( 'Payment Method:' ); ?></label></td>
                                             <td>
                                                 <?php $payment_method = esc_attr( $quote->payment_method ); ?>
-                                                <select name="payment_method" id="payment_method" value="<?php echo esc_attr( $quote->payment_method ); ?>" style=" width:250px; ">
+                                                <select disabled="true" name="payment_method" id="payment_method" value="<?php echo esc_attr( $quote->payment_method ); ?>" style=" width:250px; ">
                                                      <option value="cash" <?php if($payment_method == 'cash' ){ echo 'selected'; } ?> >Cash</option>
                                                      <option value="loan" <?php if($payment_method == 'loan' ){ echo 'selected'; } ?> >Loan</option>
                                                 </select>
-
                                             </td>
                                         </tr>
                                         </tbody>
@@ -221,7 +220,6 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                                 <td>
                                                     <?php $loan_status = esc_attr( $quote->loan_status ); ?>
                                                     <select name="loan_status" id="loan_status" value="<?php echo esc_attr( $quote->loan_status ); ?>" style=" width:250px; ">
-                                                        <option value="none" <?php if($loan_status == 'none' ){ echo 'selected'; } ?> >None</option>
                                                         <option value="review" <?php if($loan_status == 'review' ){ echo 'selected'; } ?> >Review</option>
                                                         <option value="finalised" <?php if($loan_status == 'finalised' ){ echo 'selected'; } ?> >Finalised</option>
                                                     </select>
