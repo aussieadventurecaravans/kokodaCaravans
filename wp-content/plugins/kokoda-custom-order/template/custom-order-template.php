@@ -126,7 +126,7 @@ foreach ($caravans as $caravan)
 $primary_prices = array();
 foreach ($caravans as $caravan)
 {
-    $primary_prices[$caravan->ID] = get_field('price_thousands',$caravan->ID) . get_field('price_hundreds',$caravan->ID); ;
+    $primary_prices[$caravan->ID] = get_field('price_thousands',$caravan->ID) . get_field('price_hundreds',$caravan->ID);
 }
 
 
@@ -515,7 +515,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
             <div class="col-md-4 text-left">
                 <fieldset class="finance-section">
-                    <legend class="finance-header">Total Price</legend>
+                    <legend class="finance-header">Price Estimate</legend>
                     <!-- TOTAL PRICE SUMMARY  -->
                     <div class="finance-section-details cash-summary text-center">
                         <h2 class="price-label primary-price">
@@ -536,7 +536,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             $0
                         </h2>
                         <p class="total-price-label">
-                            Total Price (EST)
+                            Total Price *
                         </p>
                     </div>
                     <!-- LOAN ESTIMATE SUMMARY  -->
@@ -559,10 +559,17 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                             <div class="monthly-payment-sec">
                                 <p>
-                                    Payment: $<span class="mp-amount">0</span> /month
+                                    Repayment: $<span class="mp-amount">0</span> /month
                                 </p>
                             </div>
                         </fieldset>
+                    </div>
+                    <div class="finance-disclaim-section-details text-left">
+                        <p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Please Note:</b>
+                            All the prices are subject to change without prior notice. The price estimates are provided on a basis production cost and
+                            it may be changed base upon on some specific features customer need.
+                            On-Road Cost (ORC) can varies between states and city.Please contact our dealers for more detail.
+                        </p>
                     </div>
                 </fieldset>
             </div>

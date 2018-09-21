@@ -3,15 +3,12 @@ $custom_order = get_query_var('custom_order');
 $caravan_id = get_query_var('caravan_id');
 $caravan_image = get_query_var('caravan_image');
 
-$caravan_ids = array(5417);
-if( in_array($caravan_id, $caravan_ids ))
-{
-    $_MAXIMUM_LINES = 40;
-}
-else
-{
-    $_MAXIMUM_LINES = 38;
-}
+$caravan_ids = array(
+    5417 => 40,
+    5195 => 43
+);
+$_MAXIMUM_LINES = $caravan_ids[$caravan_id];
+
 
 global $post;
 $post = get_post($caravan_id,OBJECT);
@@ -168,12 +165,74 @@ setup_postdata($post);
 <?php endif; ?>
 
 
+<?php
+$product_price = $custom_order['product_price'];
+$accessories_price = $custom_order['accessories_price'];
+$total_price  = $product_price + $accessories_price;
+
+?>
+
+<?php $html3 = '<div class="tab-header">'; ?>
+<?php $html3 .= ' <h3>Total  Price Estimate </h3>'; ?>
+<?php $html3 .= ' </div>'; ?>
+
+<?php $html3 .= '<div class="finance-wrapper container-fluid">'; ?>
+
+<?php $html3 .= '<div class="col-sx-12" >'; ?>
+
+<?php $html3 .= '<table class="table table-striped">' ; ?>
+    <?php $html3 .= '<thead>' ?>
+        <?php $html3 .= '<tr>'; ?>
+            <?php $html3 .= '<th> Unit Item </th>'; ?>
+            <?php $html3 .= '<th> Price </th>'; ?>
+        <?php $html3 .= '</tr>';?>
+    <?php $html3 .= '</thead>' ?>
+
+    <?php $html3 .= '<tbody>' ?>
+        <?php $html3 .= '<tr>'; ?>
+            <?php $html3 .= '<td scope="row"><h4>Model ' . get_the_title() .  ' </h4>' ;?>
+            <?php $html3 .= '<p><img src="' .  $caravan_image   .  '" style=" width:40%" /></p>'; ?>
+            <?php $html3 .=  '</td>';  ?>
+
+            <?php $html3 .= '<td >'; ?>
+            <?php $html3 .= ' <p>$' . number_format($product_price) . '</p>'; ?>
+            <?php $html3 .= ' </td>'; ?>
+        <?php $html3 .= '</tr>';?>
+
+        <?php $html3 .= '<tr>'; ?>
+
+            <?php $html3 .= '<td  scope="row"><h4>Accessories List </h4>'; ?>
+                <?php foreach($accessories as $accessory):?>
+                    <?php $html3 .= '<div class="acc-item">'; ?>
+                    <?php $html3 .= '<span class="acc-label"> + ' . $accessory['accessory_label']  .'</span>'; ?>
+                    <?php $html3 .=  '</div>'; ?>
+                <?php  endforeach; ?>
+            <?php $html3 .= ' </td>'; ?>
+
+            <?php $html3 .= '<td>'; ?>
+            <?php $html3 .= ' <p> $' . number_format($accessories_price) . '</p>'; ?>
+            <?php $html3 .= ' </td>'; ?>
+
+        <?php $html3 .= '</tr>'; ?>
+
+        <?php $html3 .= '<tr class="total-price-row">'; ?>
+            <?php  $html3 .= ' <td class="header-wrapper"><span > Total Price: </span></td>'; ?>
+            <?php  $html3 .= ' <td class="price-wrapper">$'.  number_format($total_price) .'</td>'; ?>
+        <?php $html3 .= '</tr>'; ?>
+
+    <?php $html3 .= '</tbody>' ?>
+<?php $html3 .= '</table>' ; ?>
+
+<?php $html3 .= ' </div></div>'; ?>
+
+
+<?php //$html3 .= ' <p>Total Price: ' . $total_price . ' + ORC</p>'; ?>
 
 
 <?php
 
 
-require_once KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/mpdf/vendor/autoload.php';
+require_once KOKODA_CUSTOM_ORDER_PLUGIN_URL .'assets/mpdf/vendor/autoload.php';
 
 
 $cssPart1 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/bootstrap.css');
@@ -201,6 +260,11 @@ if(count($custom_order['accessories']) > 0)
 // add the specification page
 $mpdf->AddPage();
 $mpdf->WriteHTML($html2);
+
+// add the Quote total extimate page
+$mpdf->AddPage();
+$mpdf->WriteHTML($html3);
+
 
 
 echo base64_encode($mpdf->Output('quote_summary.pdf', 'S'));

@@ -135,3 +135,29 @@
 {
     text-transform: capitalize;
 }
+
+.finance-wrapper .table thead th
+{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: bottom;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.finance-wrapper .table tbody td
+{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #ddd;
+}
+.finance-wrapper .table tbody .total-price-row .header-wrapper
+ {
+     text-align: right;font-weight: bold;text-transform: uppercase;
+ }
+
+.finance-wrapper .table tbody .total-price-row .price-wrapper
+{
+    text-align: left;
+}

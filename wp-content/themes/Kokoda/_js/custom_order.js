@@ -488,6 +488,7 @@ jQuery(function($) {
             }
 
             custom_order.accessories_price = accessories_prices;
+            custom_order.product_price = Number(primary_prices[select_model_id]);
 
             var total_price = Number(caravan_price[select_model_id]) + accessories_prices;
 
