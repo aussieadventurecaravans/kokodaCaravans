@@ -198,22 +198,23 @@ $total_price  = $product_price + $accessories_price;
             <?php $html3 .= ' <p>$' . number_format($product_price) . '</p>'; ?>
             <?php $html3 .= ' </td>'; ?>
         <?php $html3 .= '</tr>';?>
+        <?php if(count($custom_order['accessories']) > 0) : ?>
+            <?php $html3 .= '<tr>'; ?>
 
-        <?php $html3 .= '<tr>'; ?>
+                <?php $html3 .= '<td  scope="row"><h4>Accessories List </h4>'; ?>
+                    <?php foreach($accessories as $accessory):?>
+                        <?php $html3 .= '<div class="acc-item">'; ?>
+                        <?php $html3 .= '<span class="acc-label"> + ' . $accessory['accessory_label']  .'</span>'; ?>
+                        <?php $html3 .=  '</div>'; ?>
+                    <?php  endforeach; ?>
+                <?php $html3 .= ' </td>'; ?>
 
-            <?php $html3 .= '<td  scope="row"><h4>Accessories List </h4>'; ?>
-                <?php foreach($accessories as $accessory):?>
-                    <?php $html3 .= '<div class="acc-item">'; ?>
-                    <?php $html3 .= '<span class="acc-label"> + ' . $accessory['accessory_label']  .'</span>'; ?>
-                    <?php $html3 .=  '</div>'; ?>
-                <?php  endforeach; ?>
-            <?php $html3 .= ' </td>'; ?>
+                <?php $html3 .= '<td>'; ?>
+                <?php $html3 .= ' <p> $' . number_format($accessories_price) . '</p>'; ?>
+                <?php $html3 .= ' </td>'; ?>
 
-            <?php $html3 .= '<td>'; ?>
-            <?php $html3 .= ' <p> $' . number_format($accessories_price) . '</p>'; ?>
-            <?php $html3 .= ' </td>'; ?>
-
-        <?php $html3 .= '</tr>'; ?>
+            <?php $html3 .= '</tr>'; ?>
+        <?php endif; ?>
 
         <?php $html3 .= '<tr class="total-price-row">'; ?>
             <?php  $html3 .= ' <td class="header-wrapper"><span > Total Price: </span></td>'; ?>
