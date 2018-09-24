@@ -217,17 +217,19 @@ $total_price  = $product_price + $accessories_price;
         <?php endif; ?>
 
         <?php $html3 .= '<tr class="total-price-row">'; ?>
-            <?php  $html3 .= ' <td class="header-wrapper"><span > Total Price: </span></td>'; ?>
+            <?php  $html3 .= ' <td class="header-wrapper"><span > Total Price(*): </span></td>'; ?>
             <?php  $html3 .= ' <td class="price-wrapper">$'.  number_format($total_price) .'</td>'; ?>
         <?php $html3 .= '</tr>'; ?>
 
     <?php $html3 .= '</tbody>' ?>
 <?php $html3 .= '</table>' ; ?>
-
+<?php $html3 .= ' <p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Please Note:</b>
+                            All the prices are subject to change without prior notice. The price estimates are provided on a basis production cost and
+                            it may be changed base upon on some specific features customer need.
+                            On-Road Cost (ORC) can varies between states and city.Please contact our dealers for more detail.
+                        </p>'; ?>
 <?php $html3 .= ' </div></div>'; ?>
 
-
-<?php //$html3 .= ' <p>Total Price: ' . $total_price . ' + ORC</p>'; ?>
 
 
 <?php
