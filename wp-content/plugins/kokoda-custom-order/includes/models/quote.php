@@ -148,6 +148,10 @@ class Quote
             if ( ! $_quote )
                 return false;
 
+
+            self::send_new_quote_email($_quote);
+
+
             return new Quote( $_quote );
         }
         catch (Exception $e)
@@ -375,5 +379,80 @@ class Quote
         }
 
     }
+
+
+    /**
+     * send new quote email to dealers/admin.
+     *
+     * @global wpdb $wpdb WordPress database abstraction object.
+     *
+     * @param Quote Quote ID.
+     * @return boolean true or false.
+     */
+    public static function send_new_quote_email($_quote)
+    {
+        try
+        {
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'custom_order_quote';
+
+
+            $receiver = array(
+                //$_quote->dealer_email,
+                get_option('admin_email')
+            );
+
+            $subject = "New Quote #" . $_quote->quote_id . " is created";
+
+            $message = 'Test Email Message';
+
+            return wp_mail( $receiver, $subject, $message );
+
+        }
+        catch (Exception $e)
+        {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            return false;
+        }
+
+    }
+
+
+    /**
+     * send new quote email to dealers/admin and customer.
+     *
+     * @global wpdb $wpdb WordPress database abstraction object.
+     *
+     * @param int $quote_id Quote ID.
+     * @return boolean true or false.
+     */
+    public function send_update_quote_email($quote_id)
+    {
+        try
+        {
+            global $wpdb;
+            $table_name = $wpdb->prefix . 'custom_order_quote';
+
+            $quote_id = (int) $quote_id;
+            if ( ! $quote_id ) {
+                return false;
+            }
+
+            $_quote = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE quote_id = %d LIMIT 1", $quote_id ) );
+            if ( ! $_quote )
+                return false;
+
+
+            return true;
+        }
+        catch (Exception $e)
+        {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            return false;
+        }
+
+    }
+
+
 
 }
