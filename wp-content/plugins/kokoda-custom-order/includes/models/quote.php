@@ -405,11 +405,12 @@ class Quote
             );
 
             $header = array("Kokoda Sale");
-
+            $from = 'Kokoda Caravan Website';
             return $email = WP_Mail::init()
                 ->to( $receiver)
                 ->subject($subject)
                 ->headers($header)
+                ->from($from)
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_email.php',
                     ['_quote' => $_quote]
                 )
