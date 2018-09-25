@@ -1,19 +1,3 @@
-<?php
-?>
-
-<h3>You have a new contact from quote enquirey</h3>
-
-<p>
-    <strong>Name: </strong> <?= $_quote->customer_name; ?>
-</p>
-
-<p>
-    <strong>Email:</strong>
-    <a href="mailto:<?= $_quote->customer_email ?>"><?= $_quote->customer_email; ?></a>
-</p>
-
-
-
 
 <!DOCTYPE html>
 <html>
@@ -117,20 +101,12 @@
 </head>
 <body style="margin: 0 !important; padding: 0 !important;">
 
-<!-- HIDDEN PREHEADER TEXT -->
-<div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-    Entice the open with some amazing preheader text. Use a little mystery and get those subscribers to read through...
-</div>
 
 <!-- HEADER -->
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="#ffffff" align="center">
-            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                    <td align="center" valign="top" width="500">
-            <![endif]-->
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                 <tr>
                     <td align="center" valign="top" style="padding: 15px 0;" class="logo">
@@ -140,50 +116,31 @@
                     </td>
                 </tr>
             </table>
-            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
+
         </td>
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;">
-            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                    <td align="center" valign="top" width="500">
-            <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
                 <tr>
                     <td>
                         <!-- COPY -->
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">You got a quote from customer!!!</td>
+                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Dear <?php echo $_quote->dealer_name; ?>,You got a quote</td>
                             </tr>
                             <tr>
                                 <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-                                   The customer detail, contact and their request details for customized caravan with accessories  </td>
+                                   Here is the customer name, contact detail and their request for customized caravan with accessories  </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
             </table>
-            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
         </td>
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
-            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                    <td align="center" valign="top" width="500">
-            <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
 
 
@@ -377,20 +334,10 @@
                     </td>
                 </tr>
             </table>
-            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
         </td>
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;">
-            <!--[if (gte mso 9)|(IE)]>
-            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                <tr>
-                    <td align="center" valign="top" width="500">
-            <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
                 <tr>
                     <td>
@@ -409,11 +356,6 @@
                     </td>
                 </tr>
             </table>
-            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
         </td>
     </tr>
     <tr>
@@ -424,10 +366,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <!-- COPY -->
-                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">How did we do?</td>
-                            </tr>
-                            <tr>
-                                <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
+                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">What should we do next?</td>
                             </tr>
                             <tr>
                                 <td align="center">
@@ -437,7 +376,7 @@
                                             <td align="center" style="padding-top: 25px;" class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Let Us Know</a></td>
+                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="<?= $_quote->customer_email; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Contact To Customer</a></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -449,11 +388,6 @@
                     </td>
                 </tr>
             </table>
-            <!--[if (gte mso 9)|(IE)]>
-            </td>
-            </tr>
-            </table>
-            <![endif]-->
         </td>
     </tr>
     <tr>
