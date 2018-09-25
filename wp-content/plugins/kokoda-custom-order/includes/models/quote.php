@@ -442,7 +442,7 @@ class Quote
             require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
 
 
-            $subject = "New Quote #" . $_quote->quote_id . " is created";
+            $subject = "Your Kokoda Caravan Quote is submit sucessfully";
 
 
             $receiver = array(

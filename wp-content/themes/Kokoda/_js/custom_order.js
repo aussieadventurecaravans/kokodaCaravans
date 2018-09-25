@@ -557,7 +557,8 @@ jQuery(function($) {
             //render the list of accessories customer choose
             var el = '';
             var accessories = custom_order.accessories;
-            if (accessories.length > 0) {
+            if (accessories.length > 0)
+            {
                 el += '<h2 style="text-align: center;font-size: 40px">+</h2>';
                 el += '<div class="header-wrapper">';
                 el += '<h2>Add-on Accessories</h2>';
@@ -571,8 +572,10 @@ jQuery(function($) {
                     el += '</div></div>';
                 }
                 el += '</div>';
-                $(".tabcontent#summary .display-accessories-wrapper").html(el);
+
             }
+
+            $(".tabcontent#summary .display-accessories-wrapper").html(el);
 
             //render the caravan image with custom options
             var options = custom_order.caravan_options;
