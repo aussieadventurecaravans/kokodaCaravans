@@ -393,8 +393,10 @@ class Quote
     {
         try
         {
-            global $wpdb;
-            $table_name = $wpdb->prefix . 'custom_order_quote';
+            require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
+
+
+            $subject = "New Quote #" . $_quote->quote_id . " is created";
 
 
             $receiver = array(
@@ -402,11 +404,25 @@ class Quote
                 get_option('admin_email')
             );
 
-            $subject = "New Quote #" . $_quote->quote_id . " is created";
+            $header = Array("Kokoda Sale");
+
+            $email = WP_Mail::init()
+                ->to( $receiver)
+                ->subject($subject)
+                ->headers($header)
+                ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_email.php',
+                    [
+                    'customer_name' => $_quote->customer_name,
+                    'quote' => $_quote
+                    ]
+                )
+                ->send();
+
 
             $message = 'Test Email Message';
 
-            return wp_mail( $receiver, $subject, $message );
+
+            //return wp_mail( $receiver, $subject, $message, $header );
 
         }
         catch (Exception $e)
