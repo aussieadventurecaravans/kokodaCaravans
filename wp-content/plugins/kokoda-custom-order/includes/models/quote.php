@@ -406,23 +406,17 @@ class Quote
 
             $header = Array("Kokoda Sale");
 
-            $email = WP_Mail::init()
+            return $email = WP_Mail::init()
                 ->to( $receiver)
                 ->subject($subject)
                 ->headers($header)
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_email.php',
                     [
                     'customer_name' => $_quote->customer_name,
-                    'quote' => $_quote
+                    '_quote' => $_quote
                     ]
                 )
                 ->send();
-
-
-            $message = 'Test Email Message';
-
-
-            //return wp_mail( $receiver, $subject, $message, $header );
 
         }
         catch (Exception $e)
