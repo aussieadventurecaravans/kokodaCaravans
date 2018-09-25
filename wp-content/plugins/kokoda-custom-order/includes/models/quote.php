@@ -404,17 +404,14 @@ class Quote
                 get_option('admin_email')
             );
 
-            $header = Array("Kokoda Sale");
+            $header = array("Kokoda Sale");
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
                 ->subject($subject)
                 ->headers($header)
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_email.php',
-                    [
-                    'customer_name' => $_quote->customer_name,
-                    '_quote' => $_quote
-                    ]
+                    ['_quote' => $_quote]
                 )
                 ->send();
 
