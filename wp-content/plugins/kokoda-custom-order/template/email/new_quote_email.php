@@ -134,8 +134,8 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                 <tr>
                     <td align="center" valign="top" style="padding: 15px 0;" class="logo">
-                        <a href="http://litmus.com" target="_blank">
-                            <img alt="Logo" src="<?php echo plugins_url ('kokoda-custom-order/template/email/kokoda_logo.png'); ?>" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                        <a href="https://www.kokodacaravans.com.au" target="_blank">
+                            <img alt="Logo" src="<?php echo plugins_url ('kokoda-custom-order/template/email/kokoda_logo.png'); ?>" width="250" height="121" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
                 </tr>
