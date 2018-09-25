@@ -450,7 +450,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style-="border-bottom: 1px solid #eaeaea;">
+                    <td style="border-bottom: 1px solid #eaeaea;">
                         <!-- ONE COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>

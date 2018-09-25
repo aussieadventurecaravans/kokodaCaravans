@@ -149,8 +149,8 @@ class Quote
                 return false;
 
 
-            self::send_new_quote_email($_quote);
-
+            self::send_new_quote_email_to_dealer($_quote);
+            self::send_new_quote_email_to_customer($_quote);
 
             return new Quote( $_quote );
         }
@@ -389,7 +389,7 @@ class Quote
      * @param Quote Quote ID.
      * @return boolean true or false.
      */
-    public static function send_new_quote_email($_quote)
+    public static function send_new_quote_email_to_dealer($_quote)
     {
         try
         {
@@ -411,7 +411,7 @@ class Quote
                 ->to( $receiver)
                 ->subject($subject)
                 ->headers($header)
-                ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_email.php',
+                ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_dealer_email.php',
                     ['_quote' => $_quote]
                 )
                 ->send();
@@ -424,6 +424,52 @@ class Quote
         }
 
     }
+
+
+
+    /**
+     * send new quote email to dealers/admin.
+     *
+     * @global wpdb $wpdb WordPress database abstraction object.
+     *
+     * @param Quote Quote ID.
+     * @return boolean true or false.
+     */
+    public static function send_new_quote_email_to_customer($_quote)
+    {
+        try
+        {
+            require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
+
+
+            $subject = "New Quote #" . $_quote->quote_id . " is created";
+
+
+            $receiver = array(
+                $_quote->customer_email
+            );
+
+            $header = array("Kokoda Sale");
+
+
+            return $email = WP_Mail::init()
+                ->to( $receiver)
+                ->subject($subject)
+                ->headers($header)
+                ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_customer_email.php',
+                    ['_quote' => $_quote]
+                )
+                ->send();
+
+        }
+        catch (Exception $e)
+        {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            return false;
+        }
+
+    }
+
 
 
     /**
