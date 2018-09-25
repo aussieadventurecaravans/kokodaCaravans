@@ -350,7 +350,7 @@
                         $custom_options = unserialize($_quote->custom_options);
                 ?>
                 <tr>
-                    <td>
+                    <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
                         <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -450,7 +450,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style-="border-bottom: 1px solid #eaeaea;">
                         <!-- ONE COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -462,9 +462,11 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
+                                                            <p>
                                                                 <?php foreach($add_on_options as $option): ?>
-                                                                           <p> <?php echo $option['accessory_label']; ?>  </p>
+                                                                           <?php echo $option['accessory_label']; ?> <br/>
                                                                 <?php endforeach; ?>
+                                                            </p>
                                                         </td>
                                                     </tr>
                                                 </table>
