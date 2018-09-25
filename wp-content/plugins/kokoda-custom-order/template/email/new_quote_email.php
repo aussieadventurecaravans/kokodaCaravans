@@ -124,6 +124,11 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
                 <tr>
                     <td>
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                            <tr>
+                                <td align="center" valign="top" width="500">
+                        <![endif]-->
                         <!-- COPY -->
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
@@ -134,6 +139,11 @@
                                    Here is the customer name, contact detail and their request for customized caravan with accessories  </td>
                             </tr>
                         </table>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
                     </td>
                 </tr>
             </table>
@@ -141,16 +151,19 @@
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;" class="padding">
+            <!-- TWO COLUMNS -->
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                <tr>
+                    <td align="center" valign="top" width="500">
+            <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
-
-
                 <tr >
                     <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
-                        <!-- TWO COLUMNS -->
+                        <!-- LEFT COLUMN -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
                                 <td valign="top" class="mobile-wrapper">
-                                    <!-- LEFT COLUMN -->
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;" align="left">
                                         <tr>
                                             <td style="padding: 0 0 10px 0;">
@@ -169,13 +182,13 @@
                         </table>
                     </td>
                 </tr>
-
                 <tr>
                     <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;">
                         <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
                                 <td valign="top" class="mobile-wrapper">
+
                                     <!-- LEFT COLUMN -->
                                     <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
                                         <tr>
@@ -334,10 +347,20 @@
                     </td>
                 </tr>
             </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
         </td>
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                <tr>
+                    <td align="center" valign="top" width="500">
+            <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
                 <tr>
                     <td>
@@ -356,10 +379,20 @@
                     </td>
                 </tr>
             </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
         </td>
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                <tr>
+                    <td align="center" valign="top" width="500">
+            <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="500" class="responsive-table">
                 <tr>
                     <td>
@@ -388,10 +421,20 @@
                     </td>
                 </tr>
             </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
         </td>
     </tr>
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 20px 0px;">
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
+                <tr>
+                    <td align="center" valign="top" width="500">
+            <![endif]-->
             <!-- UNSUBSCRIBE COPY -->
             <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
                 <tr>
@@ -401,6 +444,11 @@
                     </td>
                 </tr>
             </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
         </td>
     </tr>
 </table>
