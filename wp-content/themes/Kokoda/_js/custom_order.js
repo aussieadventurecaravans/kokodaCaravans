@@ -467,9 +467,12 @@ jQuery(function($) {
                     $('#enquiry input#submit_order').attr('value', 'Loading....');
                     $('#enquiry .apply-finance-company #apply_button').attr("disabled", true);
                     $('#enquiry .apply-finance-company #back_button').attr("disabled", true);
+                    $('#loading-icon-panel').show();
 
                 },
-                success: function (data) {
+                success: function (data)
+                {
+                    $('#loading-icon-panel').hide();
                     if (data == true) {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
                         $('#enquiry input#submit_order').attr('value', 'Complete');
@@ -558,12 +561,12 @@ jQuery(function($) {
                 data: data,
                 type: "POST",
                 beforeSend: function () {
-
+                    $('#loading-icon-panel').show();
 
                 },
                 success: function (data) {
                     $(".tabcontent#summary .display-features-wrapper").html(data);
-
+                    $('#loading-icon-panel').hide();
                 }
             });
 
@@ -723,13 +726,13 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function () {
-
-
+                beforeSend: function() {
+                    $('#loading-icon-panel').show();
                 },
                 success: function (data) {
                     var base64string = data;
-                    printPdfFile(base64ToArrayBuffer(base64string), 'quote_summary.pdf', 'application/pdf')
+                    printPdfFile(base64ToArrayBuffer(base64string), 'quote_summary.pdf', 'application/pdf');
+                    $('#loading-icon-panel').hide();
                 }
             });
         }
@@ -750,12 +753,13 @@ jQuery(function($) {
                 data: data,
                 type: "POST",
                 beforeSend: function () {
-
+                    $('#loading-icon-panel').show();
 
                 },
                 success: function (data) {
                     var base64string = data;
-                    exportPdfFile(base64ToArrayBuffer(base64string), 'quote_summary.pdf', 'application/pdf')
+                    exportPdfFile(base64ToArrayBuffer(base64string), 'quote_summary.pdf', 'application/pdf');
+                    $('#loading-icon-panel').hide();
                 }
             });
         }
