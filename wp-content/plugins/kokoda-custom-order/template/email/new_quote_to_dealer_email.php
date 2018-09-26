@@ -324,7 +324,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
+                    <td style="padding: 10px 0 0px 0; border-top: 1px dashed #aaaaaa; border-bottom: 1px dashed #aaaaaa;">
                         <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -427,7 +427,7 @@
                 ?>
 
                 <tr>
-                    <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
+                    <td style="padding: 30px 0 0px 0; border-top:1px dashed #aaaaaa; border-bottom: 1px dashed #aaaaaa;">
                         <!-- ONE COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -450,7 +450,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-bottom: 1px solid #eaeaea;">
+                    <td style="border-bottom: 1px dashed #aaaaaa;">
                         <!-- ONE COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>

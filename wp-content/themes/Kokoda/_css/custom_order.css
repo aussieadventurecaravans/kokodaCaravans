@@ -1,0 +1,566 @@
+
+/** CUSTOMIZE THE QUOTE ORDER FORM **/
+.page-template-custom-order-template .banner-wrap
+{
+    top:20px;
+    height: 150px;
+    background-color: #1a1a1a;
+}
+
+
+
+.custom-quote-section
+{
+    display: block;
+    padding-top: 60px;
+    position: relative;
+    padding-bottom: 60px;
+}
+.custom-quote-section  .option-select-header-section.row,
+.custom-quote-section  .option-select-value-section.row{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+.custom-quote-section .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #fff;
+}
+
+@media only screen and (min-width: 768px)
+{
+    .custom-quote-section .cd-breadcrumb.triangle {
+        background-color: transparent;
+        padding: 0;
+        float: left;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .custom-quote-section .cd-breadcrumb.triangle li
+    {
+        position: relative;
+        padding: 0;
+        margin: 4px 4px 4px 0;
+        max-width: 16%;
+        width: 100%;
+    }
+    .custom-quote-section .cd-breadcrumb.triangle li > *
+    {
+        position: relative;
+        padding: 1em .8em 1em 2.5em;
+        color: #2c3f4c;
+        background-color: #edeff0;
+        border-color: #edeff0;
+        width: 100%;
+        font-size: 17px;
+        cursor: default;
+    }
+    .custom-quote-section .cd-breadcrumb.triangle li.next > *
+    {
+        background-color: #edeff0;
+        border-color: #edeff0;
+        cursor: pointer;
+    }
+    .custom-quote-section .cd-breadcrumb.triangle li.complete > *
+    {
+        background-color: #d5d6d6;
+        border-color: #d5d6d6;
+        cursor: pointer;
+    }
+
+    .custom-quote-section .cd-breadcrumb.triangle li.current > * {
+        color: #ffffff;
+        background-color: #4d617f;
+        border-color: #4d617f;
+    }
+
+
+    .cd-breadcrumb.triangle li::after, .cd-breadcrumb.triangle li > *::after
+    {
+        border: 29px solid transparent;
+    }
+
+}
+
+@media only screen and (max-width: 991px)
+{
+    .custom-quote-section .cd-breadcrumb.triangle li > *
+    {
+        font-size: 15px;
+        padding: 18px 0 18px 26px;
+    }
+}
+
+.custom-quote-section .option-select-value-section .tab-header {
+    padding-bottom: 9px;
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.custom-quote-section .option-select-value-section  #models .model-list
+{
+    margin:0 0 20px 0;
+}
+
+.custom-quote-section .option-select-value-section  #models .item
+{
+    border: 1px solid #eff1f1;
+    opacity: 1;
+    transition-delay: 0ms;
+    transition: opacity .4s;
+    padding: 0;
+    cursor:pointer;
+}
+.custom-quote-section .option-select-value-section  #models .item.selected,
+.custom-quote-section .option-select-value-section  #models .item:hover
+{
+    background-color: #edeff0;
+}
+.custom-quote-section .option-select-value-section  #models .item:hover .item-img img
+{
+    opacity: 0.7;
+}
+.custom-quote-section .option-select-value-section  #models .item-img img
+{
+    width:100%
+}
+.custom-quote-section .option-select-value-section #models .item-details
+{
+    text-align: center;
+    padding: 15px 0;
+    color: #1a1a1a;
+}
+.custom-quote-section .option-select-value-section #models .item-details .details .product-meta span
+{
+    height: 23px;
+    line-height: 23px;
+    background-size: 18px auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 15px;
+}
+.custom-quote-section .option-select-value-section #models .item-details .details .product-meta .size
+{
+    background-image: url(_img/ico-size@2x-black.png);
+    background-position: 0 5px;
+    padding-left: 23px;
+    padding-top: 4px;
+}
+.custom-quote-section .option-select-value-section #models .item-details .details .product-meta .occupants
+{
+    background-image: url(_img/ico-occupants@2x-black.png);
+    background-position: 0 5px;
+    padding-left: 30px;
+    padding-top: 4px;
+}
+.custom-quote-section .option-select-value-section  #models .item-details .details
+{
+    padding: 0 20px 0;
+    text-align: center;
+    min-height: 230px;
+}
+.custom-quote-section .option-select-value-section  #models .item-details h3
+{
+    display: inline-block;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+    text-transform: uppercase;
+    padding: 5px 0;
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+
+.custom-quote-section .option-select-value-section #models .item-details .details .product-meta
+{
+    margin: 15px 0;
+}
+
+.custom-quote-section .option-select-value-section #exterior .option-select-image-section
+{
+    padding-bottom: 9px;
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
+    min-height: 350px;
+}
+@media screen and (max-width: 767px)
+{
+    .custom-quote-section .option-select-value-section #exterior .option-select-image-section
+    {
+        min-height: 250px;
+    }
+}
+.custom-quote-section .option-select-value-section #exterior .custom-options-form
+{
+    margin: 20px 0 20px;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose
+{
+    width: 100%;
+    margin: 15px 0;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value]
+{
+    width: 80px;
+    height: 80px;
+    margin: 0 15px 15px 0;
+    cursor: pointer;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li:first-child
+{
+    border-radius: unset;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=black]{
+
+    background: #000;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=silver]{
+
+    background: #f4f4f4;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=red]{
+
+    background: #ff0000;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=blue]{
+
+    background: #2da6e1;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=charcoal]{
+
+    background: #36454F;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=green]{
+
+    background: #b7ee2f;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=orange]{
+
+    background: #FFA500;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=pink]{
+
+    background: #cf4985;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=purple]{
+
+    background: #9e63c8;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=white]{
+
+    background: #ffffff;
+    border:1px solid #000;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=yellow]{
+
+    background: #FFFF00;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li.selected{
+    border: 5px solid #0090ff;
+}
+
+.custom-quote-section .option-select-value-section #floorplan .floorplan-list {
+    margin: 0;
+}
+.custom-quote-section .option-select-value-section #floorplan .option-select-image-section
+{
+    margin-bottom: 50px;
+}
+.custom-quote-section .option-select-value-section #floorplan .item {
+    cursor: pointer;
+}
+.custom-quote-section .option-select-value-section #floorplan .item.selected,
+.custom-quote-section .option-select-value-section #floorplan .item:hover {
+    background-color: #eef1f1;
+    color: #4d607e;
+}
+.custom-quote-section .option-select-value-section #floorplan .item-details {
+    text-align: center;
+    padding: 0;
+}
+.custom-quote-section .option-select-value-section #floorplan .item-details h3 {
+    display: inline-block;
+    text-transform: uppercase;
+    padding:0;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #0c121c;
+}
+.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert
+{
+    display:none;
+}
+.custom-quote-section .tabcontent button.btn-next,
+.custom-quote-section .tabcontent button.btn-pre,
+.custom-quote-section .tabcontent button.btn-back
+{
+    margin-top: 15px;
+    width: 120px;
+}
+.custom-quote-section .tabcontent input.btn#submit_order
+{
+    margin-top: 15px;
+    width: 120px;
+}
+
+fieldset.finance-section {
+    border: 1px solid #d5d6d6 !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #d5d6d6;
+}
+
+@media only screen and (max-width: 991px)
+{
+    fieldset.finance-section
+    {
+        display:none;
+    }
+}
+
+fieldset.finance-section  legend.finance-header {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width:auto;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+fieldset.finance-section .loan-detail-section
+{
+    border: 1px solid #d5d6d6 !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #d5d6d6;
+    border-radius: 8px;
+}
+fieldset.finance-section .loan-detail-section legend.loan-section-header {
+    border-bottom: none;
+    width: auto;
+    padding: 0 10px;
+    font-weight: 400;
+}
+
+
+fieldset.finance-section .loan-detail-section .monthly-payment-sec
+{
+    margin: 20px 0 20px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+fieldset.finance-section .cash-summary h2.total-price
+{
+    margin: 20px 0 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+fieldset.finance-section .cash-summary p.add-on-price-label,
+fieldset.finance-section .cash-summary p.primary-price-label
+{
+    font-weight: 100;
+    font-size: 15px;
+}
+fieldset.finance-section .loan-summary input.drive-away-price
+{
+    letter-spacing: 2px;
+}
+fieldset.finance-section .loan-summary input.drive-away-price::first-letter
+{
+    content:"$";
+}
+
+.apply-finance-company .panel-body .outside
+{
+    background: #f7f7f7;
+    cursor: pointer;
+    height: 62px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.apply-finance-company .panel-body .outside.active {
+
+    background: #337ab7;
+    border: 1px solid #337ab7;
+}
+
+.apply-finance-company .panel-body .outside .inside
+{
+    background: #f7f7f7;
+    color: #000;
+    font-size: 16px;
+    height: 56px;
+    text-align: center;
+    line-height: 56px;
+    padding: 0;
+    position: relative;
+    top: 2px;
+    margin: 0 2px;
+}
+
+.apply-finance-company .panel-body .outside .inside span
+{
+    display: inline-block;
+    line-height: normal;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.apply-finance-company .panel-body #apply_button,
+.apply-finance-company .panel-body #back_button
+{
+    margin-top: 25px;
+}
+.tabcontent#summary .tab-header .btn-download
+{
+    color: #0c121c;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    position: absolute;
+    right: 122px;
+    top: 18px;
+    text-transform: capitalize;
+}
+.tabcontent#summary .tab-header .btn-print
+{
+    color: #0c121c;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    position: absolute;
+    right: 30px;
+    top: 18px;
+    text-transform: capitalize;
+}
+.tabcontent#summary .tab-header .btn-download:focus,
+.tabcontent#summary .tab-header .btn-print:focus,
+.tabcontent#summary .tab-header .btn-print:active,
+.tabcontent#summary .tab-header .btn-download:active
+{
+    box-shadow: none;
+    outline: none;
+}
+.tabcontent#summary .tab-header .btn-download span:before{
+    content:"\e933"
+}
+.tabcontent#summary .tab-header .btn-print span:before{
+    content:"\e954";
+}
+.tabcontent#summary .display-image-wrapper,
+.tabcontent#summary  .display-features-wrapper
+{
+    margin: 20px 0 20px;
+}
+.tabcontent#summary .display-accessories-wrapper
+{
+    margin: 20px 0 20px;
+    padding: 0;
+}
+.tabcontent#summary .display-image-wrapper .header-wrapper h2
+{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 60px;
+}
+.tabcontent#summary .display-accessories-wrapper .header-wrapper h2
+{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.tabcontent#summary .display-accessories-wrapper .item
+{
+    border: 5px solid #fff;
+    display: inline-block;
+    max-width: 35%;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail
+{
+    padding: 0;
+}
+.tabcontent#summary .display-accessories-wrapper .item.selected .item-detail
+{
+    border:2px solid #337ab7;
+    padding: 0 23px;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail p
+{
+    text-align: center;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail h3
+{
+    text-align: center;
+}
+.tabcontent#summary .display-accessories-wrapper .item .item-detail img
+{
+    width: 100%;
+}
+
+
+.tabcontent#accessories .accessories-list
+{
+    margin: 20px 0 20px;
+    padding: 40px 0;
+}
+
+.tabcontent#accessories .accessories-list .item
+{
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+    border: 5px solid #fff;
+}
+.tabcontent#accessories .accessories-list .item .item-detail
+{
+    border:2px solid #d5d6d6;
+    padding: 0;
+}
+.tabcontent#accessories .accessories-list .item.selected .item-detail
+{
+    border:3px solid #4d607e;
+    padding: 0;
+}
+.tabcontent#accessories .accessories-list .item .item-detail .icon-moon
+{
+    color: #337ab7;
+    right: 15px;
+    top: 15px;
+    position: absolute;
+    font-size: 20px;
+}
+.tabcontent#accessories .accessories-list .item.selected .item-detail .icon-moon
+{
+    color: #70bf00;
+    font-size: 24px;
+}
+
+.tabcontent#accessories .accessories-list .item .item-detail .icon-moon:before
+{
+    content:"\ea0a";
+}
+
+.tabcontent#accessories .accessories-list .item.selected .item-detail .icon-moon:before
+{
+    content:"\ea10";
+}
+
+.tabcontent#accessories .accessories-list .item .item-detail p{
+    text-align: center;
+}
+.tabcontent#accessories .accessories-list .item .item-detail h3{
+    text-align: center;
+}
+.tabcontent#accessories .accessories-list .item .item-detail img
+{
+    width: 100%;
+}

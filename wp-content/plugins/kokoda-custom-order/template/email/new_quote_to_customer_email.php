@@ -159,8 +159,7 @@
             <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="responsive-table">
                 <tr >
-                    <td style="padding: 10px 0 0px 0; border-bottom: 1px dashed #aaaaaa;">
-                        <!-- LEFT COLUMN -->
+                    <td style="padding: 0px; border-bottom: 1px dashed #aaaaaa;">
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
                                 <td valign="top" class="mobile-wrapper">
@@ -324,12 +323,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
-                        <!-- TWO COLUMNS -->
+                    <td style="padding: 30px 0 0px 0; border-top: 1px dashed #aaaaaa; border-bottom: 1px dashed #aaaaaa;">
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
                                 <td valign="top" class="mobile-wrapper">
-                                    <!-- LEFT COLUMN -->
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%;" align="left">
                                         <tr>
                                             <td style="padding: 0 0 10px 0;">
@@ -427,7 +424,7 @@
                 ?>
 
                 <tr>
-                    <td style="padding: 10px 0 0px 0; border-top: 1px solid #eaeaea; border-bottom: 1px dashed #aaaaaa;">
+                    <td style="padding: 30px 0 0px 0; border-top: 1px dashed #aaaaaa; border-bottom: 1px dashed #aaaaaa;">
                         <!-- ONE COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -450,21 +447,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-bottom: 1px solid #eaeaea;">
+                    <td style="border-bottom: 1px dashed #aaaaaa;">
                         <!-- ONE COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
                                 <td valign="top" style="padding: 0;" class="mobile-wrapper">
-                                    <!-- LEFT COLUMN -->
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%;" align="left">
                                         <tr>
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
-                                                            <p>
+                                                            <p style="margin:10px 0;">
                                                                 <?php foreach($add_on_options as $option): ?>
-                                                                           <?php echo $option['accessory_label']; ?> <br/>
+                                                                           <?php echo $option['accessory_label']; ?> <br/><br/>
                                                                 <?php endforeach; ?>
                                                             </p>
                                                         </td>
@@ -526,7 +522,6 @@
         </td>
     </tr>
 
-
     <tr>
         <td bgcolor="#ffffff" align="center" style="padding: 15px;">
             <!--[if (gte mso 9)|(IE)]>
@@ -543,34 +538,41 @@
                             </tr>
                             <tr>
                                 <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-                                   Our dealer <?php echo preg_replace('/[^A-Za-z0-9\-]/', '', $_quote->dealer_name); ?>  will contact to you shortly by email or phone which your prefer. Our dealers will discuss and give you more details for next process.
+                                   Our dealer at <?php echo $_quote->dealer_name; ?>  will contact to you shortly by email or phone which your prefer. Our dealers will discuss and give you more details for next process.
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center">
-                                    <!-- BULLETPROOF BUTTON -->
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <td>
+                                    <!-- TWO COLUMNS -->
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                         <tr>
-                                            <td align="center" style="padding-top: 25px;" class="padding">
-                                                <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
+                                            <td valign="top" style="padding: 0;" class="mobile-wrapper">
+                                                <!-- LEFT COLUMN -->
+                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
                                                     <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="mailto:<?php echo $_quote->dealer_email; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Email Dealer</a></td>
+                                                        <td style="padding: 0 0 10px 0;">
+                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                <tr>
+                                                                    <td align="center" style="border-radius: 3px;" bgcolor="#256F9C">
+                                                                        <a href="mailto:<?php echo $_quote->dealer_email; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Email Dealer</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
                                                     </tr>
                                                 </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center">
-                                    <!-- BULLETPROOF BUTTON -->
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td align="center" style="padding-top: 25px;" class="padding">
-                                                <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
+                                                <!-- RIGHT COLUMN -->
+                                                <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
                                                     <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="tel:+61<?php echo $_quote->dealer_phone; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Call Dealer</a></td>
+                                                        <td style="padding: 0 0 10px 0;">
+                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                <tr>
+                                                                    <td align="center" style="border-radius: 3px;" bgcolor="#256F9C">
+                                                                        <a href="tel:+61<?php echo $_quote->dealer_phone; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Call Dealer</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </td>

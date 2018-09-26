@@ -595,9 +595,11 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var $base_url = '<?php echo $uploads['baseurl']; ?>';
     var $site_url = '<?php echo site_url() ?>';
 </script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css'?>" >
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js'?>"></script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css'?>" >
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css'?>" >
+
 <?php
 get_footer();
 ?>
