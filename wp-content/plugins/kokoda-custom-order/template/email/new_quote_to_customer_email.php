@@ -568,7 +568,7 @@
                                                             <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                                 <tr>
                                                                     <td align="center" style="border-radius: 3px;" bgcolor="#256F9C">
-                                                                        <a href="tel:+61<?php echo $_quote->dealer_phone; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Call Dealer</a>
+                                                                        <a href="tel:<?php echo $_quote->dealer_phone; ?>"  style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Call <?php echo $_quote->dealer_phone; ?></a>
                                                                     </td>
                                                                 </tr>
                                                             </table>
