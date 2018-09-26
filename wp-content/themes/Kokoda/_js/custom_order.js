@@ -60,6 +60,16 @@ jQuery(function($) {
             renderCustomOptions($(this).attr('tab-content'));
             renderDisplayImageWrapper($(this).attr('tab-content'));
 
+            if($(this).attr('tab-content') != 'models' && $(this).attr('tab-content') != 'summary'  && $(this).attr('tab-content') != 'enquiry')
+            {
+                $('.custom-quote-section  .display-model-section.row .model-header').html('Model:' + caravan_title[select_model_id])
+                $('.custom-quote-section  .display-model-section.row .model-header').show();
+            }
+            else
+            {
+                 $('.custom-quote-section  .display-model-section.row .model-header').hide();
+            }
+
         });
 
 
@@ -347,7 +357,8 @@ jQuery(function($) {
 
         }
 
-        function exteriorRenderImageWrapper() {
+        function exteriorRenderImageWrapper()
+        {
             var options = custom_order.caravan_options;
             var image_name = 'default';
 
@@ -397,6 +408,8 @@ jQuery(function($) {
 
                     //resize the canvas to fit the browser size
                     var scale = containerWidth / chekerPlateImg.getWidth();
+
+                    $("#exterior-display-image-wrapper").height(chekerPlateImg.getHeight() * scale);
 
                     exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
                     exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);

@@ -1,14 +1,29 @@
 
 /** CUSTOMIZE THE QUOTE ORDER FORM **/
+@media only screen and (max-width: 767px)
+{
+    .page.page-template-custom-order-template .banner-wrap .banner .banner-content
+    {
+        left: 0;
+    }
+
+    .page.page-template-custom-order-template .banner-wrap .banner .banner-content h1
+    {
+        font-size: 24px;margin-bottom:0;
+    }
+}
+.page.page-template-custom-order-template .banner-wrap .banner h1
+{
+    font-size: 35px;
+    padding-left: 30px;
+}
+
 .page-template-custom-order-template .banner-wrap
 {
     top:20px;
     height: 150px;
     background-color: #1a1a1a;
 }
-
-
-
 .custom-quote-section
 {
     display: block;
@@ -17,7 +32,9 @@
     padding-bottom: 60px;
 }
 .custom-quote-section  .option-select-header-section.row,
-.custom-quote-section  .option-select-value-section.row{
+.custom-quote-section  .option-select-value-section.row,
+.custom-quote-section  .display-model-section.row
+{
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -91,6 +108,36 @@
     {
         font-size: 15px;
         padding: 18px 0 18px 26px;
+    }
+}
+@media only screen and (max-width: 767px)
+{
+    .custom-quote-section .cd-breadcrumb.triangle li > *
+    {
+        font-size: 15px;
+        padding: 8px 0 8px 5px;
+    }
+    .custom-quote-section .cd-breadcrumb.triangle li.current a
+    {
+        color: #337ab7;
+        font-weight: bolder;
+    }
+}
+
+.custom-quote-section  .display-model-section.row .model-header
+{
+    display: none;
+    margin-left: 14px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    font-size: 25px;
+}
+@media only screen and (max-width: 767px)
+{
+    .custom-quote-section  .display-model-section.row .model-header
+    {
+        margin-left: 15px;
     }
 }
 
@@ -256,12 +303,35 @@
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=yellow]{
 
-    background: #FFFF00;
+    background: #ebcd28;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li.selected{
     border: 5px solid #0090ff;
 }
 
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-wrapper
+{
+    padding-left: 10px;
+    padding-top:10px;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-item {
+    float: left;
+    max-width: 100px;
+    transition: all .2s ease-in-out;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-item:hover
+{
+    -ms-transform: scale(1.2,1.2); /* IE 9 */
+    -webkit-transform: scale(1.2,1.2); /* Safari */
+    transform: scale(1.2,1.2);
+}
+@media only screen and (max-width: 767px)
+{
+    .custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-item {
+        float: left;
+        margin: 0 5px;
+    }
+}
 .custom-quote-section .option-select-value-section #floorplan .floorplan-list {
     margin: 0;
 }
@@ -441,6 +511,9 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
     top: 18px;
     text-transform: capitalize;
 }
+
+
+
 .tabcontent#summary .tab-header .btn-download:focus,
 .tabcontent#summary .tab-header .btn-print:focus,
 .tabcontent#summary .tab-header .btn-print:active,
@@ -449,6 +522,21 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
     box-shadow: none;
     outline: none;
 }
+
+@media only screen and (max-width: 560px)
+{
+
+    .tabcontent#summary .tab-header .btn-print
+    {
+        display: none;
+    }
+    .tabcontent#summary .tab-header .btn-download
+    {
+        right:0;
+    }
+
+}
+
 .tabcontent#summary .tab-header .btn-download span:before{
     content:"\e933"
 }

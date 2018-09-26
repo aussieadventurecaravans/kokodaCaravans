@@ -157,7 +157,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
 
 <div class="banner-wrap">
-    <div class="banner container">
+    <div class="banner fluid-container">
         <div class="row">
             <div class="banner-content page-heading col-sm-12">
                 <h1>
@@ -182,6 +182,11 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <li><a href="#" class="tablinks"  tab-content="enquiry">Submit</a></li>
                     </ol>
                 </nav>
+            </div>
+        </div>
+        <div class="row display-model-section">
+            <div class="col-xs-12">
+                <h2 class="model-header">Model</h2>
             </div>
         </div>
         <div class="row option-select-value-section">
