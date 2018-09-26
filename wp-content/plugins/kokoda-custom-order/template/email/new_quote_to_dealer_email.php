@@ -385,7 +385,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="style="border-bottom: 1px dashed #aaaaaa;"">
                         <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -427,7 +427,7 @@
                 ?>
 
                 <tr>
-                    <td style="padding: 30px 0 0px 0; border-top:1px dashed #aaaaaa; border-bottom: 1px dashed #aaaaaa;">
+                    <td style="padding: 30px 0 0px 0; border-bottom: 1px dashed #aaaaaa;">
                         <!-- ONE COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -464,7 +464,7 @@
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
                                                             <p>
                                                                 <?php foreach($add_on_options as $option): ?>
-                                                                           <?php echo $option['accessory_label']; ?> <br/>
+                                                                           <?php echo '+ '. $option['accessory_label']; ?> <br/>
                                                                 <?php endforeach; ?>
                                                             </p>
                                                         </td>
