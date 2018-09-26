@@ -145,14 +145,14 @@
 }
 .custom-quote-section .option-select-value-section #models .item-details .details .product-meta .size
 {
-    background-image: url(_img/ico-size@2x-black.png);
+    background-image: url(../_img/ico-size@2x-black.png);
     background-position: 0 5px;
     padding-left: 23px;
     padding-top: 4px;
 }
 .custom-quote-section .option-select-value-section #models .item-details .details .product-meta .occupants
 {
-    background-image: url(_img/ico-occupants@2x-black.png);
+    background-image: url(../_img/ico-occupants@2x-black.png);
     background-position: 0 5px;
     padding-left: 30px;
     padding-top: 4px;
