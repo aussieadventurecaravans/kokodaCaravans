@@ -396,7 +396,7 @@ class Quote
             require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
 
 
-            $subject = "New Quote #" . $_quote->quote_id . " is created";
+            $subject = "You have new Quote #" . $_quote->quote_id ;
 
 
             $receiver = array(
@@ -404,13 +404,11 @@ class Quote
                 get_option('admin_email')
             );
 
-            $header = array("Kokoda Sale");
-
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
+                ->from("Kokoda Caravans Admin <" . get_option('admin_email') . ">" )
                 ->subject($subject)
-                ->headers($header)
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_dealer_email.php',
                     ['_quote' => $_quote]
                 )
@@ -441,22 +439,20 @@ class Quote
         {
             require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
 
-
-            $subject = "Your Kokoda Caravan Quote is submit sucessfully";
+            $subject = "Your quote is submited sucessfully";
 
 
             $receiver = array(
                 $_quote->customer_email
             );
 
-            $header = array("Kokoda Sale");
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
+                ->from("Kokoda Caravans Sale  <" . get_option('admin_email') . ">" )
                 ->subject($subject)
-                ->headers($header)
                 ->attach(array($pdf_file))
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_customer_email.php',
                     ['_quote' => $_quote]
@@ -522,20 +518,16 @@ class Quote
 
         try
         {
-            set_query_var('caravan_id', $_POST['custom_order']['caravan']);
-            set_query_var('custom_order', $_POST['custom_order']);
-
-            set_query_var('_quote', $_quote);
-
-            require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/email/attach/summary-report-template.php' );
-
-
             if (!file_exists(WP_CONTENT_DIR. '/uploads/custom_order/email_attach'))
             {
                 mkdir(WP_CONTENT_DIR. '/uploads/custom_order/email_attach', 0777, true);
             }
 
+            set_query_var('caravan_id', $_POST['custom_order']['caravan']);
+            set_query_var('custom_order', $_POST['custom_order']);
+            set_query_var('_quote', $_quote);
 
+            require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/email/attach/summary-report-template.php' );
 
             return WP_CONTENT_DIR. '/uploads/custom_order/email_attach/quote_summary_' . $_quote->quote_id .'.pdf';
 

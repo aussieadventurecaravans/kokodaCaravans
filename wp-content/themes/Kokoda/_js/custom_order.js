@@ -682,7 +682,7 @@ jQuery(function($) {
                     }
                 }
 
-                el += '<div class="item ' + sel + ' col-md-4" access-id="' + i + '" ><div class="item-detail">';
+                el += '<div class="item ' + sel + ' col-md-4 col-sm-5 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
                 el += '<span class="icon-moon"></span>'
                 el += '<img src="' + $base_url + '/custom_order/' + select_model_id + '/Accessories/' + accessories[i]['accessory_label'] + '.png" />';
                 el += '<h3>' + accessories[i]['accessory_label'] + '</h3>';
