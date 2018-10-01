@@ -16,7 +16,8 @@ jQuery(function($) {
         caravan: '',
         caravan_options: {},
         accessories: [],
-        floorplan: ''
+        floorplan: '',
+        caravan_image:''
     };
 
     jQuery(document).ready(function ($) {
@@ -449,6 +450,8 @@ jQuery(function($) {
             custom_order.product_price = Number(primary_prices[select_model_id]);
             custom_order.orc_price = 0;
 
+            custom_order.caravan_image = caravan_image;
+
             var data = {
                 'action': 'submit_customorder',
                 'custom_order': custom_order
@@ -660,7 +663,8 @@ jQuery(function($) {
         }
 
 
-        function accessories_section_update() {
+        function accessories_section_update()
+        {
             var accessories_wrapper = $(".tabcontent#accessories .accessories-list");
 
             var accessories = custom_accessories[select_model_id];

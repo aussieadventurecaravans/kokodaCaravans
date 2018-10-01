@@ -386,10 +386,10 @@ class Quote
      *
      * @global wpdb $wpdb WordPress database abstraction object.
      *
-     * @param Quote Quote ID.
+     * @param Object $_quote query row result.
      * @return boolean true or false.
      */
-    public static function send_new_quote_email_to_dealer($_quote)
+    public function send_new_quote_email_to_dealer($_quote)
     {
         try
         {
@@ -432,10 +432,10 @@ class Quote
      *
      * @global wpdb $wpdb WordPress database abstraction object.
      *
-     * @param Quote Quote ID.
+     * @param Object _quote query row result.
      * @return boolean true or false.
      */
-    public static function send_new_quote_email_to_customer($_quote)
+    public function send_new_quote_email_to_customer($_quote)
     {
         try
         {
@@ -451,11 +451,13 @@ class Quote
 
             $header = array("Kokoda Sale");
 
+            $pdf_file = self::generate_pdf_summary_file($_quote);
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
                 ->subject($subject)
                 ->headers($header)
+                ->attach(array($pdf_file))
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_customer_email.php',
                     ['_quote' => $_quote]
                 )
@@ -507,6 +509,43 @@ class Quote
 
     }
 
+
+    /**
+     * Genrate pdf quote summary file
+     *
+     *
+     * @param Object  query row result object.
+     * @return boolean true or false.
+     */
+    public function generate_pdf_summary_file($_quote)
+    {
+
+        try
+        {
+            set_query_var('caravan_id', $_POST['custom_order']['caravan']);
+            set_query_var('custom_order', $_POST['custom_order']);
+
+            set_query_var('_quote', $_quote);
+
+            require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/email/attach/summary-report-template.php' );
+
+
+            if (!file_exists(WP_CONTENT_DIR. '/uploads/custom_order/email_attach'))
+            {
+                mkdir(WP_CONTENT_DIR. '/uploads/custom_order/email_attach', 0777, true);
+            }
+
+
+
+            return WP_CONTENT_DIR. '/uploads/custom_order/email_attach/quote_summary_' . $_quote->quote_id .'.pdf';
+
+        }
+        catch (Exception $e)
+        {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            return false;
+        }
+    }
 
 
 }

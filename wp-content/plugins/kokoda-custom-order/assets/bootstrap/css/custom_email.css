@@ -1,0 +1,162 @@
+.tab-header
+{
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
+    font-family: 'Rubik', sans-serif;
+}
+.tab-header h3
+{
+    font-size: 16px;
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+
+.header-wrapper
+{
+    margin:0;
+}
+.header-wrapper h2
+{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-top:  10px;
+    font-family: 'Rubik', sans-serif;
+    text-transform: capitalize;
+}
+.floorplan-header h2
+{
+    margin-bottom: 0;
+}
+
+#summary-display-image-wrapper
+{
+    text-align: center;
+}
+#summary-display-image-wrapper img
+{
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    float: left;
+}
+.specifications-list-wrapper
+{
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.specifications-list-wrapper .spec-list
+{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.specifications-list-wrapper .spec-list .spec-section
+{
+    width: 48%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.specifications-list-wrapper .spec-list .spec-section h4
+{
+    color: #fff;
+    background-color: #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    margin-bottom: 4px;
+    margin-top: 0px;
+}
+
+.specifications-list-wrapper .spec-list .spec-section ul li
+{
+    padding-left: 8px;
+}
+
+.display-accessories-wrapper .item
+{
+    border: 5px solid #fff;
+    display: inline-block;
+    width: 30%;
+    float: left;
+}
+.display-accessories-wrapper .item img
+{
+    width: 100%;
+}
+
+.tech_specs .row .col-xs-6,
+.caravan_custom_options .row .col-xs-6
+{
+    width: 45%;
+}
+
+.caravan_custom_options,
+.tech_specs
+{
+    margin:0;padding:0;
+}
+
+.tech_specs .header-wrapper,
+.caravan_custom_options .header-wrapper
+{
+    border-bottom: 1px solid #000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tech_specs .header-wrapper h3,
+.caravan_custom_options .header-wrapper h3
+{
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.tech_specs .row,
+.caravan_custom_options .row
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top : 2px;
+    margin-bottom : 2px;
+}
+
+.tech_specs .row span,
+.caravan_custom_options .row span
+{
+    text-transform: capitalize;
+}
+
+.finance-wrapper .table thead th
+{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: bottom;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.finance-wrapper .table tbody td
+{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #ddd;
+}
+.finance-wrapper .table tbody .total-price-row .header-wrapper
+{
+    text-align: right;font-weight: bold;text-transform: uppercase;
+}
+
+.finance-wrapper .table tbody .total-price-row .price-wrapper
+{
+    text-align: left;
+}
