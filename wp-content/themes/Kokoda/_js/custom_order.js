@@ -454,8 +454,9 @@ jQuery(function($) {
 
             var data = {
                 'action': 'submit_customorder',
-                'custom_order': custom_order
-
+                'custom_order': custom_order,
+                'kokoda_wpnonce' : $('input[name="kokoda_wpnonce"]').val(),
+                '_wp_http_referer' :  $('input[name="_wp_http_referer"]').val()
             };
             var url = $site_url + "/wp-admin/admin-ajax.php";
             //loading the caravan detail before open panel
@@ -487,7 +488,7 @@ jQuery(function($) {
                     }
                     else {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-danger').show();
-                        $('#enquiry input#submit_order').attr('value', 'Submit Quote');
+                        $('#enquiry input#submit_order').attr('value', 'Submit');
                         $('#enquiry input#submit_order').removeAttr("disabled");
                         $('#enquiry .apply-finance-company #apply_button').removeAttr("disabled");
                         $('#enquiry .apply-finance-company #back_button').removeAttr("disabled");

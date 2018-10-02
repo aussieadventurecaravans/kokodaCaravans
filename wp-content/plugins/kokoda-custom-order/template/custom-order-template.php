@@ -351,6 +351,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <div class="col-md-12">
                             <form id="customer_details_form" class="form-horizontal" method="post">
                                 <fieldset>
+
+                                    <?php wp_nonce_field( 'submit_new_quote' ,'kokoda_wpnonce'); ?>
+
                                     <!-- Text input-->
                                     <div class="form-group">
                                         <label class="col-md-3 control-label" for="customer_name">Full Name</label>

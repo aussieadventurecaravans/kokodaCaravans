@@ -173,6 +173,14 @@ add_action('wp_ajax_nopriv_export_pdf', 'export_pdf');
 function submit_customorder()
 {
 
+    require_once( $_SERVER['DOCUMENT_ROOT'] . '/wp-load.php' );
+
+    if (! isset( $_POST['kokoda_wpnonce'] ) || ! wp_verify_nonce($_POST['kokoda_wpnonce'], 'submit_new_quote' ) )
+    {
+        echo false;
+        wp_die();
+    }
+
     $custom_order = $_POST['custom_order'];
 
     require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'includes/models/quote.php' );
@@ -196,7 +204,7 @@ function submit_customorder()
         echo 'Caught exception: ',  $e->getMessage(), "\n";
         echo false;
     }
-    die();
+    wp_die();
 }
 
 
@@ -207,7 +215,7 @@ function get_caravan()
         set_query_var('caravan_id', $_POST['caravan_id']);
         require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/caravan-specs-part.php' );
     }
-    die();
+    wp_die();
 }
 
 
@@ -220,6 +228,6 @@ function export_pdf()
         set_query_var('caravan_image', $_POST['caravan_image']);
         require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/summary-report-template.php' );
     }
-    die();
+    wp_die();
 }
 
