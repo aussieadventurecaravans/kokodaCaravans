@@ -110,7 +110,7 @@
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 500px;" class="wrapper">
                 <tr>
                     <td align="center" valign="top" style="padding: 15px 0;" class="logo">
-                        <a href="https://www.kokodacaravans.com.au" target="_blank">
+                        <a href="<?php echo get_home_url(); ?>" target="_blank">
                             <img alt="Logo" src="<?php echo plugins_url ('kokoda-custom-order/template/email/kokoda_logo.png'); ?>" width="250" height="121" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
@@ -242,7 +242,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><?php echo $_quote->customer_address . ', '. $_quote->customer_postcode . ', '.  $_quote->customer_state;  ?></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><?php echo $_quote->customer_address . ', '. $_quote->customer_postcode . ', ' .  strtoupper($_quote->customer_state) . ', ' . 'Australia';  ?></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -385,7 +385,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="style="border-bottom: 1px dashed #aaaaaa;"">
+                    <td style="border-bottom: 1px dashed #aaaaaa;"">
                         <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -462,11 +462,11 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
-                                                            <p>
-                                                                <?php foreach($add_on_options as $option): ?>
-                                                                           <?php echo '+ '. $option['accessory_label']; ?> <br/>
-                                                                <?php endforeach; ?>
-                                                            </p>
+                                                            <?php foreach($add_on_options as $option): ?>
+                                                                <p style="margin: 10px 0 0px;">
+                                                                    <?php echo '+ ' . $option['accessory_label']; ?>
+                                                                </p>
+                                                            <?php endforeach; ?>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -501,17 +501,21 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <!-- COPY -->
-                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">What should we do next?</td>
+                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">What Next?</td>
+                            </tr>
+                            <tr>
+                                <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
+                                    You can reply to customer and track your custom order equires via the custom order portal.
+                                </td>
                             </tr>
                             <tr>
                                 <td align="center">
-                                    <!-- BULLETPROOF BUTTON -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td align="center" style="padding-top: 25px;" class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="mailto:<?php echo $_quote->customer_email; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Email Customer</a></td>
+                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="mailto:<?php echo $_quote->customer_email; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Login Portal</a></td>
                                                     </tr>
                                                 </table>
                                             </td>
