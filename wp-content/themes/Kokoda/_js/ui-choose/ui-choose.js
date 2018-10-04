@@ -1,20 +1,20 @@
 /**
- * ui-choose通用选择插件
- * 基于jQuery
+ * ui-choose Universal selection plugin
+ * based on jQuery
  */
 ; + function($) {
     "use strict";
-    // 默认实例化配置
+    //Default instantiation configuration
     var defaults = {
         itemWidth: null,
         skin: '',
         multi: false,
         active: 'selected',
-        full: false, //是否采用flex布局，每个元素宽度相同
-        colNum: null, // 每行显示的个数
-        dataKey: 'ui-choose', //实例化后的data键值，方便后续通过data('ui-choose')取出；
-        change: null, //choose值改变时的回调；
-        click: null //choose元素点击时的回调，diabled时不发生。
+        full: false, //Whether to use the flex layout, each element has the same width
+        colNum: null, //Number of lines displayed per line
+        dataKey: 'ui-choose', //Instantiated data key value for easy follow-up data('ui-choose') take out ；
+        change: null, //choose Callback when the value changes；
+        click: null //choose Callback when the element is clicked，diabled Does not happen。
     };
     /**
      * ui-choose插件
@@ -22,23 +22,23 @@
     $.fn.ui_choose = function(options) {
         var _this = $(this),
             _num = _this.length;
-        // 当要实例的对象只有一个时，直接实例化返回对象；
+        // Instantiate the returned object directly when there is only one object to be instantiated；
         if (_num === 1) {
             return new UI_choose(_this, options);
         };
-        // 当要实例的对象有多个时，循环实例化，不返回对象；
+        //When there are multiple objects to be instantiated, the loop is instantiated without returning the object;
         if (_num > 1) {
             _this.each(function(index, el) {
                 new UI_choose($(el), options);
             })
         }
-        // 当元素个数为0时，不执行实例化。
+        // When the number of elements is 0, instantiation is not performed.
     };
 
     /**
-     * UI_choose对象
-     * @param {[jQuery]} el  [jQuery选择后的对象，此处传入的为单个元素]
-     * @param {[object]} opt [设置的参数]
+     * UI_choose Object
+     * @param {[jQuery]} el  [jQuery The selected object, the single element passed in here]
+     * @param {[object]} opt [Set parameters]
      */
     function UI_choose(el, opt) {
         this.el = el;
@@ -48,26 +48,28 @@
         return this._init();
     }
 
-    // UI_choose 原型链扩展。
+    // UI_choose Prototype chain extension。
     UI_choose.prototype = {
 
-        // init初始化;
+        // Init initialization;
         _init: function() {
             var _data = this.el.data(this._opt.dataKey);
-            // 如果已经实例化了，则直接返回
-            if (_data)
+
+            // Return directly if it has been instantiated
+          /*
+          if (_data)
                 return _data;
             else
                 this.el.data(this._opt.dataKey, this);
-
-            // 设置是否多选
+          */
+            // Set whether to choose multiple
             if (this._tag == 'select') {
                 this.multi = this.el.prop('multiple');
             } else {
                 this.multi = this.el.attr('multiple') ? !!this.el.attr('multiple') : this._opt.multi;
             }
 
-            // 根据不同的标签进行不同的元素组建
+            //Different element formation according to different labels
             var _setFunc = this['_setHtml_' + this._tag];
             if (_setFunc) {
                 _setFunc.call(this);
@@ -81,7 +83,7 @@
             this._bindEvent(); // 绑定事件
         },
 
-        // 组建并获取相关的dom元素-ul;
+        // Organize and get related dom elements-ul;
         _setHtml_ul: function() {
             this._wrap = this.el;
             this._items = this.el.children('li');
@@ -90,7 +92,7 @@
             }
         },
 
-        // 组建并获取相关的dom元素-select;
+        // Organize and get related dom elements-select;
         _setHtml_select: function() {
             var _ohtml = '<ul class="ui-choose">';
             this.el.find('option').each(function(index, el) {
@@ -112,7 +114,7 @@
             this.el.hide();
         },
 
-        // 绑定事件；
+        // Binding event；
         _bindEvent: function() {
             var _this = this;
             _this._wrap.on('click', 'li', function() {
@@ -141,7 +143,7 @@
             return _this;
         },
 
-        // change 触发；value：值 ；item：选中的option；
+        // change trigger；value：value ；item：Chosen option；
         _triggerChange: function(value, item) {
             item = item || this._wrap;
             this.change(value, item);
@@ -156,7 +158,7 @@
                 this._opt.click.call(this, value, item);
         },
 
-        // 获取或设置值:select
+        // Get or set a value:select
         _val_select: function(value) {
             // getValue
             if (arguments.length === 0) {
@@ -194,7 +196,7 @@
             return this;
         },
 
-        // 获取或设置值:ul
+        // Get or set a value:ul
         _val_ul: function(index) {
             // getValue
             if (arguments.length === 0) {
@@ -245,30 +247,30 @@
             return this;
         },
 
-        // 获取或设置值
+        // Get or set a value
         val: function() {
             return this['_val_' + this._tag].apply(this, arguments);
         },
 
-        // 值改变事件；
+        // Value change event；
         change: function(value, item) {},
 
-        // 点击事件；
+        // Click event；
         click: function(value, item) {},
 
-        // 隐藏
+        //hide
         hide: function() {
             this._wrap.hide();
             return this;
         },
 
-        // 显示
+        // display
         show: function() {
             this._wrap.show();
             return this;
         },
 
-        // 全选
+        // select all
         selectAll: function() {
             if (!this.multi)
                 return this;

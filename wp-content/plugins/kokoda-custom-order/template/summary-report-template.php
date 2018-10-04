@@ -5,7 +5,8 @@ $caravan_image = get_query_var('caravan_image');
 
 $caravan_ids = array(
     5417 => 40,
-    5195 => 43
+    5195 => 43,
+    4032 => 39
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
 

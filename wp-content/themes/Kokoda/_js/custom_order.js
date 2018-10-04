@@ -78,8 +78,8 @@ jQuery(function($) {
             switch (tab) {
                 case 'exterior' :
 
-                    var options = custom_order.caravan_options;
-
+                    var options = custom_order.caravan_options;console.log(custom_order.caravan_options);
+                    $("ul.ui-choose").remove();
                     for (var i = 0; i < custom_exterior[select_model_id].length; i++) {
                         if (custom_exterior[select_model_id][i]['custom_option'] == 'composite panel') {
                             $('select#composite_panel').html('');
@@ -94,6 +94,7 @@ jQuery(function($) {
                                 $('select#composite_panel').val(options.panel);
                             }
                             custom_order.caravan_options.panel = $('select#composite_panel').val();
+
 
                             //convert these select into the horizonal select menu
                             $('select#composite_panel').ui_choose();
@@ -171,7 +172,12 @@ jQuery(function($) {
         }
 
         function actionsListener() {
-            $('#models .model-list .item').click(function (e) {
+            $('#models .model-list .item').click(function (e)
+            {
+
+                //reset the custom options of caravan
+                custom_order.caravan_options = {};
+
                 $('#models .model-list .item').removeClass('selected');
                 $(this).addClass('selected');
                 select_model_id = $(this).attr('select-model');
@@ -185,6 +191,7 @@ jQuery(function($) {
 
                 //render total price detail after we select the model
                 finance_section_update();
+
 
             });
 
@@ -385,14 +392,30 @@ jQuery(function($) {
                 var layer = new Konva.Layer();
                 layer.add(chekerPlateImg);
 
+                var models_panel = [];
+                models_panel[5417] = {x : 232 , y : 63 };
+                models_panel[5195] = {x : 232 , y : 63 };
+                models_panel[4032] = {x : 186 , y : 24 };
+
 
                 var panelImg = new Konva.Image();
                 var panelObj = new Image();
                 panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel + '.png';
                 panelObj.onload = function () {
                     panelImg.setImage(panelObj);
-                    panelImg.setX(232);
-                    panelImg.setY(63);
+
+                    if(typeof models_panel[select_model_id] != 'undefined')
+                    {
+
+                        panelImg.setX(models_panel[select_model_id].x);
+                        panelImg.setY(models_panel[select_model_id].y);
+                    }
+                    else
+                    {
+                        panelImg.setX(232);
+                        panelImg.setY(63);
+                    }
+
 
                     layer.add(panelImg);
 
@@ -623,14 +646,29 @@ jQuery(function($) {
                 var layer = new Konva.Layer();
                 layer.add(chekerPlateImg);
 
+                var models_panel = [];
+                models_panel[5417] = {x : 232 , y : 63 };
+                models_panel[5195] = {x : 232 , y : 63 };
+                models_panel[4032] = {x : 186 , y : 24 };
 
                 var panelImg = new Konva.Image();
                 var panelObj = new Image();
                 panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel + '.png';
                 panelObj.onload = function () {
                     panelImg.setImage(panelObj);
-                    panelImg.setX(232);
-                    panelImg.setY(63);
+
+                    if(typeof models_panel[select_model_id] != 'undefined')
+                    {
+
+                        panelImg.setX(models_panel[select_model_id].x);
+                        panelImg.setY(models_panel[select_model_id].y);
+                    }
+                    else
+                    {
+                        panelImg.setX(232);
+                        panelImg.setY(63);
+                    }
+
 
                     layer.add(panelImg);
 
