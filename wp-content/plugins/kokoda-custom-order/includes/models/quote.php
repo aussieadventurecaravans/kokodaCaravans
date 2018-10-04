@@ -404,11 +404,13 @@ class Quote
                 get_option('admin_email')
             );
 
+            $pdf_file = self::generate_pdf_summary_file($_quote);
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
                 ->from("Kokoda Caravans Admin <" . get_option('admin_email') . ">" )
                 ->subject($subject)
+                ->attach(array($pdf_file))
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_dealer_email.php',
                     ['_quote' => $_quote]
                 )

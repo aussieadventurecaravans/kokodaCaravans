@@ -43,9 +43,13 @@ class Kokoda_Custom_Order_Plugin {
     public function __construct() {
         add_filter( 'set-screen-option', [ __CLASS__, 'set_screen' ], 10, 3 );
         //render quote list page and quote list menu at main menu admin
-        add_action( 'admin_menu', [ $this, 'quote_list_init' ] );
+        add_action( 'admin_menu', array( $this, 'quote_list_init' ) );
         //render edit quote page
-        add_action( 'admin_menu', [ $this, 'quote_edit_init' ] );
+        add_action( 'admin_menu', array( $this, 'quote_edit_init' ) );
+
+
+        add_action('admin_init', array($this, 'custom_order_register_settings'));
+        add_action( 'admin_menu', array( $this,'add_custom_order_settings_page') ); // add page to setting menu
     }
 
 
@@ -157,6 +161,85 @@ class Kokoda_Custom_Order_Plugin {
         return self::$instance;
     }
 
+
+    /**
+     * adds plugin options page to setting menu
+     */
+    public function add_custom_order_settings_page() {
+
+        $page_hook_suffix= add_options_page(
+            'Custom Orders Settings',
+            'Custom Orders Settings',
+            'manage_options',
+            'custom-orders-settings', //page slug
+            array($this,'custom_orders_create_settings_page')
+        );
+    }
+
+    /**
+     * prints html for plugin options page
+     */
+    public function custom_orders_create_settings_page()
+    {
+
+        echo '<div class="wrap bpwpcleaner-wrap">';
+        echo '<h2>Kokoda Custom Option Settings</h2>';
+        echo '<form method="post" action="options.php">';
+
+        settings_fields( 'custom_orders_settings' );
+        do_settings_sections( 'custom-orders-settings' );
+
+        submit_button();
+        echo '</form>';
+        echo '</div>';
+
+    }
+
+    public function custom_order_register_settings()
+    {
+        register_setting(
+            'custom_orders_settings',    // $option_group
+            'custom_order_development-mode',   // $option_name
+         'esc_attr'
+        );
+
+
+        add_settings_section(
+            'custom-orders-general-section', //id
+          'General Settings', //title
+            array($this, 'custom_order_setting_section_cb'),  //callback function
+            'custom-orders-settings' //page slug
+        );
+
+
+        add_settings_field(
+            'custom_order_development-mode',
+            'Development Mode',
+            array($this,'custom_order_development_setting_callback_function'),
+            'custom-orders-settings',
+            'custom-orders-general-section',
+            array( 'label_for' => 'custom_order_development-mode' )
+        );
+
+
+    }
+    public function custom_order_development_setting_callback_function()
+    {
+        $value = get_option( 'custom_order_development-mode');
+        if ( $value === 0 ) // Nothing yet saved
+        ?>
+            <select name="custom_order_development-mode" id="custom_order_development-mode">
+                <option value='0' <?= ($value == 0) ?  'selected' : '' ?> >Disable</option>
+                <option value='1' <?= ($value == 1 || $value == '' ) ?  'selected' : '' ?> >Enable</option>
+            </select>
+
+        <?php
+    }
+
+    public function custom_order_setting_section_cb($arg){
+        //print_r($arg);
+    }
+
 }
 
 add_action('wp_ajax_submit_customorder', 'submit_customorder');
@@ -168,6 +251,8 @@ add_action('wp_ajax_nopriv_get_caravan', 'get_caravan');
 
 add_action('wp_ajax_export_pdf', 'export_pdf');
 add_action('wp_ajax_nopriv_export_pdf', 'export_pdf');
+
+
 
 
 function submit_customorder()
@@ -230,4 +315,5 @@ function export_pdf()
     }
     wp_die();
 }
+
 
