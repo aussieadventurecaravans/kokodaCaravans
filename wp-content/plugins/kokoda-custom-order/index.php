@@ -229,8 +229,8 @@ class Kokoda_Custom_Order_Plugin {
         if ( $value === 0 ) // Nothing yet saved
         ?>
             <select name="custom_order_development-mode" id="custom_order_development-mode">
-                <option value='0' <?= ($value == 0) ?  'selected' : '' ?> >Disable</option>
-                <option value='1' <?= ($value == 1 || $value == '' ) ?  'selected' : '' ?> >Enable</option>
+                <option value='0' <?= ($value == false) ?  'selected' : '' ?> >Disable</option>
+                <option value='1' <?= ($value == true || $value == '' ) ?  'selected' : '' ?> >Enable</option>
             </select>
 
         <?php

@@ -398,11 +398,21 @@ class Quote
 
             $subject = "You have new Quote #" . $_quote->quote_id ;
 
+            if(get_option('custom_order_development-mode') == false)
+            {
 
-            $receiver = array(
-                //$_quote->dealer_email,
-                get_option('admin_email')
-            );
+                $receiver = array(
+                    $_quote->dealer_email,
+                    get_option('admin_email')
+                );
+            }
+            else
+            {
+                $receiver = array(
+                    get_option('admin_email')
+                );
+            }
+
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
@@ -443,11 +453,9 @@ class Quote
 
             $subject = "Your quote is submited sucessfully";
 
-
             $receiver = array(
                 $_quote->customer_email
             );
-
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
