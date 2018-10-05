@@ -855,6 +855,7 @@ nav .container {
 
 .blog .item a {
 	color: #0c121d;
+	word-break: break-word;
 }
 
 .blog .item a:hover {
