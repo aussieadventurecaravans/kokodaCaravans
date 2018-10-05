@@ -774,7 +774,8 @@ jQuery(function($) {
                 },
                 success: function (data) {
                     var base64string = data;
-                    printPdfFile(base64ToArrayBuffer(base64string), 'quote_summary.pdf', 'application/pdf');
+                    var d = new Date();
+                    printPdfFile(base64ToArrayBuffer(base64string), caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear()  + '.pdf', 'application/pdf');
                     $('#loading-icon-panel').hide();
                 }
             });
@@ -801,7 +802,8 @@ jQuery(function($) {
                 },
                 success: function (data) {
                     var base64string = data;
-                    exportPdfFile(base64ToArrayBuffer(base64string), 'quote_summary.pdf', 'application/pdf');
+                    var d = new Date();
+                    exportPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
                     $('#loading-icon-panel').hide();
                 }
             });
