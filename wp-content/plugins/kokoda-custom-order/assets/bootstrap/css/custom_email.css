@@ -1,45 +1,45 @@
 .tab-header
 {
     margin: 20px 0 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #939393;
     font-family: 'Rubik', sans-serif;
+    width: 100%;
+    display: block;
 }
 .tab-header h3
 {
     font-size: 16px;
     text-transform: uppercase;
     padding-left: 5px;
+    display: inline-block;
+    float:left;width: 48%;
+    font-family: 'Rubik', sans-serif;
 }
 
 .header-wrapper
 {
     margin:0;
 }
-.header-wrapper h2
-{
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 5px;
-    margin-top:  10px;
-    font-family: 'Rubik', sans-serif;
-    text-transform: capitalize;
-}
-.floorplan-header h2
-{
-    margin-bottom: 0;
-}
 
-#summary-display-image-wrapper
+.display-image-wrapper
 {
     text-align: center;
 }
-#summary-display-image-wrapper img
+.display-image-wrapper  img
 {
     max-width: 100%;
     height: auto;
     position: relative;
     float: left;
 }
+.floorplan-display-wrapper
+ {
+     margin-top: 30px;
+     margin-bottom: 30px;
+ }
+/**
+ *Specification page
+ */
 .specifications-list-wrapper
 {
     padding-right: 0;
@@ -68,7 +68,7 @@
 .specifications-list-wrapper .spec-list .spec-section h4
 {
     color: #fff;
-    background-color: #000;
+    background-color: #3c3c3c;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 8px;
@@ -80,7 +80,9 @@
 {
     padding-left: 8px;
 }
-
+/**
+ * Accessories page
+ */
 .display-accessories-wrapper .item
 {
     border: 5px solid #fff;
@@ -92,6 +94,10 @@
 {
     width: 100%;
 }
+
+/**
+ * Tech specs and Custom options section
+ */
 
 .tech_specs .row .col-xs-6,
 .caravan_custom_options .row .col-xs-6
@@ -119,7 +125,6 @@
     text-align: left;
     font-size: 20px;
     font-family: 'Rubik', sans-serif;
-    font-weight: bold;
     padding-left: 5px;
 }
 
@@ -137,6 +142,9 @@
 {
     text-transform: capitalize;
 }
+/**
+ * Finance page
+ */
 
 .finance-wrapper .table thead th
 {

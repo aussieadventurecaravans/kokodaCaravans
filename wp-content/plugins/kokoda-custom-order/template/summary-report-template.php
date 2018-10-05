@@ -19,14 +19,11 @@ setup_postdata($post);
 
 
 <?php $html = '<div class="tab-header">'; ?>
-<?php $html .= ' <h3>Caravan Summary </h3>'; ?>
-<?php $html .= ' </div>'; ?>
+<?php $html .= '<h3 class="text-left">Caravan Summary</h3>'; ?>
+<?php $html .= '<h3 class="text-right">Kokoda ' . get_the_title() . '</h3>'; ?>
+<?php $html .= '</div>'; ?>
 
-
-<?php $html .= ' <div class="header-wrapper">'; ?>
-<?php $html .= ' <h2>Model: ' . get_the_title() .  ' </h2>'; ?>
-<?php $html .= ' </div>'; ?>
-<?php $html .= ' <div class="display-image-wrapper row" id="summary-display-image-wrapper">'; ?>
+<?php $html .= ' <div class="display-image-wrapper row">'; ?>
 <?php $html .= '<img src="'. $caravan_image .'"/>'; ?>
 <?php $html .= ' </div>' ; ?>
 
@@ -34,11 +31,11 @@ setup_postdata($post);
 
 <?php $html .= '<div class="container-fluid caravan_custom_options">'; ?>
 <?php $html .= ' <div class="header-wrapper">'; ?>
-<?php $html .= ' <h3>Exterior Color</h3>'; ?>
+<?php $html .= ' <h3>Exterior Colour</h3>'; ?>
 <?php $html .= ' </div>'; ?>
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Panel Color </span>'; ?>
+<?php $html .= '<span> Panel Colour </span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>' . $custom_order['caravan_options']['panel'] . '</span>'; ?>
@@ -47,7 +44,7 @@ setup_postdata($post);
 
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Checker Plate Color </span>'; ?>
+<?php $html .= '<span> Checker Plate Colour </span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>' . $custom_order['caravan_options']['checker_plate'] . '</span>'; ?>
@@ -57,10 +54,7 @@ setup_postdata($post);
 
 
 
-<?php $html .= ' <div class="floorplan-header header-wrapper">'; ?>
-<?php $html .= ' <h2>Floor Plan </h2>'; ?>
-<?php $html .= ' </div>'; ?>
-<?php $html .= ' <div class="option-display-image-wrapper row">'; ?>
+<?php $html .= ' <div class="floorplan-display-wrapper row">'; ?>
     <?php $html .= '<div class="item col-md-12 text-center selected">'; ?>
         <?php  $html .= '<img src="' .  get_field('floor_plan')   .  '" style=" width:80%">'; ?>
         <?php  $html .= '<div class="floorplan-details">'; ?>
