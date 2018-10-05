@@ -417,7 +417,7 @@ class Quote
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
             return $email = WP_Mail::init()
-                ->to( $receiver)
+                ->to($receiver)
                 ->from("Kokoda Caravans Admin <" . get_option('admin_email') . ">" )
                 ->subject($subject)
                 ->attach(array($pdf_file))

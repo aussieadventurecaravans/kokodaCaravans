@@ -4,8 +4,8 @@ $caravan_id = get_query_var('caravan_id');
 $caravan_image = get_query_var('caravan_image');
 
 $caravan_ids = array(
-    5417 => 40,
-    5195 => 43,
+    5417 => 37,
+    5195 => 49,
     4032 => 39
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
@@ -126,20 +126,15 @@ setup_postdata($post);
                  <?php if($max_lines == $_MAXIMUM_LINES ): ?>
                     <?php $html2 .= '<div class="col-xs-6 spec-section">'; ?>
                 <?php endif; ?>
-                <?php $max_lines = $max_lines - 1; ?>
+                <?php $max_lines = $max_lines - 2; ?>
                 <?php $html2 .= '<h4 >' .  $spec['group_heading'] . '</h4>'; ?>
 
                 <?php //spec items ?>
                 <?php $spec_its = $spec['specification_item'];?>
                 <?php $html2 .= '<ul style="padding: 0;list-style: none;">'; ?>
                 <?php $index = 0 ;?>
-                <?php  foreach ($spec_its as $spec_it) : $index++ ?>
+                <?php foreach ($spec_its as $spec_it) : $index++ ?>
 
-                    <?php $html2 .='<li>';  ?>
-                    <?php $html2 .= $spec_it['heading']; ?>
-                    <?php $html2 .= '</li>'; ?>
-
-                    <?php $max_lines = $max_lines - 1; ?>
                     <?php if($max_lines <= 0 && $index != count($spec_its)): ?>
                         <?php $html2 .= '</ul>'; ?>
                         <?php $html2 .= '</div>'; ?>
@@ -147,6 +142,11 @@ setup_postdata($post);
                         <?php $html2 .= '<div class="col-xs-6 spec-section">'; ?>
                         <?php $html2 .= '<ul style="padding: 0;list-style: none;" >'; ?>
                     <?php endif; ?>
+
+                    <?php $html2 .='<li>';  ?>
+                    <?php $html2 .= $spec_it['heading']; ?>
+                    <?php $html2 .= '</li>'; ?>
+                    <?php $max_lines = $max_lines - 1; ?>
 
                 <?php endforeach; ?>
                 <?php $html2 .= '</ul>'; ?>
@@ -202,7 +202,7 @@ $total_price  = $product_price + $accessories_price;
         <?php if(count($custom_order['accessories']) > 0) : ?>
             <?php $html3 .= '<tr>'; ?>
 
-                <?php $html3 .= '<td  scope="row"><h4>Accessories List </h4>'; ?>
+                <?php $html3 .= '<td scope="row"><h4>Accessories List </h4>'; ?>
                     <?php foreach($accessories as $accessory):?>
                         <?php $html3 .= '<div class="acc-item">'; ?>
                         <?php $html3 .= '<span class="acc-label"> + ' . $accessory['accessory_label']  .'</span>'; ?>
@@ -229,7 +229,7 @@ $total_price  = $product_price + $accessories_price;
                             it may be changed base upon on some specific features customer need.
                             On-Road Cost (ORC) can varies between states and city.Please contact our dealers for more detail.
                         </p>'; ?>
-<?php $html3 .= ' </div></div>'; ?>
+<?php $html3 .= '</div></div>'; ?>
 
 
 
