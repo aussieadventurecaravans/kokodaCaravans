@@ -140,7 +140,11 @@ setup_postdata($post);
                         <?php $html2 .= '<ul style="padding: 0;list-style: none;" >'; ?>
                     <?php endif; ?>
 
+                <?php if($index %2 == 0 ) : ?>
                     <?php $html2 .='<li>';  ?>
+                <?php else: ?>
+                    <?php $html2 .='<li style="background-color:#ddd;">' ?>
+                <?php endif; ?>
                     <?php $html2 .= $spec_it['heading']; ?>
                     <?php $html2 .= '</li>'; ?>
                     <?php $max_lines = $max_lines - 1; ?>
