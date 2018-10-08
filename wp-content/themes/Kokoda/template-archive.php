@@ -403,6 +403,7 @@ get_template_part('archive-header'); ?>
                 </div>
                <div class="archive-item-detail-loading-panel">
                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/loading-progress.svg" class="loading-icon" alt="loading icon" width="250"/>
+                   <p class="loading-icon-text">Loading...</p>
                </div>
                 <div class="archive-listing-item-detail-pane js-cd-panel-main cd-panel--stay-right">
                         <div class="cd-panel__container">
