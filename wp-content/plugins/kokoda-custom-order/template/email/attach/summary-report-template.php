@@ -3,9 +3,9 @@ $custom_order = get_query_var('custom_order');
 $caravan_id = get_query_var('caravan_id');
 
 $caravan_ids = array(
-    5417 => 39,
+    5417 => 46,
     5195 => 49,
-    4032 => 41
+    4032 => 46
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
 
