@@ -185,7 +185,7 @@ $total_price  = $product_price + $accessories_price;
 
     <?php $html3 .= '<tbody>' ?>
         <?php $html3 .= '<tr>'; ?>
-            <?php $html3 .= '<td scope="row"><h4>Model ' . get_the_title() .  ' </h4>' ;?>
+            <?php $html3 .= '<td scope="row"><h4>Kokoda ' . get_the_title() .  ' </h4>' ;?>
             <?php $html3 .= '<p><img src="' .  $caravan_image   .  '" style=" width:40%" /></p>'; ?>
             <?php $html3 .=  '</td>';  ?>
 
@@ -196,7 +196,7 @@ $total_price  = $product_price + $accessories_price;
         <?php if(count($custom_order['accessories']) > 0) : ?>
             <?php $html3 .= '<tr>'; ?>
 
-                <?php $html3 .= '<td scope="row"><h4>Accessories List </h4>'; ?>
+                <?php $html3 .= '<td scope="row"><h4>Add-on Accessories</h4>'; ?>
                     <?php foreach($accessories as $accessory):?>
                         <?php $html3 .= '<div class="acc-item">'; ?>
                         <?php $html3 .= '<span class="acc-label"> + ' . $accessory['accessory_label']  .'</span>'; ?>
