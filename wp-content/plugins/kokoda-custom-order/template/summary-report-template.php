@@ -4,9 +4,9 @@ $caravan_id = get_query_var('caravan_id');
 $caravan_image = get_query_var('caravan_image');
 
 $caravan_ids = array(
-    5417 => 46,
-    5195 => 49,
-    4032 => 46
+    5417 => 38,
+    5195 => 39,
+    4032 => 39
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
 
@@ -107,7 +107,7 @@ setup_postdata($post);
 
     <?php $specs = get_field('specifications');?>
 
-    <?php $html2 .= '<div class="specifications-list-wrapper container-fluid">'; ?>
+    <?php $html2 .= '<div class="specifications-list-wrapper">'; ?>
 
     <?php  $specs = get_field('specifications');?>
 
@@ -115,10 +115,15 @@ setup_postdata($post);
         <?php $html2 .= '<div class="row spec-list" style="margin:0">'; ?>
 
             <?php $max_lines = $_MAXIMUM_LINES; ?>
+            <?php $col_index = 0;?>
             <?php foreach ($specs as $spec): ?>
-
                  <?php if($max_lines == $_MAXIMUM_LINES ): ?>
-                    <?php $html2 .= '<div class="col-xs-6 spec-section">'; ?>
+                    <?php if($col_index % 2 == 0): ?>
+                    <?php $html2 .= '<div class="col-xs-6 spec-section" style="padding-right: 20px">' ; ?>
+                    <?php else: ?>
+                    <?php $html2 .= '<div class="col-xs-6 spec-section">' ; ?>
+                    <?php endif; ?>
+                    <?php $col_index++  ?>
                 <?php endif; ?>
                 <?php $max_lines = $max_lines - 2; ?>
                 <?php $html2 .= '<h4 >' .  $spec['group_heading'] . '</h4>'; ?>
@@ -133,7 +138,14 @@ setup_postdata($post);
                         <?php $html2 .= '</ul>'; ?>
                         <?php $html2 .= '</div>'; ?>
                         <?php $max_lines = $_MAXIMUM_LINES; ?>
-                        <?php $html2 .= '<div class="col-xs-6 spec-section">'; ?>
+
+                        <?php if($col_index % 2 == 0): ?>
+                            <?php $html2 .= '<div class="col-xs-6 spec-section" style="padding-right: 20px">' ; ?>
+                        <?php else: ?>
+                            <?php $html2 .= '<div class="col-xs-6 spec-section">' ; ?>
+                        <?php endif; ?>
+                        <?php $col_index++  ?>
+
                         <?php $html2 .= '<ul style="padding: 0;list-style: none;" >'; ?>
                     <?php endif; ?>
                     <?php if($index %2 == 0 ) : ?>
@@ -239,7 +251,7 @@ require_once KOKODA_CUSTOM_ORDER_PLUGIN_URL .'assets/mpdf/vendor/autoload.php';
 $cssPart1 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/bootstrap.css');
 $cssPart2 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/custom.css');
 
-$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10]);
+$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10, 'margin_left' => 10, 'margin_right' => 10  ]);
 
 
 //add the Caravan Page with custom Options and Accessories
