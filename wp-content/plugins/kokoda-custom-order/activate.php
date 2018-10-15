@@ -48,7 +48,8 @@ function install_custom_order_tables() {
 
     $sql = "CREATE TABLE $table_name (
       quote_id mediumint NOT NULL AUTO_INCREMENT,
-      customer_name varchar(255) NOT NULL  DEFAULT '',
+      customer_first_name varchar(255) NOT NULL  DEFAULT '',
+      customer_last_name varchar(255) NOT NULL  DEFAULT '',
       product_id varchar(255)  NOT NULL DEFAULT '',
       product_name varchar(255)  NOT NULL DEFAULT '',
       custom_options longtext default NULL,

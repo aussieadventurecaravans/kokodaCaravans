@@ -106,7 +106,8 @@ class Quote_List extends WP_List_Table
             case 'payment_method' :
             case 'status':
             case 'loan_status':
-            case 'customer_name':
+            case 'customer_first_name':
+            case 'customer_last_name':
             case 'customer_address' :
             case 'customer_email' :
             case 'customer_phone' :
@@ -141,13 +142,13 @@ class Quote_List extends WP_List_Table
      *
      * @return string
      */
-    function column_customer_name( $item ) {
+    function column_customer_first_name( $item ) {
 
         $delete_nonce = wp_create_nonce( 'delete_quote_action' );
 
         $edit_nonce =  wp_create_nonce( 'edit_quote_action' );
 
-        $title = '<strong>' . $item['customer_name'] . '</strong>';
+        $title = '<strong>' . $item['customer_first_name'] . '</strong>';
         $actions = array();
 
 
@@ -169,7 +170,8 @@ class Quote_List extends WP_List_Table
         $columns = [
             'cb'      => '<input type="checkbox" />',
             'quote_id'    => __( 'ID' ),
-            'customer_name' => __( 'Customer Name'),
+            'customer_first_name' => __( 'Customer Name'),
+            'customer_last_name' => __( 'Customer Name'),
             'product_name' => __( 'Product Name'),
             'total_cost'  => __( 'Quote Price'),
             'payment_method'  => __( 'Payment'),

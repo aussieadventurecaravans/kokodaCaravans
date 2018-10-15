@@ -356,10 +356,18 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label" for="customer_name">Full Name</label>
+                                        <label class="col-md-3 control-label" for="customer_first_name">First Name</label>
                                         <div class="col-md-7">
-                                            <input id="customer_name" name="customer_name" type="text" placeholder="" class="form-control input-md" required autocomplete="off"/>
+                                            <input id="customer_first_name" name="customer_first_name" type="text" placeholder="" class="form-control input-md" required autocomplete="off"/>
 
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="customer_last_name">Last Name</label>
+                                        <div class="col-md-7">
+                                            <input id="customer_last_name" name="customer_last_name" type="text" placeholder="" class="form-control input-md" required autocomplete="off"/>
                                         </div>
                                     </div>
 
@@ -467,7 +475,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                                         Our dealer will contact and help you to arrange financing.
                                                     </span>
                                                     <span class="apply_now" style="display:none">
-                                                       We will pass your contact information to our preferred financier to begin a credit application.
+                                                       We will pass your contact information to our preferred financier Credit One to begin a credit application.
                                                     </span>
                                                     <span class="self_arrange" style="display:none">
                                                         If you have already applied your financier, our dealer will contact to you shortly
@@ -493,7 +501,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                                         <div class="outside" id="apply_now" value="apply creditone">
                                                             <div class="inside">
                                                                 <span>
-                                                                    Apply Now
+                                                                    Apply Credit One
                                                                 </span>
                                                             </div>
                                                         </div>

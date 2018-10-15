@@ -449,7 +449,8 @@ jQuery(function($) {
 
         function submitCustomOrder() {
 
-            custom_order.customer.customer_name = $('input#customer_name').val();
+            custom_order.customer.customer_first_name = $('input#customer_first_name').val();
+            custom_order.customer.customer_last_name = $('input#customer_last_name').val();
             custom_order.customer.customer_address = $('input#customer_address').val();
             custom_order.customer.customer_postcode = $('input#customer_postcode').val();
             custom_order.customer.customer_state = $('select#customer_state').val();

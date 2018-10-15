@@ -69,8 +69,12 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                     <table class="form-table editcomment">
                                         <tbody>
                                         <tr>
-                                            <td class="first"><label for="customer_name"><?php _e( 'Name:' ); ?></label></td>
-                                            <td><input type="text" name="customer_name" size="30" value="<?php echo esc_attr( $quote->customer_name ); ?>" id="customer_name" /></td>
+                                            <td class="first"><label for="customer_first_name"><?php _e( 'First Name:' ); ?></label></td>
+                                            <td><input type="text" name="customer_first_name" size="30" value="<?php echo esc_attr( $quote->customer_first_name ); ?>" id="customer_first_name" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="first"><label for="customer_last_name"><?php _e( 'last Name:' ); ?></label></td>
+                                            <td><input type="text" name="customer_last_name" size="30" value="<?php echo esc_attr( $quote->customer_last_name ); ?>" id="customer_last_name" /></td>
                                         </tr>
                                         <tr>
                                             <td class="first"><label for="customer_address"><?php _e( 'Address:' ); ?></label></td>
