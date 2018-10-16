@@ -309,7 +309,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     <div class="tab-header">
                         <h4>
                             Caravan Summary
-
                         </h4>
                         <button type="button" class="btn btn-primary btn-lg btn-download"><span class="icon-moon"></span> Download</button>
                         <button type="button" class="btn btn-primary btn-lg btn-print"><span class="icon-moon"></span> Print</button>
