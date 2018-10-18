@@ -53,10 +53,10 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                                 <td>
                                                     <?php $quote_status = esc_attr( $quote->status ); ?>
                                                     <select name="status" id="status" value="<?php echo esc_attr( $quote->status ); ?>" style=" width:250px; ">
-                                                        <option value="in progress" <?php if($quote_status == 'in progress' ){ echo 'selected'; } ?> >In Progress</option>
-                                                        <option value="in review" <?php if($quote_status == 'in review' ){ echo 'selected'; } ?> >In Review</option>
-                                                        <option value="in order" <?php if($quote_status == 'in order' ){ echo 'selected'; } ?> >In Order</option>
-                                                        <option value="in cancel" <?php if($quote_status == 'in cancel' ){ echo 'selected'; } ?> >In Cancel</option>
+                                                        <option value="In Progress" <?php if($quote_status == 'In Progress' ){ echo 'selected'; } ?> >In Progress</option>
+                                                        <option value="In Review" <?php if($quote_status == 'In Review' ){ echo 'selected'; } ?> >In Review</option>
+                                                        <option value="In Order" <?php if($quote_status == 'In Order' ){ echo 'selected'; } ?> >In Order</option>
+                                                        <option value="In Cancel" <?php if($quote_status == 'In Cancel' ){ echo 'selected'; } ?> >In Cancel</option>
                                                     </select>
                                                 </td>
                                             </tr>
