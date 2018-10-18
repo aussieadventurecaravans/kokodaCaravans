@@ -19,7 +19,8 @@ $email = array(
     'id'  => 'user_email',
     'value' => '',
     'class' => 'form-control login-email-input',
-    'placeholder' => 'Enter Email'
+    'placeholder' => 'Enter Email',
+    'required' => true
 );
 
 $pass = array(
@@ -28,7 +29,8 @@ $pass = array(
     'class' => 'form-control login-pass-input',
     'value' => '',
     'type' => 'password',
-    'placeholder' => 'Enter Password'
+    'placeholder' => 'Enter Password',
+    'required' => true
 );
 $attr = array(
     'id'=>'add_posts',
@@ -73,9 +75,9 @@ $submit = array(
 
                     <?php echo form_open('user/login_user',$attr); ?>
                     <?php echo form_input($email); ?>
-
+                    <?php  echo '<div class="errors">'.form_error('$email').'</div>'; ?>
                     <?php echo form_password($pass); ?>
-
+                    <?php  echo '<div class="errors">'.form_error('$pass').'</div>'; ?>
                     <?php echo form_submit($submit);  ?>
 
                     <?php echo form_close(); ?>

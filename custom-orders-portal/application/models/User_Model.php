@@ -19,7 +19,7 @@ class User_Model extends CI_Model
 
         $this->db->select('*');
         $this->db->from('user');
-        $this->db->where('user_email','nam_son14@yahoo.com');
+        $this->db->where('user_email',$user_login['user_email']);
         $this->db->where('user_password',$user_login['user_password']);
 
 
@@ -44,9 +44,12 @@ class User_Model extends CI_Model
         $this->db->where('user_email',$email);
         $query=$this->db->get();
 
-        if($query->num_rows()>0){
+        if($query->num_rows()>0)
+        {
             return false;
-        }else{
+        }
+        else
+            {
             return true;
         }
 

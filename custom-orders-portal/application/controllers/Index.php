@@ -20,6 +20,7 @@ class Index extends CI_Controller {
 
         if(!$user_id)
         {
+            $this->session->set_userdata('referer_url',  base_url()  );
             redirect( base_url('user/login'), 'refresh');
         }
 
@@ -38,6 +39,7 @@ class Index extends CI_Controller {
 
         if(!$user_id)
         {
+            $this->session->set_userdata('referer_url',  base_url('quotes'));
             redirect( base_url('user/login'), 'refresh');
         }
 
@@ -57,6 +59,7 @@ class Index extends CI_Controller {
 
         if(!$user_id)
         {
+            $this->session->set_userdata('referer_url',  base_url('orders'));
             redirect( base_url('user/login'), 'refresh');
         }
 

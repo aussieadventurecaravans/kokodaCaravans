@@ -15,20 +15,93 @@ class Quote extends CI_Controller {
     public function index()
     {
         $user_id = $this->session->userdata('user_id');
+        $quote_id = $this->input->get('quote_id');
+        if(!$user_id)
+        {
+            $this->session->set_userdata('referer_url',  base_url('quote') . '?quote_id=' . $quote_id );
+            redirect( base_url('user/login'), 'refresh');
+        }
+
+        $data = array();
+
+        $quote = $this->quote_model->get_quote($quote_id);
+        if($quote)
+        {
+            $data['quote'] = $quote;
+        }
+        else
+        {
+            redirect( base_url(''), 'refresh');
+        }
+
+        $data['content'] = 'Pages/quote_detail';
+
+        $this->load->view('Layouts/master', $data);
+
+    }
+
+
+    public function edit()
+    {
+        $user_id = $this->session->userdata('user_id');
+
+        $quote_id = $this->input->get('quote_id');
 
         if(!$user_id)
         {
+            $this->session->set_userdata('referer_url',  base_url('quote/edit') . '?quote_id=' . $quote_id );
             redirect( base_url('user/login'), 'refresh');
         }
 
 
         $data = array();
-        $quote_id = $this->input->get('quote_id');
 
-        $data['content'] = 'Pages/quote_detail';
-        $data['quote'] = $this->quote_model->get_quote($quote_id);
+
+        $data['content'] = 'Pages/quote_edit';
+
+        $quote = $this->quote_model->get_quote($quote_id);
+        if($quote)
+        {
+            $data['quote'] = $quote;
+        }
+        else
+        {
+            redirect( base_url(''), 'refresh');
+        }
 
         $this->load->view('Layouts/master', $data);
+
+    }
+
+    public function update()
+    {
+        $quote_id = $this->input->post('quote_id');
+
+
+        $data=array(
+            'status'=>$this->input->post('status'),
+            'customer_first_name'=>$this->input->post('customer_first_name'),
+            'customer_last_name'=>$this->input->post('customer_last_name'),
+            'customer_address'=>$this->input->post('customer_address'),
+            'customer_postcode'=>$this->input->post('customer_postcode'),
+            'customer_state'=>strtolower($this->input->post('customer_state')),
+            'customer_email'=>$this->input->post('customer_email'),
+            'customer_phone'=>$this->input->post('customer_phone'),
+            'product_name'=>$this->input->post('product_name')
+        );
+
+
+        $result = $this->quote_model->update_quote($quote_id,$data);
+
+        if(!$result)
+        {
+            $this->session->set_flashdata('error_msg', 'Update failed, please try again or contact to our Admin at Kokoda Caravans.' );
+        }
+        else
+        {
+            $this->session->set_flashdata('success_msg', 'Quote update successfully !!!' );
+            redirect( base_url('quote/edit') .'?quote_id='. $quote_id, 'refresh');
+        }
 
     }
 }

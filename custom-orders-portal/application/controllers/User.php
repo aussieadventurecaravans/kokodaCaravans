@@ -38,11 +38,11 @@ class User extends CI_Controller {
             redirect(base_url('user/login'),'refresh');
 
         }
-        else{
+        else
+        {
 
             $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
             redirect(base_url('user/register_user'),'refresh');
-
 
         }
 
@@ -50,11 +50,11 @@ class User extends CI_Controller {
 
     public function login()
     {
-        $user_id= $this->session->userdata('user_id');
+        $user_id = $this->session->userdata('user_id');
 
         if($user_id)
         {
-            redirect( base_url('user/user_profile'), 'refresh');
+            redirect( base_url(), 'refresh');
         }
 
         $this->load->view("User/login");
@@ -69,8 +69,8 @@ class User extends CI_Controller {
             'user_password'=>md5($this->input->post('user_password'))
         );
 
-        $user_profile = $this->user_model->login_user($user_login);
-        if($user_profile)
+        $login_result = $this->user_model->login_user($user_login);
+        if($login_result)
         {
             $this->session->set_userdata('user_id',$user_profile[0]['user_id']);
             $this->session->set_userdata('user_email',$user_profile[0]['user_email']);
@@ -78,14 +78,25 @@ class User extends CI_Controller {
             $this->session->set_userdata('user_role',$user_profile[0]['user_role']);
 
 
-            redirect(base_url('user/user_profile'), 'refresh');
+            $referer_url = $this->session->userdata('referer_url');
+            if(!$referer_url)
+            {
+
+                redirect(base_url(), 'refresh');
+
+            }
+            else
+            {
+                $this->session->unset_userdata('referer_url');
+                redirect($referer_url, 'refresh');
+            }
 
             //$data['user_profile']  = $user_profile[0];
             //$this->load->view('User/user_profile',$data);
         }
         else
         {
-            $this->session->set_flashdata('error_msg', 'Error occured,Try again.' );
+            $this->session->set_flashdata('error_msg', 'Email or password is incorrect, please try again.' );
             redirect(base_url('user/login'), 'refresh');
         }
     }
@@ -105,8 +116,12 @@ class User extends CI_Controller {
     }
     public function user_logout()
     {
+        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('user_email');
+        $this->session->unset_userdata('user_name');
+        $this->session->unset_userdata('user_role');
 
-        $this->session->sess_destroy();
+
         redirect(base_url('user/login'), 'refresh');
     }
 
