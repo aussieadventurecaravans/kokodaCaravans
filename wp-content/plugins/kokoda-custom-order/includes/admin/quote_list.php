@@ -154,7 +154,7 @@ class Quote_List extends WP_List_Table
 
         $actions ['delete'] = sprintf( '<a href="?page=%s&action=%s&quote=%s&_wpnonce=%s">Delete</a>', esc_attr( $_REQUEST['page'] ), 'delete', absint( $item['quote_id'] ), $delete_nonce );
 
-        $actions ['edit'] = sprintf( '<a href="?page=%s&action=%s&quote_id=%s">Edit</a>', esc_attr( $_REQUEST['page'] ),'edit', absint( $item['quote_id'] ));
+        $actions ['edit'] = sprintf( '<a href="?page=%s&action=%s&quote_id=%s">Edit</a>', esc_attr( $_REQUEST['page'] ),'edit', absint( $item['quote_id'], $edit_nonce ));
 
 
         return $title . $this->row_actions( $actions );
@@ -170,8 +170,8 @@ class Quote_List extends WP_List_Table
         $columns = [
             'cb'      => '<input type="checkbox" />',
             'quote_id'    => __( 'ID' ),
-            'customer_first_name' => __( 'Customer Name'),
-            'customer_last_name' => __( 'Customer Name'),
+            'customer_first_name' => __( 'First Name'),
+            'customer_last_name' => __( 'Last Name'),
             'product_name' => __( 'Product Name'),
             'total_cost'  => __( 'Quote Price'),
             'payment_method'  => __( 'Payment'),
