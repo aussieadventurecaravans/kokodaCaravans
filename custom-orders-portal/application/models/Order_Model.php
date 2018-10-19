@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Order_Model extends CI_Model
 {
+
+    const ORDER_TABLE = "custom_orders";
+
     public function __construct()
     {
         parent::__construct();
@@ -18,7 +21,7 @@ class Order_Model extends CI_Model
         $custom_order_db = $this->db;
         $custom_order_db->select('*');
         $custom_order_db->order_by('order_id', 'DESC');
-        $custom_order_db->from('custom_orders');
+        $custom_order_db->from(self::ORDER_TABLE);
 
         if($user_role != 'admin')
         {
@@ -51,14 +54,15 @@ class Order_Model extends CI_Model
 
         $custom_order_db = $this->db;
 
-        if($user_role != 'admin')
+        if($user_role == 'admin')
         {
-            $query = $custom_order_db->get_where('custom_orders', array('order_id' => $id));
+            $query = $custom_order_db->get_where(self::ORDER_TABLE, array('order_id' => $id));
         }
         else
         {
-            $query = $custom_order_db->get_where('custom_orders', array('order_id' => $id , 'dealer_email' => $user_email));
+            $query = $custom_order_db->get_where(self::ORDER_TABLE, array('order_id' => $id , 'dealer_email' => $user_email));
         }
+
         $custom_order_db->close();
 
 
@@ -71,5 +75,40 @@ class Order_Model extends CI_Model
 
             return false;
         }
+    }
+
+
+    public function delete_order($id)
+    {
+        $user_email = $this->session->userdata('user_email');
+        $user_role = $this->session->userdata('user_role');
+
+        $custom_order_db = $this->db;
+
+        if($user_role == 'admin')
+        {
+            $query = $custom_order_db->delete(self::ORDER_TABLE, array('order_id'=>$id));
+        }
+        else
+        {
+            $query = $custom_order_db->delete(self::ORDER_TABLE, array('order_id'=>$id,'dealer_email' => $user_email));
+        }
+
+        $custom_order_db->close();
+
+        return $query;
+    }
+
+    public function update_order($id,$data)
+    {
+        $custom_order_db = $this->db;
+
+        $custom_order_db->update(self::ORDER_TABLE, $data,  array('order_id' => $id));
+
+        $result =  $custom_order_db->affected_rows();
+
+        $custom_order_db->close();
+
+        return $result;
     }
 }

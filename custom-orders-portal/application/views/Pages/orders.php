@@ -12,7 +12,9 @@
             <th>Caravan Model</th>
             <th>Customer Email</th>
             <th>Customer Phone</th>
+            <th>Status</th>
             <th>Submit</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -28,7 +30,13 @@
                     <td><?php echo $order['product_name'] ?></td>
                     <td><?php echo $order['customer_email'] ?></td>
                     <td><?php echo $order['customer_phone'] ?></td>
+                    <td><?php echo $order['status'] ?></td>
                     <td><?php echo $order['date_created'] ?></td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="<?php echo base_url('order/edit') . '?order_id=' . $order['order_id']; ?>" >
+                            <span class="glyphicon glyphicon-edit"></span>Edit
+                        </a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>

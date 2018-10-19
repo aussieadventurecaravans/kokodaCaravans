@@ -151,7 +151,8 @@ ul.navbar-nav li
 /**
 *
  */
-.quote-buttons
+.quote-buttons,
+.order-buttons
 {
     margin-top: 20px;
 }
