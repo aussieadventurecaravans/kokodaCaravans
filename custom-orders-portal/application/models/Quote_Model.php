@@ -43,9 +43,6 @@ class Quote_Model extends CI_Model
 
             return false;
         }
-
-
-
     }
 
     public function get_quote($id)
@@ -112,6 +109,37 @@ class Quote_Model extends CI_Model
         $wordpress_db->close();
 
         return $result;
-
     }
+
+
+    public function place_order($id)
+    {
+
+        $data = array('status' => 'In Order');
+
+        $wordpress_db = $this->load->database('wordpress', TRUE);
+
+        $wordpress_db->update(self::QUOTE_TABLE, $data,  array('quote_id' => $id));
+
+        $result =  $wordpress_db->affected_rows();
+
+        $wordpress_db->close();
+
+        if($result == true)
+        {
+            //copy the quote detail and add it to the custom_order table
+            $quote = $this->get_quote($id);
+
+            $custom_order_db = $this->db;
+
+            $result = $custom_order_db->insert('custom_orders',$quote);
+
+            return $result;
+        }
+
+        return $result;
+    }
+
+
+
 }

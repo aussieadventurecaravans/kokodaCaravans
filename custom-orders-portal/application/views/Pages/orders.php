@@ -12,20 +12,26 @@
             <th>Caravan Model</th>
             <th>Customer Email</th>
             <th>Customer Phone</th>
-            <th>Quote Submit</th>
+            <th>Submit</th>
         </tr>
         </thead>
         <tbody>
-        <?php foreach($orders as $order): ?>
-            <tr>
-                <td><?php echo $order['order_id'] ?></td>
-                <td><?php echo $order['customer_first_name']. ' ' . $quote['customer_last_name'] ?></td>
-                <td><?php echo $order['product_name'] ?></td>
-                <td><?php echo $order['customer_email'] ?></td>
-                <td><?php echo $order['customer_phone'] ?></td>
-                <td><?php echo $order['date_created'] ?></td>
-            </tr>
-        <?php endforeach; ?>
+        <?php if(!$orders): ?>
+            <div class="alert alert-warning">
+                <?php echo 'There are no orders at the moment'; ?>
+            </div>
+        <?php else: ?>
+            <?php foreach($orders as $order):  ?>
+                <tr>
+                    <td><?php echo $order['order_id'] ?></td>
+                    <td><?php echo $order['customer_first_name']. ' ' . $quote['customer_last_name'] ?></td>
+                    <td><?php echo $order['product_name'] ?></td>
+                    <td><?php echo $order['customer_email'] ?></td>
+                    <td><?php echo $order['customer_phone'] ?></td>
+                    <td><?php echo $order['date_created'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
         </tbody>
     </table>
 </div>

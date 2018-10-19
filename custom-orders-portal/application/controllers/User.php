@@ -72,10 +72,10 @@ class User extends CI_Controller {
         $login_result = $this->user_model->login_user($user_login);
         if($login_result)
         {
-            $this->session->set_userdata('user_id',$user_profile[0]['user_id']);
-            $this->session->set_userdata('user_email',$user_profile[0]['user_email']);
-            $this->session->set_userdata('user_name',$user_profile[0]['user_name']);
-            $this->session->set_userdata('user_role',$user_profile[0]['user_role']);
+            $this->session->set_userdata('user_id',$login_result[0]['user_id']);
+            $this->session->set_userdata('user_email',$login_result[0]['user_email']);
+            $this->session->set_userdata('user_name',$login_result[0]['user_name']);
+            $this->session->set_userdata('user_role',$login_result[0]['user_role']);
 
 
             $referer_url = $this->session->userdata('referer_url');
@@ -120,7 +120,6 @@ class User extends CI_Controller {
         $this->session->unset_userdata('user_email');
         $this->session->unset_userdata('user_name');
         $this->session->unset_userdata('user_role');
-
 
         redirect(base_url('user/login'), 'refresh');
     }

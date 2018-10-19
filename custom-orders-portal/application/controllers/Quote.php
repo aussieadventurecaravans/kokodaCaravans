@@ -90,18 +90,38 @@ class Quote extends CI_Controller {
             'product_name'=>$this->input->post('product_name')
         );
 
-
-        $result = $this->quote_model->update_quote($quote_id,$data);
-
-        if(!$result)
+        if($this->input->post('updateQuote'))
         {
-            $this->session->set_flashdata('error_msg', 'Update failed, please try again or contact to our Admin at Kokoda Caravans.' );
+            $result = $this->quote_model->update_quote($quote_id,$data);
+            if(!$result)
+            {
+                $this->session->set_flashdata('error_msg', 'Update failed, please try again or contact to our Admin at Kokoda Caravans.' );
+            }
+            else
+            {
+                $this->session->set_flashdata('success_msg', 'Quote update successfully !!!' );
+
+            }
         }
-        else
+
+        if($this->input->post('placeOrder'))
         {
-            $this->session->set_flashdata('success_msg', 'Quote update successfully !!!' );
-            redirect( base_url('quote/edit') .'?quote_id='. $quote_id, 'refresh');
+            $result = $this->quote_model->place_order($quote_id);
+            if(!$result)
+            {
+                $this->session->set_flashdata('error_msg', 'Update failed, please try again or contact to our Admin at Kokoda Caravans.' );
+            }
+            else
+            {
+                $this->session->set_flashdata('success_msg', 'The order is created successfully !!!' );
+
+            }
         }
+
+
+
+
+        redirect( base_url('quote/edit') .'?quote_id='. $quote_id, 'refresh');
 
     }
 }

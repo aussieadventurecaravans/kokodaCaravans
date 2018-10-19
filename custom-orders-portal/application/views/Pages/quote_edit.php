@@ -6,19 +6,39 @@ $quote_id = array(
     'quote_id' => $quote['quote_id']
 );
 
-$quote_status = array(
-    'name' => 'status',
-    'id'  => 'status',
-    'value' => $quote['status'],
-    'class' => 'form-control',
-    'options' => array(
-                    'in progress'  => 'In Progress',
-                    'in review'  => 'In Review',
-                    'in order'  => 'In Order',
-                    'in cancel'  => 'In Cancel'
-                ),
-    'selected' => array($quote['status'])
-);
+if($quote['status'] == 'In Order')
+{
+    $quote_status = array(
+        'name' => 'status',
+        'id'  => 'status',
+        'value' => $quote['status'],
+        'class' => 'form-control',
+        'options' => array(
+            'In Progress'  => 'In Progress',
+            'In Review'  => 'In Review',
+            'In Order'  => 'In Order',
+            'In Cancel'  => 'In Cancel'
+        ),
+        'selected' => array($quote['status']),
+        'readonly' => 'readonly'
+    );
+
+}
+else
+{
+        $quote_status = array(
+            'name' => 'status',
+            'id'  => 'status',
+            'value' => $quote['status'],
+            'class' => 'form-control',
+            'options' => array(
+                'In Progress'  => 'In Progress',
+                'In Review'  => 'In Review',
+                'In Cancel'  => 'In Cancel'
+            ),
+            'selected' => array($quote['status']),
+        );
+}
 
 
 $firstName = array(
@@ -104,10 +124,17 @@ $product_name = array(
 
 $submit = array(
     'name'=> 'updateQuote',
-    'value' => 'Update Status',
+    'value' => 'Update',
     'class' => 'btn btn-lg btn-success',
     'type'  => 'submit'
 );
+$placeorder = array(
+    'name'=> 'placeOrder',
+    'value' => 'Place Order',
+    'class' => 'btn btn-lg btn-primary',
+    'type'  => 'submit'
+);
+
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -207,11 +234,14 @@ $submit = array(
 
             <?php echo form_hidden($quote_id); ?>
 
+            <?php if($quote['status'] != 'In Order'): ?>
             <div class="row quote-buttons">
                 <div class="col-12">
-                    <?php echo form_submit($submit);  ?>
+                    <?php echo form_submit($placeorder);  ?>
+                    <?php echo ($user_role == 'admin') ? form_submit($submit) : '' ;  ?>
                 </div>
             </div>
+            <?php endif; ?>
 
             <?php echo form_close(); ?>
 
