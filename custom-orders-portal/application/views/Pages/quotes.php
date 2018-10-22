@@ -12,7 +12,8 @@
             <th>Caravan Model</th>
             <th>Customer Email</th>
             <th>Customer Phone</th>
-            <th>Quote Submit</th>
+            <th>Status</th>
+            <th>Submit</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -23,6 +24,7 @@
                 <td><?php echo $quote['customer_first_name']. ' ' . $quote['customer_last_name'] ?></td>
                 <td><?php echo $quote['product_name'] ?></td>
                 <td><?php echo $quote['customer_email'] ?></td>
+                <td><?php echo $quote['status'] ?></td>
                 <td><?php echo $quote['customer_phone'] ?></td>
                 <td><?php echo $quote['date_created'] ?></td>
                 <td>

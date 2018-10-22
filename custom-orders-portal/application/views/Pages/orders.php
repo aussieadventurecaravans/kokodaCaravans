@@ -26,7 +26,7 @@
             <?php foreach($orders as $order):  ?>
                 <tr>
                     <td><?php echo $order['order_id'] ?></td>
-                    <td><?php echo $order['customer_first_name']. ' ' . $quote['customer_last_name'] ?></td>
+                    <td><?php echo $order['customer_first_name']. ' ' . $order['customer_last_name'] ?></td>
                     <td><?php echo $order['product_name'] ?></td>
                     <td><?php echo $order['customer_email'] ?></td>
                     <td><?php echo $order['customer_phone'] ?></td>

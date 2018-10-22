@@ -101,18 +101,32 @@ $product_name = array(
 );
 
 
-$submit = array(
+$updateOrderButton = array(
+    'name'=> 'updateQuote-btn',
+    'value' => 'Update',
+    'class' => 'btn btn-lg btn-success',
+    'type'  => 'button',
+    'content' => 'Update Order',
+    'data-toggle' => "modal",
+    'data-target' => "#update-order-confirm-modal"
+
+);
+
+$updateOrder = array(
     'name'=> 'updateOrder',
     'value' => 'Update',
     'class' => 'btn btn-lg btn-success',
     'type'  => 'submit'
 );
 
-
+$attr = array(
+    'id'=>'add_posts',
+    'class'=> 'm-top-20'
+);
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Order Detail</h1>
+    <h1 class="h2">Order #0<?php echo $order['order_id']; ?> Detail</h1>
 </div>
 
 
@@ -210,10 +224,31 @@ $submit = array(
 
             <div class="row order-buttons">
                 <div class="col-12">
-                    <?php echo  form_submit($submit)  ;  ?>
+                    <?php echo  form_button($updateOrderButton)  ;  ?>
                 </div>
             </div>
 
+            
+            <!-- Modal -->
+            <div class="modal fade" id="update-order-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="update-order-confirm-modal-title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="update-order-confirm-modal-title">Update Quote</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure you want to update this order detail ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">No</button>
+                            <?php echo form_submit($updateOrder); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php echo form_close(); ?>
 
         </div>
