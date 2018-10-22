@@ -26,7 +26,6 @@ $firstName = array(
     'id'  => 'customer_first_name',
     'value' => $order['customer_first_name'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true,
 );
 
@@ -36,7 +35,6 @@ $lastName = array(
     'id'  => 'customer_last_name',
     'value' => $order['customer_last_name'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -46,7 +44,6 @@ $customer_address = array(
     'id'  => 'customer_address',
     'value' => $order['customer_address'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -56,7 +53,6 @@ $customer_postcode = array(
     'id'  => 'customer_postcode',
     'value' => $order['customer_postcode'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -66,7 +62,6 @@ $customer_state = array(
     'id'  => 'customer_state',
     'value' => strtoupper($order['customer_state']),
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -76,7 +71,6 @@ $customer_email = array(
     'id'  => 'customer_email',
     'value' => $order['customer_email'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -84,9 +78,7 @@ $customer_phone = array(
     'name' => 'customer_phone',
     'type' => 'text',
     'id'  => 'customer_phone',
-    'value' => $order['customer_phone'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -96,7 +88,6 @@ $product_name = array(
     'id'  => 'product_name',
     'value' => $order['product_name'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -228,7 +219,7 @@ $attr = array(
                 </div>
             </div>
 
-            
+
             <!-- Modal -->
             <div class="modal fade" id="update-order-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="update-order-confirm-modal-title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">

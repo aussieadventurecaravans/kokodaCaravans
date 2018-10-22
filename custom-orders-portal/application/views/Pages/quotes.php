@@ -28,9 +28,15 @@
                 <td><?php echo $quote['customer_phone'] ?></td>
                 <td><?php echo $quote['date_created'] ?></td>
                 <td>
-                    <a class="btn btn-info btn-sm" href="<?php echo base_url('quote/edit') . '?quote_id=' . $quote['quote_id']; ?>" >
-                        <span class="glyphicon glyphicon-edit"></span>Edit
-                    </a>
+                    <?php if($quote['status'] == 'In Order'): ?>
+                        <a class="btn btn-success btn-sm" href="<?php echo base_url('quote') . '?quote_id=' . $quote['quote_id']; ?>" >
+                            <span class="glyphicon glyphicon-check"></span>View
+                        </a>
+                    <?php else: ?>
+                        <a class="btn btn-info btn-sm" href="<?php echo base_url('quote/edit') . '?quote_id=' . $quote['quote_id']; ?>" >
+                            <span class="glyphicon glyphicon-edit"></span>Edit
+                        </a>
+                    <?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>
