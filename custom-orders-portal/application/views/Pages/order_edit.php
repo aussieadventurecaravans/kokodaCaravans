@@ -6,6 +6,10 @@ $order_id = array(
     'order_id' => $order['order_id']
 );
 
+$custom_options = unserialize($order['custom_options']);
+$add_on_options = unserialize($order['add_on_options']);
+
+
 $order_status = array(
     'name' => 'status',
     'id'  => 'status',
@@ -79,7 +83,8 @@ $customer_phone = array(
     'type' => 'text',
     'id'  => 'customer_phone',
     'class' => 'form-control',
-    'required' => true
+    'required' => true,
+    'value' => $order['customer_phone']
 );
 
 $product_name = array(
@@ -88,6 +93,7 @@ $product_name = array(
     'id'  => 'product_name',
     'value' => $order['product_name'],
     'class' => 'form-control',
+    'readonly' => 'readonly',
     'required' => true
 );
 
@@ -114,6 +120,7 @@ $attr = array(
     'id'=>'add_posts',
     'class'=> 'm-top-20'
 );
+
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -173,7 +180,7 @@ $attr = array(
 
             <div class="row">
                 <div class="col-6">
-                    <?php echo form_label('Addess', 'customer_address'); ?>
+                    <?php echo form_label('Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
                 </div>
@@ -210,12 +217,41 @@ $attr = array(
                     <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <?php echo form_label('Custom Options', 'custom_options'); ?>
+                    <ul class="list-group">
+                        <?php foreach($custom_options as $key => $value ): ?>
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize"><?php echo preg_replace('/[^A-Za-z0-9\-]/', ' ', $key) . ':'; ?> </span>
+                                <span class="text-capitalize"><?php echo $value; ?></span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
+            <?php if(sizeof($add_on_options) > 0): ?>
+                <div class="row">
+                    <div class="col-12">
+                        <?php echo form_label('Add On Options', 'add_on_options'); ?>
+                        <ul class="list-group">
+                            <?php foreach($add_on_options as $option): ?>
+                                <li class="list-group-item">
+                                    <span class="font-weight-bold text-capitalize"><?php echo $option['accessory_label'] . ':'; ?> </span>
+                                    <span class="text-capitalize"><?php echo '$' . $option['accessory_price']; ?></span>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; ?>
 
             <?php echo form_hidden($order_id); ?>
 
             <div class="row order-buttons">
                 <div class="col-12">
-                    <?php echo  form_button($updateOrderButton)  ;  ?>
+                    <?php echo form_button($updateOrderButton);  ?>
                 </div>
             </div>
 

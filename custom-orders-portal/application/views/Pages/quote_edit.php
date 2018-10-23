@@ -6,6 +6,10 @@ $quote_id = array(
     'quote_id' => $quote['quote_id']
 );
 
+$custom_options = unserialize($quote['custom_options']);
+$add_on_options = unserialize($quote['add_on_options']);
+
+
 if($quote['status'] == 'In Order')
 {
     $quote_status = array(
@@ -217,7 +221,7 @@ $placeorder = array(
 
             <div class="row">
                 <div class="col-6">
-                    <?php echo form_label('Addess', 'customer_address'); ?>
+                    <?php echo form_label('Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
                 </div>
@@ -254,6 +258,37 @@ $placeorder = array(
                     <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <?php echo form_label('Custom Options', 'custom_options'); ?>
+                    <ul class="list-group">
+                        <?php foreach($custom_options as $key => $value ): ?>
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize"><?php echo preg_replace('/[^A-Za-z0-9\-]/', ' ', $key) . ':'; ?> </span>
+                                <span class="text-capitalize"><?php echo $value; ?></span>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+
+            <?php if(sizeof($add_on_options) > 0): ?>
+                <div class="row">
+                    <div class="col-12">
+                        <?php echo form_label('Add On Options', 'add_on_options'); ?>
+                        <ul class="list-group">
+                            <?php foreach($add_on_options as $option): ?>
+                                <li class="list-group-item">
+                                    <span class="font-weight-bold text-capitalize"><?php echo $option['accessory_label'] . ':'; ?> </span>
+                                    <span class="text-capitalize"><?php echo '$' . $option['accessory_price']; ?></span>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; ?>
+
 
             <?php echo form_hidden($quote_id); ?>
 
