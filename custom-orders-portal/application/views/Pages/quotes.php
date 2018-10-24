@@ -3,7 +3,7 @@
 </div>
 
 
-<div class="table-responsive">
+<div class="table-responsive quotes-list">
     <table class="table table-striped table-sm">
         <thead>
         <tr>
@@ -30,11 +30,11 @@
                 <td>
                     <?php if($quote['status'] == 'In Order'): ?>
                         <a class="btn btn-success btn-sm" href="<?php echo base_url('quote') . '?quote_id=' . $quote['quote_id']; ?>" >
-                            <span class="glyphicon glyphicon-check"></span>View
+                            <span class="fa-search"></span>View
                         </a>
                     <?php else: ?>
                         <a class="btn btn-info btn-sm" href="<?php echo base_url('quote/edit') . '?quote_id=' . $quote['quote_id']; ?>" >
-                            <span class="glyphicon glyphicon-edit"></span>Edit
+                            <span class="fa-edit"></span>Edit
                         </a>
                     <?php endif; ?>
                 </td>

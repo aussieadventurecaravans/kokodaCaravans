@@ -289,14 +289,52 @@ $placeorder = array(
                 </div>
             <?php endif; ?>
 
+            <div class="row finance-row">
+                <div class="col-6">
+                    <fieldset class="total-price-section">
+                        <legend class="header">Order Total Estimate</legend>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Model Price:</span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['product_cost']); ?></span>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Accessories Price:</span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['add_on_cost']); ?></span>
+                            </li>
+                        </ul>
+                        <hr/>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Total Cost:</span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['total_cost']) ; ?></span>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+
+                <div class="col-6">
+                    <fieldset class="finance-section">
+                        <legend class="header">Payment Information</legend>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Payment Method: </span>
+                                <span class="text-capitalize"><?php echo $quote['payment_method']; ?></span>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </div>
+
+
 
             <?php echo form_hidden($quote_id); ?>
 
             <?php if($quote['status'] != 'In Order'): ?>
             <div class="row quote-buttons">
-                <div class="col-12">
-                    <?php echo ($user_role == 'admin') ? form_submit($updateQuoteButton) : '' ;  ?>
-                    <?php echo form_button($placeorderButton);  ?>
+                <div class="col-12 text-right">
+                    <?php echo form_submit($updateQuoteButton);  ?>
+                    <?php echo ($user_role == 'admin') ? form_button($placeorderButton) : '' ;  ?>
                 </div>
             </div>
             <?php endif; ?>

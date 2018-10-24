@@ -3,7 +3,7 @@
 </div>
 
 
-<div class="table-responsive">
+<div class="table-responsive orders-list">
     <table class="table table-striped table-sm">
         <thead>
         <tr>
@@ -34,7 +34,7 @@
                     <td><?php echo $order['date_created'] ?></td>
                     <td>
                         <a class="btn btn-info btn-sm" href="<?php echo base_url('order/edit') . '?order_id=' . $order['order_id']; ?>" >
-                            <span class="glyphicon glyphicon-edit"></span>Edit
+                            <span class="fa-edit"></span>Edit
                         </a>
                     </td>
                 </tr>

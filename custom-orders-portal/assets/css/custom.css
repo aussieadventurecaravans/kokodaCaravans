@@ -111,12 +111,55 @@ ul.navbar-nav li
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
+/**
+* Quotes list button
+*/
+.quotes-list a.btn
+{
+    width: 75px;
+    text-transform: uppercase;
+}
+.quotes-list a.btn span{
+    font-family:'FontAwesome';
+    margin-right: 5px;
+}
 
+
+/**
+*  Orders list button
+*/
+.orders-list a.btn
+{
+    width: 75px;
+    text-transform: uppercase;
+}
+.orders-list a.btn span{
+    font-family:'FontAwesome';
+    margin-right: 5px;
+}
+/*
+* Form Detail Row
+ */
+.form-row
+{
+    margin-bottom: 20px;
+}
+.form-control:disabled, .form-control[readonly]
+{
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+.form-row .row
+{
+    margin-top: 8px;
+}
 
 /*
  * Footer
  */
-.footer {
+.footer
+{
     position: relative;
     bottom: 0;
     width: 100%;
@@ -156,3 +199,50 @@ ul.navbar-nav li
 {
     margin-top: 20px;
 }
+
+
+/*
+*   Finance Row Details
+*/
+
+
+.finance-row
+{
+    margin-top: 20px;
+}
+
+
+fieldset.finance-section,
+fieldset.total-price-section
+{
+    border: 1px solid #d5d6d6 !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow: 0px 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px 0px #d5d6d6;
+    border-radius: 8px;
+}
+fieldset.finance-section .header,
+fieldset.total-price-section .header
+{
+    border-bottom: none;
+    width: auto;
+    padding: 0 10px;
+    font-weight: 400;
+}
+
+
+fieldset.finance-section  .list-group-item,
+fieldset.total-price-section .list-group-item
+{
+    padding: 0.5rem 1.25rem;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+
+fieldset.total-price-section .list-group-item .price-value
+{
+    position: absolute;right:15px;
+}
+
+

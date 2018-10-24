@@ -130,7 +130,7 @@ $attr = array(
 
 
 <div class="fluid-container">
-    <div class="row">
+    <div class="row form-row">
         <div class="col-md-12 text-left">
 
             <?php echo form_open('order/update',$attr); ?>
@@ -217,6 +217,12 @@ $attr = array(
                     <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
                 </div>
             </div>
+
+
+            <?php echo form_hidden($order_id); ?>
+
+
+
             <div class="row">
                 <div class="col-12">
                     <?php echo form_label('Custom Options', 'custom_options'); ?>
@@ -246,15 +252,48 @@ $attr = array(
                     </div>
                 </div>
             <?php endif; ?>
+            <div class="row finance-row">
+                <div class="col-6">
+                    <fieldset class="total-price-section">
+                        <legend class="header">Order Total Estimate</legend>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Model Price:</span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($order['product_cost']); ?></span>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Accessories Price:</span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($order['add_on_cost']); ?></span>
+                            </li>
+                        </ul>
+                        <hr/>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Total Cost:</span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($order['total_cost']) ; ?></span>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
 
-            <?php echo form_hidden($order_id); ?>
-
-            <div class="row order-buttons">
-                <div class="col-12">
-                    <?php echo form_button($updateOrderButton);  ?>
+                <div class="col-6">
+                    <fieldset class="finance-section">
+                        <legend class="header">Payment Information</legend>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Payment Method: </span>
+                                <span class="text-capitalize"><?php echo $order['payment_method']; ?></span>
+                            </li>
+                        </ul>
+                    </fieldset>
                 </div>
             </div>
 
+            <div class="row order-buttons">
+                <div class="col-12 text-right">
+                    <?php echo form_button($updateOrderButton);  ?>
+                </div>
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="update-order-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="update-order-confirm-modal-title" aria-hidden="true">

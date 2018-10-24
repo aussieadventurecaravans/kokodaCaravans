@@ -78,7 +78,7 @@ jQuery(function($) {
             switch (tab) {
                 case 'exterior' :
 
-                    var options = custom_order.caravan_options;console.log(custom_order.caravan_options);
+                    var options = custom_order.caravan_options;
                     $("ul.ui-choose").remove();
                     for (var i = 0; i < custom_exterior[select_model_id].length; i++) {
                         if (custom_exterior[select_model_id][i]['custom_option'] == 'composite panel') {

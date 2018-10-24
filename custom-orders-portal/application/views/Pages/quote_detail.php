@@ -122,6 +122,11 @@ $placeorder = array(
     'content' => 'Place Order',
 );
 
+
+
+$caravan_specs = get_field('specifications',$quote['product_id']);
+
+
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -130,13 +135,13 @@ $placeorder = array(
 
 
 <div class="fluid-container">
-    <div class="row">
+    <div class="row form-row">
         <div class="col-md-12 text-left">
             <?php echo form_open('quote/update'); ?>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="alert alert-info">
-                        <?php echo 'Quote Details View Only'; ?>
+                        <?php echo 'This quote  has already been submitted to order'; ?>
                     </div>
                 </div>
             </div>
@@ -200,43 +205,78 @@ $placeorder = array(
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <?php echo form_label('Custom Options', 'custom_options'); ?>
-                    <ul class="list-group">
-                        <?php foreach($custom_options as $key => $value ): ?>
-                            <li class="list-group-item">
-                                <span class="font-weight-bold text-capitalize"><?php echo preg_replace('/[^A-Za-z0-9\-]/', ' ', $key) . ':'; ?> </span>
-                                <span class="text-capitalize"><?php echo $value; ?></span>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-
-            <?php if(sizeof($add_on_options) > 0): ?>
-                <div class="row">
-                    <div class="col-12">
-                        <?php echo form_label('Add On Options', 'add_on_options'); ?>
-                        <ul class="list-group">
-                            <?php foreach($add_on_options as $option): ?>
-                                <li class="list-group-item">
-                                    <span class="font-weight-bold text-capitalize"><?php echo $option['accessory_label'] . ':'; ?> </span>
-                                    <span class="text-capitalize"><?php echo '$' . $option['accessory_price']; ?></span>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                </div>
-            <?php endif; ?>
-
 
             <?php echo form_hidden($quote_id); ?>
 
-
-
             <?php echo form_close(); ?>
 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <?php echo form_label('Custom Options', 'custom_options'); ?>
+            <ul class="list-group">
+                <?php foreach($custom_options as $key => $value ): ?>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold text-capitalize"><?php echo preg_replace('/[^A-Za-z0-9\-]/', ' ', $key) . ':'; ?> </span>
+                        <span class="text-capitalize"><?php echo $value; ?></span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+
+    <?php if(sizeof($add_on_options) > 0): ?>
+        <div class="row">
+            <div class="col-12">
+                <?php echo form_label('Add-On Accessories', 'add_on_options'); ?>
+                <ul class="list-group">
+                    <?php foreach($add_on_options as $option): ?>
+                        <li class="list-group-item">
+                            <span class="font-weight-bold text-capitalize"><?php echo $option['accessory_label'] . ':'; ?> </span>
+                            <span class="text-capitalize"><?php echo '$' . $option['accessory_price']; ?></span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    <?php endif; ?>
+
+
+    <div class="row finance-row">
+        <div class="col-6">
+            <fieldset class="total-price-section">
+                <legend class="header">Order Total Estimate</legend>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="font-weight-bold text-capitalize">Model Price:</span>
+                        <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['product_cost']); ?></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="font-weight-bold text-capitalize">Accessories Price:</span>
+                        <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['add_on_cost']); ?></span>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="font-weight-bold text-capitalize">Total Cost:</span>
+                        <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['total_cost']) ; ?></span>
+                    </li>
+                </ul>
+            </fieldset>
+        </div>
+
+        <div class="col-6">
+            <fieldset class="finance-section">
+                <legend class="header">Payment Information</legend>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="font-weight-bold text-capitalize">Payment Method: </span>
+                        <span class="text-capitalize"><?php echo $quote['payment_method']; ?></span>
+                    </li>
+                </ul>
+            </fieldset>
         </div>
     </div>
 
