@@ -156,7 +156,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 ?>
 
 
-<div class="banner-wrap">
+<!--<div class="banner-wrap">
     <div class="banner fluid-container">
         <div class="row">
             <div class="banner-content page-heading col-sm-12">
@@ -167,40 +167,38 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         </div>
     </div>
 </div>
-
+-->
 <div class="custom-quote-section">
     <div class="fluid-container">
         <div class="row option-select-header-section">
             <div class="col-sm-12">
-               <nav>
-                    <ol class="cd-breadcrumb triangle">
-                        <li class="current"><a href="#" class="tablinks" tab-content="models">Models</a></li>
-                        <li><a href="#" class="tablinks" tab-content="exterior" >Exterior</a></li>
-                        <li><a href="#" class="tablinks" tab-content="floorplan">Floor Plan</a></li>
-                        <li><a href="#" class="tablinks" tab-content="accessories">Accessories</a></li>
-                        <li><a href="#" class="tablinks"  tab-content="summary">Summary</a></li>
-                        <li><a href="#" class="tablinks"  tab-content="enquiry">Submit</a></li>
-                    </ol>
-                </nav>
+                <ol class="cd-breadcrumb triangle">
+                    <li class="current"><a href="#" class="tablinks" tab-content="model">Model</a></li>
+                    <li><a href="#" class="tablinks" tab-content="exterior" >Exterior</a></li>
+                    <li><a href="#" class="tablinks" tab-content="floorplan">Floor Plan</a></li>
+                    <li><a href="#" class="tablinks" tab-content="accessories">Accessories</a></li>
+                    <li><a href="#" class="tablinks"  tab-content="summary">Summary</a></li>
+                    <li><a href="#" class="tablinks"  tab-content="enquiry">Submit</a></li>
+                </ol>
             </div>
         </div>
         <div class="row display-model-section">
             <div class="col-xs-12">
-                <h2 class="model-header">Model</h2>
+                <h2 class="model-header"></h2>
             </div>
         </div>
         <div class="row option-select-value-section">
-            <div class="col-md-8">
-                <div id="models" class="tabcontent">
+            <div class="col-md-12 option-select-value-section-content">
+                <div id="model" class="tabcontent">
                     <div class="tab-header">
                         <h4>
-                            Choose Your Models
+                            Choose Your Model
                         </h4>
                     </div>
 
                     <div class="row model-list">
                         <?php foreach ($caravans as $caravan): ?>
-                            <div class="item model col-xs-12 col-sm-6 col-md-6 col-lg-4" select-model="<?php echo $caravan->ID; ?>" >
+                            <div class="item model col-xs-12 col-sm-6 col-md-4 col-lg-3" select-model="<?php echo $caravan->ID; ?>" >
                                 <?php  $product_img = get_field('banner_image',$caravan->ID); ?>
                                 <div class="item-img">
                                     <img alt="caravan image" src="<?php echo $product_img['sizes']['medium']; ?>"/>
@@ -528,9 +526,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             </div>
 
 
-            <div class="col-md-4 text-left">
+            <div class="col-md-3 text-left">
                 <fieldset class="finance-section">
-                    <legend class="finance-header">Price Estimate</legend>
+                    <legend class="finance-header">Price Summary</legend>
                     <!-- TOTAL PRICE SUMMARY  -->
                     <div class="finance-section-details cash-summary text-center">
                         <h2 class="price-label primary-price">
@@ -554,31 +552,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             Total Price *
                         </p>
                     </div>
-                    <!-- LOAN ESTIMATE SUMMARY  -->
-                    <div class="finance-section-details loan-summary">
-                        <fieldset class="loan-detail-section">
-                            <legend class="loan-section-header">Loan Estimate</legend>
-                            <div class="loan-amount-sec">
-                                <p><span>Loan Amount($):<input type="text" class="form-control input-md loan-amount"  value="0"/></p>
-                            </div>
-                            <div class="interest-sec">
-                                <p><span>Interest Rate(%):<input type="text" class="form-control input-md interest-rate" placeholder="4.59" value="4.59"/></p>
-                            </div>
-                            <div class="period-sec">
-                                <p><span>Loan Term(months):<input type="text" class="form-control input-md loan-terms"  value="60"/></p>
-                            </div>
 
-                            <div class="balloon-amount-sec">
-                                <p><span>Balloon Amount($):<input type="text" class="form-control input-md balloon-amount" placeholder="$" value="0"/></p>
-                            </div>
-
-                            <div class="monthly-payment-sec">
-                                <p>
-                                    Repayment: $<span class="mp-amount">0</span> /month
-                                </p>
-                            </div>
-                        </fieldset>
-                    </div>
                     <div class="finance-disclaim-section-details text-left">
                         <p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Please Note:</b>
                             All the prices are subject to change without prior notice. The price estimates are provided on a basis production cost and
@@ -587,6 +561,37 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </p>
                     </div>
                 </fieldset>
+                <!-- LOAN CACULATOR  -->
+                <div class="finance-section-details loan-summary">
+                    <fieldset class="loan-detail-section">
+                        <legend class="loan-section-header">Loan Caculator</legend>
+                        <div class="loan-amount-sec">
+                            <p><span>Loan Amount($):<input type="text" class="form-control input-md loan-amount"  value="0"/></p>
+                        </div>
+                        <div class="interest-sec">
+                            <p><span>Interest Rate(%):<input type="text" class="form-control input-md interest-rate" placeholder="4.59" value="4.59"/></p>
+                        </div>
+                        <div class="period-sec">
+                            <p><span>Loan Term(months):<input type="text" class="form-control input-md loan-terms"  value="60"/></p>
+                        </div>
+
+                        <div class="balloon-amount-sec">
+                            <p><span>Balloon Amount($):<input type="text" class="form-control input-md balloon-amount" placeholder="$" value="0"/></p>
+                        </div>
+
+                        <div class="monthly-payment-sec">
+                            <p>
+                                Repayment Cost: $<span class="mp-amount">0</span> /month
+                            </p>
+                        </div>
+
+                        <div class="finance-disclaim-section-details text-left">
+                            <p style="text-align: justify;font-size: 13px;"><b>Please Note:</b>
+                                Enter the loan amount, interest rate, terms months and Balloon Amount(large payment due at the end of a loan), it will automatically give you repayment cost.
+                            </p>
+                        </div>
+                    </fieldset>
+                </div>
             </div>
         </div>
     </div>

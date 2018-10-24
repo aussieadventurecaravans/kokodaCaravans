@@ -58,19 +58,35 @@ jQuery(function($) {
                 $('#' + current_tab + '.tabcontent').show();
             }
 
+
+            if($(this).attr('tab-content') != 'model')
+            {
+                $('.option-select-value-section .option-select-value-section-content').addClass('col-md-9');
+                $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-12');
+                $('fieldset.finance-section').show();
+                $('fieldset.loan-detail-section').show();
+            }
+            else
+            {
+                $('.option-select-value-section .option-select-value-section-content').addClass('col-md-12');
+                $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-9');
+                $('fieldset.finance-section').hide();
+                $('fieldset.loan-detail-section').hide();
+            }
+
             renderCustomOptions($(this).attr('tab-content'));
             renderDisplayImageWrapper($(this).attr('tab-content'));
 
-            if($(this).attr('tab-content') != 'models' && $(this).attr('tab-content') != 'summary'  && $(this).attr('tab-content') != 'enquiry')
+
+            if($(this).attr('tab-content') != 'model' && $(this).attr('tab-content') != 'enquiry')
             {
-                $('.custom-quote-section  .display-model-section.row .model-header').html('Model:' + caravan_title[select_model_id])
+                $('.custom-quote-section  .display-model-section.row .model-header').html(caravan_title[select_model_id])
                 $('.custom-quote-section  .display-model-section.row .model-header').show();
             }
             else
             {
-                 $('.custom-quote-section  .display-model-section.row .model-header').hide();
+                $('.custom-quote-section  .display-model-section.row .model-header').hide();
             }
-
         });
 
 
@@ -172,19 +188,19 @@ jQuery(function($) {
         }
 
         function actionsListener() {
-            $('#models .model-list .item').click(function (e)
+            $('#model .model-list .item').click(function (e)
             {
 
                 //reset the custom options of caravan
                 custom_order.caravan_options = {};
 
-                $('#models .model-list .item').removeClass('selected');
+                $('#model .model-list .item').removeClass('selected');
                 $(this).addClass('selected');
                 select_model_id = $(this).attr('select-model');
                 custom_order.caravan = select_model_id;
 
                 //we are allowed to go to next tab when we complete this tab
-                $('a.tablinks[tab-content="models"]').parent('li').next().addClass('next');
+                $('a.tablinks[tab-content="model"]').parent('li').next().addClass('next');
 
                 //go to the next tab
                 $('a.tablinks[tab-content="exterior"]').click();
@@ -283,7 +299,7 @@ jQuery(function($) {
                     $("a.tablinks[tab-content='" + next_tabcontent + "']").click();
                 }
                 $('html, body').animate({
-                    scrollTop: $(".custom-quote-section").offset().top
+                    scrollTop: $(".custom-quote-section").offset().top - 250
                 }, 1000);
             });
 
@@ -295,7 +311,7 @@ jQuery(function($) {
                     $("a.tablinks[tab-content='" + prev_tabcontent + "']").click();
                 }
                 $('html, body').animate({
-                    scrollTop: $(".custom-quote-section").offset().top
+                    scrollTop: $(".custom-quote-section").offset().top - 250
                 }, 1000);
             });
             $('#customer_details_form button.btn-back').click(function (e) {
@@ -306,7 +322,7 @@ jQuery(function($) {
                     $("a.tablinks[tab-content='" + prev_tabcontent + "']").click();
                 }
                 $('html, body').animate({
-                    scrollTop: $(".custom-quote-section").offset().top
+                    scrollTop: $(".custom-quote-section").offset().top - 250
                 }, 1000);
             });
 
@@ -393,8 +409,8 @@ jQuery(function($) {
                 layer.add(chekerPlateImg);
 
                 var models_panel = [];
-                models_panel[5417] = {x : 232 , y : 63 };
-                models_panel[5195] = {x : 232 , y : 63 };
+                models_panel[5417] = {x : 232 , y : 62 };
+                models_panel[5195] = {x : 232 , y : 62 };
                 models_panel[4032] = {x : 186 , y : 24 };
 
 
@@ -577,7 +593,7 @@ jQuery(function($) {
 
         function summary_section_update() {
 
-            //render the the feature spec for the models
+            //render the the feature spec for the model
             var data = {
                 'action': 'get_caravan',
                 'caravan_id': custom_order.caravan
@@ -648,8 +664,8 @@ jQuery(function($) {
                 layer.add(chekerPlateImg);
 
                 var models_panel = [];
-                models_panel[5417] = {x : 232 , y : 63 };
-                models_panel[5195] = {x : 232 , y : 63 };
+                models_panel[5417] = {x : 232 , y : 62 };
+                models_panel[5195] = {x : 232 , y : 62 };
                 models_panel[4032] = {x : 186 , y : 24 };
 
                 var panelImg = new Konva.Image();
@@ -695,10 +711,6 @@ jQuery(function($) {
 
             };
 
-            var e = '<div class="header-wrapper">';
-            e += '<h2>Model: ' + caravan_title[select_model_id] + '</h2>';
-            e += '</div>';
-            $('#summary .display-image-wrapper').prepend(e);
 
         }
 
@@ -757,7 +769,7 @@ jQuery(function($) {
         }
 
         function printPDF() {
-            //render the the feature spec for the models
+            //render the the feature spec for the model
             var data = {
                 'action': 'export_pdf',
                 'custom_order': custom_order,
@@ -784,7 +796,7 @@ jQuery(function($) {
 
 
         function downloadPDF() {
-            //render the the feature spec for the models
+            //render the the feature spec for the model
             var data = {
                 'action': 'export_pdf',
                 'custom_order': custom_order,

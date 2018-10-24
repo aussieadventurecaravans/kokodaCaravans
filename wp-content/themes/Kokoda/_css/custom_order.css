@@ -16,13 +16,15 @@
 {
     font-size: 35px;
     padding-left: 30px;
+    color: #000;
+    text-shadow: none;
 }
 
 .page-template-custom-order-template .banner-wrap
 {
     top:20px;
     height: 150px;
-    background-color: #1a1a1a;
+    background-color: #eceff0;
 }
 .custom-quote-section
 {
@@ -90,8 +92,8 @@
 
     .custom-quote-section .cd-breadcrumb.triangle li.current > * {
         color: #ffffff;
-        background-color: #4d617f;
-        border-color: #4d617f;
+        background-color: #0092ff;
+        border-color: #0092ff;
     }
 
 
@@ -141,18 +143,18 @@
     }
 }
 
-.custom-quote-section .option-select-value-section .tab-header {
-    padding-bottom: 9px;
+.custom-quote-section .option-select-value-section .tab-header
+{
     margin: 20px 0 20px;
     border-bottom: 1px solid #eee;
+    text-transform: uppercase;
 }
-
-.custom-quote-section .option-select-value-section  #models .model-list
+.custom-quote-section .option-select-value-section  #model .model-list
 {
     margin:0 0 20px 0;
 }
 
-.custom-quote-section .option-select-value-section  #models .item
+.custom-quote-section .option-select-value-section  #model .item
 {
     border: 1px solid #eff1f1;
     opacity: 1;
@@ -161,26 +163,26 @@
     padding: 0;
     cursor:pointer;
 }
-.custom-quote-section .option-select-value-section  #models .item.selected,
-.custom-quote-section .option-select-value-section  #models .item:hover
+.custom-quote-section .option-select-value-section  #model .item.selected,
+.custom-quote-section .option-select-value-section  #model .item:hover
 {
-    background-color: #edeff0;
+    background-color: #edeff0; border: 3px solid #0094ff;
 }
-.custom-quote-section .option-select-value-section  #models .item:hover .item-img img
+.custom-quote-section .option-select-value-section  #model .item:hover .item-img img
 {
     opacity: 0.7;
 }
-.custom-quote-section .option-select-value-section  #models .item-img img
+.custom-quote-section .option-select-value-section  #model .item-img img
 {
     width:100%
 }
-.custom-quote-section .option-select-value-section #models .item-details
+.custom-quote-section .option-select-value-section #model .item-details
 {
     text-align: center;
     padding: 15px 0;
     color: #1a1a1a;
 }
-.custom-quote-section .option-select-value-section #models .item-details .details .product-meta span
+.custom-quote-section .option-select-value-section #model .item-details .details .product-meta span
 {
     height: 23px;
     line-height: 23px;
@@ -190,27 +192,27 @@
     font-size: 18px;
     margin-right: 15px;
 }
-.custom-quote-section .option-select-value-section #models .item-details .details .product-meta .size
+.custom-quote-section .option-select-value-section #model .item-details .details .product-meta .size
 {
     background-image: url(../_img/ico-size@2x-black.png);
     background-position: 0 5px;
     padding-left: 23px;
     padding-top: 4px;
 }
-.custom-quote-section .option-select-value-section #models .item-details .details .product-meta .occupants
+.custom-quote-section .option-select-value-section #model .item-details .details .product-meta .occupants
 {
     background-image: url(../_img/ico-occupants@2x-black.png);
     background-position: 0 5px;
     padding-left: 30px;
     padding-top: 4px;
 }
-.custom-quote-section .option-select-value-section  #models .item-details .details
+.custom-quote-section .option-select-value-section  #model .item-details .details
 {
     padding: 0 20px 0;
     text-align: center;
     min-height: 230px;
 }
-.custom-quote-section .option-select-value-section  #models .item-details h3
+.custom-quote-section .option-select-value-section  #model .item-details h3
 {
     display: inline-block;
     border-bottom: 2px solid #000;
@@ -221,7 +223,7 @@
     margin-top: 10px;
 }
 
-.custom-quote-section .option-select-value-section #models .item-details .details .product-meta
+.custom-quote-section .option-select-value-section #model .item-details .details .product-meta
 {
     margin: 15px 0;
 }
@@ -344,7 +346,7 @@
 }
 .custom-quote-section .option-select-value-section #floorplan .item.selected,
 .custom-quote-section .option-select-value-section #floorplan .item:hover {
-    background-color: #eef1f1;
+    background-color: #ffffff;
     color: #4d607e;
 }
 .custom-quote-section .option-select-value-section #floorplan .item-details {
@@ -377,12 +379,13 @@
     width: 120px;
 }
 
-fieldset.finance-section {
+fieldset.finance-section{
     border: 1px solid #d5d6d6 !important;
     padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
+    margin: 25px 0 1.5em 0 !important;
     -webkit-box-shadow: 0px 0px 0px 0px #000;
     box-shadow: 0px 0px 0px 0px #d5d6d6;
+    display:none;
 }
 
 @media only screen and (max-width: 991px)
@@ -393,33 +396,46 @@ fieldset.finance-section {
     }
 }
 
-fieldset.finance-section  legend.finance-header {
-    font-size: 1.2em !important;
-    font-weight: bold !important;
-    text-align: left !important;
-    width:auto;
-    padding:0 10px;
-    border-bottom:none;
+.finance-section-details.loan-summary
+{
+    margin-top: 25px;
 }
 
-fieldset.finance-section .loan-detail-section
+fieldset.finance-section  legend.finance-header {
+    text-align: left !important;
+    width: auto;
+    padding: 0 10px;
+    border-bottom: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #29414e;
+}
+
+fieldset.loan-detail-section
 {
+    display:none;
     border: 1px solid #d5d6d6 !important;
     padding: 0 1.4em 1.4em 1.4em !important;
     margin: 0 0 1.5em 0 !important;
     -webkit-box-shadow: 0px 0px 0px 0px #000;
     box-shadow: 0px 0px 0px 0px #d5d6d6;
-    border-radius: 8px;
+    border-radius: 1px;
 }
-fieldset.finance-section .loan-detail-section legend.loan-section-header {
-    border-bottom: none;
+fieldset.loan-detail-section legend.loan-section-header
+{
+    text-align: left !important;
     width: auto;
     padding: 0 10px;
-    font-weight: 400;
+    border-bottom: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #29414e;
 }
 
 
-fieldset.finance-section .loan-detail-section .monthly-payment-sec
+fieldset.loan-detail-section .monthly-payment-sec
 {
     margin: 20px 0 20px;
     border-top: 1px solid #eee;
@@ -440,11 +456,11 @@ fieldset.finance-section .cash-summary p.primary-price-label
     font-weight: 100;
     font-size: 15px;
 }
-fieldset.finance-section .loan-summary input.drive-away-price
+.loan-summary input.drive-away-price
 {
     letter-spacing: 2px;
 }
-fieldset.finance-section .loan-summary input.drive-away-price::first-letter
+.loan-summary input.drive-away-price::first-letter
 {
     content:"$";
 }
@@ -498,8 +514,11 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
     border-color: #ffffff;
     position: absolute;
     right: 122px;
-    top: 18px;
+    top: 8px;
     text-transform: capitalize;
+    font-size: 20px;
+    margin: 14px;
+    padding: 0;
 }
 .tabcontent#summary .tab-header .btn-print
 {
@@ -508,8 +527,11 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
     border-color: #ffffff;
     position: absolute;
     right: 30px;
-    top: 18px;
+    top: 8px;
     text-transform: capitalize;
+    font-size: 20px;
+    margin: 14px;
+    padding: 0;
 }
 
 
@@ -552,13 +574,6 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 {
     margin: 20px 0 20px;
     padding: 0;
-}
-.tabcontent#summary .display-image-wrapper .header-wrapper h2
-{
-    text-align: center;
-    font-size: 35px;
-    font-weight: bold;
-    margin-bottom: 60px;
 }
 .tabcontent#summary .display-accessories-wrapper .header-wrapper h2
 {
@@ -615,7 +630,7 @@ fieldset.finance-section .loan-summary input.drive-away-price::first-letter
 }
 .tabcontent#accessories .accessories-list .item.selected .item-detail
 {
-    border:3px solid #4d607e;
+    border: 3px solid #0094ff;
     padding: 0;
 }
 .tabcontent#accessories .accessories-list .item .item-detail .icon-moon
