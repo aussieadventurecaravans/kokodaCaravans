@@ -403,17 +403,60 @@
 {
     display:none;
 }
+.custom-quote-section .tabcontent button.btn-next
+{
+    background-color: #4285f4;
+    border-color:#4285f4;
+    color: #fff;
+}
+.custom-quote-section .tabcontent button.btn-pre,
+.custom-quote-section .tabcontent button.btn-back
+{
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #fff;
+}
 .custom-quote-section .tabcontent button.btn-next,
 .custom-quote-section .tabcontent button.btn-pre,
 .custom-quote-section .tabcontent button.btn-back
 {
     margin-top: 15px;
-    width: 120px;
+    width: auto;
+    font-size: 18px;
 }
+.custom-quote-section .tabcontent button.btn-pre .icon-left-arrow,
+.custom-quote-section .tabcontent button.btn-back .icon-left-arrow
+{
+    position: relative;
+    right: 6px;
+    top: 1.5px;
+    font-size: 18px;
+}
+
+.custom-quote-section .tabcontent button.btn-pre .icon-left-arrow:before,
+.custom-quote-section .tabcontent button.btn-back .icon-left-arrow:before
+{
+ content : '\EA44';
+}
+.custom-quote-section .tabcontent button.btn-next .icon-right-arrow
+{
+    position: relative;
+    left: 4px;
+    top: 1.5px;
+    font-size: 18px;
+}
+
+.custom-quote-section .tabcontent button.btn-next .icon-right-arrow:before
+{
+    content : '\EA42';
+}
+
 .custom-quote-section .tabcontent input.btn#submit_order
 {
     margin-top: 15px;
     width: 120px;
+    background-color: #0094ff;
+    border-color: #0094ff;
 }
 
 fieldset.finance-section{

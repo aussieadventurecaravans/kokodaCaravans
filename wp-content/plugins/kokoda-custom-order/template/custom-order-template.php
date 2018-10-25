@@ -254,10 +254,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
                     <div class="row">
                         <div class="col-md-6  col-xs-6  text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Models</button>
                         </div>
                         <div class="col-md-6 col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next To Floorplan<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
                 </div>
@@ -265,7 +265,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 <div id="floorplan" class="tabcontent">
                     <div class="tab-header">
                         <h4>
-                            Choose Your Floorplan
+                            Choose Floorplan
                         </h4>
                     </div>
                     <div class="option-select-image-section">
@@ -275,10 +275,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Exterior</button>
                         </div>
                         <div class="col-md-6 col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next To Accessories<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
                 </div>
@@ -295,10 +295,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Floorplan</button>
                         </div>
                         <div class="col-md-6 col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next To Summary<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
                 </div>
@@ -308,8 +308,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <h4>
                             Caravan Summary
                         </h4>
-                        <button type="button" class="btn btn-primary btn-lg btn-download"><span class="icon-moon"></span> Download</button>
-                        <button type="button" class="btn btn-primary btn-lg btn-print"><span class="icon-moon"></span> Print</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-download"><span class="icon-moon"></span>Download</button>
+                        <button type="button" class="btn btn-primary btn-lg btn-print"><span class="icon-moon"></span>Print</button>
                     </div>
                     <div class="display-image-wrapper row" id="summary-display-image-wrapper">
                     </div>
@@ -320,10 +320,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                     <div class="row">
                         <div class="col-md-6 col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-pre">Previous</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Accessories</button>
                         </div>
                         <div class="col-md-6 col-xs-6 text-center">
-                            <button type="button" class="btn btn-primary btn-lg btn-next">Next</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next To Submit<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
                 </div>
@@ -445,7 +445,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                     <!-- Button -->
                                     <div class="form-group">
                                         <div class="col-xs-6 text-center">
-                                            <button type="button" class="btn btn-primary btn-lg btn-back">Back</button>
+                                            <button type="button" class="btn btn-primary btn-lg btn-back"><span class="icon-moon icon-left-arrow"></span>Back To Summary</button>
 
                                         </div>
                                         <div  class="col-xs-6 text-center">
