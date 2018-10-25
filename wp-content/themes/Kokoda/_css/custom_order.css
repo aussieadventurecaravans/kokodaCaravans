@@ -85,15 +85,16 @@
     }
     .custom-quote-section .cd-breadcrumb.triangle li.complete > *
     {
-        background-color: #d5d6d6;
-        border-color: #d5d6d6;
+        color: #ffffff;
+        background-color: #0092ff;
+        border-color: #0092ff;
         cursor: pointer;
     }
 
     .custom-quote-section .cd-breadcrumb.triangle li.current > * {
-        color: #ffffff;
-        background-color: #0092ff;
-        border-color: #0092ff;
+        color: #fff;
+        background-color:#337ab7;
+        border-color:#337ab7;
     }
 
 
@@ -162,12 +163,34 @@
     transition: opacity .4s;
     padding: 0;
     cursor:pointer;
+
+
 }
-.custom-quote-section .option-select-value-section  #model .item.selected,
+.custom-quote-section .option-select-value-section  #model .item .item-img
+
+{
+    padding:3px 3px 0 3px ;
+}
+.custom-quote-section .option-select-value-section  #model .item .item-details
+{
+    padding: 0px  3px 3px 3px;
+}
+.custom-quote-section .option-select-value-section  #model .item.selected ,
 .custom-quote-section .option-select-value-section  #model .item:hover
 {
-    background-color: #edeff0; border: 3px solid #0094ff;
+    background-color: #edeff0;
 }
+.custom-quote-section .option-select-value-section  #model .item.selected .item-img,
+.custom-quote-section .option-select-value-section  #model .item:hover .item-img
+{
+    border-top: 3px solid #0094ff;border-left: 3px solid #0094ff;border-right: 3px solid #0094ff;padding:0;
+}
+.custom-quote-section .option-select-value-section  #model .item.selected .item-details,
+.custom-quote-section .option-select-value-section  #model .item:hover .item-details
+{
+    border-bottom: 3px solid #0094ff;border-left: 3px solid #0094ff;border-right: 3px solid #0094ff;padding:0;
+}
+
 .custom-quote-section .option-select-value-section  #model .item:hover .item-img img
 {
     opacity: 0.7;
@@ -245,6 +268,13 @@
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
 {
     margin: 20px 0 20px;
+}
+@media only screen and (max-width: 480px)
+{
+    .custom-quote-section .option-select-value-section #exterior .custom-options-form .col-md-12
+    {
+       padding:0px;
+    }
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose
 {
@@ -332,6 +362,13 @@
     .custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-item {
         float: left;
         margin: 0 5px;
+    }
+}
+@media only screen and (max-width: 480px)
+{
+    .custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-item {
+        float: left;
+        margin: 0;
     }
 }
 .custom-quote-section .option-select-value-section #floorplan .floorplan-list {
@@ -635,7 +672,7 @@ fieldset.finance-section .cash-summary p.primary-price-label
 }
 .tabcontent#accessories .accessories-list .item .item-detail .icon-moon
 {
-    color: #337ab7;
+    color: #ffe000;
     right: 15px;
     top: 15px;
     position: absolute;
