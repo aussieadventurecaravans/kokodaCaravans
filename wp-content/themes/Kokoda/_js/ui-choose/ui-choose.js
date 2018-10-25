@@ -14,10 +14,11 @@
         colNum: null, //Number of lines displayed per line
         dataKey: 'ui-choose', //Instantiated data key value for easy follow-up data('ui-choose') take out ；
         change: null, //choose Callback when the value changes；
-        click: null //choose Callback when the element is clicked，diabled Does not happen。
+        click: null, //choose Callback when the element is clicked，diabled Does not happen。
+        id:  'ui-choose-id' // add the ID attribute to element ui-choose
     };
     /**
-     * ui-choose插件
+     * ui-choose Plugin
      */
     $.fn.ui_choose = function(options) {
         var _this = $(this),
@@ -80,7 +81,7 @@
             this._wrap.addClass(this._opt.skin);
             if (this.multi && !this._opt.skin)
                 this._wrap.addClass('choose-type-right');
-            this._bindEvent(); // 绑定事件
+            this._bindEvent(); // Binding event
         },
 
         // Organize and get related dom elements-ul;
@@ -94,7 +95,7 @@
 
         // Organize and get related dom elements-select;
         _setHtml_select: function() {
-            var _ohtml = '<ul class="ui-choose">';
+            var _ohtml = '<ul class="ui-choose" id="' +  this._opt.id + '-ui-choose"">';
             this.el.find('option').each(function(index, el) {
                 var _this = $(el),
                     _text = _this.text(),

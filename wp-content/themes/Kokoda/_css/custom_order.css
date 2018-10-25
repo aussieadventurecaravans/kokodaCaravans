@@ -337,6 +337,15 @@
 
     background: #ebcd28;
 }
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li[data-value=black]{
+
+    background-image: url("../_img/checkerplate-black.png");
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li[data-value=silver]{
+
+    background-image: url("../_img/checkerplate-silver.png");
+}
+
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li.selected{
     border: 5px solid #0090ff;
 }
@@ -423,6 +432,7 @@
     margin-top: 15px;
     width: auto;
     font-size: 18px;
+    padding: 10px 20px;
 }
 .custom-quote-section .tabcontent button.btn-pre .icon-left-arrow,
 .custom-quote-section .tabcontent button.btn-back .icon-left-arrow

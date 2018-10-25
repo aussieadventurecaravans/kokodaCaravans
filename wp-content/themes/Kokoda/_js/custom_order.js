@@ -96,7 +96,8 @@ jQuery(function($) {
 
                     var options = custom_order.caravan_options;
                     $("ul.ui-choose").remove();
-                    for (var i = 0; i < custom_exterior[select_model_id].length; i++) {
+                    for (var i = 0; i < custom_exterior[select_model_id].length; i++)
+                    {
                         if (custom_exterior[select_model_id][i]['custom_option'] == 'composite panel') {
                             $('select#composite_panel').html('');
                             var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
@@ -113,7 +114,7 @@ jQuery(function($) {
 
 
                             //convert these select into the horizonal select menu
-                            $('select#composite_panel').ui_choose();
+                            $('select#composite_panel').ui_choose({id : 'panel'});
 
                         }
                         if (custom_exterior[select_model_id][i]['custom_option'] == 'checker plate') {
@@ -130,11 +131,11 @@ jQuery(function($) {
                             custom_order.caravan_options.checker_plate = $('select#checker_plate').val();
 
                             //convert these select into the horizonal select menu
-                            $('select#checker_plate').ui_choose();
+                            $('select#checker_plate').ui_choose({id : 'checker-plate'});
                         }
                     }
 
-                    $("ul.ui-choose").owlCarousel({
+                   $("ul.ui-choose").owlCarousel({
 
                         navigation: false, // Show next and prev buttons
                         slideSpeed: 300,
@@ -148,7 +149,6 @@ jQuery(function($) {
                         itemsDesktop: [1199, 9],
                         responsiveBaseWidth: '.ui-choose'
                     });
-
                     break;
                 default:
                 //do nothing is gold
