@@ -7,7 +7,7 @@ $quote_id = array(
 );
 
 $custom_options = unserialize($quote['custom_options']);
-$add_on_options = unserialize($quote['add_on_options']);
+$add_on_accessories = unserialize($quote['add_on_accessories']);
 
 
 if($quote['status'] == 'In Order')
@@ -273,15 +273,16 @@ $placeorder = array(
                 </div>
             </div>
 
-            <?php if(sizeof($add_on_options) > 0): ?>
+            <?php if(sizeof($add_on_accessories) > 0): ?>
                 <div class="row">
                     <div class="col-12">
                         <?php echo form_label('Add On Options', 'add_on_options'); ?>
                         <ul class="list-group">
-                            <?php foreach($add_on_options as $option): ?>
+                            <?php foreach($add_on_accessories as $option): ?>
                                 <li class="list-group-item">
-                                    <span class="font-weight-bold text-capitalize"><?php echo $option['accessory_label'] . ':'; ?> </span>
-                                    <span class="text-capitalize"><?php echo '$' . $option['accessory_price']; ?></span>
+                                    <span class="font-weight-bold text-capitalize"><?php echo $option['label'] . ':'; ?> </span><br/>
+                                    <span class="text-capitalize"><?php echo 'Retail Price: $' . $option['retail_price']; ?></span><br/>
+                                    <span class="text-capitalize"><?php echo 'Whole Sale Price: $' . $option['wholesale_price']; ?></span>
                                 </li>
                             <?php endforeach; ?>
                         </ul>

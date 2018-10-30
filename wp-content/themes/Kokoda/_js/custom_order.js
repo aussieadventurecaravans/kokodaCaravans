@@ -719,6 +719,13 @@ jQuery(function($) {
         {
             var accessories_wrapper = $(".tabcontent#accessories .accessories-list");
 
+            if( acs_files[select_model_id] == '')
+            {
+                accessories_wrapper.html('<h3 class="text-center">There are no accessories for ' +  caravan_title[select_model_id]  + '</h3>');
+                return ;
+            }
+
+
             var data = {
                 'action': 'list_accessories',
                 'accessories_file': acs_files[select_model_id]
@@ -740,7 +747,6 @@ jQuery(function($) {
                     accessories = JSON.parse(data);
 
                     //load accessories to template
-                    accessories_wrapper.html('');
                     var el = "";
 
                     for (var i = 0; i < accessories.length; i++)

@@ -139,6 +139,10 @@ foreach ($caravans as $caravan)
     {
         $acs_files[$caravan->ID] = get_field('accessories', $caravan->ID);
     }
+    else
+    {
+        $acs_files[$caravan->ID] = '';
+    }
 }
 
 //get all dealers from the plugin store locator
