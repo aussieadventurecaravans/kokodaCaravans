@@ -1399,7 +1399,13 @@ nav .container {
 	margin-right: 0px;
 	padding: 15px 30px;
 }
-
+@media only screen and (max-width: 380px)
+{
+	.floorplan .btn
+	{
+		margin-top: 15px;
+	}
+}
 .floorplan .btn.virtual-tour {
 	background-image: url('_img/ico-360.png');
 	background-repeat: no-repeat;
