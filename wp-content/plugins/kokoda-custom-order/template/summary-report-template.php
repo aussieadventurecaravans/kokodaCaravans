@@ -91,8 +91,8 @@ setup_postdata($post);
 <?php $html1 .=  '<div class="col-md-12 text-center">'; ?>
 <?php foreach($accessories as $accessory):?>
         <?php $html1 .= '<div class="item"><div class="item-detail">'; ?>
-        <?php $html1 .= '<img src="' . content_url('uploads') . '/custom_order/'. $caravan_id . '/Accessories/' . $accessory['accessory_label'] . '.png" />'; ?>
-        <?php $html1 .= '<h3>' . $accessory['accessory_label']  .'</h3>'; ?>
+        <?php $html1 .= '<img src="' . content_url('uploads') . '/custom_order/Accessories/' . $accessory['label'] . '.png" />'; ?>
+        <?php $html1 .= '<h3>' . $accessory['label']  .'</h3>'; ?>
         <?php $html1 .=  '</div></div>'; ?>
 <?php  endforeach; ?>
 
@@ -214,7 +214,7 @@ $total_price  = $product_price + $accessories_price;
                 <?php $html3 .= '<td scope="row"><h4>Add-on Accessories</h4>'; ?>
                     <?php foreach($accessories as $accessory):?>
                         <?php $html3 .= '<div class="acc-item">'; ?>
-                        <?php $html3 .= '<span class="acc-label"> + ' . $accessory['accessory_label']  .'</span>'; ?>
+                        <?php $html3 .= '<span class="acc-label"> + ' . $accessory['label']  .'</span>'; ?>
                         <?php $html3 .=  '</div>'; ?>
                     <?php  endforeach; ?>
                 <?php $html3 .= ' </td>'; ?>

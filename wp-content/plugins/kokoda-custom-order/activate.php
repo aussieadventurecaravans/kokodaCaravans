@@ -53,7 +53,7 @@ function install_custom_order_tables() {
       product_id varchar(255)  NOT NULL DEFAULT '',
       product_name varchar(255)  NOT NULL DEFAULT '',
       custom_options longtext default NULL,
-      add_on_options longtext default NULL,
+      add_on_accessories longtext default NULL,
       other_options longtext default NULL,
       product_cost double NOT NULL DEFAULT '0',
       orc_cost double NOT NULL DEFAULT '0',

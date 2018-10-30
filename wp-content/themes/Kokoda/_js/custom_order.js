@@ -6,9 +6,9 @@ jQuery(function($) {
     var custom_floorplan = $custom_floorplan;
     var dealers = $dealers;
     var primary_prices = $primary_prices;
-    var custom_accessories = $custom_accessories;
+    var acs_files =  $acs_files;
     var caravan_image = '';
-
+    var accessories = '';
     var custom_order = {
         customer: {},
         dealer: {},
@@ -544,7 +544,8 @@ jQuery(function($) {
             var accessories_prices = 0;
             for( var i = 0 ; i < custom_order.accessories.length; i++)
             {
-                accessories_prices += Number(custom_order.accessories[i]['accessory_price']);
+
+                accessories_prices += Number(custom_order.accessories[i]['retail_price']);
             }
 
             custom_order.accessories_price = accessories_prices;
@@ -614,10 +615,10 @@ jQuery(function($) {
                 }
             });
 
-            //render the list of accessories customer choose
+            //render the list of selected accessories from order
             var el = '';
-            var accessories = custom_order.accessories;
-            if (accessories.length > 0)
+            var acs = custom_order.accessories;
+            if (acs.length > 0)
             {
                 el += '<h2 style="text-align: center;font-size: 40px">+</h2>';
                 el += '<div class="header-wrapper">';
@@ -625,14 +626,13 @@ jQuery(function($) {
                 el += '</div>';
 
                 el += '<div class="col-md-12 text-center">';
-                for (var i = 0; i < accessories.length; i++) {
+                for (var i = 0; i < acs.length; i++) {
                     el += '<div class="item" access-id="' + i + '" ><div class="item-detail">';
-                    el += '<img src="' + $base_url + '/custom_order/' + select_model_id + '/Accessories/' + accessories[i]['accessory_label'] + '.png" />';
-                    el += '<h3>' + accessories[i]['accessory_label'] + '</h3>';
+                    el += '<img src="' + $base_url + '/custom_order/Accessories/' + acs[i]['label'] + '.png" />';
+                    el += '<h3>' + acs[i]['label'] + '</h3>';
                     el += '</div></div>';
                 }
                 el += '</div>';
-
             }
 
             $(".tabcontent#summary .display-accessories-wrapper").html(el);
@@ -719,53 +719,82 @@ jQuery(function($) {
         {
             var accessories_wrapper = $(".tabcontent#accessories .accessories-list");
 
-            var accessories = custom_accessories[select_model_id];
+            var data = {
+                'action': 'list_accessories',
+                'accessories_file': acs_files[select_model_id]
+            };
 
-            accessories_wrapper.html('');
-            var el = "";
+            var url = $site_url + "/wp-admin/admin-ajax.php";
+            //loading the caravan detail before open panel
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                beforeSend: function() {
+                    $('#loading-icon-panel').show();
+                },
+                success: function (data) {
 
-            for (var i = 0; i < accessories.length; i++) {
-                var sel = '';
-                if (custom_order.accessories.length > 0) {
-                    for (var a = 0; a < custom_order.accessories.length; a++) {
-                        if (accessories[i]['accessory_label'] == custom_order.accessories[a]['accessory_label']) {
-                            sel = "selected";
+                    $('#loading-icon-panel').hide();
+
+                    accessories = JSON.parse(data);
+
+                    //load accessories to template
+                    accessories_wrapper.html('');
+                    var el = "";
+
+                    for (var i = 0; i < accessories.length; i++)
+                    {
+
+                        //check if any accessories are added to current order
+                        var sel = '';
+                        if (custom_order.accessories.length > 0)
+                        {
+                            for (var a = 0; a < custom_order.accessories.length; a++)
+                            {
+                                if (accessories[i]['label'] == custom_order.accessories[a]['label'])
+                                {
+                                    sel = "selected";
+                                }
+                            }
                         }
+
+                        //render the accessories list at template
+                        el += '<div class="item ' + sel + ' col-md-4 col-sm-5 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
+                        el += '<span class="icon-moon"></span>';
+                        el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
+                        el += '<h3>' + accessories[i]['label'] + '</h3>';
+                        el += '</div></div>';
+
                     }
+                    accessories_wrapper.html(el);
+
+                    //add event listener to the accessories link
+
+                    $(".tabcontent#accessories .accessories-list .item").click(function (e) {
+
+                        if ($(this).hasClass('selected')) {
+                            //remove accessories from the order
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                            //add accessories to the order
+                            $(this).addClass('selected');
+                        }
+
+                        var acc_list = [];
+                        $(".tabcontent#accessories .accessories-list .item.selected").each(function (index) {
+                            var accessId = $(this).attr('access-id');
+                            acc_list.push(accessories[accessId]);
+
+                        });
+                        custom_order.accessories = acc_list;
+                        finance_section_update(true);
+                    });
                 }
-
-                el += '<div class="item ' + sel + ' col-md-4 col-sm-5 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
-                el += '<span class="icon-moon"></span>'
-                el += '<img src="' + $base_url + '/custom_order/' + select_model_id + '/Accessories/' + accessories[i]['accessory_label'] + '.png" />';
-                el += '<h3>' + accessories[i]['accessory_label'] + '</h3>';
-                el += '</div></div>';
-
-            }
-            accessories_wrapper.html(el);
-
-            //add event listener to the accessories
-
-            $(".tabcontent#accessories .accessories-list .item").click(function (e) {
-
-                if ($(this).hasClass('selected')) {
-                    //remove accessories from the order
-                    $(this).removeClass('selected');
-                }
-                else {
-                    //add accessories to the order
-                    $(this).addClass('selected');
-                }
-
-                var acc_list = [];
-                $(".tabcontent#accessories .accessories-list .item.selected").each(function (index) {
-                    var accessId = $(this).attr('access-id');
-                    acc_list.push(custom_accessories[select_model_id][accessId]);
-
-                });
-                custom_order.accessories = acc_list;
-
-                finance_section_update(true);
             });
+
+
         }
 
         function printPDF() {

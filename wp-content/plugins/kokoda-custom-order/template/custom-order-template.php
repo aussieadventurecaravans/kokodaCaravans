@@ -131,19 +131,14 @@ foreach ($caravans as $caravan)
 
 
 
-//eacho caravan has custom add for accessories
-$custom_accessories = array();
+//each caravan has a list of accessories files CSV
+$acs_files = array();
 foreach ($caravans as $caravan)
 {
-    if(!empty(get_field('custom_accessories',$caravan->ID)))
+    if(!empty(get_field('accessories',$caravan->ID)))
     {
-        $custom_accessories[$caravan->ID] = get_field('custom_accessories',$caravan->ID);
+        $acs_files[$caravan->ID] = get_field('accessories', $caravan->ID);
     }
-    else
-    {
-        $custom_accessories[$caravan->ID] = 'custom_accessories';
-    }
-
 }
 
 //get all dealers from the plugin store locator
@@ -154,8 +149,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
 
 ?>
-
-
 <!--<div class="banner-wrap">
     <div class="banner fluid-container">
         <div class="row">
@@ -611,9 +604,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var $custom_floorplan = <?php echo json_encode($custom_floorplan); ?>;
     var $dealers = <?php echo json_encode($dealers); ?>;
     var $primary_prices = <?php echo json_encode($primary_prices); ?>;
-    var $custom_accessories = <?php echo json_encode($custom_accessories); ?>;
     var $base_url = '<?php echo $uploads['baseurl']; ?>';
     var $site_url = '<?php echo site_url() ?>';
+    var $acs_files = <?php echo json_encode($acs_files); ?>;
 </script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css'?>" >
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js'?>"></script>

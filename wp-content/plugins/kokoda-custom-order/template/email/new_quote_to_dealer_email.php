@@ -421,8 +421,8 @@
 
                 <?php
 
-                $add_on_options = unserialize($_quote->add_on_options);
-                if(count($add_on_options) > 0):
+                $accessories = unserialize($_quote->add_on_accessories);
+                if(count($accessories) > 0):
                 ?>
 
                 <tr>
@@ -461,9 +461,9 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
-                                                            <?php foreach($add_on_options as $option): ?>
+                                                            <?php foreach($accessories as $option): ?>
                                                                 <p style="margin: 10px 0 0px;">
-                                                                    <?php echo '+ ' . $option['accessory_label']; ?>
+                                                                    <?php echo '+ ' . $option['label']; ?>
                                                                 </p>
                                                             <?php endforeach; ?>
                                                         </td>

@@ -252,7 +252,8 @@ add_action('wp_ajax_nopriv_get_caravan', 'get_caravan');
 add_action('wp_ajax_export_pdf', 'export_pdf');
 add_action('wp_ajax_nopriv_export_pdf', 'export_pdf');
 
-
+add_action('wp_ajax_list_accessories', 'list_accessories');
+add_action('wp_ajax_nopriv_list_accessories', 'list_accessories');
 
 
 function submit_customorder()
@@ -317,3 +318,35 @@ function export_pdf()
 }
 
 
+function list_accessories()
+{
+    try
+    {
+        if( isset( $_POST['accessories_file'] ))
+        {
+            $lines = explode( "\n", file_get_contents( $_POST['accessories_file']  ) );
+            $headers = str_getcsv( array_shift( $lines ) );
+            $data = array();
+            foreach ( $lines as $line )
+            {
+                $row = array();
+                foreach ( str_getcsv( $line ) as $key => $field )
+                    $row[ $headers[ $key ] ] = $field;
+                $row = array_filter( $row );
+                $data[] = $row;
+            }
+            echo json_encode($data);
+        }
+        else
+        {
+            echo false;
+        }
+    }
+    catch (Exception $e)
+    {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+        echo false;
+    }
+    wp_die();
+
+}

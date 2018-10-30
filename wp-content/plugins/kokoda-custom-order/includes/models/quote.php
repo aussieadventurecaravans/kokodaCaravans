@@ -242,7 +242,7 @@ class Quote
 
 
         //prepare custom accessories for quote
-         $quote_data['add_on_options'] = serialize($data['accessories']);
+         $quote_data['add_on_accessories'] = serialize($data['accessories']);
 
 
 
@@ -328,7 +328,7 @@ class Quote
     public function prepareDataForUpdate($data)
     {
         $quote_data =  array();
-        $columns= array('product_name','custom_options','add_on_options','product_cost','orc_cost','total_cost','status',
+        $columns= array('product_name','custom_options','add_on_accessories','product_cost','orc_cost','total_cost','status',
                         'add_on_cost','payment_method','customer_first_name','customer_last_name','customer_address','customer_postcode','customer_state',
                         'apply_loan_option','loan_status',
                         'customer_email','customer_phone','date_created','date_modified');

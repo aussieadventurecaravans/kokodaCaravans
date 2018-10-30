@@ -24,8 +24,8 @@
                 <td><?php echo $quote['customer_first_name']. ' ' . $quote['customer_last_name'] ?></td>
                 <td><?php echo $quote['product_name'] ?></td>
                 <td><?php echo $quote['customer_email'] ?></td>
-                <td><?php echo $quote['status'] ?></td>
                 <td><?php echo $quote['customer_phone'] ?></td>
+                <td><?php echo $quote['status'] ?></td>
                 <td><?php echo $quote['date_created'] ?></td>
                 <td>
                     <?php if($quote['status'] == 'In Order'): ?>

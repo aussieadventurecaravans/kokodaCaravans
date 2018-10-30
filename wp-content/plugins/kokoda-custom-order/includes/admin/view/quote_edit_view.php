@@ -158,13 +158,14 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="first" style="vertical-align: text-top"><label for="add_on_options"><?php _e( 'Accessories:' ); ?></label></td>
+                                            <td class="first" style="vertical-align: text-top"><label for="add_on_accessories"><?php _e( 'Accessories:' ); ?></label></td>
                                             <td style="vertical-align: text-top">
-                                                <?php $add_on_options =  unserialize($quote->add_on_options);?>
-                                                <?php if (is_array($add_on_options) || is_object($add_on_options)): ?>
-                                                    <?php foreach($add_on_options as $key => $value): ?>
-                                                        <p style="padding:0;"><strong>Accessory:</strong><span> <?php echo $value['accessory_label']; ?> </span><br/>
-                                                        <strong>Price:</strong><span>$<?php echo $value['accessory_price']; ?> </span></p>
+                                                <?php $add_on_accessories =  unserialize($quote->add_on_accessories);?>
+                                                <?php if (is_array($add_on_accessories) || is_object($add_on_accessories)): ?>
+                                                    <?php foreach($add_on_accessories as $key => $value): ?>
+                                                        <p style="padding:0;"><strong>Accessory:</strong><span> <?php echo $value['label']; ?> </span><br/>
+                                                        <strong>Retail Price:</strong><span>$<?php echo $value['retail_price']; ?> </span><br/>
+                                                        <strong>Whole Sale Price:</strong><span>$<?php echo $value['wholesale_price']; ?> </span></p>
                                                     <?php endforeach; ?>
                                                 <?php endif; ?>
                                             </td>
