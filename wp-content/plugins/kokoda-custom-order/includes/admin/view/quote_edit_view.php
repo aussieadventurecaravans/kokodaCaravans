@@ -215,7 +215,6 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                                     <?php $loan_method = esc_attr( $quote->apply_loan_option ); ?>
                                                     <select name="apply_loan_option" id="apply_loan_option" value="<?php echo esc_attr( $quote->apply_loan_option ); ?>" style=" width:250px; ">
                                                         <option value="apply later" <?php if($loan_method == 'apply later' ){ echo 'selected'; } ?> >Apply Later</option>
-                                                        <option value="apply creditone" <?php if($loan_method == 'apply creditone' ){ echo 'selected'; } ?> >Apply CreditOne</option>
                                                         <option value="self arrange" <?php if($loan_method == 'self arrange' ){ echo 'selected'; } ?> >Self Arrange Financing</option>
                                                     </select>
                                                 </td>

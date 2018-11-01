@@ -286,10 +286,6 @@ class Quote
                 $quote_data['loan_status'] = 'review';
             }
 
-            if($quote_data['apply_loan_option'] == 'apply creditone')
-            {
-                $quote_data['loan_status'] = 'review';
-            }
 
             $quote_data['loan_detail'] = serialize($data['finance']);
 
