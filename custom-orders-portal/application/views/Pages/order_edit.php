@@ -237,21 +237,23 @@ $attr = array(
                 </div>
             </div>
 
-            <?php if(!empty($add_on_accessories) || sizeof($add_on_accessories) > 0): ?>
-                <div class="row">
-                    <div class="col-12">
-                        <?php echo form_label('Add On Options', 'add_on_accessories'); ?>
-                        <ul class="list-group">
-                            <?php foreach($add_on_accessories as $option): ?>
-                                <li class="list-group-item">
-                                    <span class="font-weight-bold text-capitalize"><?php echo $option['label'] . ':'; ?> </span><br/>
-                                    <span class="text-capitalize"><?php echo 'Retail Price: $' . $option['retail_price']; ?></span><br/>
-                                    <span class="text-capitalize"><?php echo 'Whole Sale Price: $' . $option['wholesale_price']; ?></span>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
+            <?php if(is_array($add_on_accessories)):?>
+                <?php if(sizeof($add_on_accessories) > 0): ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <?php echo form_label('Add On Accessories', 'add_on_accessories'); ?>
+                            <ul class="list-group">
+                                <?php foreach($add_on_accessories as $option): ?>
+                                    <li class="list-group-item">
+                                        <span class="font-weight-bold text-capitalize"><?php echo $option['label'] . ':'; ?> </span><br/>
+                                        <span class="text-capitalize"><?php echo 'Retail Price: $' . $option['retail_price']; ?></span><br/>
+                                        <span class="text-capitalize"><?php echo 'Whole Sale Price: $' . $option['wholesale_price']; ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
             <?php endif; ?>
             <div class="row finance-row">
                 <div class="col-6">
