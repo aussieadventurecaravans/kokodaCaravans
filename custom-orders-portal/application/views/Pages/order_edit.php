@@ -237,7 +237,7 @@ $attr = array(
                 </div>
             </div>
 
-            <?php if(sizeof($add_on_accessories) > 0): ?>
+            <?php if(!empty($add_on_accessories) || sizeof($add_on_accessories) > 0): ?>
                 <div class="row">
                     <div class="col-12">
                         <?php echo form_label('Add On Options', 'add_on_accessories'); ?>
