@@ -439,6 +439,26 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                         </div>
                                     </div>
 
+                                    <div class="form-group apply-finance-form" style="display: none;">
+                                        <label class="col-md-3 control-label" for="payment_method">Payment Methods</label>
+                                        <div class="col-md-5">
+                                            <div class="radio">
+                                                <label><input type="radio" name="loan_options" value="self arrange" id="self_arrange" checked>Self-Arranged Finance</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="loan_options" value="apply later" id="apply_later">Apply Finance Later</label>
+                                            </div>
+                                            <div class="finance-options-detail">
+                                                 <span class="self_arrange" style="display:none">
+                                                    If you have already applied your financier, our dealer will contact to you shortly
+                                                 </span>
+                                                 <span class="apply_later" style="display:none">
+                                                    Our dealer will contact and help you to arrange financing.
+                                                 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <!-- Button -->
                                     <div class="form-group">
                                         <div class="col-xs-6 text-center">
@@ -452,71 +472,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                                 </fieldset>
                             </form>
-                        </div>
-                    </div>
-                    <div class="row apply-finance-company" style="display: none;">
-                        <div class="col-md-12">
-                            <fieldset>
-                                <div class="form-group">
-                                    <div class="col-md-12 text-center">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading" style="text-transform: uppercase">
-                                                Caravan Finance Options
-                                            </div>
-                                            <div class="panel-body">
-                                                <p class="description">
-                                                    <span class="apply_later" style="display:none">
-                                                        Our dealer will contact and help you to arrange financing.
-                                                    </span>
-                                                    <span class="apply_now" style="display:none">
-                                                       We will pass your contact information to our preferred financier Credit One to begin a credit application.
-                                                    </span>
-                                                    <span class="self_arrange" style="display:none">
-                                                        If you have already applied your financier, our dealer will contact to you shortly
-                                                    </span>
-                                                </p>
-
-                                                <div class="row">
-                                                    <div class="col-md-4 text-center">
-                                                        <div class="outside" id="apply_later" value="apply later">
-                                                            <div class="inside">
-                                                                <span>Apply Later</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 text-center">
-                                                        <div class="outside" id="self_arrange"  value="self arrange">
-                                                            <div class="inside">
-                                                                <span>Self-Arranged Finance</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4 text-center">
-                                                        <div class="outside" id="apply_now" value="apply creditone">
-                                                            <div class="inside">
-                                                                <span>
-                                                                    Apply Credit One
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-xs-6 text-center">
-                                                        <div id="back_button" class="btn btn-primary btn-lg">Back</div>
-
-                                                    </div>
-
-                                                    <div class="col-xs-6 text-center">
-                                                        <div id="apply_button" class="btn btn-primary btn-lg">Submit</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </fieldset>
                         </div>
                     </div>
                 </div>
@@ -596,7 +551,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'; ?>"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
-<script src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js'?>"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js'?>"></script>
 
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.css';?> ">
 <link rel="stylesheet"  href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.theme.css';?> ">

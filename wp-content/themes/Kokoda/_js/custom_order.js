@@ -252,21 +252,48 @@ jQuery(function($) {
             });
 
             $('form#customer_details_form').submit(function (event) {
-                if ($('select#payment_method').val() == 'cash') {
+                if ($('select#payment_method').val() == 'cash')
+                {
                     custom_order.finance.apply_loan_option = 'none';
-                    submitCustomOrder();
                 }
-                else {
-                    $('div#enquiry .custom-options-form ').hide();
-                    $('div#enquiry .apply-finance-company ').show();
-                }
-
+                submitCustomOrder();
                 return false;
             });
 
+            $('select#payment_method').change(function(event){
 
-            $('form#customer_details_form select#customer_state').change(function (e) {
+                if ($('select#payment_method').val() == 'cash')
+                {
+                    custom_order.finance.apply_loan_option = 'none';
+                    $('#customer_details_form input[name=loan_options]').removeAttr('required');
+                    $('.apply-finance-form').hide();
+                    $('.form-group.apply-finance-form .finance-options-detail span').hide();
+                }
+                else
+                {
+                    custom_order.finance.apply_loan_option = $('#customer_details_form input[name=loan_options]:checked').val();
+                    $('#customer_details_form input[name=loan_options]').attr('required','required');
+                    $('.apply-finance-form').show();
 
+                    var id =  $('#customer_details_form input[name=loan_options]:checked').attr('id');
+                    $('.form-group.apply-finance-form  .finance-options-detail span').hide();
+                    $('.form-group.apply-finance-form  .finance-options-detail span.' + id).show();
+                }
+
+            });
+
+            $('#customer_details_form input[name=loan_options][type=radio]').change(function()
+            {
+
+                var id =  $('#customer_details_form input[name=loan_options]:checked').attr('id');
+
+                $('.form-group.apply-finance-form  .finance-options-detail span').hide();
+                $('.form-group.apply-finance-form  .finance-options-detail span.' + id).show();
+            });
+
+
+            $('form#customer_details_form select#customer_state').change(function (e)
+            {
                 var el = '<option selected value="">Choose Dealer</option>';
                 var count = 0;
                 for (var i = 0; i < dealers.length; i++) {
@@ -279,10 +306,12 @@ jQuery(function($) {
 
                 }
 
-                if (count != 0) {
+                if (count != 0)
+                {
                     $('form#customer_details_form select#dealer_name').removeAttr("disabled");
                 }
-                else {
+                else
+                {
                     $('form#customer_details_form select#dealer_name').attr("disabled", true);
                 }
 
@@ -346,28 +375,6 @@ jQuery(function($) {
                     });
                 }
             });
-
-            $(".apply-finance-company div.outside").click(function (e) {
-
-                $(".apply-finance-company div.outside").removeClass('active');
-                $(this).addClass('active');
-                custom_order.finance.apply_loan_option = $(this).attr('value');
-
-                $(".apply-finance-company p.description span").hide();
-                $(".apply-finance-company p.description span" + "." + $(this).attr('id')).show();
-            });
-
-            $(".apply-finance-company div#back_button").click(function (e) {
-                $('div#enquiry .custom-options-form ').show();
-                $('div#enquiry .apply-finance-company ').hide();
-            });
-
-            $(".apply-finance-company div#apply_button").click(function (e) {
-
-                submitCustomOrder();
-
-            });
-
             $("button.btn-download").click(function (e) {
 
                 downloadPDF();
@@ -473,6 +480,11 @@ jQuery(function($) {
             custom_order.customer.customer_phone = $('input#customer_phone').val();
             custom_order.customer.customer_email = $('input#customer_email').val();
             custom_order.customer.payment_method = $('select#payment_method').val();
+            if ($('select#payment_method').val() != 'cash')
+            {
+                custom_order.finance.apply_loan_option = $('#customer_details_form input[name=loan_options]:checked').val();
+            }
+
 
             custom_order.dealer.dealer_id = $('select#dealer_name').val();
             custom_order.dealer.dealer_name = $('select#dealer_name option:selected').attr('dealers_name');
@@ -492,6 +504,8 @@ jQuery(function($) {
 
             custom_order.caravan_image = caravan_image;
 
+
+
             var data = {
                 'action': 'submit_customorder',
                 'custom_order': custom_order,
@@ -509,15 +523,14 @@ jQuery(function($) {
                     $('#enquiry input#reset_order').attr("disabled", true);
                     $('#enquiry input#submit_order').attr("disabled", true);
                     $('#enquiry input#submit_order').attr('value', 'Loading....');
-                    $('#enquiry .apply-finance-company #apply_button').attr("disabled", true);
-                    $('#enquiry .apply-finance-company #back_button').attr("disabled", true);
                     $('#loading-icon-panel').show();
 
                 },
                 success: function (data)
                 {
                     $('#loading-icon-panel').hide();
-                    if (data == true) {
+                    if (data == true)
+                    {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
                         $('#enquiry input#submit_order').attr('value', 'Complete');
 
@@ -526,12 +539,11 @@ jQuery(function($) {
                             location = ''
                         }, 3000);
                     }
-                    else {
+                    else
+                    {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-danger').show();
                         $('#enquiry input#submit_order').attr('value', 'Submit');
                         $('#enquiry input#submit_order').removeAttr("disabled");
-                        $('#enquiry .apply-finance-company #apply_button').removeAttr("disabled");
-                        $('#enquiry .apply-finance-company #back_button').removeAttr("disabled");
                     }
                 }
             });

@@ -342,7 +342,7 @@ function list_accessories()
             echo false;
         }
     }
-    catch (Exception $e)
+    catch(Exception $e)
     {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
         echo false;

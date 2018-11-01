@@ -554,49 +554,6 @@ fieldset.finance-section .cash-summary p.primary-price-label
 {
     content:"$";
 }
-
-.apply-finance-company .panel-body .outside
-{
-    background: #f7f7f7;
-    cursor: pointer;
-    height: 62px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    width: 100%;
-}
-.apply-finance-company .panel-body .outside.active {
-
-    background: #337ab7;
-    border: 1px solid #337ab7;
-}
-
-.apply-finance-company .panel-body .outside .inside
-{
-    background: #f7f7f7;
-    color: #000;
-    font-size: 16px;
-    height: 56px;
-    text-align: center;
-    line-height: 56px;
-    padding: 0;
-    position: relative;
-    top: 2px;
-    margin: 0 2px;
-}
-
-.apply-finance-company .panel-body .outside .inside span
-{
-    display: inline-block;
-    line-height: normal;
-    margin: 0 auto;
-    vertical-align: middle;
-}
-
-.apply-finance-company .panel-body #apply_button,
-.apply-finance-company .panel-body #back_button
-{
-    margin-top: 25px;
-}
 .tabcontent#summary .tab-header .btn-download
 {
     color: #0c121c;
@@ -756,4 +713,13 @@ fieldset.finance-section .cash-summary p.primary-price-label
 .tabcontent#accessories .accessories-list .item .item-detail img
 {
     width: 100%;
+}
+#customer_details_form .finance-options-detail
+{
+    border: 1px solid #ddd;
+    background-color: #f6f6f6;
+    padding: 5px;
+    height: 4em;
+    overflow: auto;
+    margin-top: 15px;
 }
