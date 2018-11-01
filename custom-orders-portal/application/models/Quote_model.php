@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Quote_Model extends CI_Model
+class Quote_model extends CI_Model
 {
 
     const QUOTE_TABLE = "wp_custom_order_quote";

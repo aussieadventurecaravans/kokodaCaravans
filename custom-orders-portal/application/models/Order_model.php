@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Order_Model extends CI_Model
+class Order_model extends CI_Model
 {
 
     const ORDER_TABLE = "custom_orders";
