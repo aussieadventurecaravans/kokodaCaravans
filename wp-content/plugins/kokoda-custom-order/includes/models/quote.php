@@ -15,7 +15,7 @@ class Quote
     /**
      * @var string
      */
-    public $add_on_options = '';
+    public $add_on_accessories = '';
 
     /**
      * @var double
@@ -417,7 +417,7 @@ class Quote
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
             $from_name = 'Kokoda Caravans Site';
-            $from_email= ENT_QUOTES.get_option('admin_email').ENT_QUOTES ;
+            $from_email= __(get_option('admin_email')) ;
 
             return $email = WP_Mail::init()
                 ->to($receiver)
@@ -463,7 +463,7 @@ class Quote
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
             $from_name = 'Kokoda Caravans Sale';
-            $from_email=  ENT_QUOTES.get_option('admin_email').ENT_QUOTES ;
+            $from_email=  __(get_option('admin_email')) ;
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
