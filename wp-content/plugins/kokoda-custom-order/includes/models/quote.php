@@ -417,7 +417,7 @@ class Quote
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
             $from_name = 'Kokoda Caravans Site';
-            $from_email= __(get_option('admin_email')) ;
+            $from_email=  ENT_QUOTES.get_option('admin_email').ENT_QUOTES ;
 
             return $email = WP_Mail::init()
                 ->to($receiver)
@@ -463,7 +463,7 @@ class Quote
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
             $from_name = 'Kokoda Caravans Sale';
-            $from_email=  __(get_option('admin_email')) ;
+            $from_email=  ENT_QUOTES.get_option('admin_email').ENT_QUOTES ;
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
