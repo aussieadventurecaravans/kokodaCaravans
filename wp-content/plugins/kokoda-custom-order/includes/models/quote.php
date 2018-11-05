@@ -416,12 +416,12 @@ class Quote
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
-            $from_name = 'Kokoda Caravans Site';
-            $from_email=  ENT_QUOTES.get_option('admin_email').ENT_QUOTES ;
+
+            $from_email= "Kokoda Caravans Site " . "<" . get_option('admin_email') . ">";
 
             return $email = WP_Mail::init()
                 ->to($receiver)
-                ->from($from_name . ' ' . '<' . $from_email . '>')
+                ->from($from_email)
                 ->subject($subject)
                 ->attach(array($pdf_file))
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_dealer_email.php',
@@ -462,12 +462,11 @@ class Quote
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
-            $from_name = 'Kokoda Caravans Sale';
-            $from_email=  ENT_QUOTES.get_option('admin_email').ENT_QUOTES ;
+            $from_email= "Kokoda Caravans Site " . "<" . get_option('admin_email') . ">";
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
-                ->from($from_name . ' ' . '<' . $from_email . '>')
+                ->from($from_email)
                 ->subject($subject)
                 ->attach(array($pdf_file))
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_customer_email.php',

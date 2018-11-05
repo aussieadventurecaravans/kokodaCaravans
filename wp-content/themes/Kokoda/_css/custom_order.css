@@ -580,7 +580,10 @@ fieldset.finance-section .cash-summary p.primary-price-label
     margin: 14px;
     padding: 0;
 }
-
+.tabcontent#summary .tab-header .btn-download span,
+.tabcontent#summary .tab-header .btn-print span{
+    margin-right: 7px;
+}
 
 
 .tabcontent#summary .tab-header .btn-download:focus,
