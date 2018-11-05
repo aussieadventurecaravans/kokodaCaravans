@@ -364,6 +364,10 @@ function wpb_sender_name( $original_email_from )
 }
 
 // Function to change email address
-function wpb_sender_email( $original_email_address ) {
-    return get_option('admin_email');
+function wpb_sender_email( $original_email_address )
+{
+    $host = $_SERVER['HTTP_HOST'];
+    return "sales@" .str_replace('www.','',$host);
+
+
 }
