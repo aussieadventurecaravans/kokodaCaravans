@@ -421,7 +421,6 @@ class Quote
 
             return $email = WP_Mail::init()
                 ->to($receiver)
-                ->from($from_email)
                 ->subject($subject)
                 ->attach(array($pdf_file))
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_dealer_email.php',
@@ -466,7 +465,6 @@ class Quote
 
             return $email = WP_Mail::init()
                 ->to( $receiver)
-                ->from($from_email)
                 ->subject($subject)
                 ->attach(array($pdf_file))
                 ->template(KOKODA_CUSTOM_ORDER_PLUGIN_URL .'/template/email/new_quote_to_customer_email.php',
