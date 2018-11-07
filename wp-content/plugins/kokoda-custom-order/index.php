@@ -366,8 +366,8 @@ function wpb_sender_name( $original_email_from )
 // Function to change email address
 function wpb_sender_email( $original_email_address )
 {
+    //Make sure the email is from the same domain
+    //as your website to avoid being marked as spam.
     $host = $_SERVER['HTTP_HOST'];
     return "sales@" .str_replace('www.','',$host);
-
-
 }
