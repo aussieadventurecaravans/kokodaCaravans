@@ -31,7 +31,7 @@
 </div>
 
 
-<h2>Recent Quotes Submit</h2>
+<h2>Recent Quote Requests</h2>
 <div class="table-responsive">
     <table class="table table-striped table-sm">
         <thead>

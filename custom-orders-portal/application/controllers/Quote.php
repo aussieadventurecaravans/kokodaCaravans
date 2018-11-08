@@ -10,6 +10,8 @@ class Quote extends CI_Controller {
         $this->load->library('session');
 
         $this->load->model("quote_model");
+        $this->load->model("product_model");
+
     }
 
     public function index()
@@ -77,6 +79,13 @@ class Quote extends CI_Controller {
     {
         $quote_id = $this->input->post('quote_id');
 
+        $user_id = $this->session->userdata('user_id');
+
+        if(!$user_id)
+        {
+            $this->session->set_userdata('referer_url',  base_url('quote/edit') . '?quote_id=' . $quote_id );
+            redirect( base_url('user/login'), 'refresh');
+        }
 
         $data=array(
             'status'=>$this->input->post('status'),
@@ -119,9 +128,48 @@ class Quote extends CI_Controller {
         }
 
 
-
-
         redirect( base_url('quote/edit') .'?quote_id='. $quote_id, 'refresh');
 
     }
+
+
+    public function new()
+    {
+        $user_id = $this->session->userdata('user_id');
+
+        if(!$user_id)
+        {
+            $this->session->set_userdata('referer_url',  base_url('quote/new'));
+            redirect( base_url('user/login'), 'refresh');
+        }
+
+
+        $products = $this->product_model->get_products();
+
+        $products_title = array();
+        if(count($products) > 0)
+        {
+            foreach($products as $product)
+            {
+                $products_title[$product['product_title']] = $product['product_title'];
+            }
+        }
+
+        $custom_options = array();
+
+        $add_on_accessories = array();
+
+        $data = array();
+
+        $data['content'] = 'Pages/quote_new';
+
+        $data['products_title'] = $products_title;
+
+        $data['custom_options'] = $custom_options;
+
+        $data['add_on_accessories'] = $add_on_accessories;
+
+        $this->load->view('Layouts/master', $data);
+    }
+
 }

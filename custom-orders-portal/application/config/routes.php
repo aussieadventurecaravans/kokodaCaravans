@@ -54,4 +54,5 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['quotes'] = 'index/quotes';
 $route['orders'] = 'index/orders';
+$route['quote_requests'] = 'index/quote_requests';
 $route['customers'] = 'index/customers';

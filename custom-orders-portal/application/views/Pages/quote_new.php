@@ -2,53 +2,24 @@
 
 $user_role = $this->session->userdata('user_role');
 
-$quote_id = array(
-    'quote_id' => $quote['quote_id']
+
+$quote_status = array(
+    'name' => 'status',
+    'id'  => 'status',
+    'class' => 'form-control',
+    'options' => array(
+        'In Progress'  => 'In Progress',
+        'In Review'  => 'In Review'
+    ),
+    'selected' =>  'In Progress' ,
+    'required' => true,
 );
-
-$custom_options = unserialize($quote['custom_options']);
-$add_on_accessories = unserialize($quote['add_on_accessories']);
-
-
-if($quote['status'] == 'In Order')
-{
-    $quote_status = array(
-        'name' => 'status',
-        'id'  => 'status',
-        'value' => $quote['status'],
-        'class' => 'form-control',
-        'options' => array(
-            'In Review'  => 'In Review',
-            'In Order'  => 'In Order',
-            'In Cancel'  => 'In Cancel'
-        ),
-        'selected' => array($quote['status']),
-        'disabled' => 'true'
-    );
-
-}
-else
-{
-        $quote_status = array(
-            'name' => 'status',
-            'id'  => 'status',
-            'value' => $quote['status'],
-            'class' => 'form-control',
-            'options' => array(
-                'In Review'  => 'In Review',
-                'In Cancel'  => 'In Cancel'
-            ),
-            'selected' => array($quote['status']),
-            'disabled' => 'true'
-        );
-}
-
 
 $firstName = array(
     'name' => 'customer_first_name',
     'type' => 'text',
     'id'  => 'customer_first_name',
-    'value' => $quote['customer_first_name'],
+    'value' => '',
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true,
@@ -58,7 +29,7 @@ $lastName = array(
     'name' => 'customer_last_name',
     'type' => 'text',
     'id'  => 'customer_last_name',
-    'value' => $quote['customer_last_name'],
+    'value' => '',
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -68,7 +39,7 @@ $customer_address = array(
     'name' => 'customer_address',
     'type' => 'text',
     'id'  => 'customer_address',
-    'value' => $quote['customer_address'],
+    'value' => '',
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -78,7 +49,7 @@ $customer_postcode = array(
     'name' => 'customer_postcode',
     'type' => 'text',
     'id'  => 'customer_postcode',
-    'value' => $quote['customer_postcode'],
+    'value' => '',
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -88,7 +59,7 @@ $customer_state = array(
     'name' => 'customer_state',
     'type' => 'text',
     'id'  => 'customer_state',
-    'value' => strtoupper($quote['customer_state']),
+    'value' => '',
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -98,7 +69,7 @@ $customer_email = array(
     'name' => 'customer_email',
     'type' => 'email',
     'id'  => 'customer_email',
-    'value' => $quote['customer_email'],
+    'value' => '',
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -108,7 +79,7 @@ $customer_phone = array(
     'name' => 'customer_phone',
     'type' => 'text',
     'id'  => 'customer_phone',
-    'value' => $quote['customer_phone'],
+    'value' => '',
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -118,9 +89,9 @@ $product_name = array(
     'name' => 'product_name',
     'type' => 'text',
     'id'  => 'product_name',
-    'value' => $quote['product_name'],
+    'value' => '',
+    'options' => $products_title,
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -164,7 +135,7 @@ $placeorder = array(
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Quote Detail</h1>
+    <h1 class="h2">Quote New</h1>
 </div>
 
 
@@ -173,7 +144,7 @@ $placeorder = array(
     <div class="row">
         <div class="col-md-12 text-left">
 
-            <?php echo form_open('quote/update'); ?>
+            <?php echo form_open('quote/insert'); ?>
 
             <?php
             $success_msg = $this->session->flashdata('success_msg');
@@ -253,7 +224,7 @@ $placeorder = array(
             <div class="row">
                 <div class="col-12">
                     <?php echo form_label('Model', 'product_name'); ?>
-                    <?php echo form_input($product_name); ?>
+                    <?php echo form_dropdown($product_name); ?>
                     <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
                 </div>
             </div>
@@ -261,35 +232,31 @@ $placeorder = array(
             <div class="row">
                 <div class="col-12">
                     <?php echo form_label('Custom Options', 'custom_options'); ?>
-                    <ul class="list-group">
-                        <?php foreach($custom_options as $key => $value ): ?>
-                            <li class="list-group-item">
-                                <span class="font-weight-bold text-capitalize"><?php echo preg_replace('/[^A-Za-z0-9\-]/', ' ', $key) . ':'; ?> </span>
-                                <span class="text-capitalize"><?php echo $value; ?></span>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <?php foreach($custom_options as $key => $value ): ?>
+
+                    <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
-            <?php if(is_array($add_on_accessories)):?>
-                <?php if(sizeof($add_on_accessories) > 0): ?>
+          <!--<?php /*if(is_array($add_on_accessories)):*/?>
+                <?php /*if(sizeof($add_on_accessories) > 0): */?>
                     <div class="row">
                         <div class="col-12">
-                            <?php echo form_label('Add On Accessories', 'add_on_options'); ?>
+                            <?php /*echo form_label('Add On Accessories', 'add_on_options'); */?>
                             <ul class="list-group">
-                                <?php foreach($add_on_accessories as $option): ?>
+                                <?php /*foreach($add_on_accessories as $option): */?>
                                     <li class="list-group-item">
-                                        <span class="font-weight-bold text-capitalize"><?php echo $option['label'] . ':'; ?> </span><br/>
-                                        <span class="text-capitalize"><?php echo 'Retail Price: $' . $option['retail_price']; ?></span><br/>
-                                        <span class="text-capitalize"><?php echo 'Whole Sale Price: $' . $option['wholesale_price']; ?></span>
+                                        <span class="font-weight-bold text-capitalize"><?php /*echo $option['label'] . ':'; */?> </span><br/>
+                                        <span class="text-capitalize"><?php /*echo 'Retail Price: $' . $option['retail_price']; */?></span><br/>
+                                        <span class="text-capitalize"><?php /*echo 'Whole Sale Price: $' . $option['wholesale_price']; */?></span>
                                     </li>
-                                <?php endforeach; ?>
+                                <?php /*endforeach; */?>
                             </ul>
                         </div>
                     </div>
-                <?php endif; ?>
-            <?php endif; ?>
+                <?php /*endif; */?>
+            --><?php /*endif; */?>
 
             <div class="row finance-row">
                 <div class="col-6">

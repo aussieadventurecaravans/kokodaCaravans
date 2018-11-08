@@ -18,7 +18,6 @@ if($quote['status'] == 'In Order')
         'value' => $quote['status'],
         'class' => 'form-control',
         'options' => array(
-            'In Review'  => 'In Review',
             'In Order'  => 'In Order',
             'In Cancel'  => 'In Cancel'
         ),
@@ -35,6 +34,7 @@ else
             'value' => $quote['status'],
             'class' => 'form-control',
             'options' => array(
+                'In Progress'  => 'In Progress',
                 'In Review'  => 'In Review',
                 'In Cancel'  => 'In Cancel'
             ),
@@ -125,46 +125,29 @@ $product_name = array(
 );
 
 
-$updateQuoteButton = array(
-    'name'=> 'updateQuote-btn',
-    'value' => 'Update',
+$submitQuoteButton = array(
+    'name'=> 'submitQuote-btn',
+    'value' => 'Submit Quote',
     'class' => 'btn btn-lg btn-success',
     'type'  => 'button',
-    'content' => 'Place Order',
+    'content' => 'Submit Quote',
     'data-toggle' => "modal",
-    'data-target' => "#update-quote-confirm-modal"
+    'data-target' => "#submit-quote-confirm-modal"
 
 );
-$updateQuote = array(
-    'name'=> 'updateQuote',
-    'value' => 'Update',
+$submitQuote = array(
+    'name'=> 'submitQuote',
+    'value' => 'Submit Quote',
     'class' => 'btn btn-lg btn-success',
     'type'  => 'submit'
 
-);
-$placeorderButton = array(
-    'name'=> 'placeOrder-btn',
-    'value' => 'Place Order',
-    'class' => 'btn btn-lg btn-primary',
-    'type'  => 'button',
-    'content' => 'Place Order',
-    'data-toggle' => "modal",
-    'data-target' => "#place-order-confirm-modal"
-);
-
-$placeorder = array(
-    'name'=> 'placeOrder',
-    'value' => 'Place Order',
-    'class' => 'btn btn-lg btn-primary',
-    'type'  => 'submit',
-    'content' => 'Place Order',
 );
 
 
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Quote Detail</h1>
+    <h1 class="h2">Quote Request Detail</h1>
 </div>
 
 
@@ -173,7 +156,7 @@ $placeorder = array(
     <div class="row">
         <div class="col-md-12 text-left">
 
-            <?php echo form_open('quote/update'); ?>
+            <?php echo form_open('quote_request/update'); ?>
 
             <?php
             $success_msg = $this->session->flashdata('success_msg');
@@ -332,53 +315,32 @@ $placeorder = array(
 
             <?php echo form_hidden($quote_id); ?>
 
-            <?php if($quote['status'] != 'In Order'): ?>
-            <div class="row quote-buttons">
-                <div class="col-12 text-right">
-                    <?php echo form_submit($updateQuoteButton);  ?>
-                    <?php echo ($user_role == 'admin') ? form_button($placeorderButton) : '' ;  ?>
+            <?php if($quote['status'] == 'In Progress'): ?>
+                <div class="row quote-buttons">
+                    <div class="col-12 text-right">
+                        <?php echo form_submit($submitQuoteButton);  ?>
+                    </div>
                 </div>
-            </div>
             <?php endif; ?>
 
 
-            <!-- Modal -->
-            <div class="modal fade" id="place-order-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="place-order-confirm-modal-title" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="place-order-confirm-modal-title">Order Submit</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to place this quote to order?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">No</button>
-                           <?php echo form_submit($placeorder); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="update-quote-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="update-quote-confirm-modal-title" aria-hidden="true">
+            <div class="modal fade" id="submit-quote-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="submit-quote-confirm-modal-title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="update-quote-confirm-modal-title">Update Quote</h5>
+                            <h5 class="modal-title" id="submit-quote-confirm-modal-title">Update Quote</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            Are you sure you want to update this quote detail ?
+                            Are you sure you want to submit this request for quote ?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">No</button>
-                            <?php echo form_submit($updateQuote); ?>
+                            <?php echo form_submit($submitQuote); ?>
                         </div>
                     </div>
                 </div>
