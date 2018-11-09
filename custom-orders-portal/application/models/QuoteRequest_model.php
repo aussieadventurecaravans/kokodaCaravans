@@ -80,20 +80,9 @@ class QuoteRequest_model extends CI_Model
     public function submit_quote($id)
     {
 
-        $data = array('status' => 'In Review');
+        $status = array('status' => 'In Review');
 
-        $wordpress_db = $this->load->database('wordpress', TRUE);
-
-        $wordpress_db->trans_start();
-
-        $wordpress_db->update(self::QUOTE_TABLE, $data,  array('quote_id' => $id));
-
-        $wordpress_db->trans_complete();
-
-        $result = $wordpress_db->trans_status();
-
-        $wordpress_db->close();
-
+        $result = $this->setWPQuoteStatus($status);
 
         if ($result ===  true)
         {
@@ -110,6 +99,31 @@ class QuoteRequest_model extends CI_Model
         return $result;
     }
 
+    public function setWPQuoteStatus($status,$quote_id)
+    {
+        if(is_array($status) && isset($quote_id))
+        {
+            $wordpress_db = $this->load->database('wordpress', TRUE);
+
+            $wordpress_db->trans_start();
+
+            $wordpress_db->update(self::WP_QUOTE_TABLE, $status,  array('quote_id' => $quote_id));
+
+            $wordpress_db->trans_complete();
+
+            $result = $wordpress_db->trans_status();
+
+            $wordpress_db->close();
+
+            return $result;
+
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 
 
 }

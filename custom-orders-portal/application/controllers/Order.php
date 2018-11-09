@@ -92,7 +92,7 @@ class Order extends CI_Controller {
 
         if($this->input->post('updateOrder'))
         {
-            $result = $this->order_model->update_order($order_id,$data);
+            $result = $this->order_model->update_order($data,$order_id);
             if(!$result)
             {
                 $this->session->set_flashdata('error_msg', 'Update failed, please try again or contact to our Admin at Kokoda Caravans.' );

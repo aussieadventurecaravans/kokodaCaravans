@@ -99,13 +99,22 @@ class Order_model extends CI_Model
         return $query;
     }
 
-    public function update_order($id,$data)
+
+    public function update_order($data,$order_id)
     {
+        if(!is_array($data) || !isset($order_id))
+        {
+            return false;
+        }
         $custom_order_db = $this->db;
 
-        $custom_order_db->update(self::ORDER_TABLE, $data,  array('order_id' => $id));
+        $custom_order_db->trans_start();
 
-        $result =  $custom_order_db->affected_rows();
+        $custom_order_db->update(self::ORDER_TABLE, $data,  array('order_id' => $order_id));
+
+        $custom_order_db->trans_complete();
+
+        $result =  $custom_order_db->trans_status();
 
         $custom_order_db->close();
 
