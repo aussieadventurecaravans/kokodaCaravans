@@ -58,17 +58,45 @@
         max-width: 100%;
     }
 
-    .custom-quote-section .cd-multi-steps li.complete > *::before,
-    .custom-quote-section .cd-multi-steps li.visited > *::before,
-    .custom-quote-section .cd-multi-steps li.current > *::before
+    .custom-quote-section .cd-multi-steps.text-bottom li
     {
-        background-color: #00a9e7 !important;
+        width: 106px;
+        text-align: center;
     }
 
-    .custom-quote-section .cd-multi-steps li.visited::after,
-    .custom-quote-section .cd-multi-steps li.complete::after
+    .custom-quote-section .cd-multi-steps.text-bottom.count li > *::before
+    {
+        content: counter(steps);
+        height: 42px;
+        width: 42px;
+        line-height: 44px;
+        font-size: 1.6rem;
+        color: #ffffff;
+        background-color: #a8b9bc;
+    }
+
+    .custom-quote-section .cd-multi-steps.text-bottom.count li.complete > *::before,
+    .custom-quote-section .cd-multi-steps.text-bottom.count li.visited > *::before,
+    .custom-quote-section .cd-multi-steps.text-bottom.count li.current > *::before
+    {
+        background-color: #00a9e7 !important;
+
+    }
+    .custom-quote-section .cd-multi-steps.text-bottom.count li::after
+    {
+        top: 20px;
+        background-color: #a8b9bc;
+    }
+    .custom-quote-section .cd-multi-steps.text-bottom.count li.visited::after,
+    .custom-quote-section .cd-multi-steps.text-bottom.count li.complete::after
     {
         background-color: #00a9e7;
+    }
+
+    .custom-quote-section .cd-multi-steps.text-bottom.count li > * {
+        padding-top: 50px;
+        text-transform: uppercase;
+        font-size: 14px;
     }
 
 }
