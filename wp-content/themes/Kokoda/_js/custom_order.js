@@ -62,19 +62,25 @@ jQuery(function($) {
             }
 
 
-            if($(this).attr('tab-content') != 'model')
+            if($(this).attr('tab-content') == 'summary')
             {
                 $('.option-select-value-section .option-select-value-section-content').addClass('col-md-9');
                 $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-12');
+                $('.option-select-value-section .total-summary-loan-section').addClass('col-md-3');
                 $('fieldset.finance-section').show();
                 $('fieldset.loan-detail-section').show();
+                $('.option-select-value-section .total-summary-loan-section').show();
+
             }
             else
             {
                 $('.option-select-value-section .option-select-value-section-content').addClass('col-md-12');
                 $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-9');
+                $('.option-select-value-section .total-summary-loan-section').removeClass('col-md-3');
+
                 $('fieldset.finance-section').hide();
                 $('fieldset.loan-detail-section').hide();
+                $('.option-select-value-section .total-summary-loan-section').hide();
             }
 
             renderCustomOptions($(this).attr('tab-content'));
@@ -167,8 +173,7 @@ jQuery(function($) {
                     break;
                 case 'floorplan' :
                     if (!Array.isArray(custom_floorplan[select_model_id])) {
-                        var el = '<div class="item col-md-12 text-center selected" floorplan="default"><img src="' + custom_floorplan[select_model_id] + '" style="width:80%" />';
-                        el += '<div class="item-details"><div class="details"><h3> Default Floor Plan </h3></div></div></div>';
+                        var el = '<div class="item col-md-12 text-center selected" floorplan="default"><img src="' + custom_floorplan[select_model_id] + '" style="width:80%" /></div>';
                         $('#floorplan .option-display-image-wrapper').html(el);
                         custom_order.floorplan = 'default';
                     }
@@ -781,7 +786,7 @@ jQuery(function($) {
                         }
 
                         //render the accessories list at template
-                        el += '<div class="item ' + sel + ' col-md-4 col-sm-5 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
+                        el += '<div class="item ' + sel + ' col-md-3 col-sm-6 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
                         el += '<span class="icon-moon"></span>';
                         el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
                         el += '<h3>' + accessories[i]['label'] + '</h3>';

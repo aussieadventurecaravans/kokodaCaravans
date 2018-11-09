@@ -250,10 +250,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6  col-xs-6  text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12  text-right">
                             <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Models</button>
                         </div>
-                        <div class="col-md-6 col-xs-6 text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next To Floorplan<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
@@ -271,10 +271,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-xs-6 text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-right">
                             <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Exterior</button>
                         </div>
-                        <div class="col-md-6 col-xs-6 text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next To Accessories<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
@@ -291,10 +291,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-xs-6 text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-right">
                             <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Floorplan</button>
                         </div>
-                        <div class="col-md-6 col-xs-6 text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next To Summary<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
@@ -316,33 +316,41 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-xs-6 text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-right">
                             <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Accessories</button>
                         </div>
-                        <div class="col-md-6 col-xs-6 text-center">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next To Submit<span class="icon-moon icon-right-arrow"></span></button>
                         </div>
                     </div>
                 </div>
 
                 <div id="enquiry" class="tabcontent">
-                    <div class="tab-header">
-                        <h4>
-                            Submit Your Details
-                        </h4>
-                    </div>
-                    <div class="feedback-notice-messages">
-                        <div class="alert alert-danger alert-dismissible fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Failed!</strong> This quote is failed to submit, please contact to our dealer for more info or reload the page.
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="tab-header">
+                                <h4>
+                                    Submit Your Details
+                                </h4>
+                            </div>
+                            <div class="feedback-notice-messages">
+                                <div class="alert alert-danger alert-dismissible fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Failed!</strong> This quote is failed to submit, please contact to our dealer for more info or reload the page.
+                                </div>
+                                <div class="alert alert-success alert-dismissible fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong>Success!</strong> This quote is successfully submited, our dealer will contact to you shortly.
+                                </div>
+                            </div>
                         </div>
-                        <div class="alert alert-success alert-dismissible fade in">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Success!</strong> This quote is successfully submited, our dealer will contact to you shortly.
-                        </div>
+                        <div class="col-md-2"></div>
                     </div>
+
                     <div class="row custom-options-form ">
-                        <div class="col-md-12">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
                             <form id="customer_details_form" class="form-horizontal" method="post">
                                 <fieldset>
 
@@ -461,11 +469,11 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                                     <!-- Button -->
                                     <div class="form-group">
-                                        <div class="col-xs-6 text-center">
+                                        <div class="col-xs-6 text-right">
                                             <button type="button" class="btn btn-primary btn-lg btn-back"><span class="icon-moon icon-left-arrow"></span>Back To Summary</button>
 
                                         </div>
-                                        <div  class="col-xs-6 text-center">
+                                        <div  class="col-xs-6 text-left">
                                             <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit" />
                                         </div>
                                     </div>
@@ -473,12 +481,13 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 </fieldset>
                             </form>
                         </div>
+                        <div class="col-md-2"></div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="col-md-3 text-left">
+            <div class="total-summary-loan-section">
                 <fieldset class="finance-section">
                     <legend class="finance-header">Price Summary</legend>
                     <!-- TOTAL PRICE SUMMARY  -->
