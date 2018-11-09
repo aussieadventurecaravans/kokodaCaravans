@@ -36,6 +36,7 @@ jQuery(function($) {
             }
             else if ($(this).parent('li').hasClass('complete')) {
                 $(this).parent('li').removeClass('complete');
+                $(this).parent('li').removeClass('visited');
             }
             else {
                 return;
@@ -44,6 +45,7 @@ jQuery(function($) {
             $('a.tablinks').parent('li').removeClass('current');
             $(this).parent('li').nextAll().removeClass('next');
             $(this).parent('li').nextAll().removeClass('complete');
+            $(this).parent('li').nextAll().removeClass('visited');
 
             $(this).parent('li').addClass('current');
             $('div.tabcontent').hide();
@@ -51,6 +53,7 @@ jQuery(function($) {
             if (current_tab !== $(this).attr('tab-content')) {
 
                 $(this).parent('li').prevAll().addClass('complete');
+                $(this).parent('li').prevAll().addClass('visited');
                 $(this).parent('li').next().addClass('next');
 
 

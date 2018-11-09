@@ -50,7 +50,7 @@
 
 @media only screen and (min-width: 768px)
 {
-    .custom-quote-section .cd-breadcrumb.triangle {
+    .custom-quote-section .cd-multi-steps{
         background-color: transparent;
         padding: 0;
         float: left;
@@ -58,73 +58,19 @@
         max-width: 100%;
     }
 
-    .custom-quote-section .cd-breadcrumb.triangle li
+    .custom-quote-section .cd-multi-steps li.complete > *::before,
+    .custom-quote-section .cd-multi-steps li.visited > *::before,
+    .custom-quote-section .cd-multi-steps li.current > *::before
     {
-        position: relative;
-        padding: 0;
-        margin: 4px 4px 4px 0;
-        max-width: 16%;
-        width: 100%;
-    }
-    .custom-quote-section .cd-breadcrumb.triangle li > *
-    {
-        position: relative;
-        padding: 1em .8em 1em 2.5em;
-        color: #2c3f4c;
-        background-color: #edeff0;
-        border-color: #edeff0;
-        width: 100%;
-        font-size: 17px;
-        cursor: default;
-    }
-    .custom-quote-section .cd-breadcrumb.triangle li.next > *
-    {
-        background-color: #edeff0;
-        border-color: #edeff0;
-        cursor: pointer;
-    }
-    .custom-quote-section .cd-breadcrumb.triangle li.complete > *
-    {
-        color: #ffffff;
-        background-color: #0092ff;
-        border-color: #0092ff;
-        cursor: pointer;
+        background-color: #00a9e7 !important;
     }
 
-    .custom-quote-section .cd-breadcrumb.triangle li.current > * {
-        color: #fff;
-        background-color:#337ab7;
-        border-color:#337ab7;
+    .custom-quote-section .cd-multi-steps li.visited::after,
+    .custom-quote-section .cd-multi-steps li.complete::after
+    {
+        background-color: #00a9e7;
     }
 
-
-    .cd-breadcrumb.triangle li::after, .cd-breadcrumb.triangle li > *::after
-    {
-        border: 29px solid transparent;
-    }
-
-}
-
-@media only screen and (max-width: 991px)
-{
-    .custom-quote-section .cd-breadcrumb.triangle li > *
-    {
-        font-size: 15px;
-        padding: 18px 0 18px 26px;
-    }
-}
-@media only screen and (max-width: 767px)
-{
-    .custom-quote-section .cd-breadcrumb.triangle li > *
-    {
-        font-size: 15px;
-        padding: 8px 0 8px 5px;
-    }
-    .custom-quote-section .cd-breadcrumb.triangle li.current a
-    {
-        color: #337ab7;
-        font-weight: bolder;
-    }
 }
 
 .custom-quote-section  .display-model-section.row .model-header

@@ -169,7 +169,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     <div class="fluid-container">
         <div class="row option-select-header-section">
             <div class="col-sm-12">
-                <ol class="cd-breadcrumb triangle">
+                <ol class="cd-multi-steps text-bottom count">
                     <li class="current"><a href="#" class="tablinks" tab-content="model">Model</a></li>
                     <li><a href="#" class="tablinks" tab-content="exterior" >Exterior</a></li>
                     <li><a href="#" class="tablinks" tab-content="floorplan">Floor Plan</a></li>
