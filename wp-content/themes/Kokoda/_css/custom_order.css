@@ -18,6 +18,7 @@
     padding-left: 30px;
     color: #000;
     text-shadow: none;
+    text-align: center;
 }
 
 .page-template-custom-order-template .banner-wrap
@@ -34,18 +35,10 @@
     padding-bottom: 60px;
 }
 .custom-quote-section  .option-select-header-section.row,
-.custom-quote-section  .option-select-value-section.row,
-.custom-quote-section  .display-model-section.row
+.custom-quote-section  .option-select-value-section.row
 {
     margin-left: 30px;
     margin-right: 30px;
-}
-
-
-.custom-quote-section .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #fff;
 }
 
 @media only screen and (min-width: 968px)
@@ -113,27 +106,6 @@
     {
         color: #0089ff;
     }
-    .custom-quote-section .cd-multi-steps.text-bottom.count li > *
-    {
-        padding-top: 0;
-    }
-}
-
-.custom-quote-section  .display-model-section.row .model-header
-{
-    display: none;
-    margin-left: 14px;
-    margin-top: 5px;
-    margin-bottom: 0;
-    text-transform: capitalize;
-    font-size: 25px;
-}
-@media only screen and (max-width: 767px)
-{
-    .custom-quote-section  .display-model-section.row .model-header
-    {
-        margin-left: 15px;
-    }
 }
 
 .custom-quote-section .option-select-value-section .tab-header
@@ -142,6 +114,7 @@
     border-bottom: 1px solid #eee;
     text-transform: uppercase;
 }
+
 .custom-quote-section .option-select-value-section  #model .model-list
 {
     margin:0 0 20px 0;
@@ -156,11 +129,19 @@
     padding: 0;
     cursor:pointer;
     min-height: 430px;
+    margin: 0 1px 0  0;
+}
+@media only screen and (max-width:767px)
+{
+    .custom-quote-section .option-select-value-section  #model .item
+    {
+        margin:0;
+    }
 }
 .custom-quote-section .option-select-value-section  #model .item.selected,
 .custom-quote-section .option-select-value-section  #model .item:hover
 {
-    border: 5px solid #2087fc;padding:5px;
+    border: 5px solid #2087fc;
 
 }
 .custom-quote-section .option-select-value-section  #model .item.selected ,
@@ -388,6 +369,11 @@
 {
     display:none;
 }
+.custom-quote-section .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #fff;
+}
 .custom-quote-section .tabcontent button.btn-next
 {
     background-color: #2087fc;
@@ -427,7 +413,7 @@
 {
     position: relative;
     right: 6px;
-    top: 1.8px;
+    top: 1px;
     font-size: 18px;
 }
 
@@ -440,7 +426,7 @@
 {
     position: relative;
     left: 4px;
-    top: 1.8px;
+    top: 1px;
     font-size: 18px;
 }
 
@@ -784,4 +770,79 @@ fieldset.finance-section .cash-summary p.primary-price-label
     height: 4em;
     overflow: auto;
     margin-top: 15px;
+}
+
+form#customer_details_form input[type="text"],
+form#customer_details_form input[type="number"],
+form#customer_details_form input[type="email"]
+{
+    background-color: #fff;
+    border-radius: 1px;
+    color: #000;
+    font-size: 18px;
+    font-family: "Khula", Helvetica, Arial, sans-serif;
+    border: 1px solid #bbb;
+    padding: 8px 12px 6px 12px;
+    height: 38px;
+    line-height: 1.3em;
+}
+form#customer_details_form select
+{
+    background-color: #fff;
+    color: #000;
+    font-size: 18px;
+    font-family: "Khula", Helvetica, Arial, sans-serif;
+    border: 1px solid #bbb;
+    padding: 8px 12px 6px 12px;
+    height: 38px;
+    line-height: inherit;
+    width: 97%;
+    border-radius: 0;
+
+}
+form#customer_details_form select option
+{
+    line-height: 14px;
+    border-radius: 0;
+}
+
+/**CUSTOMIZE THE FLOORPLAN HEADER and MODEL SELECT **/
+.custom-quote-section .option-select-value-section .tabcontent#floorplan  .tab-header
+{
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+    width: 100%;
+    padding-bottom: 3px;
+    display: inline-block;
+}
+.tabcontent#floorplan  .floorplan-header
+{
+    display: block;
+    float: left;
+}
+.tabcontent#floorplan  .display-model-section
+{
+    display:block;
+    float: right;
+    width: 350px;
+}
+@media only screen and (max-width: 767px)
+{
+    .tabcontent#floorplan  .display-model-section
+    {
+        display: none;
+    }
+}
+.tabcontent#floorplan .display-model-section .select-model-label,
+.tabcontent#floorplan .custom-quote-section  .display-model-section  #select_model
+{
+    font-weight: normal;
+    margin:0;
+    vertical-align: middle;
+}
+
+.tabcontent#floorplan  .display-model-section  #select_model
+{
+    width: 60%;
 }

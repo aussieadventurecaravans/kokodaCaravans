@@ -422,7 +422,7 @@ Add a counter to the multi-steps indicator
   content: counter(steps) " - ";
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 968px) {
   .cd-multi-steps.text-top.count li > *::before,
   .cd-multi-steps.text-bottom.count li > *::before {
     /* this is the spot indicator */

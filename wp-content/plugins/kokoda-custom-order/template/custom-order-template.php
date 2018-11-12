@@ -153,7 +153,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
 
 ?>
-<!--<div class="banner-wrap">
+<div class="banner-wrap">
     <div class="banner fluid-container">
         <div class="row">
             <div class="banner-content page-heading col-sm-12">
@@ -164,24 +164,19 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
         </div>
     </div>
 </div>
--->
+
 <div class="custom-quote-section">
     <div class="fluid-container">
         <div class="row option-select-header-section">
             <div class="col-sm-12">
                 <ol class="cd-multi-steps text-bottom count">
                     <li class="current"><a href="#" class="tablinks" tab-content="model">Model</a></li>
-                    <li><a href="#" class="tablinks" tab-content="exterior" >Exterior</a></li>
                     <li><a href="#" class="tablinks" tab-content="floorplan">Floor Plan</a></li>
+                    <li><a href="#" class="tablinks" tab-content="exterior" >Exterior</a></li>
                     <li><a href="#" class="tablinks" tab-content="accessories">Accessories</a></li>
                     <li><a href="#" class="tablinks"  tab-content="summary">Summary</a></li>
                     <li><a href="#" class="tablinks"  tab-content="enquiry">Submit</a></li>
                 </ol>
-            </div>
-        </div>
-        <div class="row display-model-section">
-            <div class="col-xs-12">
-                <h2 class="model-header"></h2>
             </div>
         </div>
         <div class="row option-select-value-section">
@@ -189,7 +184,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 <div id="model" class="tabcontent">
                     <div class="tab-header">
                         <h4>
-                            Choose Your Model
+                            Select Model
                         </h4>
                     </div>
 
@@ -218,10 +213,35 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
                 </div>
 
+                <div id="floorplan" class="tabcontent">
+                    <div class="tab-header">
+                        <h4 class="floorplan-header">
+                            Floorplan
+                        </h4>
+                        <div class="display-model-section form-inline">
+                            <label class="select-model-label">Select Model</label>
+                            <select class="form-control" id="select_model"> </select>
+                        </div>
+                    </div>
+                    <div class="option-select-image-section">
+                        <div class="option-display-image-wrapper row floorplan-list">
+                            IMAGE
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-right">
+                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Models</button>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
+                            <button type="button" class="btn btn-primary btn-lg btn-next">Next To Exterior<span class="icon-moon icon-right-arrow"></span></button>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="exterior" class="tabcontent">
                     <div class="tab-header">
                         <h4>
-                            Choose Your Exterior
+                            Customize Exterior
                         </h4>
                     </div>
                     <div class="row option-select-image-section">
@@ -236,7 +256,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                             <div class="col-md-12">
                                 <label class="control-label" for="composite_panel">Composite Panel</label>
-                                <select class="form-control input-lg" id="composite_panel" class="comnposite-color-choose">
+                                <select class="form-control input-lg" id="composite_panel" class="composite-color-choose">
                                     <option selected>Choose Colour</option>
                                 </select>
                             </div>
@@ -251,28 +271,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12  text-right">
-                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Models</button>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
-                            <button type="button" class="btn btn-primary btn-lg btn-next">Next To Floorplan<span class="icon-moon icon-right-arrow"></span></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="floorplan" class="tabcontent">
-                    <div class="tab-header">
-                        <h4>
-                            Choose Floorplan
-                        </h4>
-                    </div>
-                    <div class="option-select-image-section">
-                        <div class="option-display-image-wrapper row floorplan-list">
-                                IMAGE
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12 text-right">
-                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Exterior</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Floorplan</button>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 text-left">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next To Accessories<span class="icon-moon icon-right-arrow"></span></button>
@@ -284,7 +283,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                     <div class="tab-header">
                         <h4>
-                            Choose Your Extra Accessories
+                            Add-On Accessories
                         </h4>
                     </div>
                     <div class="row accessories-list">
@@ -292,7 +291,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12 text-right">
-                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Floorplan</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-pre"><span class="icon-moon icon-left-arrow"></span>Back To Exterior</button>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 text-left">
                             <button type="button" class="btn btn-primary btn-lg btn-next">Next To Summary<span class="icon-moon icon-right-arrow"></span></button>
@@ -349,8 +348,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     </div>
 
                     <div class="row custom-options-form ">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
                             <form id="customer_details_form" class="form-horizontal" method="post">
                                 <fieldset>
 
@@ -481,7 +480,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                 </fieldset>
                             </form>
                         </div>
-                        <div class="col-md-2"></div>
+                        <div class="col-md-1"></div>
                     </div>
                 </div>
             </div>

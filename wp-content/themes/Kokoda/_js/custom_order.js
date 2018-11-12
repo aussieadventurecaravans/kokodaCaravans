@@ -87,15 +87,39 @@ jQuery(function($) {
             renderDisplayImageWrapper($(this).attr('tab-content'));
 
 
-            if($(this).attr('tab-content') != 'model' && $(this).attr('tab-content') != 'enquiry')
+            if($(this).attr('tab-content') == 'floorplan')
             {
-                $('.custom-quote-section  .display-model-section.row .model-header').html(caravan_title[select_model_id])
-                $('.custom-quote-section  .display-model-section.row .model-header').show();
+                var el = '';
+                for (var key in  caravan_title)
+                {
+                    var caravan = caravan_title[key];
+                    if(select_model_id == key)
+                    {
+                        el += '<option value="' + key + '"  selected>' + caravan + ' </option>';
+                    }
+                    else
+                    {
+                        el += '<option value="' + key + '"  >' +caravan + ' </option>';
+                    }
+                }
+
+                $('.custom-quote-section  .display-model-section  select#select_model').html(el);
+
+
             }
-            else
+
+            $('.custom-quote-section  .display-model-section select#select_model').change(function()
             {
-                $('.custom-quote-section  .display-model-section.row .model-header').hide();
-            }
+
+                select_model_id = $(this).val();
+                custom_order.caravan = select_model_id;
+
+                renderDisplayImageWrapper('floorplan');
+
+                $('#model .model-list .item').removeClass('selected');
+                $('#model .model-list .item[select-model=' + select_model_id  +  ']').addClass('selected');
+            });
+
         });
 
 
@@ -211,7 +235,7 @@ jQuery(function($) {
                 $('a.tablinks[tab-content="model"]').parent('li').next().addClass('next');
 
                 //go to the next tab
-                $('a.tablinks[tab-content="exterior"]').click();
+                $('a.tablinks[tab-content="floorplan"]').click();
 
                 //render total price detail after we select the model
                 finance_section_update();
@@ -246,7 +270,7 @@ jQuery(function($) {
 
                 //we can go to next tab when we complete this tab
                 $('a.tablinks[tab-content="floorplan"]').parent('li').next().addClass('next');
-                $('a.tablinks[tab-content="accessories"]').click();
+                $('a.tablinks[tab-content="exterior"]').click();
 
             });
 
@@ -270,14 +294,7 @@ jQuery(function($) {
 
             $('select#payment_method').change(function(event){
 
-                if ($('select#payment_method').val() == 'cash')
-                {
-                    custom_order.finance.apply_loan_option = 'none';
-                    $('#customer_details_form input[name=loan_options]').removeAttr('required');
-                    $('.apply-finance-form').hide();
-                    $('.form-group.apply-finance-form .finance-options-detail span').hide();
-                }
-                else
+               if ($('select#payment_method').val() == 'loan')
                 {
                     custom_order.finance.apply_loan_option = $('#customer_details_form input[name=loan_options]:checked').val();
                     $('#customer_details_form input[name=loan_options]').attr('required','required');
@@ -286,6 +303,13 @@ jQuery(function($) {
                     var id =  $('#customer_details_form input[name=loan_options]:checked').attr('id');
                     $('.form-group.apply-finance-form  .finance-options-detail span').hide();
                     $('.form-group.apply-finance-form  .finance-options-detail span.' + id).show();
+                }
+                else
+                {
+                    custom_order.finance.apply_loan_option = 'none';
+                    $('#customer_details_form input[name=loan_options]').removeAttr('required');
+                    $('.apply-finance-form').hide();
+                    $('.form-group.apply-finance-form .finance-options-detail span').hide();
                 }
 
             });
@@ -478,7 +502,8 @@ jQuery(function($) {
         }
 
 
-        function submitCustomOrder() {
+        function submitCustomOrder()
+        {
 
             custom_order.customer.customer_first_name = $('input#customer_first_name').val();
             custom_order.customer.customer_last_name = $('input#customer_last_name').val();
@@ -545,7 +570,7 @@ jQuery(function($) {
                         //refresh page after successfully submit quote to system
                         setTimeout(function () {
                             location = ''
-                        }, 3000);
+                        }, 1000);
                     }
                     else
                     {
