@@ -869,10 +869,11 @@ jQuery(function($) {
 
                 },
                 success: function (data) {
-                    var base64string = data;
-                    var d = new Date();
-                    exportPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
-                    $('#loading-icon-panel').hide();
+                   var base64string = data;
+                   var d = new Date();
+                   openPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
+
+                   $('#loading-icon-panel').hide();
                 }
             });
         }
@@ -899,6 +900,29 @@ jQuery(function($) {
             iframe.src = url;
         }
 
+        function openPdfFile(data, filename, type) {
+            var file = new Blob([data], {type: type});
+
+            if (window.navigator.msSaveOrOpenBlob)
+            {
+                window.navigator.msSaveOrOpenBlob(file, filename);
+            }
+            else
+             { // Others
+                 var a = document.createElement("a");
+                 var f_o = new File([file], filename, {type: type, lastModified: Date.now()});
+                 url = URL.createObjectURL(f_o);
+                 a.href = url;
+                 a.target="_blank";
+                 document.body.appendChild(a);
+                 a.click();
+                 setTimeout(function () {
+                     document.body.removeChild(a);
+                     window.URL.revokeObjectURL(url);
+
+                 }, 0);
+            }
+        }
 
         function exportPdfFile(data, filename, type) {
             var file = new Blob([data], {type: type});

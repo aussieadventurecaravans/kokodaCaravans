@@ -36,7 +36,7 @@ foreach ( $terms as $term ){
 }
 
 //query find the caravans belong to cateogory specified by page
-// and these caravanas also don't belong to archive category.
+// and these caravans also don't belong to archive category.
 if($listing_category == 'all')
 {
     $args = array(
