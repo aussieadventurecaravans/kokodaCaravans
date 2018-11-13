@@ -50,7 +50,6 @@ $firstName = array(
     'id'  => 'customer_first_name',
     'value' => $quote['customer_first_name'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true,
 );
 
@@ -60,7 +59,6 @@ $lastName = array(
     'id'  => 'customer_last_name',
     'value' => $quote['customer_last_name'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -70,7 +68,6 @@ $customer_address = array(
     'id'  => 'customer_address',
     'value' => $quote['customer_address'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -80,7 +77,6 @@ $customer_postcode = array(
     'id'  => 'customer_postcode',
     'value' => $quote['customer_postcode'],
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -90,7 +86,6 @@ $customer_state = array(
     'id'  => 'customer_state',
     'value' => strtoupper($quote['customer_state']),
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 

@@ -7,7 +7,7 @@
     <table class="table table-striped table-sm">
         <thead>
         <tr>
-            <th>#</th>
+            <th>Order ID#</th>
             <th>Customer name</th>
             <th>Caravan Model</th>
             <th>Customer Email</th>
