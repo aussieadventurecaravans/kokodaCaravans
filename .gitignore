@@ -31,3 +31,4 @@ wp-config.php
 
 #custom order portal
 /custom-orders-portal/application/config/database.php
+/custom-orders-portal/application/sessions/*

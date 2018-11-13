@@ -8,6 +8,8 @@ application/cache/*
 /application/config/database.php
 !application/*/.htaccess
 
+application/sessions/*
+
 composer.lock
 
 user_guide_src/build/*
