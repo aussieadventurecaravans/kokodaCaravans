@@ -95,6 +95,16 @@ $product_name = array(
     'required' => true
 );
 
+/*$product_custom_options = array(
+    'name' => 'product_name',
+    'type' => 'text',
+    'id'  => 'product_name',
+    'value' => '',
+    'options' => $custom_options,
+    'class' => 'form-control',
+    'required' => true
+);*/
+
 
 $updateQuoteButton = array(
     'name'=> 'updateQuote-btn',
@@ -232,9 +242,10 @@ $placeorder = array(
             <div class="row">
                 <div class="col-12">
                     <?php echo form_label('Custom Options', 'custom_options'); ?>
+                    <?php echo print_r($custom_options,true); ?>
+
                     <?php foreach($custom_options as $key => $value ): ?>
 
-                    <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
                     <?php endforeach; ?>
                 </div>
             </div>

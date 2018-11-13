@@ -8,9 +8,8 @@ class Quote extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
-
         $this->load->model("quote_model");
-        $this->load->model("product_model");
+
 
     }
 
@@ -144,18 +143,31 @@ class Quote extends CI_Controller {
         }
 
 
-        $products = $this->product_model->get_products();
+        //load all models from Wordpress website
+        $this->load->model('wp_product_model');
 
+
+        $caravans =  $this->wp_product_model->get_products();
+
+        //get model title
         $products_title = array();
-        if(count($products) > 0)
+        if(isset($caravans) && $caravans !== false)
         {
-            foreach($products as $product)
+            foreach ($caravans as $caravan )
             {
-                $products_title[$product['product_title']] = $product['product_title'];
+                $products_title[$caravan->ID] =  $caravan->post_title;
             }
         }
 
-        $custom_options = array();
+
+
+        //Custom Options  of all Models
+        $custom_options= array();
+        foreach ($caravans as $caravan)
+        {
+            $custom_options[$caravan->ID] = get_field('custom_exterior',$caravan->ID);
+        }
+
 
         $add_on_accessories = array();
 

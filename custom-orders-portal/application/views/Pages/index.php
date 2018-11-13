@@ -36,7 +36,7 @@
     <table class="table table-striped table-sm">
         <thead>
         <tr>
-            <th>Request ID#</th>
+            <th>Request ID</th>
             <th>Customer name</th>
             <th>Caravan Model</th>
             <th>Customer Email</th>
