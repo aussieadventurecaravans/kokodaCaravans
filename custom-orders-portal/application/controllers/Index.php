@@ -29,7 +29,7 @@ class Index extends CI_Controller {
         $data['title'] = 'Custom Orders Management ';
         $data['message'] = 'Kokoda Custom Orders';
         $data['content'] = 'Pages/index';
-        $data['quotes'] = $this->quote_model->get_quotes();
+        $data['quotes'] =  $this->quoterequest_model->get_quotes();
         $this->load->view('Layouts/master', $data);
 
     }

@@ -38,7 +38,8 @@ CREATE TABLE `custom_orders` (
 
 
 CREATE TABLE `quotes` (
-  `quote_id` mediumint(9) NOT NULL,
+  `quote_id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `web_quote_id` mediumint(9),
   `customer_first_name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `customer_last_name` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
   `product_id` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',

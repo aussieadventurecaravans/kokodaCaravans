@@ -4,8 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class QuoteRequest_model extends CI_Model
 {
 
-    const QUOTE_TABLE = "wp_custom_order_quote";
+    const QUOTES_TABLE = "quotes";
 
+    const WP_QUOTE_TABLE = "wp_custom_order_quote";
 
     public function __construct()
     {
@@ -25,11 +26,11 @@ class QuoteRequest_model extends CI_Model
         $wordpress_db->order_by('quote_id', 'DESC');
         if($user_role == 'admin')
         {
-            $query = $wordpress_db->get_where(self::QUOTE_TABLE);
+            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE);
         }
         else
         {
-            $query = $wordpress_db->get_where(self::QUOTE_TABLE, array('dealer_email' => $user_email));
+            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE, array('dealer_email' => $user_email));
         }
 
         $wordpress_db->close();
@@ -55,11 +56,11 @@ class QuoteRequest_model extends CI_Model
 
         if($user_role == 'admin')
         {
-            $query = $wordpress_db->get_where(self::QUOTE_TABLE, array('quote_id'=>$id));
+            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE, array('quote_id'=>$id));
         }
         else
         {
-            $query = $wordpress_db->get_where(self::QUOTE_TABLE, array('quote_id'=>$id,'dealer_email' => $user_email));
+            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE, array('quote_id'=>$id,'dealer_email' => $user_email));
         }
 
         $wordpress_db->close();
@@ -82,16 +83,23 @@ class QuoteRequest_model extends CI_Model
 
         $status = array('status' => 'In Review');
 
-        $result = $this->setWPQuoteStatus($status);
+        $result = $this->setWPQuoteStatus($status,$id);
 
         if ($result ===  true)
         {
             //copy the quote detail and add it to the custom_order table
             $quote = $this->get_quote($id);
 
+            //if this quote request was added from webite
+            if(isset($quote['quote_id']))
+            {
+                $quote['web_quote_id']  = $quote['quote_id'];
+                unset($quote['quote_id']);
+            }
+
             $custom_order_db = $this->db;
 
-            $result = $custom_order_db->insert('quotes',$quote);
+            $result = $custom_order_db->insert(self::QUOTES_TABLE,$quote);
 
             return $result;
         }

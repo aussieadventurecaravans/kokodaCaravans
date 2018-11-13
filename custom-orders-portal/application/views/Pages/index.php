@@ -36,7 +36,7 @@
     <table class="table table-striped table-sm">
         <thead>
         <tr>
-            <th>#</th>
+            <th>Request ID#</th>
             <th>Customer name</th>
             <th>Caravan Model</th>
             <th>Customer Email</th>
@@ -45,16 +45,24 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach($quotes as $quote): ?>
-            <tr>
-                <td><?php echo $quote['quote_id'] ?></td>
-                <td><?php echo $quote['customer_first_name'] . ' ' . $quote['customer_last_name'] ?></td>
-                <td><?php echo $quote['product_name'] ?></td>
-                <td><?php echo $quote['customer_email'] ?></td>
-                <td><?php echo $quote['customer_phone'] ?></td>
-                <td><?php echo $quote['date_created'] ?></td>
-            </tr>
-         <?php endforeach; ?>
+        <?php if(!$quotes): ?>
+            <div class="alert alert-warning">
+                <?php echo 'There are no quote request from website at the moment'; ?>
+            </div>
+        <?php else: ?>
+            <?php foreach($quotes as $quote): ?>
+                <?php if($quote['status'] == 'In Progress'): ?>
+                    <tr>
+                        <td><?php echo $quote['quote_id'] ?></td>
+                        <td><?php echo $quote['customer_first_name'] . ' ' . $quote['customer_last_name'] ?></td>
+                        <td><?php echo $quote['product_name'] ?></td>
+                        <td><?php echo $quote['customer_email'] ?></td>
+                        <td><?php echo $quote['customer_phone'] ?></td>
+                        <td><?php echo $quote['date_created'] ?></td>
+                    </tr>
+                <?php endif; ?>
+             <?php endforeach; ?>
+        <?php endif; ?>
         </tbody>
     </table>
 </div>
