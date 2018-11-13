@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class QuoteRequest_model extends CI_Model
+class Quoterequest_model extends CI_Model
 {
 
     const QUOTES_TABLE = "quotes";
@@ -90,7 +90,7 @@ class QuoteRequest_model extends CI_Model
             //copy the quote detail and add it to the custom_order table
             $quote = $this->get_quote($id);
 
-            //if this quote request was added from webite
+            //if this quote request was added from website
             if(isset($quote['quote_id']))
             {
                 $quote['web_quote_id']  = $quote['quote_id'];

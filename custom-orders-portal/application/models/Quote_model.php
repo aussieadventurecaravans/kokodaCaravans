@@ -4,10 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Quote_model extends CI_Model
 {
 
-    const QUOTE_TABLE = "quotes";
+    const QUOTES_TABLE = "quotes";
 
     const WP_QUOTE_TABLE = "wp_custom_order_quote";
 
+    const ORDERS_TABLE = 'custom_orders';
 
     public function __construct()
     {
@@ -27,11 +28,11 @@ class Quote_model extends CI_Model
         $custom_order_db->order_by('quote_id', 'DESC');
         if($user_role == 'admin')
         {
-            $query = $custom_order_db->get_where(self::QUOTE_TABLE);
+            $query = $custom_order_db->get_where(self::QUOTES_TABLE);
         }
         else
         {
-            $query = $custom_order_db->get_where(self::QUOTE_TABLE, array('dealer_email' => $user_email));
+            $query = $custom_order_db->get_where(self::QUOTES_TABLE, array('dealer_email' => $user_email));
         }
 
         $custom_order_db->close();
@@ -58,11 +59,11 @@ class Quote_model extends CI_Model
 
         if($user_role == 'admin')
         {
-            $query = $custom_order_db->get_where(self::QUOTE_TABLE, array('quote_id'=>$id));
+            $query = $custom_order_db->get_where(self::QUOTES_TABLE, array('quote_id'=>$id));
         }
         else
         {
-            $query = $custom_order_db->get_where(self::QUOTE_TABLE, array('quote_id'=>$id,'dealer_email' => $user_email));
+            $query = $custom_order_db->get_where(self::QUOTES_TABLE, array('quote_id'=>$id,'dealer_email' => $user_email));
         }
 
 
@@ -88,11 +89,11 @@ class Quote_model extends CI_Model
 
         if($user_role == 'admin')
         {
-            $query = $custom_order_db->delete(self::QUOTE_TABLE, array('quote_id'=>$id));
+            $query = $custom_order_db->delete(self::QUOTES_TABLE, array('quote_id'=>$id));
         }
         else
         {
-            $query = $custom_order_db->delete(self::QUOTE_TABLE, array('quote_id'=>$id,'dealer_email' => $user_email));
+            $query = $custom_order_db->delete(self::QUOTES_TABLE, array('quote_id'=>$id,'dealer_email' => $user_email));
         }
 
         $custom_order_db->close();
@@ -112,7 +113,7 @@ class Quote_model extends CI_Model
 
         $custom_order_db->trans_start();
 
-        $custom_order_db->update(self::QUOTE_TABLE, $data,  array('quote_id' => $quote_id));
+        $custom_order_db->update(self::QUOTES_TABLE, $data,  array('quote_id' => $quote_id));
 
         $custom_order_db->trans_complete();
 
@@ -142,7 +143,14 @@ class Quote_model extends CI_Model
             //copy the quote detail and add it to the custom_order table
             $quote = $this->get_quote($quote_id);
 
-            $result = $this->db->insert('custom_orders',$quote,true);
+            //remove  unneeded field
+            if(isset($quote['web_quote_id']))
+            {
+                unset($quote['web_quote_id']);
+            }
+
+
+            $result = $this->db->insert(self::ORDERS_TABLE,$quote,true);
 
         }
 
@@ -161,7 +169,7 @@ class Quote_model extends CI_Model
 
             $custom_order_db->trans_start();
 
-            $custom_order_db->update(self::QUOTE_TABLE, $status, array('quote_id' => $quote_id));
+            $custom_order_db->update(self::QUOTES_TABLE, $status, array('quote_id' => $quote_id));
 
             $custom_order_db->trans_complete();
 
@@ -199,6 +207,24 @@ class Quote_model extends CI_Model
         {
             return false;
         }
+
+    }
+
+    public function addNewQuote($data)
+    {
+        if(is_array($data) && isset($data))
+        {
+
+            $result = $this->db->insert(self::QUOTES_TABLE,$data,true);
+
+            return $result;
+
+        }
+        else
+        {
+            return false;
+        }
+
 
     }
 
