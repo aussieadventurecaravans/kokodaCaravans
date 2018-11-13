@@ -25,7 +25,7 @@ else
 
 $terms = get_terms('product-cat','orderby=name' );
 
-//get the archive category ID
+//get the ID of category with name "Caravan Archive"
 $caravan_archive_category_id = 0;
 foreach ( $terms as $term ){
     if(in_array( $term->name ,array('Caravan Archive')))
@@ -35,7 +35,7 @@ foreach ( $terms as $term ){
     }
 }
 
-//query find the caravans belong to cateogory specified by page
+//query find the caravans belong to category specified by page
 // and these caravans also don't belong to archive category.
 if($listing_category == 'all')
 {
