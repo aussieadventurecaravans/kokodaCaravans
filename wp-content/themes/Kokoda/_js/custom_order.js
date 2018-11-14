@@ -136,39 +136,52 @@ jQuery(function($) {
                     $("ul.ui-choose").remove();
                     for (var i = 0; i < custom_exterior[select_model_id].length; i++)
                     {
-                        if (custom_exterior[select_model_id][i]['custom_option'] == 'composite panel') {
+                        if (custom_exterior[select_model_id][i]['custom_option'] === 'composite panel')
+                        {
                             $('select#composite_panel').html('');
+
                             var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
 
-                            for (var e = 0; e < custom_options_value.length; e++) {
-                                var el = '<option value="' + custom_options_value[e].value + '"></option>';
+                            for (var e = 0; e < custom_options_value.length; e++)
+                            {
+                                var el = '<option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
 
                                 $('select#composite_panel').append(el);
                             }
-                            if (typeof options.panel != 'undefined') {
+                            if (typeof options.panel !== 'undefined')
+                            {
                                 $('select#composite_panel').val(options.panel);
                             }
-                            custom_order.caravan_options.panel = $('select#composite_panel').val();
 
-
+                            custom_order.caravan_options.panel = {
+                                                                    value : $('select#composite_panel').val() ,
+                                                                    price : $('select#composite_panel').find(':selected').attr('price')
+                                                                };
                             //convert these select into the horizonal select menu
                             $('select#composite_panel').ui_choose({id : 'panel'});
 
                         }
-                        if (custom_exterior[select_model_id][i]['custom_option'] == 'checker plate') {
+                        if (custom_exterior[select_model_id][i]['custom_option'] === 'checker plate')
+                        {
                             $('select#checker_plate').html('');
 
                             var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
-                            for (var e = 0; e < custom_options_value.length; e++) {
-                                var el = '  <option value="' + custom_options_value[e].value + '"></option>';
+
+                            for (var e = 0; e < custom_options_value.length; e++)
+                            {
+                                var el = '  <option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
                                 $('select#checker_plate').append(el);
                             }
-                            if (typeof options.checker_plate != 'undefined') {
+                            if (typeof options.checker_plate !== 'undefined')
+                            {
                                 $('select#checker_plate').val(options.checker_plate);
                             }
-                            custom_order.caravan_options.checker_plate = $('select#checker_plate').val();
+                            custom_order.caravan_options.checker_plate = {
+                                                                        value : $('select#checker_plate').val(),
+                                                                        price :  $('select#checker_plate').find(':selected').attr('price')
+                                                                        };
 
-                            //convert these select into the horizonal select menu
+                            //convert these select into the horizontal select menu
                             $('select#checker_plate').ui_choose({id : 'checker-plate'});
                         }
                     }
@@ -262,8 +275,15 @@ jQuery(function($) {
             $('#exterior select').change(function (e) {
 
                 var composite_panel_select = $('select#composite_panel').val();
+                var composite_panel_select_price = $('select#composite_panel').find(':selected').attr('price');
+
                 var checker_plate_select = $('select#checker_plate').val();
-                custom_order.caravan_options = {panel: composite_panel_select, checker_plate: checker_plate_select};
+                var checker_plate_select_price = $('select#checker_plate').find(':selected').attr('price');
+
+                custom_order.caravan_options = {
+                                                panel: {   value : composite_panel_select,price : composite_panel_select_price  },
+                                                checker_plate: {value : checker_plate_select, price : checker_plate_select_price }
+                                                };
 
                 exteriorRenderImageWrapper();
 
@@ -443,7 +463,7 @@ jQuery(function($) {
             //add checkerplate
             var chekerPlateImg = new Konva.Image();
             var chekerPlateObj = new Image();
-            chekerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate + '.png';
+            chekerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
             chekerPlateObj.onload = function () {
                 chekerPlateImg.setImage(chekerPlateObj);
                 var layer = new Konva.Layer();
@@ -457,7 +477,7 @@ jQuery(function($) {
 
                 var panelImg = new Konva.Image();
                 var panelObj = new Image();
-                panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel + '.png';
+                panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel.value + '.png';
                 panelObj.onload = function () {
                     panelImg.setImage(panelObj);
 
@@ -687,13 +707,7 @@ jQuery(function($) {
 
             //render the caravan image with custom options
             var options = custom_order.caravan_options;
-            var image_name = 'default';
-            if (typeof options.panel != 'undefined' && typeof options.checker_plate != 'undefined') {
-                image_name = options.panel + '_' + options.checker_plate;
-            }
-            else {
-                return;
-            }
+
 
             var containerWidth = $('#summary .display-image-wrapper').width();
 
@@ -705,7 +719,7 @@ jQuery(function($) {
             //add checkerplate
             var chekerPlateImg = new Konva.Image();
             var chekerPlateObj = new Image();
-            chekerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate + '.png';
+            chekerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
             chekerPlateObj.onload = function () {
                 chekerPlateImg.setImage(chekerPlateObj);
                 var layer = new Konva.Layer();
@@ -718,7 +732,7 @@ jQuery(function($) {
 
                 var panelImg = new Konva.Image();
                 var panelObj = new Image();
-                panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel + '.png';
+                panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel.value + '.png';
                 panelObj.onload = function () {
                     panelImg.setImage(panelObj);
 

@@ -462,6 +462,7 @@
     width: 120px;
     background-color: #2087fc;
     border-color: #2087fc;
+    font-size: 18px;
 }
 @media only screen and (max-width: 767px)
 {

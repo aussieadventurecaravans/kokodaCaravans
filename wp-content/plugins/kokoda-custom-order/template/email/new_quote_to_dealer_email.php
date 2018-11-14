@@ -131,11 +131,11 @@
                         <!-- COPY -->
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">You got a quote !!!</td>
+                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">You have an Enquiry !!!</td>
                             </tr>
                             <tr>
                                 <td align="left" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-                                   Here is the customer name, contact detail and their request for customized caravan with accessories  </td>
+                                   Here is the customer name, contact detail and their request for customised caravan with accessories  </td>
                             </tr>
                         </table>
                         <!--[if (gte mso 9)|(IE)]>
@@ -194,7 +194,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Customer name</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Customer Name:</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -229,7 +229,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Address</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Address:</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -264,7 +264,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Phone</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Phone:</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -299,7 +299,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Email</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Email:</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -334,7 +334,65 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Caravan Options</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Model</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0 0px 0;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><?php echo $_quote->product_name; ?></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">$<?php echo $_quote->product_cost; ?></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 30px 0 0px 0; border-top: 1px dashed #aaaaaa; border-bottom: 1px dashed #aaaaaa;">
+                        <!-- TWO COLUMNS -->
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td valign="top" class="mobile-wrapper">
+                                    <!-- LEFT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%;" align="left">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Exterior Options</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -360,7 +418,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Composite Panel</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Composite Panel: <?php echo $custom_options['panel']['value']; ?> </td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -372,7 +430,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><?php echo $custom_options['panel']; ?></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;text-transform: capitalize;">$<?php echo $custom_options['panel']['price']; ?></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -384,7 +442,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-bottom: 1px dashed #aaaaaa;"">
+                    <td style="border-bottom: 1px dashed #aaaaaa">
                         <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <tr>
@@ -395,7 +453,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Checker Plate</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">Checker Plate <?php echo $custom_options['checker_plate']['value']; ?></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -407,7 +465,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><?php echo $custom_options['checker_plate']; ?></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;text-transform: capitalize;">$<?php echo $custom_options['checker_plate']['price']; ?></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -418,6 +476,7 @@
                         </table>
                     </td>
                 </tr>
+
 
                 <?php
 
@@ -437,7 +496,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Accessories</td>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Add-On Accessories</td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -450,22 +509,33 @@
                 </tr>
                 <tr>
                     <td style="border-bottom: 1px dashed #aaaaaa;">
-                        <!-- ONE COLUMNS -->
+                        <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <?php foreach($accessories as $option): ?>
                             <tr>
                                 <td valign="top" style="padding: 0;" class="mobile-wrapper">
                                     <!-- LEFT COLUMN -->
-                                    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%;" align="left">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
                                         <tr>
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
                                                         <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
-                                                            <?php foreach($accessories as $option): ?>
-                                                                <p style="margin: 10px 0 0px;">
-                                                                    <?php echo '+ ' . $option['label']; ?>
-                                                                </p>
-                                                            <?php endforeach; ?>
+                                                                    <?php echo $option['label']; ?>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- RIGHT COLUMN -->
+                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                        <tr>
+                                            <td style="padding: 0 0 10px 0;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
+                                                            <?php echo '$ ' . $option['retail_price']; ?>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -474,6 +544,7 @@
                                     </table>
                                 </td>
                             </tr>
+                            <?php endforeach; ?>
                         </table>
                     </td>
                 </tr>
@@ -500,21 +571,21 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <!-- COPY -->
-                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">What Next?</td>
+                                <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">What's Next?</td>
                             </tr>
                             <tr>
                                 <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-                                    You can reply to customer and track your custom order equires via the custom order portal.
+                                    You can reply to customer direct via the customer email or phone number
                                 </td>
                             </tr>
-                            <tr>
+                           <tr>
                                 <td align="center">
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td align="center" style="padding-top: 25px;" class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="mailto:<?php echo $_quote->customer_email; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Login Portal</a></td>
+                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="mailto:<?php echo $_quote->customer_email; ?>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Email Customer</a></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -544,8 +615,7 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
                 <tr>
                     <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                        42 Sarah Street, Campbellfield, 3061 <br/>
-                        Victoria, Australia
+
                     </td>
                 </tr>
             </table>

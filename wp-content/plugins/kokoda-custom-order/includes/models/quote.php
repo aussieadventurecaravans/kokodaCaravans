@@ -224,18 +224,18 @@ class Quote
         $custom_options = array();
         if(isset($data['caravan_options']['panel']))
         {
-            $custom_options['panel'] = $data['caravan_options']['panel'];
-            if(isset($data['caravan_options']['panel-price']))
+            $custom_options['panel']['value'] = $data['caravan_options']['panel']['value'];
+            if(isset($data['caravan_options']['panel']['price']))
             {
-                $custom_options['panel-price'] = $data['caravan_options']['panel-price'];
+                $custom_options['panel']['price'] = $data['caravan_options']['panel']['price'];
             }
         }
         if(isset($data['caravan_options']['checker_plate']))
         {
-            $custom_options['checker_plate'] = $data['caravan_options']['checker_plate'];
-            if(isset($data['caravan_options']['checker_plate-price']))
+            $custom_options['checker_plate']['value'] = $data['caravan_options']['checker_plate']['value'];
+            if(isset($data['caravan_options']['checker_plate']['price']))
             {
-                $custom_options['checker_plate-price'] = $data['caravan_options']['checker_plate-price'];
+                $custom_options['checker_plate']['price'] = $data['caravan_options']['checker_plate']['price'];
             }
         }
         $quote_data['custom_options'] = serialize($custom_options);
