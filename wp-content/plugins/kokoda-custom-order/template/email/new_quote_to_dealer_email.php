@@ -535,7 +535,7 @@
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
                                                         <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
-                                                            <?php echo '$ ' . $option['retail_price']; ?>
+                                                            <?php echo '$' . $option['retail_price']; ?>
                                                         </td>
                                                     </tr>
                                                 </table>

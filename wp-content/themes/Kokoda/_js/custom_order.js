@@ -20,25 +20,30 @@ jQuery(function($) {
         caravan_image:''
     };
 
-    jQuery(document).ready(function ($) {
+    jQuery(document).ready(function ($)
+    {
 
         actionsListener();
 
         document.getElementById($('li.current a.tablinks').attr('tab-content')).style.display = "block";
 
 
-        $('a.tablinks').click(function (event) {
+        $('a.tablinks').click(function (event)
+        {
 
             event.preventDefault();
 
-            if ($(this).parent('li').hasClass('next')) {
+            if ($(this).parent('li').hasClass('next'))
+            {
                 $(this).parent('li').removeClass('next');
             }
-            else if ($(this).parent('li').hasClass('complete')) {
+            else if ($(this).parent('li').hasClass('complete'))
+            {
                 $(this).parent('li').removeClass('complete');
                 $(this).parent('li').removeClass('visited');
             }
-            else {
+            else
+                {
                 return;
             }
 
@@ -50,7 +55,8 @@ jQuery(function($) {
             $(this).parent('li').addClass('current');
             $('div.tabcontent').hide();
 
-            if (current_tab !== $(this).attr('tab-content')) {
+            if (current_tab !== $(this).attr('tab-content'))
+            {
 
                 $(this).parent('li').prevAll().addClass('complete');
                 $(this).parent('li').prevAll().addClass('visited');
@@ -128,10 +134,10 @@ jQuery(function($) {
         });
 
 
-        function renderCustomOptions(tab) {
+        function renderCustomOptions(tab)
+        {
             switch (tab) {
                 case 'exterior' :
-
                     var options = custom_order.caravan_options;
                     $("ul.ui-choose").remove();
                     for (var i = 0; i < custom_exterior[select_model_id].length; i++)
@@ -148,16 +154,17 @@ jQuery(function($) {
 
                                 $('select#composite_panel').append(el);
                             }
+
                             if (typeof options.panel !== 'undefined')
                             {
-                                $('select#composite_panel').val(options.panel);
+                                $('select#composite_panel').val(options.panel.value);
                             }
 
                             custom_order.caravan_options.panel = {
                                                                     value : $('select#composite_panel').val() ,
                                                                     price : $('select#composite_panel').find(':selected').attr('price')
                                                                 };
-                            //convert these select into the horizonal select menu
+                            //convert these select into the horizontal select menu
                             $('select#composite_panel').ui_choose({id : 'panel'});
 
                         }
@@ -169,12 +176,12 @@ jQuery(function($) {
 
                             for (var e = 0; e < custom_options_value.length; e++)
                             {
-                                var el = '  <option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
+                                var el = '<option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
                                 $('select#checker_plate').append(el);
                             }
                             if (typeof options.checker_plate !== 'undefined')
                             {
-                                $('select#checker_plate').val(options.checker_plate);
+                                $('select#checker_plate').val(options.checker_plate.value);
                             }
                             custom_order.caravan_options.checker_plate = {
                                                                         value : $('select#checker_plate').val(),
@@ -206,8 +213,10 @@ jQuery(function($) {
             }
         }
 
-        function renderDisplayImageWrapper(tab) {
-            switch (tab) {
+        function renderDisplayImageWrapper(tab)
+        {
+            switch (tab)
+            {
                 case 'exterior' :
 
                     exteriorRenderImageWrapper();
@@ -237,7 +246,8 @@ jQuery(function($) {
             }
         }
 
-        function actionsListener() {
+        function actionsListener()
+        {
             $('#model .model-list .item').click(function (e)
             {
 
@@ -264,7 +274,8 @@ jQuery(function($) {
 
             });
 
-            $(".custom-quote-section .option-select-value-section #exterior").on('click', 'ul.ui-choose li', function (e) {
+            $(".custom-quote-section .option-select-value-section #exterior").on('click', 'ul.ui-choose li', function (e)
+            {
                 $(this).parent().parent().children().children('li').removeClass('selected');
                 $(this).addClass('selected');
                 $(this).parent().parent().parent().parent().prev('select').val($(this).attr('data-value'));
@@ -272,7 +283,8 @@ jQuery(function($) {
 
             });
 
-            $('#exterior select').change(function (e) {
+            $('#exterior select').change(function (e)
+            {
 
                 var composite_panel_select = $('select#composite_panel').val();
                 var composite_panel_select_price = $('select#composite_panel').find(':selected').attr('price');
@@ -290,7 +302,8 @@ jQuery(function($) {
             });
 
 
-            $('#floorplan .floorplan-list').on('click', '.item', function (e) {
+            $('#floorplan .floorplan-list').on('click', '.item', function (e)
+            {
 
                 $('#floorplan .floorplan-list .item').removeClass('selected');
                 $(this).addClass('selected');
@@ -302,16 +315,19 @@ jQuery(function($) {
 
             });
 
-            $(window).resize(function () {
-                exteriorRenderImageWrapper();
-                summary_section_update();
+            $(window).resize(function ()
+            {
 
                 var current_tab = $('li.current a.tablinks').attr('tab-content');
                 renderCustomOptions(current_tab);
 
+                exteriorRenderImageWrapper();
+                summary_section_update();
+
             });
 
-            $('form#customer_details_form').submit(function (event) {
+            $('form#customer_details_form').submit(function (event)
+            {
                 if ($('select#payment_method').val() == 'cash')
                 {
                     custom_order.finance.apply_loan_option = 'none';
@@ -356,30 +372,33 @@ jQuery(function($) {
             {
                 var el = '<option selected value="">Choose Dealer</option>';
                 var count = 0;
-                for (var i = 0; i < dealers.length; i++) {
+                for (var i = 0; i < dealers.length; i++)
+                {
                     var state = dealers[i]['sl_state'];
-                    if (state.toLowerCase() == $(this).val()) {
+                    if (state.toLowerCase() == $(this).val())
+                    {
                         el += '<option value="' + dealers[i]['sl_id'] + '" dealers_name=" ' + dealers[i]['sl_store'] + '"  >' + dealers[i]['sl_store'] + ' </option>';
 
                         count++;
                     }
 
                 }
-
-                if (count != 0)
+                var select_dealer_name =  $('form#customer_details_form select#dealer_name');
+                if (count !== 0)
                 {
-                    $('form#customer_details_form select#dealer_name').removeAttr("disabled");
+                    select_dealer_name.removeAttr("disabled");
                 }
                 else
                 {
-                    $('form#customer_details_form select#dealer_name').attr("disabled", true);
+                    select_dealer_name.attr("disabled", true);
                 }
 
-                $('form#customer_details_form select#dealer_name').html(el);
+                select_dealer_name.html(el);
 
             });
 
-            $('.tabcontent button.btn-next').click(function (e) {
+            $('.tabcontent button.btn-next').click(function (e)
+            {
                 event.preventDefault();
 
                 var next_tabcontent = $(this).parent().parent().parent('div.tabcontent').next().attr('id');
@@ -392,7 +411,8 @@ jQuery(function($) {
                 }, 1000);
             });
 
-            $('.tabcontent button.btn-pre').click(function (e) {
+            $('.tabcontent button.btn-pre').click(function (e)
+            {
                 event.preventDefault();
                 var prev_tabcontent = $(this).parent().parent().parent('div.tabcontent').prev().attr('id');
 
@@ -403,11 +423,13 @@ jQuery(function($) {
                     scrollTop: $(".custom-quote-section").offset().top - 250
                 }, 1000);
             });
-            $('#customer_details_form button.btn-back').click(function (e) {
+            $('#customer_details_form button.btn-back').click(function (e)
+            {
                 event.preventDefault();
                 var prev_tabcontent = $(this).parent().parent().parent().parent().parent().parent().parent('div.tabcontent').prev().attr('id');
 
-                if (typeof prev_tabcontent != 'undefined') {
+                if (typeof prev_tabcontent != 'undefined')
+                {
                     $("a.tablinks[tab-content='" + prev_tabcontent + "']").click();
                 }
                 $('html, body').animate({
@@ -415,10 +437,12 @@ jQuery(function($) {
                 }, 1000);
             });
 
-            $(".finance-section-details.loan-summary input[type=text]").click(function (e) {
+            $(".finance-section-details.loan-summary input[type=text]").click(function (e)
+            {
                 $(this).select();
             });
-            $(".finance-section-details.loan-summary input[type=text]").on('keyup', function (e) {
+            $(".finance-section-details.loan-summary input[type=text]").on('keyup', function (e)
+            {
                 //update finance section everytime, enter new amount
                 finance_section_update(false);
 
@@ -429,18 +453,21 @@ jQuery(function($) {
                 var input = raw_input.replace(/[\D\s\._\-]+/g, "");
 
                 input = input ? parseInt(input, 10) : 0;
-                if (!$this.hasClass('interest-rate')) {
+                if (!$this.hasClass('interest-rate'))
+                {
                     $this.val(function () {
                         return (input === 0) ? "" : input.toLocaleString("en-US");
                     });
                 }
             });
-            $("button.btn-download").click(function (e) {
+            $("button.btn-download").click(function (e)
+            {
 
                 downloadPDF();
 
             });
-            $("button.btn-print").click(function (e) {
+            $("button.btn-print").click(function (e)
+            {
 
                 printPDF();
 
@@ -478,7 +505,8 @@ jQuery(function($) {
                 var panelImg = new Konva.Image();
                 var panelObj = new Image();
                 panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel.value + '.png';
-                panelObj.onload = function () {
+                panelObj.onload = function ()
+                {
                     panelImg.setImage(panelObj);
 
                     if(typeof models_panel[select_model_id] != 'undefined')
@@ -519,7 +547,6 @@ jQuery(function($) {
                     exteriorImageWrapper.draw();
 
                 }
-
             };
 
         }
@@ -545,8 +572,10 @@ jQuery(function($) {
             custom_order.dealer.dealer_id = $('select#dealer_name').val();
             custom_order.dealer.dealer_name = $('select#dealer_name option:selected').attr('dealers_name');
             var selected_dealer_id = custom_order.dealer.dealer_id;
-            for (var i = 0; i < dealers.length; i++) {
-                if (dealers[i]['sl_id'] == selected_dealer_id) {
+            for (var i = 0; i < dealers.length; i++)
+            {
+                if (dealers[i]['sl_id'] == selected_dealer_id)
+                {
                     custom_order.dealer.dealer_phone = dealers[i]['sl_phone'];
                     custom_order.dealer.dealer_email = dealers[i]['sl_email'];
                     custom_order.dealer.dealer_address = dealers[i]['sl_address'];
@@ -562,7 +591,8 @@ jQuery(function($) {
 
 
 
-            var data = {
+            var data =
+            {
                 'action': 'submit_customorder',
                 'custom_order': custom_order,
                 'kokoda_wpnonce' : $('input[name="kokoda_wpnonce"]').val(),
@@ -574,7 +604,8 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function () {
+                beforeSend: function ()
+                {
                     $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert').hide();
                     $('#enquiry input#reset_order').attr("disabled", true);
                     $('#enquiry input#submit_order').attr("disabled", true);
@@ -606,7 +637,8 @@ jQuery(function($) {
         }
 
 
-        function finance_section_update(refresh_amount) {
+        function finance_section_update(refresh_amount)
+        {
             var caravan_price = primary_prices;
 
             var accessories_prices = 0;
@@ -660,7 +692,8 @@ jQuery(function($) {
         }
 
 
-        function summary_section_update() {
+        function summary_section_update()
+        {
 
             //render the the feature spec for the model
             var data = {
@@ -733,7 +766,8 @@ jQuery(function($) {
                 var panelImg = new Konva.Image();
                 var panelObj = new Image();
                 panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel.value + '.png';
-                panelObj.onload = function () {
+                panelObj.onload = function ()
+                {
                     panelImg.setImage(panelObj);
 
                     if(typeof models_panel[select_model_id] != 'undefined')
@@ -857,7 +891,8 @@ jQuery(function($) {
 
         }
 
-        function printPDF() {
+        function printPDF()
+        {
             //render the the feature spec for the model
             var data = {
                 'action': 'export_pdf',
@@ -871,10 +906,12 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function() {
+                beforeSend: function()
+                {
                     $('#loading-icon-panel').show();
                 },
-                success: function (data) {
+                success: function (data)
+                {
                     var base64string = data;
                     var d = new Date();
                     printPdfFile(base64ToArrayBuffer(base64string), caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear()  + '.pdf', 'application/pdf');
@@ -903,7 +940,8 @@ jQuery(function($) {
                     $('#loading-icon-panel').show();
 
                 },
-                success: function (data) {
+                success: function (data)
+                {
                    var base64string = data;
                    var d = new Date();
                     exportPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
@@ -914,7 +952,8 @@ jQuery(function($) {
         }
 
 
-        function printPdfFile(data, filename, type) {
+        function printPdfFile(data, filename, type)
+        {
             var file = new Blob([data], {type: type});
 
             var url = URL.createObjectURL(file);
@@ -924,8 +963,10 @@ jQuery(function($) {
                 document.body.appendChild(iframe);
 
                 iframe.style.display = 'none';
-                iframe.onload = function () {
-                    setTimeout(function () {
+                iframe.onload = function ()
+                {
+                    setTimeout(function ()
+                    {
                         iframe.focus();
                         iframe.contentWindow.print();
                     }, 1);
@@ -935,7 +976,8 @@ jQuery(function($) {
             iframe.src = url;
         }
 
-        function openPdfFile(data, filename, type) {
+        function openPdfFile(data, filename, type)
+        {
             var file = new Blob([data], {type: type});
             if (window.navigator.msSaveOrOpenBlob)
             {
@@ -949,7 +991,8 @@ jQuery(function($) {
                  a.target="_blank";
                  document.body.appendChild(a);
                  a.click();
-                 setTimeout(function () {
+                 setTimeout(function ()
+                 {
                      document.body.removeChild(a);
                      window.URL.revokeObjectURL(url);
 
@@ -957,19 +1000,22 @@ jQuery(function($) {
             }
         }
 
-        function exportPdfFile(data, filename, type) {
+        function exportPdfFile(data, filename, type)
+        {
             var file = new Blob([data], {type: type});
             if (window.navigator.msSaveOrOpenBlob) {
                 window.navigator.msSaveOrOpenBlob(file, filename);
             }
-            else { // Others
+            else
+                { // Others
                 var a = document.createElement("a"),
                     url = URL.createObjectURL(file);
                 a.href = url;
                 a.download = filename;
                 document.body.appendChild(a);
                 a.click();
-                setTimeout(function () {
+                setTimeout(function ()
+                {
                     document.body.removeChild(a);
                     window.URL.revokeObjectURL(url);
 
@@ -977,11 +1023,13 @@ jQuery(function($) {
             }
         }
 
-        function base64ToArrayBuffer(data) {
+        function base64ToArrayBuffer(data)
+        {
             var binaryString = window.atob(data);
             var binaryLen = binaryString.length;
             var bytes = new Uint8Array(binaryLen);
-            for (var i = 0; i < binaryLen; i++) {
+            for (var i = 0; i < binaryLen; i++)
+            {
                 var ascii = binaryString.charCodeAt(i);
                 bytes[i] = ascii;
             }

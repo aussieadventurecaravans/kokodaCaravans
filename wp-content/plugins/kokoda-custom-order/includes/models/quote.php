@@ -222,12 +222,15 @@ class Quote
 
         //prepare the custom options(panel/checkerplate) from custom order
         $custom_options = array();
+        $custom_options_price = 0;
         if(isset($data['caravan_options']['panel']))
         {
             $custom_options['panel']['value'] = $data['caravan_options']['panel']['value'];
             if(isset($data['caravan_options']['panel']['price']))
             {
                 $custom_options['panel']['price'] = $data['caravan_options']['panel']['price'];
+                $custom_options_price +=  $custom_options['panel']['price'];
+
             }
         }
         if(isset($data['caravan_options']['checker_plate']))
@@ -236,6 +239,7 @@ class Quote
             if(isset($data['caravan_options']['checker_plate']['price']))
             {
                 $custom_options['checker_plate']['price'] = $data['caravan_options']['checker_plate']['price'];
+                $custom_options_price +=  $custom_options['checker_plate']['price'];
             }
         }
         $quote_data['custom_options'] = serialize($custom_options);
@@ -302,7 +306,7 @@ class Quote
         $quote_data['product_cost'] = $data['product_price'];
         $quote_data['orc_cost'] = $data['orc_price'];
         $quote_data['add_on_cost'] = $data['accessories_price'];
-        $quote_data['total_cost'] = $quote_data['product_cost'] + $quote_data['orc_cost'] + $quote_data['add_on_cost'];
+        $quote_data['total_cost'] = $quote_data['product_cost'] + $quote_data['orc_cost'] + $quote_data['add_on_cost'] + $custom_options_price;
 
 
         //add the date modified and date created of quote
