@@ -471,19 +471,10 @@ jQuery(function($) {
                         panelImg.setY(63);
                     }
 
-
                     layer.add(panelImg);
 
                     // add the layer to the stage
                     exteriorImageWrapper.add(layer);
-
-                    //save the images to export pdf function
-                    var scale = 650 / chekerPlateImg.getWidth();
-                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
-                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
-                    exteriorImageWrapper.scale({x: scale, y: scale});
-                    exteriorImageWrapper.draw();
-                    caravan_image = exteriorImageWrapper.toDataURL('image/jpeg', 1);
 
                     //resize the canvas to fit the browser size
                     var scale = containerWidth / chekerPlateImg.getWidth();
@@ -495,6 +486,8 @@ jQuery(function($) {
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
 
+                    //save the images for export pdf function
+                    caravan_image = exteriorImageWrapper.toDataURL()
                 }
 
             };
@@ -737,21 +730,17 @@ jQuery(function($) {
                     // add the layer to the stage
                     exteriorImageWrapper.add(layer);
 
-                    //save the images to export pdf function
-                    var scale = 650 / chekerPlateImg.getWidth();
-                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
-                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
-                    exteriorImageWrapper.scale({x: scale, y: scale});
-                    exteriorImageWrapper.draw();
-                    caravan_image = exteriorImageWrapper.toDataURL('image/jpeg', 1);
-
                     //resize the canvas to fit the browser size
                     var scale = containerWidth / chekerPlateImg.getWidth();
-
                     exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
                     exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
+
+                    //save the images for export pdf function
+                    caravan_image = exteriorImageWrapper.toDataURL();
+
+
                 }
 
             };
@@ -875,7 +864,8 @@ jQuery(function($) {
         }
 
 
-        function downloadPDF() {
+        function downloadPDF()
+        {
             //render the the feature spec for the model
             var data = {
                 'action': 'export_pdf',
@@ -927,16 +917,14 @@ jQuery(function($) {
 
         function openPdfFile(data, filename, type) {
             var file = new Blob([data], {type: type});
-
             if (window.navigator.msSaveOrOpenBlob)
             {
                 window.navigator.msSaveOrOpenBlob(file, filename);
             }
             else
              { // Others
-                 var a = document.createElement("a");
-                 var f_o = new File([file], filename, {type: type, lastModified: Date.now()});
-                 url = URL.createObjectURL(f_o);
+                 var a = document.createElement("a"),
+                     url = URL.createObjectURL(file);
                  a.href = url;
                  a.target="_blank";
                  document.body.appendChild(a);
