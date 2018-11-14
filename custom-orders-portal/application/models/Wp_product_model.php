@@ -70,11 +70,4 @@ class Wp_product_model extends CI_Model
 
         return false;
     }
-
-
-
-    public function get_customOptions($product_id)
-    {
-      return false;
-    }
 }

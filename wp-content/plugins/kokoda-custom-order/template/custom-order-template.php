@@ -447,7 +447,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                     </div>
 
                                     <div class="form-group apply-finance-form" style="display: none;">
-                                        <label class="col-md-3 control-label" for="payment_method">Payment Methods</label>
+                                        <label class="col-md-3 control-label" for="loan_options">Loan Options</label>
                                         <div class="col-md-5">
                                             <div class="radio">
                                                 <label><input type="radio" name="loan_options" value="self arrange" id="self_arrange" checked>Self-Arranged Finance</label>

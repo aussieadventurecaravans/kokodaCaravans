@@ -2,26 +2,12 @@
 
 $user_role = $this->session->userdata('user_role');
 
-
-$quote_status = array(
-    'name' => 'status',
-    'id'  => 'status',
-    'class' => 'form-control',
-    'options' => array(
-        'In Progress'  => 'In Progress',
-        'In Review'  => 'In Review'
-    ),
-    'selected' =>  'In Progress' ,
-    'required' => true,
-);
-
 $firstName = array(
     'name' => 'customer_first_name',
     'type' => 'text',
     'id'  => 'customer_first_name',
     'value' => '',
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true,
 );
 
@@ -31,7 +17,6 @@ $lastName = array(
     'id'  => 'customer_last_name',
     'value' => '',
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -41,7 +26,6 @@ $customer_address = array(
     'id'  => 'customer_address',
     'value' => '',
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -51,7 +35,6 @@ $customer_postcode = array(
     'id'  => 'customer_postcode',
     'value' => '',
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -61,7 +44,6 @@ $customer_state = array(
     'id'  => 'customer_state',
     'value' => '',
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -71,7 +53,6 @@ $customer_email = array(
     'id'  => 'customer_email',
     'value' => '',
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -81,7 +62,6 @@ $customer_phone = array(
     'id'  => 'customer_phone',
     'value' => '',
     'class' => 'form-control',
-    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -95,6 +75,7 @@ $product_name = array(
     'required' => true
 );
 
+
 /*$product_custom_options = array(
     'name' => 'product_name',
     'type' => 'text',
@@ -106,46 +87,44 @@ $product_name = array(
 );*/
 
 
-$updateQuoteButton = array(
-    'name'=> 'updateQuote-btn',
-    'value' => 'Update',
+$payment_options = array(
+        'cash' => 'Cash',
+        'loan' => 'Loan'
+);
+
+$payment_method = array(
+    'name' => 'product_name',
+    'type' => 'text',
+    'id'  => 'product_name',
+    'value' => '',
+    'options' => $payment_options,
+    'class' => 'form-control',
+    'required' => true
+);
+
+$submitQuoteButton = array(
+    'name'=> 'submitQuote-btn',
+    'value' => 'Submit Quote',
     'class' => 'btn btn-lg btn-success',
     'type'  => 'button',
-    'content' => 'Place Order',
+    'content' => 'Submit Quote',
     'data-toggle' => "modal",
-    'data-target' => "#update-quote-confirm-modal"
+    'data-target' => "#submit-quote-confirm-modal"
 
 );
-$updateQuote = array(
-    'name'=> 'updateQuote',
-    'value' => 'Update',
+$submitQuote = array(
+    'name'=> 'submitQuote',
+    'value' => 'Submit Quote',
     'class' => 'btn btn-lg btn-success',
     'type'  => 'submit'
 
-);
-$placeorderButton = array(
-    'name'=> 'placeOrder-btn',
-    'value' => 'Place Order',
-    'class' => 'btn btn-lg btn-primary',
-    'type'  => 'button',
-    'content' => 'Place Order',
-    'data-toggle' => "modal",
-    'data-target' => "#place-order-confirm-modal"
-);
-
-$placeorder = array(
-    'name'=> 'placeOrder',
-    'value' => 'Place Order',
-    'class' => 'btn btn-lg btn-primary',
-    'type'  => 'submit',
-    'content' => 'Place Order',
 );
 
 
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Quote New</h1>
+    <h1 class="h2">New Quote</h1>
 </div>
 
 
@@ -179,13 +158,6 @@ $placeorder = array(
             </div>
             <?php  endif;  ?>
 
-            <div class="row">
-                <div class="col-sm-6 col-12">
-                    <?php echo form_label('Quote Status', 'status'); ?>
-                    <?php echo form_dropdown($quote_status); ?>
-                    <?php echo '<div class="errors">'.form_error('$quote_status').'</div>'; ?>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-sm-6 col-12">
@@ -239,16 +211,16 @@ $placeorder = array(
                 </div>
             </div>
 
-            <div class="row">
+         <!--   <div class="row">
                 <div class="col-12">
-                    <?php echo form_label('Custom Options', 'custom_options'); ?>
-                    <?php echo print_r($custom_options,true); ?>
+                    <?php /*echo form_label('Custom Options', 'custom_options'); */?>
+                    <?php /*echo print_r($custom_options,true); */?>
 
-                    <?php foreach($custom_options as $key => $value ): ?>
+                    <?php /*foreach($custom_options as $key => $value ): */?>
 
-                    <?php endforeach; ?>
+                    <?php /*endforeach; */?>
                 </div>
-            </div>
+            </div>-->
 
           <!--<?php /*if(is_array($add_on_accessories)):*/?>
                 <?php /*if(sizeof($add_on_accessories) > 0): */?>
@@ -269,10 +241,26 @@ $placeorder = array(
                 <?php /*endif; */?>
             --><?php /*endif; */?>
 
+            <div class="row">
+                <div class="col-12">
+                    <fieldset class="finance-section">
+                        <legend class="header">Payment Information</legend>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Payment Method: </span>
+                            </li>
+                        </ul>
+                        <?php echo form_dropdown($payment_method); ?>
+                        <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
+                    </fieldset>
+                </div>
+            </div>
+
+
             <div class="row finance-row">
-                <div class="col-6">
+                <div class="col-12">
                     <fieldset class="total-price-section">
-                        <legend class="header">Order Total Estimate</legend>
+                        <legend class="header">Order Total</legend>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Model Price:</span>
@@ -293,17 +281,7 @@ $placeorder = array(
                     </fieldset>
                 </div>
 
-                <div class="col-6">
-                    <fieldset class="finance-section">
-                        <legend class="header">Payment Information</legend>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="font-weight-bold text-capitalize">Payment Method: </span>
-                                <span class="text-capitalize"><?php echo $quote['payment_method']; ?></span>
-                            </li>
-                        </ul>
-                    </fieldset>
-                </div>
+
             </div>
 
 
@@ -313,50 +291,29 @@ $placeorder = array(
             <?php if($quote['status'] != 'In Order'): ?>
             <div class="row quote-buttons">
                 <div class="col-12 text-right">
-                    <?php echo form_submit($updateQuoteButton);  ?>
-                    <?php echo ($user_role == 'admin') ? form_button($placeorderButton) : '' ;  ?>
+                    <?php echo form_submit($submitQuoteButton);  ?>
                 </div>
             </div>
             <?php endif; ?>
 
 
-            <!-- Modal -->
-            <div class="modal fade" id="place-order-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="place-order-confirm-modal-title" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="place-order-confirm-modal-title">Order Submit</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to place this quote to order?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">No</button>
-                           <?php echo form_submit($placeorder); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="update-quote-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="update-quote-confirm-modal-title" aria-hidden="true">
+            <div class="modal fade" id="submit-quote-confirm-modal" tabindex="-1" role="dialog" aria-labelledby="submit-quote-confirm-modal-title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="update-quote-confirm-modal-title">Update Quote</h5>
+                            <h5 class="modal-title" id="submit-quote-confirm-modal-title">Update Quote</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            Are you sure you want to update this quote detail ?
+                            Are you sure you want to submit this quote for order ?
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">No</button>
-                            <?php echo form_submit($updateQuote); ?>
+                            <?php echo form_submit($submitQuote); ?>
                         </div>
                     </div>
                 </div>
