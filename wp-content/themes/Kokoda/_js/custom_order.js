@@ -110,14 +110,19 @@ jQuery(function($) {
 
             $('.custom-quote-section  .display-model-section select#select_model').change(function()
             {
-
+                //set select model id to variable
                 select_model_id = $(this).val();
                 custom_order.caravan = select_model_id;
 
-                renderDisplayImageWrapper('floorplan');
-
+                //hightlight the model select at model tab
                 $('#model .model-list .item').removeClass('selected');
                 $('#model .model-list .item[select-model=' + select_model_id  +  ']').addClass('selected');
+
+                //reset the custom options of caravan
+                custom_order.caravan_options = {};
+
+                renderDisplayImageWrapper('floorplan');
+
             });
 
         });
@@ -223,13 +228,16 @@ jQuery(function($) {
             $('#model .model-list .item').click(function (e)
             {
 
-                //reset the custom options of caravan
-                custom_order.caravan_options = {};
-
+                //hightlight the model select at model tab
                 $('#model .model-list .item').removeClass('selected');
                 $(this).addClass('selected');
+
+                //set select model id to variable
                 select_model_id = $(this).attr('select-model');
                 custom_order.caravan = select_model_id;
+
+                //reset the custom options of caravan
+                custom_order.caravan_options = {};
 
                 //we are allowed to go to next tab when we complete this tab
                 $('a.tablinks[tab-content="model"]').parent('li').next().addClass('next');
@@ -423,12 +431,7 @@ jQuery(function($) {
         function exteriorRenderImageWrapper()
         {
             var options = custom_order.caravan_options;
-            var image_name = 'default';
 
-
-            if (typeof options.panel != 'undefined' && typeof options.checker_plate != 'undefined') {
-                image_name = options.panel + '_' + options.checker_plate;
-            }
 
             var containerWidth = $('#exterior .option-display-image-wrapper').width();
 
@@ -436,7 +439,6 @@ jQuery(function($) {
                 container: 'exterior-display-image-wrapper',
                 width: containerWidth
             });
-
 
             //add checkerplate
             var chekerPlateImg = new Konva.Image();
@@ -476,6 +478,16 @@ jQuery(function($) {
                     // add the layer to the stage
                     exteriorImageWrapper.add(layer);
 
+
+                    //save the images for export pdf function
+                    var scale = 1;
+                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    exteriorImageWrapper.scale({x: scale, y: scale});
+                    exteriorImageWrapper.draw();
+                    caravan_image = exteriorImageWrapper.toDataURL();
+
+
                     //resize the canvas to fit the browser size
                     var scale = containerWidth / chekerPlateImg.getWidth();
 
@@ -486,8 +498,6 @@ jQuery(function($) {
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
 
-                    //save the images for export pdf function
-                    caravan_image = exteriorImageWrapper.toDataURL()
                 }
 
             };
@@ -730,17 +740,13 @@ jQuery(function($) {
                     // add the layer to the stage
                     exteriorImageWrapper.add(layer);
 
+
                     //resize the canvas to fit the browser size
                     var scale = containerWidth / chekerPlateImg.getWidth();
                     exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
                     exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
-
-                    //save the images for export pdf function
-                    caravan_image = exteriorImageWrapper.toDataURL();
-
-
                 }
 
             };
@@ -886,7 +892,7 @@ jQuery(function($) {
                 success: function (data) {
                    var base64string = data;
                    var d = new Date();
-                   openPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
+                    exportPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
 
                    $('#loading-icon-panel').hide();
                 }

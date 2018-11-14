@@ -35,7 +35,7 @@ setup_postdata($post);
 <?php $html .= ' </div>'; ?>
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Panel Colour </span>'; ?>
+<?php $html .= '<span> Panel Colour : </span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>' . $custom_order['caravan_options']['panel'] . '</span>'; ?>
@@ -44,7 +44,7 @@ setup_postdata($post);
 
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Checker Plate Colour </span>'; ?>
+<?php $html .= '<span> Checker Plate Colour : </span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>' . $custom_order['caravan_options']['checker_plate'] . '</span>'; ?>
@@ -71,7 +71,7 @@ setup_postdata($post);
     <?php while (have_rows('tech_specs')) : the_row(); ?>
         <?php $html .= '<div class="row tech_specs_field">'; ?>
         <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-        <?php $html .= '<span>' . get_sub_field('left') . ' </span>'; ?>
+        <?php $html .= '<span>' . get_sub_field('left') . ' : </span>'; ?>
         <?php $html .= '</div>'; ?>
         <?php $html .= '<div class="col-xs-6 text-right">'; ?>
         <?php $html .= '<span>' . get_sub_field('right') . '</span>'; ?>
@@ -253,12 +253,15 @@ $cssPart2 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap
 
 $mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10, 'margin_left' => 10, 'margin_right' => 10  ]);
 
+$mpdf->setFooter('{PAGENO} / {nb}');
 
 //add the Caravan Page with custom Options and Accessories
 $mpdf->AddPage();
 $mpdf->WriteHTML($cssPart1,1);
 $mpdf->WriteHTML($cssPart2,1);
 $mpdf->WriteHTML($html);
+
+
 
 
 
@@ -277,6 +280,7 @@ $mpdf->WriteHTML($html2);
 // add the Quote total extimate page
 $mpdf->AddPage();
 $mpdf->WriteHTML($html3);
+
 
 
 

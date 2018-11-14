@@ -386,14 +386,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                         <label class="col-md-3 control-label" for="customer_postcode">Postcode</label>
                                         <div class="col-md-3">
                                             <input id="customer_postcode" type="number" name="customer_postcode" placeholder="" class="form-control input-md" maxlength="4" required autocomplete="off" />
-
                                         </div>
-                                    </div>
-
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label" for="customer_state">State</label>
-                                        <div class="col-md-5">
+                                        <label class="col-md-1 control-label" for="customer_state">State</label>
+                                        <div class="col-md-3">
                                             <select class="form-control input-lg" id="customer_state" required>
                                                 <option selected value="">Choose State</option>
                                                 <option value="vic">Victoria</option>
@@ -406,16 +401,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                             </select>
                                         </div>
                                     </div>
-                                    <!-- Text input-->
-                                    <div class="form-group">
-                                        <label class="col-md-3 control-label" for="dealer_name">Dealers:</label>
-                                        <div class="col-md-5">
-                                            <select class="form-control input-lg" id="dealer_name" required disabled>
-                                                <option selected value="">Choose Dealer</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
 
                                     <!-- Text input-->
                                     <div class="form-group">
@@ -436,8 +421,19 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                                     <!-- Text input-->
                                     <div class="form-group">
+                                        <label class="col-md-3 control-label" for="dealer_name">Dealers:</label>
+                                        <div class="col-md-4">
+                                            <select class="form-control input-lg" id="dealer_name" required disabled>
+                                                <option selected value="">Choose Dealer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Text input-->
+                                    <div class="form-group">
                                         <label class="col-md-3 control-label" for="payment_method">Payment Methods</label>
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <select class="form-control input-lg" id="payment_method" required>
                                                 <option selected value="">Choose Payment</option>
                                                 <option value="cash">Cash</option>

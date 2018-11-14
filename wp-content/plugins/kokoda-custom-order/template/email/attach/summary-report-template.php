@@ -25,9 +25,7 @@ setup_postdata($post);
 
 
 <?php $html .= ' <div class="display-image-wrapper row">'; ?>
-<?php $html .= ' <div class="col-xs-12">' ; ?>
 <?php $html .= '<img src="'. $custom_order['caravan_image'] .'"/>'; ?>
-<?php $html .= ' </div>' ; ?>
 <?php $html .= ' </div>' ; ?>
 
 
@@ -38,7 +36,7 @@ setup_postdata($post);
 <?php $html .= ' </div>'; ?>
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Panel Colour </span>'; ?>
+<?php $html .= '<span> Panel Colour :</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>' . $custom_order['caravan_options']['panel'] . '</span>'; ?>
@@ -47,7 +45,7 @@ setup_postdata($post);
 
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Checker Plate Colour </span>'; ?>
+<?php $html .= '<span> Checker Plate Colour :</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>' . $custom_order['caravan_options']['checker_plate'] . '</span>'; ?>
@@ -74,7 +72,7 @@ setup_postdata($post);
     <?php while (have_rows('tech_specs')) : the_row(); ?>
         <?php $html .= '<div class="row tech_specs_field">'; ?>
         <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-        <?php $html .= '<span>' . get_sub_field('left') . ' </span>'; ?>
+        <?php $html .= '<span>' . get_sub_field('left') . ' : </span>'; ?>
         <?php $html .= '</div>'; ?>
         <?php $html .= '<div class="col-xs-6 text-right">'; ?>
         <?php $html .= '<span>' . get_sub_field('right') . '</span>'; ?>
@@ -256,8 +254,9 @@ require_once KOKODA_CUSTOM_ORDER_PLUGIN_URL .'assets/mpdf/vendor/autoload.php';
 $cssPart1 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/bootstrap.css');
 $cssPart2 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/custom_email.css');
 
-$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10]);
+$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10 ,'margin_left' => 10, 'margin_right' => 10 ]);
 
+$mpdf->setFooter('{PAGENO} / {nb}');
 
 //add the Caravan Page with custom Options and Accessories
 $mpdf->AddPage();
