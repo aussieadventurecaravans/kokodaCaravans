@@ -534,7 +534,7 @@
                                                 <td style="padding: 0 0 10px 0;">
                                                     <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                         <tr>
-                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
+                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
                                                                 <?php echo '$ ' . $option['retail_price']; ?>
                                                             </td>
                                                         </tr>
