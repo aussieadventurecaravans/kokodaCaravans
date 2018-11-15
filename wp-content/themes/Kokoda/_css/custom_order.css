@@ -236,8 +236,11 @@
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose
 {
     width: 100%;
-    margin: 15px 0;
+    margin: 0px 0;
 }
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc; }
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li + .tooltip > .tooltip-inner {background-color: #2087fc;}
+
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value]
 {
     width: 80px;
@@ -310,7 +313,7 @@
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-wrapper
 {
     padding-left: 10px;
-    padding-top:10px;
+    padding-top: 45px;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-item {
     float: left;
@@ -749,14 +752,15 @@ fieldset.finance-section .cash-summary p.primary-price-label
 .tabcontent#accessories .accessories-list .item .item-detail p{
     text-align: center;
 }
-.tabcontent#accessories .accessories-list .item .item-detail h3{
-    text-align: center;font-size: 20px;
+.tabcontent#accessories .accessories-list .item .item-detail h3
+{
+    text-align: center;font-size: 16px;
 }
-@media only screen and (max-width: 1024px)
+@media only screen and (max-width: 1328px)
 {
     .tabcontent#accessories .accessories-list .item .item-detail h3
     {
-        font-size: 18px;
+        font-size: 13px;
     }
 }
 .tabcontent#accessories .accessories-list .item .item-detail img

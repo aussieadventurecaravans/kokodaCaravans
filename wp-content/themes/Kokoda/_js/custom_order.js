@@ -27,227 +27,114 @@ jQuery(function($) {
 
         document.getElementById($('li.current a.tablinks').attr('tab-content')).style.display = "block";
 
-
-        $('a.tablinks').click(function (event)
+        function actionsListener()
         {
 
-            event.preventDefault();
+            $('a.tablinks').click(function (event)
+            {
 
-            if ($(this).parent('li').hasClass('next'))
-            {
-                $(this).parent('li').removeClass('next');
-            }
-            else if ($(this).parent('li').hasClass('complete'))
-            {
-                $(this).parent('li').removeClass('complete');
-                $(this).parent('li').removeClass('visited');
-            }
-            else
+                event.preventDefault();
+
+                if ($(this).parent('li').hasClass('next'))
                 {
-                return;
-            }
-
-            $('a.tablinks').parent('li').removeClass('current');
-            $(this).parent('li').nextAll().removeClass('next');
-            $(this).parent('li').nextAll().removeClass('complete');
-            $(this).parent('li').nextAll().removeClass('visited');
-
-            $(this).parent('li').addClass('current');
-            $('div.tabcontent').hide();
-
-            if (current_tab !== $(this).attr('tab-content'))
-            {
-
-                $(this).parent('li').prevAll().addClass('complete');
-                $(this).parent('li').prevAll().addClass('visited');
-                $(this).parent('li').next().addClass('next');
-
-
-                current_tab = $(this).attr('tab-content');
-                $('#' + current_tab + '.tabcontent').show();
-            }
-
-
-            if($(this).attr('tab-content') == 'summary')
-            {
-                $('.option-select-value-section .option-select-value-section-content').addClass('col-md-9');
-                $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-12');
-                $('.option-select-value-section .total-summary-loan-section').addClass('col-md-3');
-                $('fieldset.finance-section').show();
-                $('fieldset.loan-detail-section').show();
-                $('.option-select-value-section .total-summary-loan-section').show();
-
-            }
-            else
-            {
-                $('.option-select-value-section .option-select-value-section-content').addClass('col-md-12');
-                $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-9');
-                $('.option-select-value-section .total-summary-loan-section').removeClass('col-md-3');
-
-                $('fieldset.finance-section').hide();
-                $('fieldset.loan-detail-section').hide();
-                $('.option-select-value-section .total-summary-loan-section').hide();
-            }
-
-            renderCustomOptions($(this).attr('tab-content'));
-            renderDisplayImageWrapper($(this).attr('tab-content'));
-
-
-            if($(this).attr('tab-content') == 'floorplan')
-            {
-                var el = '';
-                for (var key in  caravan_title)
+                    $(this).parent('li').removeClass('next');
+                }
+                else if ($(this).parent('li').hasClass('complete'))
                 {
-                    var caravan = caravan_title[key];
-                    if(select_model_id == key)
-                    {
-                        el += '<option value="' + key + '"  selected>' + caravan + ' </option>';
-                    }
-                    else
-                    {
-                        el += '<option value="' + key + '"  >' +caravan + ' </option>';
-                    }
+                    $(this).parent('li').removeClass('complete');
+                    $(this).parent('li').removeClass('visited');
+                }
+                else
+                {
+                    return;
                 }
 
-                $('.custom-quote-section  .display-model-section  select#select_model').html(el);
+                $('a.tablinks').parent('li').removeClass('current');
+                $(this).parent('li').nextAll().removeClass('next');
+                $(this).parent('li').nextAll().removeClass('complete');
+                $(this).parent('li').nextAll().removeClass('visited');
+
+                $(this).parent('li').addClass('current');
+                $('div.tabcontent').hide();
+
+                if (current_tab !== $(this).attr('tab-content'))
+                {
+
+                    $(this).parent('li').prevAll().addClass('complete');
+                    $(this).parent('li').prevAll().addClass('visited');
+                    $(this).parent('li').next().addClass('next');
 
 
-            }
+                    current_tab = $(this).attr('tab-content');
+                    $('#' + current_tab + '.tabcontent').show();
+                }
 
-            $('.custom-quote-section  .display-model-section select#select_model').change(function()
-            {
-                //set select model id to variable
-                select_model_id = $(this).val();
-                custom_order.caravan = select_model_id;
 
-                //hightlight the model select at model tab
-                $('#model .model-list .item').removeClass('selected');
-                $('#model .model-list .item[select-model=' + select_model_id  +  ']').addClass('selected');
+                if($(this).attr('tab-content') == 'summary')
+                {
+                    $('.option-select-value-section .option-select-value-section-content').addClass('col-md-9');
+                    $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-12');
+                    $('.option-select-value-section .total-summary-loan-section').addClass('col-md-3');
+                    $('fieldset.finance-section').show();
+                    $('fieldset.loan-detail-section').show();
+                    $('.option-select-value-section .total-summary-loan-section').show();
 
-                //reset the custom options of caravan
-                custom_order.caravan_options = {};
+                }
+                else
+                {
+                    $('.option-select-value-section .option-select-value-section-content').addClass('col-md-12');
+                    $('.option-select-value-section .option-select-value-section-content').removeClass('col-md-9');
+                    $('.option-select-value-section .total-summary-loan-section').removeClass('col-md-3');
 
-                renderDisplayImageWrapper('floorplan');
+                    $('fieldset.finance-section').hide();
+                    $('fieldset.loan-detail-section').hide();
+                    $('.option-select-value-section .total-summary-loan-section').hide();
+                }
+
+                renderCustomOptions($(this).attr('tab-content'));
+                renderDisplayImageWrapper($(this).attr('tab-content'));
+
+
+                if($(this).attr('tab-content') == 'floorplan')
+                {
+                    var el = '';
+                    for (var key in  caravan_title)
+                    {
+                        var caravan = caravan_title[key];
+                        if(select_model_id == key)
+                        {
+                            el += '<option value="' + key + '"  selected>' + caravan + ' </option>';
+                        }
+                        else
+                        {
+                            el += '<option value="' + key + '"  >' +caravan + ' </option>';
+                        }
+                    }
+
+                    $('.custom-quote-section  .display-model-section  select#select_model').html(el);
+
+
+                }
+
+                $('.custom-quote-section  .display-model-section select#select_model').change(function()
+                {
+                    //set select model id to variable
+                    select_model_id = $(this).val();
+                    custom_order.caravan = select_model_id;
+
+                    //hightlight the model select at model tab
+                    $('#model .model-list .item').removeClass('selected');
+                    $('#model .model-list .item[select-model=' + select_model_id  +  ']').addClass('selected');
+
+                    //reset the custom options of caravan
+                    custom_order.caravan_options = {};
+
+                    renderDisplayImageWrapper('floorplan');
+
+                });
 
             });
 
-        });
-
-
-        function renderCustomOptions(tab)
-        {
-            switch (tab) {
-                case 'exterior' :
-                    var options = custom_order.caravan_options;
-                    $("ul.ui-choose").remove();
-                    for (var i = 0; i < custom_exterior[select_model_id].length; i++)
-                    {
-                        if (custom_exterior[select_model_id][i]['custom_option'] === 'composite panel')
-                        {
-                            $('select#composite_panel').html('');
-
-                            var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
-
-                            for (var e = 0; e < custom_options_value.length; e++)
-                            {
-                                var el = '<option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
-
-                                $('select#composite_panel').append(el);
-                            }
-
-                            if (typeof options.panel !== 'undefined')
-                            {
-                                $('select#composite_panel').val(options.panel.value);
-                            }
-
-                            custom_order.caravan_options.panel = {
-                                                                    value : $('select#composite_panel').val() ,
-                                                                    price : $('select#composite_panel').find(':selected').attr('price')
-                                                                };
-                            //convert these select into the horizontal select menu
-                            $('select#composite_panel').ui_choose({id : 'panel'});
-
-                        }
-                        if (custom_exterior[select_model_id][i]['custom_option'] === 'checker plate')
-                        {
-                            $('select#checker_plate').html('');
-
-                            var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
-
-                            for (var e = 0; e < custom_options_value.length; e++)
-                            {
-                                var el = '<option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
-                                $('select#checker_plate').append(el);
-                            }
-                            if (typeof options.checker_plate !== 'undefined')
-                            {
-                                $('select#checker_plate').val(options.checker_plate.value);
-                            }
-                            custom_order.caravan_options.checker_plate = {
-                                                                        value : $('select#checker_plate').val(),
-                                                                        price :  $('select#checker_plate').find(':selected').attr('price')
-                                                                        };
-
-                            //convert these select into the horizontal select menu
-                            $('select#checker_plate').ui_choose({id : 'checker-plate'});
-                        }
-                    }
-
-                   $("ul.ui-choose").owlCarousel({
-
-                        navigation: false, // Show next and prev buttons
-                        slideSpeed: 300,
-                        pagination: true,
-                        paginationSpeed: 400,
-                        items: 10,
-                        itemsMobile: [379, 3],
-                        itemsTabletSmall: [425,4],
-                        itemsTablet: [768, 7],
-                        itemsDesktopSmall: [1079, 8],
-                        itemsDesktop: [1199, 9],
-                        responsiveBaseWidth: '.ui-choose'
-                    });
-                    break;
-                default:
-                //do nothing is gold
-            }
-        }
-
-        function renderDisplayImageWrapper(tab)
-        {
-            switch (tab)
-            {
-                case 'exterior' :
-
-                    exteriorRenderImageWrapper();
-
-                    break;
-                case 'floorplan' :
-                    if (!Array.isArray(custom_floorplan[select_model_id])) {
-                        var el = '<div class="item col-md-12 text-center selected" floorplan="default"><img src="' + custom_floorplan[select_model_id] + '" style="width:80%" /></div>';
-                        $('#floorplan .option-display-image-wrapper').html(el);
-                        custom_order.floorplan = 'default';
-                    }
-                    else {
-                        $('#floorplan .option-display-image-wrapper').html('');
-                    }
-
-                    break;
-                case "accessories":
-                    //render the accessories
-                    accessories_section_update();
-                    break;
-                case 'summary':
-                    //render the model specs at summary page
-                    summary_section_update();
-                    break;
-                default:
-                //do nothing is gold
-            }
-        }
-
-        function actionsListener()
-        {
             $('#model .model-list .item').click(function (e)
             {
 
@@ -293,9 +180,9 @@ jQuery(function($) {
                 var checker_plate_select_price = $('select#checker_plate').find(':selected').attr('price');
 
                 custom_order.caravan_options = {
-                                                panel: {   value : composite_panel_select,price : composite_panel_select_price  },
-                                                checker_plate: {value : checker_plate_select, price : checker_plate_select_price }
-                                                };
+                    panel: {   value : composite_panel_select,price : composite_panel_select_price  },
+                    checker_plate: {value : checker_plate_select, price : checker_plate_select_price }
+                };
 
                 exteriorRenderImageWrapper();
 
@@ -338,7 +225,7 @@ jQuery(function($) {
 
             $('select#payment_method').change(function(event){
 
-               if ($('select#payment_method').val() == 'loan')
+                if ($('select#payment_method').val() == 'loan')
                 {
                     custom_order.finance.apply_loan_option = $('#customer_details_form input[name=loan_options]:checked').val();
                     $('#customer_details_form input[name=loan_options]').attr('required','required');
@@ -403,7 +290,8 @@ jQuery(function($) {
 
                 var next_tabcontent = $(this).parent().parent().parent('div.tabcontent').next().attr('id');
 
-                if (typeof next_tabcontent != 'undefined') {
+                if (typeof next_tabcontent != 'undefined')
+                {
                     $("a.tablinks[tab-content='" + next_tabcontent + "']").click();
                 }
                 $('html, body').animate({
@@ -474,6 +362,134 @@ jQuery(function($) {
             });
 
         }
+
+
+        function renderCustomOptions(tab)
+        {
+            switch (tab) {
+                case 'exterior' :
+                    var options = custom_order.caravan_options;
+                    $("ul.ui-choose").remove();
+                    for (var i = 0; i < custom_exterior[select_model_id].length; i++)
+                    {
+                        if (custom_exterior[select_model_id][i]['custom_option'] === 'composite panel')
+                        {
+                            $('select#composite_panel').html('');
+
+                            var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
+
+                            for (var e = 0; e < custom_options_value.length; e++)
+                            {
+                                var el = '<option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
+
+                                $('select#composite_panel').append(el);
+                            }
+
+                            if (typeof options.panel !== 'undefined')
+                            {
+                                $('select#composite_panel').val(options.panel.value);
+                            }
+
+                            custom_order.caravan_options.panel = {
+                                                                    value : $('select#composite_panel').val() ,
+                                                                    price : $('select#composite_panel').find(':selected').attr('price')
+                                                                };
+                            //convert these select into the horizontal select menu
+                            $('select#composite_panel').ui_choose({id : 'panel'});
+
+                        }
+                        if (custom_exterior[select_model_id][i]['custom_option'] === 'checker plate')
+                        {
+                            $('select#checker_plate').html('');
+
+                            var custom_options_value = custom_exterior[select_model_id][i]['option_value'];
+
+                            for (var e = 0; e < custom_options_value.length; e++)
+                            {
+                                var el = '<option value="' + custom_options_value[e].value + '" price="' + custom_options_value[e].price + '"></option>';
+                                $('select#checker_plate').append(el);
+                            }
+                            if (typeof options.checker_plate !== 'undefined')
+                            {
+                                $('select#checker_plate').val(options.checker_plate.value);
+                            }
+                            custom_order.caravan_options.checker_plate = {
+                                                                            value : $('select#checker_plate').val(),
+                                                                            price : $('select#checker_plate').find(':selected').attr('price')
+                                                                        };
+
+                            //convert these select into the horizontal select menu
+                            $('select#checker_plate').ui_choose({id : 'checker-plate'});
+                        }
+                    }
+
+                   $("ul.ui-choose").owlCarousel({
+
+                        navigation: false, // Show next and prev buttons
+                        slideSpeed: 300,
+                        pagination: true,
+                        paginationSpeed: 400,
+                        items: 10,
+                        itemsMobile: [379, 3],
+                        itemsTabletSmall: [425,4],
+                        itemsTablet: [768, 7],
+                        itemsDesktopSmall: [1079, 8],
+                        itemsDesktop: [1199, 9],
+                        responsiveBaseWidth: '.ui-choose'
+                    });
+                    //add the tooltip for each color or option they select - ex: price
+                    $("ul.ui-choose .owl-item li").each(function()
+                    {
+                        var price = $(this).attr('price');
+
+                        $(this).attr("data-toggle","tooltip");
+
+                        $(this).attr("title", "Extra $"+  price);
+
+                    });
+                    $('[data-toggle="tooltip"]').tooltip();
+                    break;
+                default:
+                //do nothing is gold
+            }
+        }
+
+        function renderDisplayImageWrapper(tab)
+        {
+            switch (tab)
+            {
+                case 'exterior' :
+
+                    exteriorRenderImageWrapper();
+
+                    break;
+                case 'floorplan' :
+                    if (!Array.isArray(custom_floorplan[select_model_id]))
+                    {
+                        var el = '<div class="item col-md-12 text-center selected" floorplan="default"><img src="' + custom_floorplan[select_model_id] + '" style="width:80%" /></div>';
+                        $('#floorplan .option-display-image-wrapper').html(el);
+                        custom_order.floorplan = 'default';
+                    }
+                    else
+                    {
+                        $('#floorplan .option-display-image-wrapper').html('');
+                    }
+
+                    break;
+                case "accessories":
+                    //render the accessories
+                    accessories_section_update();
+                    break;
+                case 'summary':
+                    //render the model specs at summary page
+                    summary_section_update();
+                    break;
+                default:
+                //do nothing is gold
+            }
+        }
+
+
 
         function exteriorRenderImageWrapper()
         {
@@ -641,6 +657,16 @@ jQuery(function($) {
         {
             var caravan_price = primary_prices;
 
+            var custom_exterior_price = 0;
+            if(custom_order.caravan_options.panel !== undefined )
+            {
+                custom_exterior_price  += Number(custom_order.caravan_options.panel.price);
+            }
+            if(custom_order.caravan_options.checker_plate !== undefined )
+            {
+                custom_exterior_price += Number(custom_order.caravan_options.checker_plate.price);
+            }
+
             var accessories_prices = 0;
             for( var i = 0 ; i < custom_order.accessories.length; i++)
             {
@@ -651,7 +677,7 @@ jQuery(function($) {
             custom_order.accessories_price = accessories_prices;
             custom_order.product_price = Number(primary_prices[select_model_id]);
 
-            var total_price = Number(caravan_price[select_model_id]) + accessories_prices;
+            var total_price = Number(caravan_price[select_model_id]) + accessories_prices + custom_exterior_price;
 
 
             $(".finance-section-details.cash-summary h2.primary-price").html("$" + Number(caravan_price[select_model_id]).toLocaleString("en-US") + " + ORC");
@@ -660,7 +686,8 @@ jQuery(function($) {
 
 
             var loan = Number($(".finance-section-details.loan-summary input.loan-amount").val().replace(/[\D\s\._\-]+/g, ""));
-            if (refresh_amount === true) {
+            if (refresh_amount === true)
+            {
                 $(".finance-section-details.loan-summary input.loan-amount").val(total_price);
                 loan = total_price;
             }
@@ -672,13 +699,17 @@ jQuery(function($) {
             var monthly_payment = 0;
             var factor = rate / 1200;
 
-            if (balloon === 0 && !isNaN(terms) && !isNaN(loan) && !isNaN(rate)) {
-                if (terms !== 0 && loan !== 0 && rate !== 0) {
+            if (balloon === 0 && !isNaN(terms) && !isNaN(loan) && !isNaN(rate))
+            {
+                if (terms !== 0 && loan !== 0 && rate !== 0)
+                {
                     monthly_payment = loan * factor / (1 - (Math.pow(1 / (1 + factor), terms)));
                 }
             }
-            else {
-                if (terms !== 0 && loan !== 0 && rate !== 0) {
+            else
+             {
+                if (terms !== 0 && loan !== 0 && rate !== 0)
+                {
                     var step_1 = loan * (factor * Math.pow(1 + factor, terms) / (Math.pow(1 + factor, terms) - 1));
                     var step_2 = balloon * (factor / (Math.pow(1 + factor, terms) - 1));
 
@@ -706,11 +737,13 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function () {
+                beforeSend: function ()
+                {
                     $('#loading-icon-panel').show();
 
                 },
-                success: function (data) {
+                success: function (data)
+                {
                     $(".tabcontent#summary .display-features-wrapper").html(data);
                     $('#loading-icon-panel').hide();
                 }
@@ -727,7 +760,8 @@ jQuery(function($) {
                 el += '</div>';
 
                 el += '<div class="col-md-12 text-center">';
-                for (var i = 0; i < acs.length; i++) {
+                for (var i = 0; i < acs.length; i++)
+                {
                     el += '<div class="item" access-id="' + i + '" ><div class="item-detail">';
                     el += '<img src="' + $base_url + '/custom_order/Accessories/' + acs[i]['label'] + '.png" />';
                     el += '<h3>' + acs[i]['label'] + '</h3>';
@@ -753,7 +787,8 @@ jQuery(function($) {
             var chekerPlateImg = new Konva.Image();
             var chekerPlateObj = new Image();
             chekerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
-            chekerPlateObj.onload = function () {
+            chekerPlateObj.onload = function ()
+            {
                 chekerPlateImg.setImage(chekerPlateObj);
                 var layer = new Konva.Layer();
                 layer.add(chekerPlateImg);
@@ -782,12 +817,10 @@ jQuery(function($) {
                         panelImg.setY(63);
                     }
 
-
                     layer.add(panelImg);
 
                     // add the layer to the stage
                     exteriorImageWrapper.add(layer);
-
 
                     //resize the canvas to fit the browser size
                     var scale = containerWidth / chekerPlateImg.getWidth();
@@ -814,7 +847,8 @@ jQuery(function($) {
             }
 
 
-            var data = {
+            var data =
+            {
                 'action': 'list_accessories',
                 'accessories_file': acs_files[select_model_id]
             };
@@ -854,7 +888,7 @@ jQuery(function($) {
                         }
 
                         //render the accessories list at template
-                        el += '<div class="item ' + sel + ' col-md-3 col-sm-6 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
+                        el += '<div class="item ' + sel + ' col-md-2 col-sm-3 col-xs-3" access-id="' + i + '" ><div class="item-detail">';
                         el += '<span class="icon-moon"></span>';
                         el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
                         el += '<h3>' + accessories[i]['label'] + '</h3>';
@@ -936,7 +970,8 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function () {
+                beforeSend: function ()
+                {
                     $('#loading-icon-panel').show();
 
                 },
@@ -958,7 +993,8 @@ jQuery(function($) {
 
             var url = URL.createObjectURL(file);
             var iframe = this._printIframe;
-            if (!this._printIframe) {
+            if (!this._printIframe)
+            {
                 iframe = this._printIframe = document.createElement('iframe');
                 document.body.appendChild(iframe);
 
@@ -1003,11 +1039,12 @@ jQuery(function($) {
         function exportPdfFile(data, filename, type)
         {
             var file = new Blob([data], {type: type});
-            if (window.navigator.msSaveOrOpenBlob) {
+            if (window.navigator.msSaveOrOpenBlob)
+            {
                 window.navigator.msSaveOrOpenBlob(file, filename);
             }
             else
-                { // Others
+             { // Others
                 var a = document.createElement("a"),
                     url = URL.createObjectURL(file);
                 a.href = url;

@@ -100,9 +100,10 @@
                 var _this = $(el),
                     _text = _this.text(),
                     _value = _this.prop('value'),
+                    _price = (_this.attr('price') === undefined) ?  0 : _this.attr('price') ,
                     _selected = _this.prop('selected') ? 'selected' : '',
                     _disabled = _this.prop('disabled') ? ' disabled' : '';
-                _ohtml += '<li title="' + _text + '" data-value="' + _value + '" class="' + _selected + _disabled + '">' + _text + '</li> ';
+                _ohtml += '<li title="' + _text + '" data-value="' + _value + '" price="' + _price +  '" class="' + _selected + _disabled + '">' + _text + '</li> ';
             });
             _ohtml += '</ul>';
             this.el.after(_ohtml);
