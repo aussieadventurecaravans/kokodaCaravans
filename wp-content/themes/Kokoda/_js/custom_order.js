@@ -441,10 +441,11 @@ jQuery(function($) {
                     $("ul.ui-choose .owl-item li").each(function()
                     {
                         var price = $(this).attr('price');
+                        var value = $(this).attr('data-value');
 
                         $(this).attr("data-toggle","tooltip");
 
-                        $(this).attr("title", "Extra $"+  price);
+                        $(this).attr("title", value + " $"+  price);
 
                     });
                     $('[data-toggle="tooltip"]').tooltip();

@@ -394,7 +394,7 @@
 .custom-quote-section .tabcontent button.btn-pre,
 .custom-quote-section .tabcontent button.btn-back
 {
-    margin-top: 15px;
+    margin-top: 30px;
     width: auto;
     font-size: 18px;
     padding: 10px 20px;
@@ -461,8 +461,7 @@
 
 .custom-quote-section .tabcontent input.btn#submit_order
 {
-    margin-top: 15px;
-    width: 120px;
+    margin-top: 30px;
     background-color: #2087fc;
     border-color: #2087fc;
     font-size: 18px;
@@ -510,7 +509,7 @@ fieldset.finance-section  legend.finance-header
     padding: 0 10px;
     border-bottom: none;
     font-family: 'Rubik', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     color: #29414e;
     margin-bottom: 10px;
@@ -538,7 +537,7 @@ fieldset.loan-detail-section legend.loan-section-header
     padding: 0 10px;
     border-bottom: none;
     font-family: 'Rubik', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     color: #29414e;
     margin-bottom: 10px;
@@ -589,7 +588,7 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
     right: 122px;
     top: 8px;
     text-transform: capitalize;
-    font-size: 20px;
+    font-size: 16px;
     margin: 14px;
     padding: 0;
 }
@@ -602,7 +601,7 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
     right: 30px;
     top: 8px;
     text-transform: capitalize;
-    font-size: 20px;
+    font-size: 16px;
     margin: 14px;
     padding: 0;
 }

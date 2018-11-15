@@ -219,7 +219,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             Floorplan
                         </h4>
                         <div class="display-model-section form-inline">
-                            <label class="select-model-label">Select Model</label>
+                            <label class="select-model-label">Related Models</label>
                             <select class="form-control" id="select_model"> </select>
                         </div>
                     </div>
@@ -469,7 +469,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                                         </div>
                                         <div  class="col-xs-6 text-left">
-                                            <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit" />
+                                            <input id="submit_order" type="submit" class="btn btn-primary btn-lg" value="Submit Your Details" />
                                         </div>
                                     </div>
 
