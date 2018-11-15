@@ -239,7 +239,7 @@
     margin: 0px 0;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose li + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc; }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose li + .tooltip > .tooltip-inner {background-color: #2087fc;}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li + .tooltip > .tooltip-inner {text-transform: capitalize; background-color: #2087fc;}
 
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value]
 {

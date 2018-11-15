@@ -545,7 +545,7 @@ jQuery(function($) {
 
 
                     //save the images for export pdf function
-                    var scale = 1;
+                    var scale = 0.6;
                     exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
                     exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
