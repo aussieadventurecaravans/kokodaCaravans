@@ -683,7 +683,7 @@ jQuery(function($) {
             $(".finance-section-details.cash-summary h2.primary-price").html("$" + Number(caravan_price[select_model_id]).toLocaleString("en-US") + " + ORC");
             $(".finance-section-details.cash-summary h2.total-price").html('$' + total_price.toLocaleString("en-US") + " + ORC");
             $(".finance-section-details.cash-summary h2.add-on-price").html('$' + accessories_prices.toLocaleString("en-US"));
-
+            $(".finance-section-details.cash-summary h2.custom-options-price").html('$' + custom_exterior_price.toLocaleString("en-US"));
 
             var loan = Number($(".finance-section-details.loan-summary input.loan-amount").val().replace(/[\D\s\._\-]+/g, ""));
             if (refresh_amount === true)

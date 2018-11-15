@@ -494,6 +494,13 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                             Drive Away Price
                         </p>
                         <h2> + </h2>
+                        <h2 class="price-label custom-options-price">
+                            $0
+                        </h2>
+                        <p class="custom-options-price-label">
+                            Custom Exterior Price
+                        </p>
+                        <h2> + </h2>
                         <h2 class="price-label add-on-price">
                             $0
                         </h2>

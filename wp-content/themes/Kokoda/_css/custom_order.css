@@ -500,10 +500,11 @@ fieldset.finance-section{
 
 .finance-section-details.loan-summary
 {
-    margin-top: 25px;
+    margin-top: 25px;font-size: 14px;
 }
 
-fieldset.finance-section  legend.finance-header {
+fieldset.finance-section  legend.finance-header
+{
     text-align: left !important;
     width: auto;
     padding: 0 10px;
@@ -512,6 +513,12 @@ fieldset.finance-section  legend.finance-header {
     font-size: 18px;
     text-transform: uppercase;
     color: #29414e;
+    margin-bottom: 10px;
+}
+fieldset.finance-section .finance-section-details .price-label,
+fieldset.finance-section .finance-section-details h2
+{
+    margin-top: 10px;font-size:25px;
 }
 
 fieldset.loan-detail-section
@@ -534,16 +541,21 @@ fieldset.loan-detail-section legend.loan-section-header
     font-size: 18px;
     text-transform: uppercase;
     color: #29414e;
+    margin-bottom: 10px;
 }
 
 
 fieldset.loan-detail-section .monthly-payment-sec
 {
-    margin: 20px 0 20px;
+    margin: 20px 0 10px;
     border-top: 1px solid #eee;
     padding-top: 10px;
     font-weight: bold;
     text-transform: uppercase;
+}
+fieldset.loan-detail-section .monthly-payment-sec p
+{
+    font-size: 14px;
 }
 
 fieldset.finance-section .cash-summary h2.total-price
@@ -553,10 +565,12 @@ fieldset.finance-section .cash-summary h2.total-price
     padding-top: 10px;
 }
 fieldset.finance-section .cash-summary p.add-on-price-label,
-fieldset.finance-section .cash-summary p.primary-price-label
+fieldset.finance-section .cash-summary p.primary-price-label,
+fieldset.finance-section .cash-summary p.custom-options-price-label
 {
     font-weight: 100;
     font-size: 15px;
+    margin:0;
 }
 .loan-summary input.drive-away-price
 {
