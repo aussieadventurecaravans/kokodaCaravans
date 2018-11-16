@@ -826,7 +826,13 @@ form#customer_details_form select option
     border-radius: 0;
 }
 
-/**CUSTOMIZE THE FLOORPLAN HEADER and MODEL SELECT **/
+form#customer_details_form .control-label
+{
+   font-weight: normal;
+   font-size: 16px;
+}
+
+    /**CUSTOMIZE THE FLOORPLAN HEADER and MODEL SELECT **/
 .custom-quote-section .option-select-value-section .tabcontent#floorplan  .tab-header
 {
     margin: 20px 0 20px;
