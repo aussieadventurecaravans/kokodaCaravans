@@ -505,13 +505,13 @@ jQuery(function($) {
             });
 
             //add checkerplate
-            var chekerPlateImg = new Konva.Image();
-            var chekerPlateObj = new Image();
-            chekerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
-            chekerPlateObj.onload = function () {
-                chekerPlateImg.setImage(chekerPlateObj);
+            var checkerPlateImg = new Konva.Image();
+            var checkerPlateObj = new Image();
+            checkerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
+            checkerPlateObj.onload = function () {
+                checkerPlateImg.setImage(checkerPlateObj);
                 var layer = new Konva.Layer();
-                layer.add(chekerPlateImg);
+                layer.add(checkerPlateImg);
 
                 var models_panel = [];
                 models_panel[5417] = {x : 232 , y : 62 };
@@ -546,20 +546,20 @@ jQuery(function($) {
 
                     //save the images for export pdf function
                     var scale = 0.6;
-                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
-                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    exteriorImageWrapper.width(checkerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(checkerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
                     caravan_image = exteriorImageWrapper.toDataURL();
 
 
                     //resize the canvas to fit the browser size
-                    var scale = containerWidth / chekerPlateImg.getWidth();
+                    var scale = containerWidth / checkerPlateImg.getWidth();
 
-                    $("#exterior-display-image-wrapper").height(chekerPlateImg.getHeight() * scale);
+                    $("#exterior-display-image-wrapper").height(checkerPlateImg.getHeight() * scale);
 
-                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
-                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    exteriorImageWrapper.width(checkerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(checkerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
 
@@ -765,7 +765,8 @@ jQuery(function($) {
                 {
                     el += '<div class="item" access-id="' + i + '" ><div class="item-detail">';
                     el += '<img src="' + $base_url + '/custom_order/Accessories/' + acs[i]['label'] + '.png" />';
-                    el += '<h3>' + acs[i]['label'] + '</h3>';
+                    el += '<h3>' + acs[i]['label'] +  '</h3>';
+                    el += '<p>$'  +  acs[i]['retail_price'] + '</p>';
                     el += '</div></div>';
                 }
                 el += '</div>';
@@ -785,14 +786,14 @@ jQuery(function($) {
             });
 
             //add checkerplate
-            var chekerPlateImg = new Konva.Image();
-            var chekerPlateObj = new Image();
-            chekerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
-            chekerPlateObj.onload = function ()
+            var checkerPlateImg = new Konva.Image();
+            var checkerPlateObj = new Image();
+            checkerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
+            checkerPlateObj.onload = function ()
             {
-                chekerPlateImg.setImage(chekerPlateObj);
+                checkerPlateImg.setImage(checkerPlateObj);
                 var layer = new Konva.Layer();
-                layer.add(chekerPlateImg);
+                layer.add(checkerPlateImg);
 
                 var models_panel = [];
                 models_panel[5417] = {x : 232 , y : 62 };
@@ -824,9 +825,9 @@ jQuery(function($) {
                     exteriorImageWrapper.add(layer);
 
                     //resize the canvas to fit the browser size
-                    var scale = containerWidth / chekerPlateImg.getWidth();
-                    exteriorImageWrapper.width(chekerPlateImg.getWidth() * scale);
-                    exteriorImageWrapper.height(chekerPlateImg.getHeight() * scale);
+                    var scale = containerWidth / checkerPlateImg.getWidth();
+                    exteriorImageWrapper.width(checkerPlateImg.getWidth() * scale);
+                    exteriorImageWrapper.height(checkerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
                 }
@@ -889,10 +890,11 @@ jQuery(function($) {
                         }
 
                         //render the accessories list at template
-                        el += '<div class="item ' + sel + ' col-md-2 col-sm-3 col-xs-3" access-id="' + i + '" ><div class="item-detail">';
+                        el += '<div class="item ' + sel + ' col-md-2 col-sm-2 col-xs-2" access-id="' + i + '" ><div class="item-detail">';
                         el += '<span class="icon-moon"></span>';
                         el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
                         el += '<h3>' + accessories[i]['label'] + '</h3>';
+                        el += '<h3>$' + accessories[i]['retail_price'] +'</h3>';
                         el += '</div></div>';
 
                     }

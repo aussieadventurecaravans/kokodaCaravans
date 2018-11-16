@@ -660,7 +660,7 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 {
     border: 5px solid #fff;
     display: inline-block;
-    max-width: 28%;
+    max-width: 25%;
 }
 .tabcontent#summary .display-accessories-wrapper .item .item-detail
 {
@@ -678,6 +678,8 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 .tabcontent#summary .display-accessories-wrapper .item .item-detail h3
 {
     text-align: center;
+    margin: 0;
+    font-size: 16px;
 }
 @media only screen and (max-width: 1024px)
 {
@@ -767,7 +769,7 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 }
 .tabcontent#accessories .accessories-list .item .item-detail h3
 {
-    text-align: center;font-size: 16px;
+    text-align: center;font-size: 16px;margin-top: 0;
 }
 @media only screen and (max-width: 1328px)
 {
@@ -858,6 +860,7 @@ form#customer_details_form select option
     font-weight: normal;
     margin:0;
     vertical-align: middle;
+    text-transform: capitalize;
 }
 
 .tabcontent#floorplan  .display-model-section  #select_model
