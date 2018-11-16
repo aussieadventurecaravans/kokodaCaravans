@@ -843,7 +843,7 @@ form#customer_details_form select option
 {
     display:block;
     float: right;
-    width: 350px;
+    width: 374px;
 }
 @media only screen and (max-width: 767px)
 {
