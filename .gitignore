@@ -27,3 +27,8 @@ wp-config.php
 /wp-content/themes/dreamseeker/cache/
 /wp-content/plugins/widgetkit/cache/
 /wp-content/themes/yoo_chester_wp/config.json
+
+
+#custom order portal
+/custom-orders-portal/application/config/database.php
+/custom-orders-portal/application/sessions/*
