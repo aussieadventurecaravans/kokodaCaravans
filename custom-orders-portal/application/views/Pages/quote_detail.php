@@ -54,6 +54,16 @@ $customer_address = array(
     'required' => true
 );
 
+$customer_city = array(
+    'name' => 'customer_city',
+    'type' => 'text',
+    'id'  => 'customer_city',
+    'value' => $quote['customer_city'],
+    'class' => 'form-control',
+    'readonly' => 'readonly',
+    'required' => true
+);
+
 $customer_postcode = array(
     'name' => 'customer_postcode',
     'type' => 'text',
@@ -178,9 +188,9 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
                 </div>
                 <div class="col-3">
-                    <?php echo form_label('Postcode', 'customer_postcode'); ?>
+                    <?php echo form_label('City', 'customer_city'); ?>
                     <?php echo form_input($customer_postcode); ?>
-                    <?php echo '<div class="errors">'.form_error('$customer_postcode').'</div>'; ?>
+                    <?php echo '<div class="errors">'.form_error('$customer_city').'</div>'; ?>
                 </div>
                 <div class="col-3">
                     <?php echo form_label('State', 'customer_state'); ?>

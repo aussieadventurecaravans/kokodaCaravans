@@ -91,6 +91,7 @@ class Quote extends CI_Controller {
             'customer_first_name'=>$this->input->post('customer_first_name'),
             'customer_last_name'=>$this->input->post('customer_last_name'),
             'customer_address'=>$this->input->post('customer_address'),
+            'customer_city'=>$this->input->post('customer_city'),
             'customer_postcode'=>$this->input->post('customer_postcode'),
             'customer_state'=>strtolower($this->input->post('customer_state')),
             'customer_email'=>$this->input->post('customer_email'),

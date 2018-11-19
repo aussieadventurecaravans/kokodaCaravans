@@ -29,6 +29,15 @@ $customer_address = array(
     'required' => true
 );
 
+$customer_city = array(
+    'name' => 'customer_city',
+    'type' => 'text',
+    'id'  => 'customer_city',
+    'value' => '',
+    'class' => 'form-control',
+    'required' => true
+);
+
 $customer_postcode = array(
     'name' => 'customer_postcode',
     'type' => 'text',
@@ -172,10 +181,15 @@ $submitQuote = array(
             </div>
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-4">
                     <?php echo form_label('Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
+                </div>
+                <div class="col-2">
+                    <?php echo form_label('Address', 'customer_city'); ?>
+                    <?php echo form_input($customer_city); ?>
+                    <?php echo '<div class="errors">'.form_error('$customer_city').'</div>'; ?>
                 </div>
                 <div class="col-3">
                     <?php echo form_label('Postcode', 'customer_postcode'); ?>

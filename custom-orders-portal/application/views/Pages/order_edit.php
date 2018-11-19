@@ -50,6 +50,14 @@ $customer_address = array(
     'class' => 'form-control',
     'required' => true
 );
+$customer_city = array(
+    'name' => 'customer_city',
+    'type' => 'text',
+    'id'  => 'customer_city',
+    'value' => $order['customer_city'],
+    'class' => 'form-control',
+    'required' => true
+);
 
 $customer_postcode = array(
     'name' => 'customer_postcode',
@@ -183,6 +191,11 @@ $attr = array(
                     <?php echo form_label('Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
+                </div>
+                <div class="col-3">
+                    <?php echo form_label('City', 'customer_city'); ?>
+                    <?php echo form_input($customer_city); ?>
+                    <?php echo '<div class="errors">'.form_error('$customer_city').'</div>'; ?>
                 </div>
                 <div class="col-3">
                     <?php echo form_label('Postcode', 'customer_postcode'); ?>

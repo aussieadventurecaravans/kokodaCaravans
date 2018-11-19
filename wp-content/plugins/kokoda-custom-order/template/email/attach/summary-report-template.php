@@ -278,7 +278,7 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
 <?php $html4 .= ' </div>'; ?>
 <?php $html4 .= ' </div>'; ?>
 
-<?php $html4 = '<div class="tab-header">'; ?>
+<?php $html4 .= '<div class="tab-header">'; ?>
 <?php $html4 .= '<h3 class="text-left">Payment Detail</h3>'; ?>
 <?php $html4 .= '</div>'; ?>
 <?php $html4 .= '<div class="container-fluid">'; ?>
