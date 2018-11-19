@@ -182,7 +182,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
 
             <div class="row">
                 <div class="col-3">
-                    <?php echo form_label('Address', 'customer_address'); ?>
+                    <?php echo form_label('Street Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
                 </div>
