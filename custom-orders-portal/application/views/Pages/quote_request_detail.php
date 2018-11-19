@@ -73,6 +73,15 @@ $customer_state = array(
     'readonly' => 'readonly',
     'required' => true
 );
+$customer_city = array(
+    'name' => 'customer_city',
+    'type' => 'text',
+    'id'  => 'customer_city',
+    'value' => strtoupper($quote['customer_city']),
+    'class' => 'form-control',
+    'readonly' => 'readonly',
+    'required' => true
+);
 
 $customer_email = array(
     'name' => 'customer_email',
@@ -172,10 +181,15 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
             </div>
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-3">
                     <?php echo form_label('Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
+                </div>
+                <div class="col-3">
+                    <?php echo form_label('City', 'customer_city'); ?>
+                    <?php echo form_input($customer_city); ?>
+                    <?php echo '<div class="errors">'.form_error('$customer_city').'</div>'; ?>
                 </div>
                 <div class="col-3">
                     <?php echo form_label('Postcode', 'customer_postcode'); ?>
