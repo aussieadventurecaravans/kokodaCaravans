@@ -81,6 +81,10 @@ $ajax_edit_url =  plugins_url('/kokoda-custom-order/includes/admin/quote_edit.ph
                                             <td><input type="text" name="customer_address" size="30" value="<?php echo esc_attr( $quote->customer_address ); ?>" id="customer_address" /></td>
                                         </tr>
                                         <tr>
+                                            <td class="first"><label for="customer_city"><?php _e( 'City:' ); ?></label></td>
+                                            <td><input type="text" name="customer_city" size="30" value="<?php echo esc_attr( $quote->customer_city ); ?>" id="customer_city" /></td>
+                                        </tr>
+                                        <tr>
                                             <td class="first"><label for="customer_postcode"><?php _e( 'Postcode:' ); ?></label></td>
                                             <td><input type="text" name="customer_postcode" size="30" value="<?php echo esc_attr( $quote->customer_postcode ); ?>" id="customer_postcode" /></td>
                                         </tr>

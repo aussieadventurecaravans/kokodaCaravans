@@ -61,6 +61,7 @@ function install_custom_order_tables() {
       total_cost double NOT NULL DEFAULT '0',
       payment_method varchar(80) NOT NULL  DEFAULT '',
       customer_address varchar(255) NOT NULL  DEFAULT '',
+      customer_city varchar(255) NOT NULL  DEFAULT '',
       customer_postcode varchar(255) NOT NULL  DEFAULT '',
       customer_state varchar(255) NOT NULL  DEFAULT '',
       customer_email varchar(255) NOT NULL  DEFAULT '',

@@ -109,6 +109,7 @@ class Quote_List extends WP_List_Table
             case 'customer_first_name':
             case 'customer_last_name':
             case 'customer_address' :
+            case 'customer_city' :
             case 'customer_email' :
             case 'customer_phone' :
             case 'date_created' :
@@ -179,6 +180,7 @@ class Quote_List extends WP_List_Table
             'has_loan'=>__('has_loan'),
             'loan_status'=>__('loan_status'),
             'customer_address' => __( 'Customer Address'),
+            'customer_city' => __( 'City'),
             'customer_email' => __( 'Email'),
             'customer_phone' => __( 'Phone'),
             'date_created' => __( 'Date Created'),

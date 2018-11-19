@@ -36,7 +36,7 @@ setup_postdata($post);
 <?php $html .= ' </div>'; ?>
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Panel Colour :' .  $custom_order['caravan_options']['panel']['value']  .'</span>'; ?>
+<?php $html .= '<span>Panel Colour : ' .  $custom_order['caravan_options']['panel']['value']  .'</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>$' . $custom_order['caravan_options']['panel']['price'] . '</span>'; ?>
@@ -45,7 +45,7 @@ setup_postdata($post);
 
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Checker Plate Colour :' . $custom_order['caravan_options']['checker_plate']['value'] .'</span>'; ?>
+<?php $html .= '<span>Checker Plate Colour : ' . $custom_order['caravan_options']['checker_plate']['value'] .'</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>$' . $custom_order['caravan_options']['checker_plate']['price'] . '</span>'; ?>
@@ -181,12 +181,20 @@ setup_postdata($post);
 <?php
 $product_price = $custom_order['product_price'];
 $accessories_price = $custom_order['accessories_price'];
-$total_price  = $product_price + $accessories_price;
+if(isset($custom_order['caravan_options']))
+{
+    $exterior_price = $custom_order['caravan_options']['panel']['price'] +  $custom_order['caravan_options']['checker_plate']['price'];
+}
+else
+{
+    $exterior_price = 0;
+}
+$total_price  = $product_price + $accessories_price + $exterior_price;
 
 ?>
 
 <?php $html3 = '<div class="tab-header">'; ?>
-<?php $html3 .= ' <h3>Total  Price Estimate </h3>'; ?>
+<?php $html3 .= ' <h3>Total  Price Estimate</h3>'; ?>
 <?php $html3 .= ' </div>'; ?>
 
 <?php $html3 .= '<div class="finance-wrapper container-fluid">'; ?>
@@ -203,7 +211,7 @@ $total_price  = $product_price + $accessories_price;
 
     <?php $html3 .= '<tbody>' ?>
         <?php $html3 .= '<tr>'; ?>
-            <?php $html3 .= '<td scope="row"><h4>kokoda ' . get_the_title() .  ' </h4>' ;?>
+            <?php $html3 .= '<td scope="row"><h4>Kokoda ' . get_the_title() .  ' </h4>' ;?>
             <?php $html3 .= '<p><img src="' .  $custom_order['caravan_image']   .  '" style=" width:40%" /></p>'; ?>
             <?php $html3 .=  '</td>';  ?>
 
@@ -211,6 +219,19 @@ $total_price  = $product_price + $accessories_price;
             <?php $html3 .= ' <p>$' . number_format($product_price) . '</p>'; ?>
             <?php $html3 .= ' </td>'; ?>
         <?php $html3 .= '</tr>';?>
+        <?php if(isset($custom_order['caravan_options'])): ?>
+            <?php $html3 .= '<tr>'; ?>
+                <?php $html3 .= '<td scope="row"><h4>Custom Exterior </h4>' ;?>
+                <?php $html3 .= '<p>Panel Colour : '. $custom_order['caravan_options']['panel']['value'] .'</p>'; ?>
+                <?php $html3 .= '<p>Checker Plate Colour : '. $custom_order['caravan_options']['checker_plate']['value'] .'</p>'; ?>
+                <?php $html3 .=  '</td>';  ?>
+
+                <?php $html3 .= '<td><h4 style="color:#fff"> Cost </h4>'; ?>
+                <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['panel']['price']) .'</p>'; ?>
+                <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['checker_plate']['price']) .'</p>'; ?>
+                <?php $html3 .= '</td>'; ?>
+            <?php $html3 .= '</tr>';?>
+        <?php endif;?>
         <?php if(count($custom_order['accessories']) > 0) : ?>
             <?php $html3 .= '<tr>'; ?>
 
@@ -230,14 +251,14 @@ $total_price  = $product_price + $accessories_price;
         <?php endif; ?>
 
         <?php $html3 .= '<tr class="total-price-row">'; ?>
-            <?php  $html3 .= ' <td class="header-wrapper"><span > Total Price (*) </span></td>'; ?>
+            <?php  $html3 .= ' <td class="header-wrapper"><span> Total Price (*) </span></td>'; ?>
             <?php  $html3 .= ' <td class="price-wrapper">$'.  number_format($total_price) .'</td>'; ?>
         <?php $html3 .= '</tr>'; ?>
 
     <?php $html3 .= '</tbody>' ?>
 <?php $html3 .= '</table>' ; ?>
 <?php $html3 .= '<p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Please Note:</b>
-                            All the prices are subject to change without prior notice. The price estimates are provided on a basis production cost and
+                            All the prices are subject to change without prior notice. The price estimates are provided on a basic production cost and
                             it may be changed base upon on some specific features customer need.
                             On-Road Cost (ORC) can varies between states and city.Please contact our dealers for more detail.
                         </p>'; ?>
@@ -245,6 +266,31 @@ $total_price  = $product_price + $accessories_price;
 
 
 
+<?php $html4 = '<div class="tab-header">'; ?>
+<?php $html4 .= '<h3 class="text-left">Customer Detail</h3>'; ?>
+<?php $html4 .= '</div>'; ?>
+<?php $html4 .= '<div class="container-fluid">'; ?>
+<?php $html4 .= '<div class="col-sm-12">'; ?>
+<?php $html4 .= '<p> Full Name: : ' .  $custom_order['customer_first_name']  . ' ' .  $custom_order['customer_last_name'] .  '</p>'; ?>
+<?php $html4 .= '<p> Address : ' .  $custom_order['customer_address'] . ',' .  ucwords($custom_order['customer_city']) . ', ' . strtoupper($custom_order['customer_state']) . ', ' . $custom_order['customer_postcode']  . ', Australia' . '</p>'; ?>
+<?php $html4 .= '<p> Email : ' .  $custom_order['customer_email'] .  '</p>'; ?>
+<?php $html4 .= '<p> Phone : ' .  $custom_order['customer_phone'] .  '</p>'; ?>
+<?php $html4 .= ' </div>'; ?>
+<?php $html4 .= ' </div>'; ?>
+
+<?php $html4 = '<div class="tab-header">'; ?>
+<?php $html4 .= '<h3 class="text-left">Payment Detail</h3>'; ?>
+<?php $html4 .= '</div>'; ?>
+<?php $html4 .= '<div class="container-fluid">'; ?>
+<?php $html4 .= '<div class="col-sm-12">'; ?>
+<?php $html4 .= '<p> Payment Option : ' .  $custom_order['payment_method'] .  '</p>'; ?>
+<?php if( $custom_order['payment_method'] === 'loan' ):  ?>
+<?php $loan_detail = unserialize($custom_order['loan_detail']); ?>
+<?php $html4 .= '<p>Loan option : ' .  $loan_detail['apply_loan_option'] .  '</p>'; ?>
+<?php $html4 .= '<p>Loan Status : ' .  $custom_order['loan_status'] .  '</p>'; ?>
+<?php endif; ?>
+<?php $html4 .= ' </div>'; ?>
+<?php $html4 .= ' </div>'; ?>
 <?php
 
 
@@ -280,6 +326,12 @@ $mpdf->WriteHTML($html2);
 // add the Quote total extimate page
 $mpdf->AddPage();
 $mpdf->WriteHTML($html3);
+
+// add the Quote total extimate page
+$mpdf->AddPage();
+$mpdf->WriteHTML($html4);
+
+
 
 
 $mpdf->Output(WP_CONTENT_DIR. '/uploads/custom_order/email_attach/quote_summary_' . $_quote->quote_id .'.pdf', 'F');

@@ -374,10 +374,13 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                                     <!-- Text input-->
                                     <div class="form-group">
-                                        <label class="col-md-3 control-label" for="customer_address">Address</label>
-                                        <div class="col-md-7">
+                                        <label class="col-md-3 control-label" for="customer_address">Street Address</label>
+                                        <div class="col-md-3">
                                             <input id="customer_address" name="customer_address" type="text" placeholder="" class="form-control input-md" required autocomplete="off" />
-
+                                        </div>
+                                        <label class="col-md-1 control-label" for="customer_city">City</label>
+                                        <div class="col-md-3">
+                                            <input id="customer_city" name="customer_city" type="text" placeholder="" class="form-control input-md" required autocomplete="off" />
                                         </div>
                                     </div>
 

@@ -244,7 +244,7 @@
                                             <td style="padding: 0 0 10px 0;">
                                                 <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                     <tr>
-                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><?php echo $_quote->customer_address . ', '. $_quote->customer_postcode . ', ' .  strtoupper($_quote->customer_state) . ', ' . 'Australia' ;  ?></td>
+                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;"><?php echo $_quote->customer_address . ', '. ucwords($_quote->customer_city) . ', ' .  strtoupper($_quote->customer_state). ', '. $_quote->customer_postcode .  ', ' . 'Australia' ;  ?></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -483,7 +483,6 @@
                 $accessories = unserialize($_quote->add_on_accessories);
                 if(count($accessories) > 0):
                 ?>
-
                 <tr>
                     <td style="padding: 30px 0 0px 0; border-bottom: 1px dashed #aaaaaa;">
                         <!-- ONE COLUMNS -->
@@ -508,7 +507,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-bottom: 1px dashed #aaaaaa;">
+                    <td style="padding:10px 0 0px 0;border-bottom: 1px dashed #aaaaaa;">
                         <!-- TWO COLUMNS -->
                         <table cellspacing="0" cellpadding="0" border="0" width="100%">
                             <?php foreach($accessories as $option): ?>

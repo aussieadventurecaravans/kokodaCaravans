@@ -54,6 +54,10 @@ class Quote
     /**
      * @var string
      */
+    public $customer_city = '';
+    /**
+     * @var string
+     */
     public $customer_postcode = '';
 
     /**
@@ -216,7 +220,7 @@ class Quote
 
         $quote_data =  array();
         $columns= array('product_name','custom_options','add_on_options','payment_method',
-            'customer_first_name','customer_last_name','customer_address','customer_postcode','customer_state','customer_email','customer_phone',
+            'customer_first_name','customer_last_name','customer_address','customer_city','customer_postcode','customer_state','customer_email','customer_phone',
             'dealer_id','dealer_name','dealer_phone','dealer_email','dealer_address','dealer_city','dealer_state','dealer_postcode',
             'date_created','date_modified');
 
@@ -329,7 +333,7 @@ class Quote
     {
         $quote_data =  array();
         $columns= array('product_name','custom_options','add_on_accessories','product_cost','orc_cost','total_cost','status',
-                        'add_on_cost','payment_method','customer_first_name','customer_last_name','customer_address','customer_postcode','customer_state',
+                        'add_on_cost','payment_method','customer_first_name','customer_last_name','customer_address','customer_city','customer_postcode','customer_state',
                         'apply_loan_option','loan_status',
                         'customer_email','customer_phone','date_created','date_modified');
 

@@ -178,7 +178,16 @@ setup_postdata($post);
 <?php
 $product_price = $custom_order['product_price'];
 $accessories_price = $custom_order['accessories_price'];
-$total_price  = $product_price + $accessories_price;
+if(isset($custom_order['caravan_options']))
+{
+    $exterior_price = $custom_order['caravan_options']['panel']['price'] +  $custom_order['caravan_options']['checker_plate']['price'];
+}
+else
+{
+    $exterior_price = 0;
+}
+
+$total_price  = $product_price + $accessories_price + $exterior_price;
 
 ?>
 
@@ -208,6 +217,19 @@ $total_price  = $product_price + $accessories_price;
             <?php $html3 .= ' <p>$' . number_format($product_price) . '</p>'; ?>
             <?php $html3 .= ' </td>'; ?>
         <?php $html3 .= '</tr>';?>
+        <?php if(isset($custom_order['caravan_options'])): ?>
+        <?php $html3 .= '<tr>'; ?>
+            <?php $html3 .= '<td scope="row"><h4>Custom Exterior </h4>' ;?>
+            <?php $html3 .= '<p>Panel Colour : '. $custom_order['caravan_options']['panel']['value'] .'</p>'; ?>
+            <?php $html3 .= '<p>Checker Plate Colour : '. $custom_order['caravan_options']['checker_plate']['value'] .'</p>'; ?>
+            <?php $html3 .=  '</td>';  ?>
+
+            <?php $html3 .= '<td><h4 style="color:#fff"> Cost </h4>'; ?>
+            <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['panel']['price']) .'</p>'; ?>
+            <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['checker_plate']['price']) .'</p>'; ?>
+            <?php $html3 .= ' </td>'; ?>
+        <?php $html3 .= '</tr>';?>
+        <?php endif; ?>
         <?php if(count($custom_order['accessories']) > 0) : ?>
             <?php $html3 .= '<tr>'; ?>
 
@@ -234,7 +256,7 @@ $total_price  = $product_price + $accessories_price;
     <?php $html3 .= '</tbody>' ?>
 <?php $html3 .= '</table>' ; ?>
 <?php $html3 .= '<p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Please Note:</b>
-                            All the prices are subject to change without prior notice. The price estimates are provided on a basis production cost and
+                            All the prices are subject to change without prior notice. The price estimates are provided on a basic production cost and
                             it may be changed base upon on some specific features customer need.
                             On-Road Cost (ORC) can varies between states and city.Please contact our dealers for more detail.
                         </p>'; ?>
