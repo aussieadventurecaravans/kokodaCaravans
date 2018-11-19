@@ -1,7 +1,7 @@
 <?php
 $custom_order = get_query_var('custom_order');
 $caravan_id = get_query_var('caravan_id');
-$_quote = get_query_var('_quote');
+$quote = get_query_var('quote');
 $caravan_ids = array(
     5417 => 38,
     5195 => 39,
@@ -266,33 +266,84 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
 
 
 
-<?php $html4 = '<div class="tab-header">'; ?>
-<?php $html4 .= '<h3 class="text-left">Customer Detail</h3>'; ?>
-<?php $html4 .= '</div>'; ?>
-<?php $html4 .= '<div class="container-fluid">'; ?>
-<?php $html4 .= '<div class="col-sm-12">'; ?>
-<?php $html4 .= '<p> Full Name: : ' .  $_quote['customer_first_name']  . ' ' .  $_quote['customer_last_name'] .  '</p>'; ?>
-<?php $html4 .= '<p> Address : ' .  $_quote['customer_address'] . ',' .  ucwords($_quote['customer_city']) . ', ' . strtoupper($_quote['customer_state']) . ', ' . $_quote['customer_postcode']  . ', Australia' . '</p>'; ?>
-<?php $html4 .= '<p> Email : ' .  $_quote['customer_email'] .  '</p>'; ?>
-<?php $html4 .= '<p> Phone : ' .  $_quote['customer_phone'] .  '</p>'; ?>
-<?php $html4 .= ' </div>'; ?>
-<?php $html4 .= ' </div>'; ?>
+<?php $html4 = '<div class="container-fluid customer-details">'; ?>
+    <?php $html4 .= '<div class="tab-header">'; ?>
+        <?php $html4 .= '<h3 class="text-left">Customer Detail</h3>'; ?>
+    <?php $html4 .= '</div>'; ?>
+    <?php $html4 .= '<div class="row">'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-left">'; ?>
+            <?php $html4 .= '<span> Full Name : </span>'; ?>
+        <?php $html4 .= '</div>'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-right">'; ?>
+            <?php $html4 .= '<span> ' .  $quote->customer_first_name  . ' ' .  $quote->customer_last_name .  '</span>'; ?>
+        <?php $html4 .= '</div>'; ?>
+    <?php $html4 .= '</div>'; ?>
 
-<?php $html4 .= '<div class="tab-header">'; ?>
-<?php $html4 .= '<h3 class="text-left">Payment Detail</h3>'; ?>
+    <?php $html4 .= '<div class="row">'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-left">'; ?>
+            <?php $html4 .= '<span> Address : </span>'; ?>
+        <?php $html4 .= '</div>'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-right">'; ?>
+            <?php $html4 .= '<span> ' .  $quote->customer_address . ', ' .  ucwords($quote->customer_city) . ', ' . strtoupper($quote->customer_state) . ', ' . $quote->customer_postcode  . ', Australia' . '</span>'; ?>
+        <?php $html4 .= '</div>'; ?>
+    <?php $html4 .= '</div>'; ?>
+
+    <?php $html4 .= '<div class="row">'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-left">'; ?>
+            <?php $html4 .= '<span> Email :</span>'; ?>
+        <?php $html4 .= '</div>'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-right">'; ?>
+            <?php $html4 .= '<span> ' .  $quote->customer_email .  '</span>'; ?>
+        <?php $html4 .= '</div>'; ?>
+    <?php $html4 .= '</div>'; ?>
+
+    <?php $html4 .= '<div class="row">'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-left">'; ?>
+            <?php $html4 .= '<span> Phone :</span>'; ?>
+        <?php $html4 .= '</div>'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-right">'; ?>
+            <?php $html4 .= '<span>' .  $quote->customer_phone .  '</span>'; ?>
+        <?php $html4 .= ' </div>'; ?>
+    <?php $html4 .= ' </div>'; ?>
 <?php $html4 .= '</div>'; ?>
-<?php $html4 .= '<div class="container-fluid">'; ?>
-<?php $html4 .= '<div class="col-sm-12">'; ?>
-<?php $html4 .= '<p> Payment Option : ' .  $_quote['payment_method'] .  '</p>'; ?>
-<?php if( $_quote['payment_method'] === 'loan' ):  ?>
-<?php $loan_detail = unserialize($_quote['loan_detail']); ?>
-<?php $html4 .= '<p>Loan option : ' .  $_quote['apply_loan_option'] .  '</p>'; ?>
-<?php $html4 .= '<p>Loan Status : ' .  $_quote['loan_status'] .  '</p>'; ?>
-<?php endif; ?>
-<?php $html4 .= ' </div>'; ?>
-<?php $html4 .= ' </div>'; ?>
+
+<?php $html4 .= '<div class="container-fluid customer-details">'; ?>
+    <?php $html4 .= '<div class="tab-header">'; ?>
+        <?php $html4 .= '<h3 class="text-left">Payment Detail</h3>'; ?>
+    <?php $html4 .= '</div>'; ?>
+
+    <?php $html4 .= '<div class="row">'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-left">'; ?>
+            <?php $html4 .= '<span> Payment Option :</span>'; ?>
+        <?php $html4 .= ' </div>'; ?>
+        <?php $html4 .= '<div class="col-xs-6 text-right">'; ?>
+            <?php $html4 .= '<span>' .  $quote->payment_method .  '</span>'; ?>
+        <?php $html4 .= ' </div>'; ?>
+    <?php $html4 .= ' </div>'; ?>
+
+    <?php if( $quote->payment_method === 'loan' ):  ?>
+        <?php $loan_detail = unserialize($quote->loan_detail); ?>
+        <?php $html4 .= '<div class="row">'; ?>
+            <?php $html4 .= '<div class="col-xs-6 text-left">'; ?>
+                    <?php $html4 .= '<span>Loan option :</span>'; ?>
+            <?php $html4 .= ' </div>'; ?>
+            <?php $html4 .= '<div class="col-xs-6 text-right">'; ?>
+                    <?php $html4 .= '<span>' .  $quote->apply_loan_option .  '</span>'; ?>
+            <?php $html4 .= ' </div>'; ?>
+        <?php $html4 .= ' </div>'; ?>
+        <?php $html4 .= '<div class="row">'; ?>
+            <?php $html4 .= '<div class="col-xs-6 text-left">'; ?>
+                <?php $html4 .= '<span>Loan Status : </span>'; ?>
+            <?php $html4 .= ' </div>'; ?>
+            <?php $html4 .= '<div class="col-xs-6 text-right">'; ?>
+                <?php $html4 .= '<span>' .  $quote->loan_status .  '</span>'; ?>
+            <?php $html4 .= ' </div>'; ?>
+        <?php $html4 .= ' </div>'; ?>
+    <?php endif; ?>
+<?php $html4 .= '</div>'; ?>
+
+
 <?php
-
 
 require_once KOKODA_CUSTOM_ORDER_PLUGIN_URL .'assets/mpdf/vendor/autoload.php';
 

@@ -133,18 +133,21 @@
  */
 
 .tech_specs .row .col-xs-6,
+.customer-details .row .col-xs-6,
 .caravan_custom_options .row .col-xs-6
 {
     width: 45%;
 }
 
 .caravan_custom_options,
+.customer-details,
 .tech_specs
 {
     margin:0;padding:0;
 }
 
 .tech_specs .header-wrapper,
+.customer-details .header-wrapper,
 .caravan_custom_options .header-wrapper
 {
     border-bottom: 1px solid #000;
@@ -153,6 +156,7 @@
 }
 
 .tech_specs .header-wrapper h3,
+.customer-details .header-wrapper h3,
 .caravan_custom_options .header-wrapper h3
 {
     text-align: left;
@@ -163,6 +167,7 @@
 }
 
 .tech_specs .row,
+.customer-details .row,
 .caravan_custom_options .row
 {
     padding-left: 5px;
@@ -172,6 +177,7 @@
 }
 
 .tech_specs .row span,
+.customer-details .row span,
 .caravan_custom_options .row span
 {
     text-transform: capitalize;

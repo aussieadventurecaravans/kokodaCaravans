@@ -546,7 +546,7 @@ class Quote
 
             set_query_var('caravan_id', $_POST['custom_order']['caravan']);
             set_query_var('custom_order', $_POST['custom_order']);
-            set_query_var('_quote', $_quote);
+            set_query_var('quote', $_quote);
 
             require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/email/attach/summary-report-template.php' );
 
