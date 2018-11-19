@@ -1,7 +1,7 @@
 <?php
 $custom_order = get_query_var('custom_order');
 $caravan_id = get_query_var('caravan_id');
-
+$_quote = get_query_var('_quote');
 $caravan_ids = array(
     5417 => 38,
     5195 => 39,
@@ -271,10 +271,10 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
 <?php $html4 .= '</div>'; ?>
 <?php $html4 .= '<div class="container-fluid">'; ?>
 <?php $html4 .= '<div class="col-sm-12">'; ?>
-<?php $html4 .= '<p> Full Name: : ' .  $custom_order['customer_first_name']  . ' ' .  $custom_order['customer_last_name'] .  '</p>'; ?>
-<?php $html4 .= '<p> Address : ' .  $custom_order['customer_address'] . ',' .  ucwords($custom_order['customer_city']) . ', ' . strtoupper($custom_order['customer_state']) . ', ' . $custom_order['customer_postcode']  . ', Australia' . '</p>'; ?>
-<?php $html4 .= '<p> Email : ' .  $custom_order['customer_email'] .  '</p>'; ?>
-<?php $html4 .= '<p> Phone : ' .  $custom_order['customer_phone'] .  '</p>'; ?>
+<?php $html4 .= '<p> Full Name: : ' .  $_quote['customer_first_name']  . ' ' .  $_quote['customer_last_name'] .  '</p>'; ?>
+<?php $html4 .= '<p> Address : ' .  $_quote['customer_address'] . ',' .  ucwords($_quote['customer_city']) . ', ' . strtoupper($_quote['customer_state']) . ', ' . $_quote['customer_postcode']  . ', Australia' . '</p>'; ?>
+<?php $html4 .= '<p> Email : ' .  $_quote['customer_email'] .  '</p>'; ?>
+<?php $html4 .= '<p> Phone : ' .  $_quote['customer_phone'] .  '</p>'; ?>
 <?php $html4 .= ' </div>'; ?>
 <?php $html4 .= ' </div>'; ?>
 
@@ -283,11 +283,11 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
 <?php $html4 .= '</div>'; ?>
 <?php $html4 .= '<div class="container-fluid">'; ?>
 <?php $html4 .= '<div class="col-sm-12">'; ?>
-<?php $html4 .= '<p> Payment Option : ' .  $custom_order['payment_method'] .  '</p>'; ?>
-<?php if( $custom_order['payment_method'] === 'loan' ):  ?>
-<?php $loan_detail = unserialize($custom_order['loan_detail']); ?>
-<?php $html4 .= '<p>Loan option : ' .  $loan_detail['apply_loan_option'] .  '</p>'; ?>
-<?php $html4 .= '<p>Loan Status : ' .  $custom_order['loan_status'] .  '</p>'; ?>
+<?php $html4 .= '<p> Payment Option : ' .  $_quote['payment_method'] .  '</p>'; ?>
+<?php if( $_quote['payment_method'] === 'loan' ):  ?>
+<?php $loan_detail = unserialize($_quote['loan_detail']); ?>
+<?php $html4 .= '<p>Loan option : ' .  $_quote['apply_loan_option'] .  '</p>'; ?>
+<?php $html4 .= '<p>Loan Status : ' .  $_quote['loan_status'] .  '</p>'; ?>
 <?php endif; ?>
 <?php $html4 .= ' </div>'; ?>
 <?php $html4 .= ' </div>'; ?>
