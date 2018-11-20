@@ -517,6 +517,7 @@ jQuery(function($) {
                 models_panel[5417] = {x : 232 , y : 62 };
                 models_panel[5195] = {x : 320 , y : 79 };
                 models_panel[4032] = {x : 186 , y : 24 };
+                models_panel[5026] = {x : 204 , y : 7 };
 
 
                 var panelImg = new Konva.Image();
@@ -800,6 +801,7 @@ jQuery(function($) {
                 models_panel[5417] = {x : 232 , y : 62 };
                 models_panel[5195] = {x : 320 , y : 79 };
                 models_panel[4032] = {x : 186 , y : 24 };
+                models_panel[5026] = {x : 204 , y : 7 };
 
                 var panelImg = new Konva.Image();
                 var panelObj = new Image();

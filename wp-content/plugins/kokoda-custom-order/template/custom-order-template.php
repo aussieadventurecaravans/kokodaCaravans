@@ -191,21 +191,23 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                     <div class="row model-list">
                         <?php foreach ($caravans as $caravan): ?>
                             <div class="item model col-xs-12 col-sm-6 col-md-4 col-lg-3" select-model="<?php echo $caravan->ID; ?>" >
-                                <?php  $product_img = get_field('banner_image',$caravan->ID); ?>
-                                <div class="item-img">
-                                    <img alt="caravan image" src="<?php echo $product_img['sizes']['medium']; ?>"/>
-                                </div>
-                                <div class="item-details">
-                                    <div class="details">
-                                        <h3><?php echo get_the_title($caravan); ?></h3>
-                                        <div class="product-meta clearfix">
-                                            <?php if(get_field('price_thousands',$caravan->ID)): ?><span class="price">$<?php the_field('price_thousands',$caravan->ID); ?>,<?php the_field('price_hundreds',$caravan->ID); ?><i>+ORC</i></span><?php endif; ?>
-                                            <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
-                                            <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
+                                <div class="item-wrapper">
+                                    <?php  $product_img = get_field('banner_image',$caravan->ID); ?>
+                                    <div class="item-img">
+                                        <img alt="caravan image" src="<?php echo $product_img['sizes']['medium']; ?>"/>
+                                    </div>
+                                    <div class="item-details">
+                                        <div class="details">
+                                            <h3><?php echo get_the_title($caravan); ?></h3>
+                                            <div class="product-meta clearfix">
+                                                <?php if(get_field('price_thousands',$caravan->ID)): ?><span class="price">$<?php the_field('price_thousands',$caravan->ID); ?>,<?php the_field('price_hundreds',$caravan->ID); ?><i>+ORC</i></span><?php endif; ?>
+                                                <?php if(get_field('size_feet',$caravan->ID)): ?><span class="size"><?php the_field('size_feet',$caravan->ID); ?>'<?php if(get_field('size_inches',$caravan->ID)): ?><?php the_field('size_inches',$caravan->ID); ?>"<?php endif; ?></span><?php endif; ?>
+                                                <?php if(get_field('occupants',$caravan->ID)): ?><span class="occupants"><?php the_field('occupants',$caravan->ID); ?></span><?php endif; ?>
+                                            </div>
+                                            <?php /* if(get_field('banner_description',$caravan->ID)): ?><p><?php the_field('banner_description',$caravan->ID); ?></p><?php endif; */ ?>
+                                            <?php if(get_field('tare',$caravan->ID)): ?><span class="tare">Tare (approx): <?php the_field('tare',$caravan->ID); ?></span><br><?php endif; ?>
+                                            <?php if(get_field('ball_weight',$caravan->ID)): ?><span class="ball">Ball weight (approx): <?php the_field('ball_weight',$caravan->ID); ?></span><?php endif; ?>
                                         </div>
-                                        <?php /* if(get_field('banner_description',$caravan->ID)): ?><p><?php the_field('banner_description',$caravan->ID); ?></p><?php endif; */ ?>
-                                        <?php if(get_field('tare',$caravan->ID)): ?><span class="tare">Tare (approx): <?php the_field('tare',$caravan->ID); ?></span><br><?php endif; ?>
-                                        <?php if(get_field('ball_weight',$caravan->ID)): ?><span class="ball">Ball weight (approx): <?php the_field('ball_weight',$caravan->ID); ?></span><?php endif; ?>
                                     </div>
                                 </div>
                             </div>
