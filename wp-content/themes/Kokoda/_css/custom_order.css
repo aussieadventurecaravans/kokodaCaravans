@@ -679,8 +679,8 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 .tabcontent#summary .display-accessories-wrapper .header-wrapper h2
 {
     text-align: center;
-    font-size: 35px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: normal;
 }
 .tabcontent#summary .display-accessories-wrapper .item
 {
@@ -722,14 +722,14 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 .tabcontent#summary  .display-features-wrapper #specifications .header-wrapper h2
 {
     text-transform: capitalize;
-    font-weight: bold;
+    font-weight: normal;
     letter-spacing: 1px;
     text-align: center;
     width: auto;
     height: 100px;
     line-height: 100px;
     margin: 0;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .tabcontent#summary  .display-features-wrapper  #specifications .panel-heading .panel-title {
@@ -928,3 +928,18 @@ form#customer_details_form .control-label
 {
     width: 60%;
 }
+.tabcontent#floorplan  .display-model-section .select-model-notice
+{
+    font-size: 18px;
+    float: inherit;
+    padding-top: 8px;
+    padding-right: 8px;
+}
+.tabcontent#floorplan  .display-model-section .select-model-notice::before
+{
+    color:#ff0000;
+    content: "\ea08";
+}
+
+.tabcontent#floorplan  .display-model-section .select-model-notice + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc; }
+.tabcontent#floorplan  .display-model-section .select-model-notice+ .tooltip > .tooltip-inner {text-transform: capitalize; background-color: #2087fc;}

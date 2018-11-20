@@ -26,6 +26,7 @@ jQuery(function($) {
         actionsListener();
 
         document.getElementById($('li.current a.tablinks').attr('tab-content')).style.display = "block";
+        $('[data-toggle="tooltip"]').tooltip();
 
         function actionsListener()
         {
@@ -447,8 +448,10 @@ jQuery(function($) {
 
                         $(this).attr("title", value + " $"+  price);
 
+                        $('[data-toggle="tooltip"]').tooltip();
+
                     });
-                    $('[data-toggle="tooltip"]').tooltip();
+
                     break;
                 default:
                 //do nothing is gold

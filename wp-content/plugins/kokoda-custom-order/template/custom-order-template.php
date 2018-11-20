@@ -223,6 +223,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <div class="display-model-section form-inline">
                             <label class="select-model-label">Related Models</label>
                             <select class="form-control" id="select_model"> </select>
+                            <span class="select-model-notice icon-moon" data-toggle="tooltip" title="*Specifications and features vary between models "></span>
                         </div>
                     </div>
                     <div class="option-select-image-section">
