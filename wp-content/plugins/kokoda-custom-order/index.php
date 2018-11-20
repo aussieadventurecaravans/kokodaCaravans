@@ -25,11 +25,10 @@ register_activation_hook(__FILE__, 'install_custom_order_tables');
 add_action( 'template_include', 'uploadr_redirect' );
 //add_action( 'init', 'custom_order_init' );
 //add_action( 'admin_init', 'custom_order_admin_init' );
-add_action( 'plugins_loaded', function () {
+add_action( 'plugins_loaded', function ()
+{
     Kokoda_Custom_Order_Plugin::get_instance();
 } );
-
-
 
 class Kokoda_Custom_Order_Plugin {
 
@@ -242,6 +241,8 @@ class Kokoda_Custom_Order_Plugin {
 
 }
 
+
+//ajax actions
 add_action('wp_ajax_submit_customorder', 'submit_customorder');
 add_action('wp_ajax_nopriv_submit_customorder', 'submit_customorder');
 
@@ -259,6 +260,27 @@ add_action('wp_ajax_nopriv_list_accessories', 'list_accessories');
 // Hooking up our functions to  filter wordpress email send header
 add_filter( 'wp_mail_from', 'wpb_sender_email' );
 add_filter( 'wp_mail_from_name', 'wpb_sender_name' );
+
+//add custom order page template
+add_filter( 'page_template', 'custom_order_page_template',99 );
+add_filter ('theme_page_templates', 'add_custom_order_page_template');
+
+function custom_order_page_template($page_template)
+{
+
+    if ('custom-order-template.php' == basename ($page_template))
+    {
+        $page_template = WP_PLUGIN_DIR . '/kokoda-custom-order/template/custom-order-template.php';
+    }
+    return $page_template;
+}
+
+function add_custom_order_page_template ($templates)
+{
+    $templates['custom-order-template.php'] = 'Custom Order Template';
+    return $templates;
+}
+
 
 
 function submit_customorder()

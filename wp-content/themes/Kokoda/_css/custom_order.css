@@ -1,5 +1,25 @@
-
 /** CUSTOMIZE THE QUOTE ORDER FORM **/
+
+.page-template-custom-order-template .navbar-default
+{
+    border-bottom: 1px solid #ebeff0;
+}
+
+.page-template-custom-order-template .navbar-default .navbar-collapse
+{
+    display:none !important;
+}
+.page-template-custom-order-template .navbar-default .nav-container .row > div
+{
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.page-template-custom-order-template .navbar-default .navbar-header
+{
+    width: 100%; text-align: center;
+}
+
 @media only screen and (max-width: 767px)
 {
     .page.page-template-custom-order-template .banner-wrap .banner .banner-content
