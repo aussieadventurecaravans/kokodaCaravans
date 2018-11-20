@@ -849,7 +849,7 @@ form#customer_details_form input[type="number"],
 form#customer_details_form input[type="email"]
 {
     background-color: #fff;
-    border-radius: 1px;
+    border-radius: 5px;
     color: #000;
     font-size: 18px;
     font-family: "Khula", Helvetica, Arial, sans-serif;
@@ -870,6 +870,8 @@ form#customer_details_form select
     line-height: inherit;
     width: 100%;
     border-radius: 0;
+    text-align-last: center;
+    text-transform: capitalize;
 
 }
 form#customer_details_form select option
