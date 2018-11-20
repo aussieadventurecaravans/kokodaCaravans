@@ -243,7 +243,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                 <div id="exterior" class="tabcontent">
                     <div class="tab-header">
                         <h4>
-                            Customize Exterior
+                            Customise Exterior
                         </h4>
                     </div>
                     <div class="row option-select-image-section">

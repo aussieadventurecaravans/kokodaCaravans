@@ -128,7 +128,6 @@
     transition: opacity .4s;
     padding: 0;
     cursor:pointer;
-    min-height: 430px;
     margin: 0;
 }
 @media only screen and (max-width:767px)
