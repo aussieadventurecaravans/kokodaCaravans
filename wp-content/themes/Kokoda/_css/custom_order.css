@@ -850,9 +850,8 @@ form#customer_details_form input[type="email"]
 {
     background-color: #fff;
     border-radius: 5px;
-    color: #000;
     font-size: 18px;
-    font-family: "Khula", Helvetica, Arial, sans-serif;
+    font-family:'Roboto', sans-serif;
     border: 1px solid #bbb;
     padding: 8px 12px 6px 12px;
     height: 38px;
@@ -861,9 +860,8 @@ form#customer_details_form input[type="email"]
 form#customer_details_form select
 {
     background-color: #fff;
-    color: #000;
     font-size: 18px;
-    font-family: "Khula", Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     border: 1px solid #bbb;
     padding: 8px 12px 6px 12px;
     height: 38px;
@@ -942,7 +940,7 @@ form#customer_details_form .control-label
 }
 
 .tabcontent#floorplan  .display-model-section .select-model-notice + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc; }
-.tabcontent#floorplan  .display-model-section .select-model-notice+ .tooltip > .tooltip-inner {text-transform: capitalize; background-color: #2087fc;}
+.tabcontent#floorplan  .display-model-section .select-model-notice+ .tooltip > .tooltip-inner {background-color: #2087fc;}
 
 /** CUSTOMIZE THE MODEL TAB HEADING AND FILTER **/
 .tabcontent#model .tab-header
