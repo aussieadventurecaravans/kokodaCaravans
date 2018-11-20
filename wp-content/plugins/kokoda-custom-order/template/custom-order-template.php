@@ -183,14 +183,19 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             <div class="col-md-12 option-select-value-section-content">
                 <div id="model" class="tabcontent">
                     <div class="tab-header">
-                        <h4>
+                        <h4 class="model-header">
                             Select Model
                         </h4>
+
+
+                        <div class="model-search">
+                            <input type="text" placeholder="search..." class="form-control input-md" data-search />
+                        </div>
                     </div>
 
                     <div class="row model-list">
                         <?php foreach ($caravans as $caravan): ?>
-                            <div class="item model col-xs-12 col-sm-6 col-md-4 col-lg-3" select-model="<?php echo $caravan->ID; ?>" >
+                            <div class="item model col-xs-12 col-sm-6 col-md-4 col-lg-3" select-model="<?php echo $caravan->ID; ?>" data-filter-name="<?php echo str_replace( array( '\'', '"', ',' , ';', '<', '>' ,'-'), ' ', strtolower(get_the_title($caravan))) ; ?>">
                                 <div class="item-wrapper">
                                     <?php  $product_img = get_field('banner_image',$caravan->ID); ?>
                                     <div class="item-img">

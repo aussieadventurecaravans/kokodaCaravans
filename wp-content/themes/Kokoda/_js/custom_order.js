@@ -162,6 +162,24 @@ jQuery(function($) {
 
             });
 
+            $('.tabcontent#model .model-search input[data-search]').on('keyup', function()
+            {
+                var searchVal = $(this).val();
+                var filterVal = searchVal.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ' ');
+
+                var filterItems = $('.model-list .item.model');
+
+                if ( searchVal != '' )
+                {
+                    filterItems.addClass('hidden');
+                    $('.model-list .item.model[data-filter-name *= "' + filterVal.toLowerCase() + '"]').removeClass('hidden');
+                }
+                else
+                {
+                    filterItems.removeClass('hidden');
+                }
+            });
+
             $(".custom-quote-section .option-select-value-section #exterior").on('click', 'ul.ui-choose li', function (e)
             {
                 $(this).parent().parent().children().children('li').removeClass('selected');

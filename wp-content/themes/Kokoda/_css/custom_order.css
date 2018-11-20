@@ -887,7 +887,7 @@ form#customer_details_form .control-label
     padding: 8px 0;
 }
 
-    /**CUSTOMIZE THE FLOORPLAN HEADER and MODEL SELECT **/
+/**CUSTOMIZE THE FLOORPLAN HEADER and MODEL SELECT **/
 .custom-quote-section .option-select-value-section .tabcontent#floorplan  .tab-header
 {
     margin: 20px 0 20px;
@@ -943,3 +943,30 @@ form#customer_details_form .control-label
 
 .tabcontent#floorplan  .display-model-section .select-model-notice + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc; }
 .tabcontent#floorplan  .display-model-section .select-model-notice+ .tooltip > .tooltip-inner {text-transform: capitalize; background-color: #2087fc;}
+
+/** CUSTOMIZE THE MODEL TAB HEADING AND FILTER **/
+.tabcontent#model .tab-header
+{
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase;
+    width: 100%;
+    padding-bottom: 3px;
+    display: inline-block;
+}
+.tabcontent#model .model-header
+{
+    display: block;
+    float: left;
+}
+
+.tabcontent#model .model-search
+{
+    display: block;
+    float: right;
+    width: 374px;
+}
+.tabcontent#model .model-search input
+{
+    text-transform: capitalize;
+}
