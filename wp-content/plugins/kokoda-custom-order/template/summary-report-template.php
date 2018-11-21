@@ -25,7 +25,7 @@ setup_postdata($post);
 <?php $html .= '</div>'; ?>
 
 <?php $html .= ' <div class="display-image-wrapper row">'; ?>
-<?php $html .= '<img src="'. $caravan_image .'"/>'; ?>
+<?php $html .= '<img class="caravan-image" src="'. $caravan_image .'" width="90%"/>'; ?>
 <?php $html .= ' </div>' ; ?>
 
 
