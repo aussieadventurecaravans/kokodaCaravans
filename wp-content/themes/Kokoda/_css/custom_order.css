@@ -671,6 +671,13 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 {
     margin: 20px 0 20px;
 }
+.tabcontent#summary .display-image-wrapper .header-wrapper h2
+{
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
 .tabcontent#summary .display-accessories-wrapper
 {
     margin: 20px 0 20px;

@@ -662,8 +662,8 @@ jQuery(function($) {
                         $('#enquiry input#submit_order').attr('value', 'Complete');
 
                         swal({
-                            title: "Congratulation !!!",
-                            text: "Your request is successfully submited. Our dealer will contact you shortly.",
+                            title: "Thank You",
+                            text: "Your enquire is submited successfully.",
                             icon: "success",
                             type: "success",
                             button: "Yes"
@@ -865,9 +865,17 @@ jQuery(function($) {
                     exteriorImageWrapper.height(checkerPlateImg.getHeight() * scale);
                     exteriorImageWrapper.scale({x: scale, y: scale});
                     exteriorImageWrapper.draw();
+
+                    //render the caravan name
+
+                    var el = '<div class="header-wrapper">';
+                    el += '<h2>' +  caravan_title[select_model_id] +'</h2>';
+                    el += '</div>';
+                    $('.tabcontent#summary #summary-display-image-wrapper').prepend(el)
                 }
 
             };
+
 
 
         }
