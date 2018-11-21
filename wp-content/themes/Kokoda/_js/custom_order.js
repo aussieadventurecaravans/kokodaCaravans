@@ -661,10 +661,21 @@ jQuery(function($) {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
                         $('#enquiry input#submit_order').attr('value', 'Complete');
 
-                        //refresh page after successfully submit quote to system
-                        setTimeout(function () {
-                            location = ''
-                        }, 1000);
+                        swal({
+                            title: "Congratulation !!!",
+                            text: "Your request is successfully submited. Our dealer will contact you shortly.",
+                            icon: "success",
+                            type: "success",
+                            button: "Yes"
+                        },function()
+                        {
+                            setTimeout(function ()
+                            {
+                                location = ''
+                            }, 500);
+                        });
+
+
                     }
                     else
                     {

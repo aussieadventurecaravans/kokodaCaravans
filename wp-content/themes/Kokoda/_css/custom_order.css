@@ -872,6 +872,10 @@ form#customer_details_form select
     text-transform: capitalize;
 
 }
+form#customer_details_form select#customer_state
+{
+    text-align-last: left;
+}
 form#customer_details_form select option
 {
     line-height: 14px;

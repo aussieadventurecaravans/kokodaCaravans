@@ -571,12 +571,20 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     </div>
 </div>
 
+<!-- load sweet alert js  -->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.js'; ?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.css'?>" >
+<!-- load ui-choose js  -->
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'; ?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css'?>" >
+<!-- Load konva Js --->
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js'?>"></script>
 
+<!-- Load owl carousel Js --->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js'?>"></script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.css';?> ">
 <link rel="stylesheet"  href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.theme.css';?> ">
+
 
 <script type="text/javascript">
     //pass the php parameter to javascript variable
@@ -589,10 +597,12 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var $site_url = '<?php echo site_url() ?>';
     var $acs_files = <?php echo json_encode($acs_files); ?>;
 </script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css'?>" >
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js'?>"></script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css'?>" >
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css'?>" >
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css'?>" >
+<!-- Load Custom order Js --->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js'?>"></script>
+
+
 
 <?php
 get_footer();

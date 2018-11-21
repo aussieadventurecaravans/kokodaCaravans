@@ -4,9 +4,10 @@ $caravan_id = get_query_var('caravan_id');
 $caravan_image = get_query_var('caravan_image');
 
 $caravan_ids = array(
-    5417 => 38,
+    5417 => 41,
     5195 => 39,
-    4032 => 39
+    4032 => 43,
+    5026 => 39
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
 
@@ -273,7 +274,7 @@ require_once KOKODA_CUSTOM_ORDER_PLUGIN_URL .'assets/mpdf/vendor/autoload.php';
 $cssPart1 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/bootstrap.css');
 $cssPart2 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/custom.css');
 
-$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10, 'margin_left' => 10, 'margin_right' => 10  ]);
+$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10, 'margin_left' => 5, 'margin_right' => 5  ]);
 
 $mpdf->setFooter('{PAGENO} / {nb}');
 
