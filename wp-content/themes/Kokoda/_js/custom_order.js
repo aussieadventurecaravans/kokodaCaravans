@@ -488,7 +488,7 @@ jQuery(function($) {
                 case 'floorplan' :
                     if (!Array.isArray(custom_floorplan[select_model_id]))
                     {
-                        var el = '<div class="item col-md-12 text-center selected" floorplan="default"><img src="' + custom_floorplan[select_model_id] + '" style="width:80%" /></div>';
+                        var el = '<div class="item col-md-12 text-center selected" floorplan="default"><img src="' + custom_floorplan[select_model_id] + '"/></div>';
                         $('#floorplan .option-display-image-wrapper').html(el);
                         custom_order.floorplan = 'default';
                     }

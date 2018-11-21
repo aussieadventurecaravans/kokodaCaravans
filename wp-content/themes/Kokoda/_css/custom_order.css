@@ -240,6 +240,7 @@
     margin: 20px 0 20px;
     border-bottom: 1px solid #eee;
     min-height: 350px;
+    background-color: #f9f9f9;
 }
 @media screen and (max-width: 767px)
 {
@@ -248,6 +249,14 @@
         min-height: 250px;
     }
 }
+
+.custom-quote-section .option-select-value-section #exterior .option-select-image-section .option-display-image-wrapper
+{
+    width: 60%;
+    margin: 50px auto;
+    text-align: center;
+}
+
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
 {
     margin: 20px 0 20px;
@@ -373,12 +382,18 @@
 {
     margin-bottom: 50px;
 }
+
+.custom-quote-section .option-select-value-section #floorplan .option-display-image-wrapper .item.text-center img
+{
+    width: 60%;
+}
+
 .custom-quote-section .option-select-value-section #floorplan .item {
     cursor: pointer;
 }
 .custom-quote-section .option-select-value-section #floorplan .item.selected,
 .custom-quote-section .option-select-value-section #floorplan .item:hover {
-    background-color: #ffffff;
+    background-color:#f9f9f9;
     color: #4d607e;
 }
 .custom-quote-section .option-select-value-section #floorplan .item-details {
