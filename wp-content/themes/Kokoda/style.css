@@ -4070,12 +4070,12 @@ nav .container {
 #loading-icon-panel img.loading-icon
 {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 180px;
-	height: 180px;
-	margin-top: -75px; /* Half the height */
-	margin-left: -75px; /* Half the width */
+	top: 56%;
+	left: 54%;
+	width: 80px;
+	height: 80px;
+	margin-top: -75px;
+	margin-left: -75px;
 }
 #loading-icon-panel p.loading-icon-text
 {
