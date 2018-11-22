@@ -255,6 +255,7 @@
     width: 60%;
     margin: 50px auto;
     text-align: center;
+    position: relative;
 }
 
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
@@ -682,11 +683,16 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
     content:"\e954";
 }
 .tabcontent#summary .display-image-wrapper,
-.tabcontent#summary  .display-features-wrapper
+.tabcontent#summary  .display-features-wrapper,
+.tabcontent#summary .display-model-name
 {
     margin: 20px 0 20px;
 }
-.tabcontent#summary .display-image-wrapper .header-wrapper h2
+.tabcontent#summary .display-image-wrapper
+{
+    position: relative;
+}
+.tabcontent#summary .display-model-name .header-wrapper h2
 {
     text-align: center;
     font-size: 30px;

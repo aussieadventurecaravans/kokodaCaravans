@@ -315,6 +315,8 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                         <button type="button" class="btn btn-primary btn-lg btn-download"><span class="icon-moon"></span>Download</button>
                         <button type="button" class="btn btn-primary btn-lg btn-print"><span class="icon-moon"></span>Print</button>
                     </div>
+                    <div class="display-model-name row">
+                    </div>
                     <div class="display-image-wrapper row" id="summary-display-image-wrapper">
                     </div>
                     <div class="display-accessories-wrapper row" id="summary-display-accessories-wrapper">
