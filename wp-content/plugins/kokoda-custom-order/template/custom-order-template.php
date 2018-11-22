@@ -579,8 +579,6 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 <!-- load ui-choose js  -->
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'; ?>"></script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css'?>" >
-<!-- Load konva Js --->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/konva.min.js'?>"></script>
 
 <!-- Load owl carousel Js --->
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js'?>"></script>
