@@ -27,11 +27,10 @@ imagecopy($dest_image,$checkerPlate, 0, 0, 0, 0, $width, $height);
 imagecopy($dest_image, $panel, 0, 0, 0, 0, $width, $height);
 
 ob_start ();
-
 imagejpeg($dest_image);
 $image_data = ob_get_contents ();
-
 ob_end_clean ();
+
 $image_data_base64 = base64_encode ($image_data);
 //generate the data uri from image
 $image_data_uri = 'data:image/jpeg' .  ';base64,'  . $image_data_base64 ;

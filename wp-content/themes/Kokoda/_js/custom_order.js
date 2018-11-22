@@ -558,7 +558,7 @@ jQuery(function($) {
                 {
                     panelImg.setImage(panelObj);
 
-                    if(typeof models_panel[select_model_id] != 'undefined')
+                    if(typeof models_panel[select_model_id] !== 'undefined')
                     {
 
                         panelImg.setX(models_panel[select_model_id].x);
@@ -666,7 +666,7 @@ jQuery(function($) {
                 success: function (data)
                 {
                     $('#loading-icon-panel').hide();
-                    if (data == true)
+                    if (data === true)
                     {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
                         $('#enquiry input#submit_order').attr('value', 'Complete');
@@ -815,7 +815,6 @@ jQuery(function($) {
                 }
                 el += '</div>';
             }
-
             $(".tabcontent#summary .display-accessories-wrapper").html(el);
 
             //render the caravan image with custom options
@@ -834,69 +833,6 @@ jQuery(function($) {
             el += '</div>';
             $('.tabcontent#summary .display-model-name').html(el);
 
-            var containerWidth = $('#summary .display-image-wrapper').width();
-
-            /*var exteriorImageWrapper = new Konva.Stage({
-                container: 'summary-display-image-wrapper',
-                width: containerWidth
-            });
-
-            //add checkerplate
-            var checkerPlateImg = new Konva.Image();
-            var checkerPlateObj = new Image();
-            checkerPlateObj.src = $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png';
-            checkerPlateObj.onload = function ()
-            {
-                checkerPlateImg.setImage(checkerPlateObj);
-                var layer = new Konva.Layer();
-                layer.add(checkerPlateImg);
-
-                var models_panel = [];
-                models_panel[5417] = {x : 232 , y : 62 };
-                models_panel[5195] = {x : 320 , y : 79 };
-                models_panel[4032] = {x : 186 , y : 24 };
-                models_panel[5026] = {x : 204 , y : 7 };
-
-                var panelImg = new Konva.Image();
-                var panelObj = new Image();
-                panelObj.src = $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel.value + '.png';
-                panelObj.onload = function ()
-                {
-                    panelImg.setImage(panelObj);
-
-                    if(typeof models_panel[select_model_id] != 'undefined')
-                    {
-
-                        panelImg.setX(models_panel[select_model_id].x);
-                        panelImg.setY(models_panel[select_model_id].y);
-                    }
-                    else
-                    {
-                        panelImg.setX(232);
-                        panelImg.setY(63);
-                    }
-
-                    layer.add(panelImg);
-
-                    // add the layer to the stage
-                    exteriorImageWrapper.add(layer);
-
-                    //resize the canvas to fit the browser size
-                    var scale = containerWidth / checkerPlateImg.getWidth();
-                    exteriorImageWrapper.width(checkerPlateImg.getWidth() * scale);
-                    exteriorImageWrapper.height(checkerPlateImg.getHeight() * scale);
-                    exteriorImageWrapper.scale({x: scale, y: scale});
-                    exteriorImageWrapper.draw();
-
-                    //render the caravan name
-                    var el = '<div class="header-wrapper">';
-                    el += '<h2>' +  caravan_title[select_model_id] +'</h2>';
-                    el += '</div>';
-                    $('.tabcontent#summary #summary-display-image-wrapper').prepend(el)
-                }
-
-            };
-            */
 
 
 
@@ -1000,7 +936,6 @@ jQuery(function($) {
                 'action': 'export_pdf',
                 'custom_order': custom_order,
                 'caravan_id': custom_order.caravan
-
             };
             var url = $site_url + "/wp-admin/admin-ajax.php";
             //loading the caravan detail before open panel
