@@ -1,17 +1,17 @@
 [
     {
         "name": "mpdf/mpdf",
-        "version": "v7.1.4",
-        "version_normalized": "7.1.4.0",
+        "version": "v7.1.6",
+        "version_normalized": "7.1.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/mpdf/mpdf.git",
-            "reference": "349a1ffae7d04f0d976f619d6f00d8569a4a74c7"
+            "reference": "ef5d8cf2c63def40fb76fc0a9e286721cb4dffcd"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mpdf/mpdf/zipball/349a1ffae7d04f0d976f619d6f00d8569a4a74c7",
-            "reference": "349a1ffae7d04f0d976f619d6f00d8569a4a74c7",
+            "url": "https://api.github.com/repos/mpdf/mpdf/zipball/ef5d8cf2c63def40fb76fc0a9e286721cb4dffcd",
+            "reference": "ef5d8cf2c63def40fb76fc0a9e286721cb4dffcd",
             "shasum": ""
         },
         "require": {
@@ -34,11 +34,11 @@
             "ext-xml": "Needed mainly for SVG manipulation",
             "ext-zlib": "Needed for compression of embedded resources, such as fonts"
         },
-        "time": "2018-08-10T11:00:53+00:00",
+        "time": "2018-10-18T11:37:12+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-development": "7.0-dev"
+                "dev-development": "7.x-dev"
             }
         },
         "installation-source": "dist",
@@ -168,23 +168,23 @@
     },
     {
         "name": "psr/log",
-        "version": "1.0.2",
-        "version_normalized": "1.0.2.0",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-10-10T12:19:37+00:00",
+        "time": "2018-11-20T15:27:04+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
