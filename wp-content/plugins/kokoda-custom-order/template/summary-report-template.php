@@ -3,9 +3,6 @@ $custom_order = get_query_var('custom_order');
 $caravan_id = get_query_var('caravan_id');
 $caravan_image = get_query_var('caravan_image');
 
-$uploads = wp_upload_dir();
-
-
 $caravan_ids = array(
     5417 => 41,
     5195 => 39,
@@ -15,12 +12,14 @@ $caravan_ids = array(
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
 
 
-/**/
+/*
+ * Render the caravan image
+ */
+$uploads = wp_upload_dir();
 list($width, $height) = getimagesize($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_order['caravan_options']['checker_plate']['value'] . '.png');
 
 $checkerPlate = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_order['caravan_options']['checker_plate']['value'] . '.png' );
 $panel = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/panel/' . $custom_order['caravan_options']['panel']['value'] . '.png');
-
 $dest_image = imagecreatetruecolor($width, $height);
 // set background to white
 $white = imagecolorallocate($dest_image, 255, 255, 255);
@@ -29,16 +28,14 @@ imagefill($dest_image, 0, 0, $white);
 imagecopy($dest_image,$checkerPlate, 0, 0, 0, 0, $width, $height);
 imagecopy($dest_image, $panel, 0, 0, 0, 0, $width, $height);
 
-
 ob_start ();
 
 imagejpeg($dest_image);
 $image_data = ob_get_contents ();
 
 ob_end_clean ();
-
 $image_data_base64 = base64_encode ($image_data);
-
+//generate the data uri from image
 $image_data_uri = 'data:image/jpeg' .  ';base64,'  . $image_data_base64 ;
 
 
@@ -55,7 +52,7 @@ setup_postdata($post);
 <?php $html .= '</div>'; ?>
 
 <?php $html .= ' <div style="position:relative" class="display-image-wrapper row">'; ?>
-<?php $html .= '<img style="width:100%;" src="' . $image_data_uri . ' "/>'; ?>
+<?php $html .= '<img style="width:90%;" src="' . $image_data_uri . ' "/>'; ?>
 <?php $html .= ' </div>' ; ?>
 
 

@@ -10,6 +10,32 @@ $caravan_ids = array(
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
 
+/*
+ * Render the caravan image
+ */
+$uploads = wp_upload_dir();
+list($width, $height) = getimagesize($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_order['caravan_options']['checker_plate']['value'] . '.png');
+
+$checkerPlate = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_order['caravan_options']['checker_plate']['value'] . '.png' );
+$panel = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/panel/' . $custom_order['caravan_options']['panel']['value'] . '.png');
+$dest_image = imagecreatetruecolor($width, $height);
+// set background to white
+$white = imagecolorallocate($dest_image, 255, 255, 255);
+imagefill($dest_image, 0, 0, $white);
+
+imagecopy($dest_image,$checkerPlate, 0, 0, 0, 0, $width, $height);
+imagecopy($dest_image, $panel, 0, 0, 0, 0, $width, $height);
+
+ob_start ();
+
+imagejpeg($dest_image);
+$image_data = ob_get_contents ();
+
+ob_end_clean ();
+$image_data_base64 = base64_encode ($image_data);
+//generate the data uri from image
+$image_data_uri = 'data:image/jpeg' .  ';base64,'  . $image_data_base64 ;
+
 
 global $post;
 $post = get_post($caravan_id,OBJECT);
@@ -26,7 +52,7 @@ setup_postdata($post);
 
 
 <?php $html .= ' <div class="display-image-wrapper row">'; ?>
-<?php $html .= '<img src="'. $custom_order['caravan_image'] .'" width="90%"/>'; ?>
+<?php $html .= '<img src="'. $image_data_uri .'" width="90%"/>'; ?>
 <?php $html .= ' </div>' ; ?>
 
 
@@ -213,7 +239,7 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
     <?php $html3 .= '<tbody>' ?>
         <?php $html3 .= '<tr>'; ?>
             <?php $html3 .= '<td scope="row"><h4>Kokoda ' . get_the_title() .  ' </h4>' ;?>
-            <?php $html3 .= '<p><img src="' .  $custom_order['caravan_image']   .  '" style=" width:40%" /></p>'; ?>
+            <?php $html3 .= '<p><img src="' .  $image_data_uri   .  '" style=" width:40%" /></p>'; ?>
             <?php $html3 .=  '</td>';  ?>
 
             <?php $html3 .= '<td >'; ?>
