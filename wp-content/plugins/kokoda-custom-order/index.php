@@ -338,7 +338,6 @@ function export_pdf()
     {
         set_query_var('caravan_id', $_POST['caravan_id']);
         set_query_var('custom_order', $_POST['custom_order']);
-        set_query_var('caravan_image', $_POST['caravan_image']);
         require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/summary-report-template.php' );
     }
     wp_die();

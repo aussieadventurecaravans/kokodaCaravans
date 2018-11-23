@@ -1,7 +1,6 @@
 <?php
 $custom_order = get_query_var('custom_order');
 $caravan_id = get_query_var('caravan_id');
-$caravan_image = get_query_var('caravan_image');
 
 $caravan_ids = array(
     5417 => 41,

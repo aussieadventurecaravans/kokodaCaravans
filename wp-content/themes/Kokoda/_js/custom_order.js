@@ -587,8 +587,9 @@ jQuery(function($) {
                 },
                 success: function (data)
                 {
+
                     $('#loading-icon-panel').hide();
-                    if (data === true)
+                    if (data == true)
                     {
                         $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
                         $('#enquiry input#submit_order').attr('value', 'Complete');
