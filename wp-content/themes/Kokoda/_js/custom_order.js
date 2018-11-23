@@ -604,7 +604,7 @@ jQuery(function($) {
                         {
                             setTimeout(function ()
                             {
-                                location = ''
+                                location = $site_url;
                             }, 500);
                         });
 

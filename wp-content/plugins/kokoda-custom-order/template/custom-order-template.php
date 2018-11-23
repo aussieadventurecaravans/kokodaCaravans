@@ -594,7 +594,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var $dealers = <?php echo json_encode($dealers); ?>;
     var $primary_prices = <?php echo json_encode($primary_prices); ?>;
     var $base_url = '<?php echo $uploads['baseurl']; ?>';
-    var $site_url = '<?php echo site_url() ?>';
+    var $site_url = '<?php echo site_url(); ?>';
     var $acs_files = <?php echo json_encode($acs_files); ?>;
 </script>
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css'?>" >
