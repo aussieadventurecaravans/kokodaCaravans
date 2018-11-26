@@ -116,21 +116,6 @@ jQuery(function($) {
 		
 	});
 
-    $('.nav-search .mobile-search-btn').click(function(e) {
-        e.stopPropagation();
-        if( $('#navbar-top-mob .mobile-search-box').hasClass('show-search'))
-		{
-            $('#navbar-top-mob .mobile-search-box').hide();
-            $('#navbar-top-mob .mobile-search-box').removeClass('show-search');
-		}
-		else
-		{
-            $('#navbar-top-mob .mobile-search-box').show();
-            $('#navbar-top-mob .mobile-search-box').addClass('show-search');
-		}
-
-    });
-	
 	// Hide when click detected outside search box
 	$('body').click(function(e) {
 	

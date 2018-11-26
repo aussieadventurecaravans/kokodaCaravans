@@ -121,6 +121,25 @@
 	</div>
 </div>
 
+<div class="modal fade" id="mobileSearch" tabindex="-1" role="dialog" aria-labelledby="mobileSearch">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body">
+				<?php  $mobile_form = '<form role="search" method="get" id="searchform" class="searchform" action="' . esc_url( home_url( '/' ) ) . '">
+                                    <div>
+                                        <label class="screen-reader-text" for="s">' . _x( 'Search for:', 'label' ) . '</label>
+                                        <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="What are you looking for?"/>
+                                        <input type="submit" id="searchsubmit" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
+                                    </div>
+                                </form>';
+
+				        echo $mobile_form;
+				?>
+			</div>
+		</div>
+	</div>
+</div>
+
 	<?php wp_footer(); ?>
 
 	<script>

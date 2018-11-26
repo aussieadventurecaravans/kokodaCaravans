@@ -4616,7 +4616,7 @@ customize the top mobile navigation
 {
 	background-color: #fff;
 	height: auto;
-	overflow: auto;
+	overflow: visible;
 }
 
 #navbar-top-mob.navbar-default .nav-search.visible-xs a

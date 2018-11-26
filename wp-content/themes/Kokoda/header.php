@@ -96,14 +96,9 @@
 						?>
                         <!-- Add search button to mobile menu-->
                         <li class="menu-item menu-search visible-xs nav-search">
-                            <a href="#" class="mobile-search-btn">Search</a>
+                            <a href="#" class="mobile-search-btn" data-toggle="modal" data-target="#mobileSearch">Search</a>
                         </li>
 					</ul>
-                    <div class="mobile-search-box">
-                        <div class="container nav-container">
-                            <?php get_search_form(); ?>
-                        </div>
-                    </div>
 				</div>
 			</div>
 		</nav>
