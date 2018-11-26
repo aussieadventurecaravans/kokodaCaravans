@@ -26,6 +26,7 @@ class Index extends CI_Controller {
         }
 
         $data = array();
+        $data['menu'] = 'index';
         $data['title'] = 'Custom Orders Management ';
         $data['message'] = 'Kokoda Custom Orders';
         $data['content'] = 'Pages/index';
@@ -45,6 +46,7 @@ class Index extends CI_Controller {
         }
 
         $data = array();
+        $data['menu'] = 'quote_request';
         $data['title'] = 'Custom Orders Management ';
         $data['content'] = 'Pages/quote_requests';
         $data['quotes'] = $this->quoterequest_model->get_quotes();
@@ -64,6 +66,7 @@ class Index extends CI_Controller {
         }
 
         $data = array();
+        $data['menu'] = 'quotes';
         $data['title'] = 'Custom Orders Management ';
         $data['content'] = 'Pages/quotes';
         $data['quotes'] = $this->quote_model->get_quotes();
@@ -83,6 +86,7 @@ class Index extends CI_Controller {
         }
 
         $data = array();
+        $data['menu'] = 'orders';
         $data['title'] = 'Custom Orders Management ';
         $data['message'] = 'Kokoda Custom Orders';
         $data['content'] = 'Pages/orders';

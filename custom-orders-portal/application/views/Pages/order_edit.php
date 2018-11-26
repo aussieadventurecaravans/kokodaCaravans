@@ -157,7 +157,7 @@ $attr = array(
                 <?php
             endif;
             if($error_msg): ?>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-sm-12">
                     <div class="alert alert-danger">
                         <?php echo $error_msg; ?>
@@ -166,7 +166,7 @@ $attr = array(
             </div>
             <?php  endif;  ?>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-sm-6 col-12">
                     <?php echo form_label('Status', 'status'); ?>
                     <?php echo form_dropdown($order_status); ?>
@@ -174,7 +174,7 @@ $attr = array(
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-sm-6 col-12">
                     <?php echo form_label('First Name', 'customer_first_name'); ?>
                     <?php echo form_input($firstName); ?>
@@ -186,7 +186,7 @@ $attr = array(
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-6">
                     <?php echo form_label('Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
@@ -208,7 +208,7 @@ $attr = array(
                     <?php echo '<div class="errors">'.form_error('$customer_state').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Email', 'customer_email'); ?>
                     <?php echo form_input($customer_email); ?>
@@ -216,14 +216,14 @@ $attr = array(
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Phone', 'customer_phone'); ?>
                     <?php echo form_input($customer_phone); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_phone').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Model', 'product_name'); ?>
                     <?php echo form_input($product_name); ?>
@@ -236,7 +236,7 @@ $attr = array(
 
 
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Custom Options', 'custom_options'); ?>
                     <ul class="list-group">
@@ -252,7 +252,7 @@ $attr = array(
 
             <?php if(is_array($add_on_accessories)):?>
                 <?php if(sizeof($add_on_accessories) > 0): ?>
-                    <div class="row">
+                    <div class="row form-row">
                         <div class="col-12">
                             <?php echo form_label('Add On Accessories', 'add_on_accessories'); ?>
                             <ul class="list-group">

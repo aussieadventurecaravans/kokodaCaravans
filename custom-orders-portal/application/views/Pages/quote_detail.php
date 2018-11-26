@@ -148,7 +148,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
     <div class="row form-row">
         <div class="col-md-12 text-left">
             <?php echo form_open('quote/update'); ?>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-sm-12">
                     <?php if( $quote['status'] == 'In Order'): ?>
                     <div class="alert alert-info">
@@ -161,7 +161,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                     <?php endif;?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-sm-6 col-12">
                     <?php echo form_label('Quote Status', 'status'); ?>
                     <?php echo form_dropdown($quote_status); ?>
@@ -169,7 +169,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-sm-6 col-12">
                     <?php echo form_label('First Name', 'customer_first_name'); ?>
                     <?php echo form_input($firstName); ?>
@@ -181,7 +181,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-6">
                     <?php echo form_label('Street Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
@@ -198,7 +198,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                     <?php echo '<div class="errors">'.form_error('$customer_state').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Email', 'customer_email'); ?>
                     <?php echo form_input($customer_email); ?>
@@ -206,14 +206,14 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Phone', 'customer_phone'); ?>
                     <?php echo form_input($customer_phone); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_phone').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Model', 'product_name'); ?>
                     <?php echo form_input($product_name); ?>
@@ -228,7 +228,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
 
         </div>
     </div>
-    <div class="row">
+    <div class="row form-row">
         <div class="col-12">
             <?php echo form_label('Custom Options', 'custom_options'); ?>
             <ul class="list-group">
@@ -243,7 +243,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
     </div>
     <?php if(is_array($add_on_accessories)):?>
         <?php if(sizeof($add_on_accessories) > 0): ?>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Add-On Accessories', 'add_on_accessories'); ?>
                     <ul class="list-group">

@@ -168,7 +168,7 @@ $submitQuote = array(
             <?php  endif;  ?>
 
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-sm-6 col-12">
                     <?php echo form_label('First Name', 'customer_first_name'); ?>
                     <?php echo form_input($firstName); ?>
@@ -180,7 +180,7 @@ $submitQuote = array(
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-4">
                     <?php echo form_label('Street Address', 'customer_address'); ?>
                     <?php echo form_input($customer_address); ?>
@@ -202,7 +202,7 @@ $submitQuote = array(
                     <?php echo '<div class="errors">'.form_error('$customer_state').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Email', 'customer_email'); ?>
                     <?php echo form_input($customer_email); ?>
@@ -210,14 +210,14 @@ $submitQuote = array(
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Phone', 'customer_phone'); ?>
                     <?php echo form_input($customer_phone); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_phone').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Model', 'product_name'); ?>
                     <?php echo form_dropdown($product_name); ?>
@@ -255,7 +255,7 @@ $submitQuote = array(
                 <?php /*endif; */?>
             --><?php /*endif; */?>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <fieldset class="finance-section">
                         <legend class="header">Payment Information</legend>

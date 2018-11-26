@@ -37,6 +37,8 @@ class Quote extends CI_Controller {
 
         $data['content'] = 'Pages/quote_detail';
 
+        $data['menu'] = 'quotes';
+
         $this->load->view('Layouts/master', $data);
 
     }
@@ -69,6 +71,7 @@ class Quote extends CI_Controller {
         {
             redirect( base_url(''), 'refresh');
         }
+        $data['menu'] = 'quotes';
 
         $this->load->view('Layouts/master', $data);
 

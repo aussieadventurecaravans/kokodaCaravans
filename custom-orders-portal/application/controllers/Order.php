@@ -35,6 +35,7 @@ class Order extends CI_Controller {
         }
 
         $data['content'] = 'Pages/order_detail';
+        $data['menu'] = 'orders';
 
         $this->load->view('Layouts/master', $data);
 
@@ -68,6 +69,8 @@ class Order extends CI_Controller {
         {
             redirect( base_url(''), 'refresh');
         }
+
+        $data['menu'] = 'orders';
 
         $this->load->view('Layouts/master', $data);
 

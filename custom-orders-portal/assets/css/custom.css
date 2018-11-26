@@ -23,11 +23,12 @@ body {
     bottom: 0;
     left: 0;
     z-index: 100; /* Behind the navbar */
-    padding: 48px 0 0; /* Height of navbar */
+    padding: 100px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
-.sidebar-sticky {
+.sidebar-sticky
+{
     position: relative;
     top: 0;
     height: calc(100vh - 48px);
@@ -74,26 +75,40 @@ ul.navbar-nav li
     margin-left: 15px;
 }
 
+.top-main-nav
+{
+    background-color: #fff;
+    color: #1f2428;
+}
+.top-main-nav .navbar-nav .nav-link
+{
+    color: #1f2428;
+}
 /*
  * Content
  */
 
 [role="main"] {
-    padding-top: 48px; /* Space for fixed navbar */
+    padding-top: 100px; /* Space for fixed navbar */
 }
 
 /*
  * Navbar
  */
 
-.navbar-brand {
+.navbar-brand
+{
     padding-top: .75rem;
     padding-bottom: .75rem;
     font-size: 1rem;
-    background-color: rgba(0, 0, 0, .25);
+    background-color: #ffff;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+    text-align: center;
 }
-
+.navbar-brand img
+{
+    width:100%;
+}
 .navbar .form-control {
     padding: .75rem 1rem;
     border-width: 0;
@@ -142,19 +157,13 @@ ul.navbar-nav li
  */
 .form-row
 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .form-control:disabled, .form-control[readonly]
 {
     background-color: #ffffff;
     opacity: 1;
 }
-
-.form-row .row
-{
-    margin-top: 8px;
-}
-
 /*
  * Footer
  */
@@ -245,4 +254,11 @@ fieldset.total-price-section .list-group-item .price-value
     position: absolute;right:15px;
 }
 
+/**
+* list details of main panel
+*/
+.table thead th
+{
+    border-top: 1px solid #ffffff;
+}
 
