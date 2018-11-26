@@ -4614,7 +4614,9 @@ customize the top mobile navigation
 
 #navbar-top-mob
 {
-	background-color: #fff;height: auto;
+	background-color: #fff;
+	height: auto;
+	overflow: auto;
 }
 
 #navbar-top-mob.navbar-default .nav-search.visible-xs a
@@ -4650,7 +4652,7 @@ customize the top mobile navigation
 	font-family: avenir,arial,helvetica,sans-serif;
 	letter-spacing: .1em;
 	font-weight: 500;
-	width: 90%;
+	width: 80%;
 }
 #navbar-top-mob.navbar-default .mobile-search-box input#searchsubmit[type="submit"]
 {
