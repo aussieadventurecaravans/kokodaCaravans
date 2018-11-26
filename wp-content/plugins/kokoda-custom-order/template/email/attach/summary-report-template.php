@@ -110,7 +110,7 @@ setup_postdata($post);
 
 <?php if(count($custom_order['accessories']) > 0) : ?>
 
-<?php $html1 .=' <div class="tab-header"><h3>Add-on Accessories</h3></div>' ?>
+<?php $html1 .=' <div class="tab-header"><h3>Add-On Accessories</h3></div>' ?>
 
 <?php $html1 .= ' <div class="display-accessories-wrapper row" id="summary-display-accessories-wrapper">'; ?>
 
@@ -261,7 +261,7 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
         <?php if(count($custom_order['accessories']) > 0) : ?>
             <?php $html3 .= '<tr>'; ?>
 
-                <?php $html3 .= '<td  scope="row"><h4>Add-on Accessories</h4>'; ?>
+                <?php $html3 .= '<td  scope="row"><h4>Add-On Accessories</h4>'; ?>
                     <?php foreach($accessories as $accessory):?>
                         <?php $html3 .= '<div class="acc-item">'; ?>
                         <?php $html3 .= '<span class="acc-label"> + ' . $accessory['label']  .'</span>'; ?>
@@ -283,7 +283,7 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
 
     <?php $html3 .= '</tbody>' ?>
 <?php $html3 .= '</table>' ; ?>
-<?php $html3 .= '<p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Please Note:</b>
+<?php $html3 .= '<p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Important Note:</b>
                             All the prices are subject to change without prior notice. The price estimates are provided on a basic production cost and
                             it may be changed base upon on some specific features customer need.
                             On-Road Cost (ORC) can varies between states and city.Please contact our dealers for more detail.
