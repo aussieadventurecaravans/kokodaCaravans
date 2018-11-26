@@ -115,6 +115,21 @@ jQuery(function($) {
 		}
 		
 	});
+
+    $('.nav-search .mobile-search-btn').click(function(e) {
+        e.stopPropagation();
+        if( $('#navbar-top-mob .mobile-search-box').hasClass('show-search'))
+		{
+            $('#navbar-top-mob .mobile-search-box').hide();
+            $('#navbar-top-mob .mobile-search-box').removeClass('show-search');
+		}
+		else
+		{
+            $('#navbar-top-mob .mobile-search-box').show();
+            $('#navbar-top-mob .mobile-search-box').addClass('show-search');
+		}
+
+    });
 	
 	// Hide when click detected outside search box
 	$('body').click(function(e) {
@@ -277,7 +292,6 @@ jQuery(function($) {
     	//resize the caravan images and detail at menu
 		if($(window).width() <= 767 )
 		{
-			console.log($('.navbar-default .navbar-header .brand').outerWidth());
             $('.products-navigation .product-list .product-list-item .item-img img').css({'width': $('.navbar-default .navbar-header .brand').width()});
         }
 

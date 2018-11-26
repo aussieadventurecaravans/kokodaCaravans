@@ -121,16 +121,6 @@
 	</div>
 </div>
 
-<div class="modal fade" id="mobileSearch" tabindex="-1" role="dialog" aria-labelledby="mobileSearch">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<?php get_search_form(); ?>
-			</div>
-		</div>
-	</div>
-</div>
-
 	<?php wp_footer(); ?>
 
 	<script>

@@ -72,9 +72,6 @@
                     <div class="all-caravans-menu">
                         <a class="caravans-header" href="#"><h3>Caravans <span class="caret"></span></h3></a>
                     </div>
-					<!--<div class="nav-search visible-xs">
-						<a href="#" data-toggle="modal" data-target="#mobileSearch">Search</a><li class="menu-item menu-search visible-xs">
-					</div>-->
 					<button type="button" class="navbar-toggle" data-target="#navbar-collapse">
 						<span class="sr-only">Toggle Navigation</span>
 						<span class="icon-bar"></span>
@@ -85,15 +82,28 @@
 
 				<div class="collapse navbar-collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
-						<?php wp_nav_menu( array( 
+						<?php
+
+                        wp_nav_menu( array(
 							'theme_location' => 'mobile-main-menu',
 							'depth' => 2,
 							'container' => 'false',
 							'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
 							'items_wrap' => '%3$s', 
 							'walker' => new wp_bootstrap_navwalker() ) 
-							); ?>
+						);
+
+						?>
+                        <!-- Add search button to mobile menu-->
+                        <li class="menu-item menu-search visible-xs nav-search">
+                            <a href="#" class="mobile-search-btn">Search</a>
+                        </li>
 					</ul>
+                    <div class="mobile-search-box">
+                        <div class="container nav-container">
+                            <?php get_search_form(); ?>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</nav>

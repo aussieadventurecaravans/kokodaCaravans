@@ -4616,20 +4616,53 @@ customize the top mobile navigation
 {
 	background-color: #fff;height: auto;
 }
-#navbar-top-mob.navbar-default .nav-search.visible-xs
-{
-	display: block !important;
-	float: right;
-}
+
 #navbar-top-mob.navbar-default .nav-search.visible-xs a
 {
-	width: 22px;
-	height: 22px;
+	width: 100%;
+	height: auto;
 	display: block;
-	background: url(_img/ico-search-black.png) no-repeat center center;
-	background-size: 22px 22px;
-	text-indent: -9999px;
+	background: none;
+	text-indent: 0px;
+	position: relative;
+	right: unset;
+	top: unset;
+	background-color: #fff;
 }
+#navbar-top-mob.navbar-default .nav-search.visible-xs a:hover
+{
+	background-color: #e4e8e8;
+	color: #000;
+}
+#navbar-top-mob.navbar-default .mobile-search-box
+{
+	display:none;
+}
+#navbar-top-mob.navbar-default .mobile-search-box label
+{
+	display: none;
+}
+#navbar-top-mob.navbar-default .mobile-search-box input[type="text"]
+{
+	padding: 9px 10px 9px 10px;
+	border: none;
+	font-size: 17px;
+	font-family: avenir,arial,helvetica,sans-serif;
+	letter-spacing: .1em;
+	font-weight: 500;
+	width: 90%;
+}
+#navbar-top-mob.navbar-default .mobile-search-box input#searchsubmit[type="submit"]
+{
+	background-image: url(_img/ico-search-black.png);
+	float: left;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 22px 22px;
+	background-color: #fff;
+	width:10%;
+}
+
 #navbar-top-mob.navbar-default .navbar-toggle
 {
 	background-color: #fff;
