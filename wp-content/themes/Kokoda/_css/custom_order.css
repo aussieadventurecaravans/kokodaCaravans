@@ -1,8 +1,11 @@
 /** CUSTOMIZE THE QUOTE ORDER FORM **/
-
+.page-template-custom-order-template
+{
+    padding-top: 0 !important;
+}
 .page-template-custom-order-template .navbar-default
 {
-    border-bottom: 1px solid #ebeff0;
+    border-bottom: 1px solid #ebeff0;display: none;
 }
 
 .page-template-custom-order-template .navbar-default .navbar-collapse
@@ -17,7 +20,7 @@
 
 .page-template-custom-order-template .navbar-default .navbar-header
 {
-    width: 100%; text-align: center;
+    width: 100%; text-align: left;
 }
 
 @media only screen and (max-width: 767px)
@@ -32,10 +35,15 @@
         font-size: 24px;margin-bottom:0;
     }
 }
+.page-template-custom-order-template .page-heading img.logo
+{
+    max-width: 140px;
+    margin: 30px;
+}
+
 .page.page-template-custom-order-template .banner-wrap .banner h1
 {
-    font-size: 35px;
-    padding-left: 30px;
+    font-size: 30px;
     color: #000;
     text-shadow: none;
     text-align: center;
@@ -43,16 +51,16 @@
 
 .page-template-custom-order-template .banner-wrap
 {
-    top:20px;
-    height: 150px;
+    top:0;
+    height: 120px;
     background-color: #eceff0;
 }
 .custom-quote-section
 {
     display: block;
-    padding-top: 60px;
+    padding-top: 20px;
     position: relative;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
 }
 .custom-quote-section  .option-select-header-section.row,
 .custom-quote-section  .option-select-value-section.row
@@ -68,12 +76,14 @@
     {
         color: #0089ff;
     }
-    .custom-quote-section .cd-multi-steps{
+    .custom-quote-section .cd-multi-steps
+    {
         background-color: transparent;
         padding: 0;
         float: left;
         width: 100%;
         max-width: 100%;
+        margin: 10px 0;
     }
 
     .custom-quote-section .cd-multi-steps.text-bottom li
@@ -236,8 +246,7 @@
 
 .custom-quote-section .option-select-value-section #exterior .option-select-image-section
 {
-    padding-bottom: 9px;
-    margin: 20px 0 20px;
+    margin: 10px 0 20px;
     border-bottom: 1px solid #eee;
     min-height: 350px;
     background-color: #f9f9f9;
@@ -252,15 +261,15 @@
 
 .custom-quote-section .option-select-value-section #exterior .option-select-image-section .option-display-image-wrapper
 {
-    width: 60%;
-    margin: 50px auto;
+    width: 70%;
+    margin: 10px auto;
     text-align: center;
     position: relative;
 }
 
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
 {
-    margin: 20px 0 20px;
+    margin: 10px 0 0;
 }
 @media only screen and (max-width: 480px)
 {
@@ -416,7 +425,7 @@
 }
 .custom-quote-section .tabcontent {
     display: none;
-    padding: 6px 12px;
+    padding: 0px 12px;
     border: 1px solid #fff;
 }
 .custom-quote-section .tabcontent button.btn-next

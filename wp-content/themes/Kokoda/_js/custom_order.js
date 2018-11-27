@@ -313,9 +313,7 @@ jQuery(function($) {
                 {
                     $("a.tablinks[tab-content='" + next_tabcontent + "']").click();
                 }
-                $('html, body').animate({
-                    scrollTop: $(".custom-quote-section").offset().top - 250
-                }, 1000);
+                $('html, body').scrollTop($(".custom-quote-section").offset().top - 100);
             });
 
             $('.tabcontent button.btn-pre').click(function (e)
@@ -326,9 +324,7 @@ jQuery(function($) {
                 if (typeof prev_tabcontent != 'undefined') {
                     $("a.tablinks[tab-content='" + prev_tabcontent + "']").click();
                 }
-                $('html, body').animate({
-                    scrollTop: $(".custom-quote-section").offset().top - 250
-                }, 1000);
+                $('html, body').scrollTop($(".custom-quote-section").offset().top - 100 );
             });
             $('#customer_details_form button.btn-back').click(function (e)
             {
@@ -339,9 +335,7 @@ jQuery(function($) {
                 {
                     $("a.tablinks[tab-content='" + prev_tabcontent + "']").click();
                 }
-                $('html, body').animate({
-                    scrollTop: $(".custom-quote-section").offset().top - 250
-                }, 1000);
+                $('html, body').scrollTop($(".custom-quote-section").offset().top - 100);
             });
 
             $(".finance-section-details.loan-summary input[type=text]").click(function (e)
