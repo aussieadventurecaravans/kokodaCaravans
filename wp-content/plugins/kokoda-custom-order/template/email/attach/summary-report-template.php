@@ -251,7 +251,7 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
             <?php $html3 .= ' <p>$' . number_format($product_price) . '</p>'; ?>
             <?php $html3 .= ' </td>'; ?>
         <?php $html3 .= '</tr>';?>
-        <?php if(isset($custom_order['caravan_options'])): ?>
+        <?php if(isset($custom_options)): ?>
             <?php $html3 .= '<tr>'; ?>
                 <?php $html3 .= '<td scope="row"><h4>Custom Exterior </h4>' ;?>
                 <?php $html3 .= '<p>Panel Colour : '. $custom_options['panel']['value'] .'</p>'; ?>
