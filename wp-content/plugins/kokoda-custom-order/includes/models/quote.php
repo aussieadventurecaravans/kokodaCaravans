@@ -402,9 +402,10 @@ class Quote
      * @global wpdb $wpdb WordPress database abstraction object.
      *
      * @param Object $_quote query row result.
+     * @param string $custom_email custom email address
      * @return boolean true or false.
      */
-    public function send_new_quote_email_to_dealer($_quote)
+    public function send_new_quote_email_to_dealer($_quote,$custom_email = Null)
     {
         try
         {
@@ -412,21 +413,30 @@ class Quote
 
 
             $subject = "You have new Quote #" . $_quote->quote_id ;
-
-            if(get_option('custom_order_development-mode') == false)
+            if($custom_email == Null)
             {
+                if(get_option('custom_order_development-mode') == false)
+                {
 
-                $receiver = array(
-                    $_quote->dealer_email,
-                    get_option('admin_email')
-                );
+                    $receiver = array(
+                        $_quote->dealer_email,
+                        get_option('admin_email')
+                    );
+                }
+                else
+                {
+                    $receiver = array(
+                        get_option('admin_email')
+                    );
+                }
             }
             else
             {
                 $receiver = array(
-                    get_option('admin_email')
+                    $custom_email
                 );
             }
+
 
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
@@ -458,19 +468,28 @@ class Quote
      * @global wpdb $wpdb WordPress database abstraction object.
      *
      * @param Object _quote query row result.
+     * @param string $custom_email custom email address
      * @return boolean true or false.
      */
-    public function send_new_quote_email_to_customer($_quote)
+    public function send_new_quote_email_to_customer($_quote,$custom_email = Null)
     {
         try
         {
             require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
 
-            $subject = "Your quote is submited sucessfully";
-
-            $receiver = array(
-                $_quote->customer_email
-            );
+            $subject = "Your quote is submited successfully";
+            if($custom_email == Null)
+            {
+                $receiver = array(
+                    $_quote->customer_email
+                );
+            }
+            else
+            {
+                $receiver = array(
+                    $custom_email
+                );
+            }
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
