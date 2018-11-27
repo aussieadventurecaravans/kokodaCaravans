@@ -1,7 +1,10 @@
 <?php
-$custom_order = get_query_var('custom_order');
-$caravan_id = get_query_var('caravan_id');
 $quote = get_query_var('quote');
+
+$caravan_id = $quote->product_id;
+
+$custom_options = unserialize($quote->custom_options);
+
 $caravan_ids = array(
     5417 => 41,
     5195 => 39,
@@ -14,10 +17,10 @@ $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
  * Render the caravan image
  */
 $uploads = wp_upload_dir();
-list($width, $height) = getimagesize($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_order['caravan_options']['checker_plate']['value'] . '.png');
+list($width, $height) = getimagesize($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_options['checker_plate']['value'] . '.png');
 
-$checkerPlate = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_order['caravan_options']['checker_plate']['value'] . '.png' );
-$panel = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/panel/' . $custom_order['caravan_options']['panel']['value'] . '.png');
+$checkerPlate = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/checkerplate/' . $custom_options['checker_plate']['value'] . '.png' );
+$panel = imagecreatefrompng($uploads['baseurl'] . '/custom_order/' . $caravan_id . '/panel/' . $custom_options['panel']['value'] . '.png');
 $dest_image = imagecreatetruecolor($width, $height);
 // set background to white
 $white = imagecolorallocate($dest_image, 255, 255, 255);
@@ -62,19 +65,19 @@ setup_postdata($post);
 <?php $html .= ' </div>'; ?>
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span>Panel Colour : ' .  $custom_order['caravan_options']['panel']['value']  .'</span>'; ?>
+<?php $html .= '<span>Panel Colour : ' . $custom_options['panel']['value']  .'</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
-<?php $html .= '<span>$' . $custom_order['caravan_options']['panel']['price'] . '</span>'; ?>
+<?php $html .= '<span>$' . $custom_options['panel']['price'] . '</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '</div>'; ?>
 
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span>Checker Plate Colour : ' . $custom_order['caravan_options']['checker_plate']['value'] .'</span>'; ?>
+<?php $html .= '<span>Checker Plate Colour : ' . $custom_options['checker_plate']['value'] .'</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
-<?php $html .= '<span>$' . $custom_order['caravan_options']['checker_plate']['price'] . '</span>'; ?>
+<?php $html .= '<span>$' . $custom_options['checker_plate']['price'] . '</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '</div>'; ?>
@@ -108,13 +111,15 @@ setup_postdata($post);
     <?php $html .= '</div>'; ?>
 <?php endif; ?>
 
-<?php if(count($custom_order['accessories']) > 0) : ?>
+<?php $accessories =  unserialize($quote->add_on_accessories); ?>
+
+<?php if(count($accessories) > 0): ?>
 
 <?php $html1 .=' <div class="tab-header"><h3>Add-On Accessories</h3></div>' ?>
 
 <?php $html1 .= ' <div class="display-accessories-wrapper row" id="summary-display-accessories-wrapper">'; ?>
 
-<?php $accessories =  $custom_order['accessories']; ?>
+
 <?php $html1 .=  '<div class="col-md-12 text-center">'; ?>
 <?php foreach($accessories as $accessory):?>
         <?php $html1 .= '<div class="item"><div class="item-detail">'; ?>
@@ -205,11 +210,12 @@ setup_postdata($post);
 
 
 <?php
-$product_price = $custom_order['product_price'];
-$accessories_price = $custom_order['accessories_price'];
-if(isset($custom_order['caravan_options']))
+$product_price = $quote->product_cost;
+$accessories_price =  $quote->add_on_cost;
+
+if(isset($custom_options))
 {
-    $exterior_price = $custom_order['caravan_options']['panel']['price'] +  $custom_order['caravan_options']['checker_plate']['price'];
+    $exterior_price = $custom_options['panel']['price'] + $custom_options['checker_plate']['price'];
 }
 else
 {
@@ -248,17 +254,17 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
         <?php if(isset($custom_order['caravan_options'])): ?>
             <?php $html3 .= '<tr>'; ?>
                 <?php $html3 .= '<td scope="row"><h4>Custom Exterior </h4>' ;?>
-                <?php $html3 .= '<p>Panel Colour : '. $custom_order['caravan_options']['panel']['value'] .'</p>'; ?>
+                <?php $html3 .= '<p>Panel Colour : '. $custom_options['panel']['value'] .'</p>'; ?>
                 <?php $html3 .= '<p>Checker Plate Colour : '. $custom_order['caravan_options']['checker_plate']['value'] .'</p>'; ?>
                 <?php $html3 .=  '</td>';  ?>
 
                 <?php $html3 .= '<td><h4 style="color:#fff"> Cost </h4>'; ?>
-                <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['panel']['price']) .'</p>'; ?>
-                <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['checker_plate']['price']) .'</p>'; ?>
+                <?php $html3 .= '<p>$'. number_format($custom_options['panel']['price']) .'</p>'; ?>
+                <?php $html3 .= '<p>$'. number_format($custom_options['checker_plate']['price']) .'</p>'; ?>
                 <?php $html3 .= '</td>'; ?>
             <?php $html3 .= '</tr>';?>
         <?php endif;?>
-        <?php if(count($custom_order['accessories']) > 0) : ?>
+        <?php if(count($accessories) > 0) : ?>
             <?php $html3 .= '<tr>'; ?>
 
                 <?php $html3 .= '<td  scope="row"><h4>Add-On Accessories</h4>'; ?>

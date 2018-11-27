@@ -90,14 +90,21 @@ class Quote
      */
     public $filter;
 
+
+
     /**
      * Constructor.
      *
      * @param Quote|object $quote quote object.
      */
-    public function __construct( $quote ) {
-        foreach ( get_object_vars( $quote ) as $key => $value )
-            $this->$key = $value;
+    public function __construct( $quote = NULL )
+    {
+        if($quote != NULL)
+        {
+            foreach ( get_object_vars( $quote ) as $key => $value )
+                $this->$key = $value;
+        }
+
     }
 
     /**
@@ -541,8 +548,6 @@ class Quote
                 mkdir(WP_CONTENT_DIR. '/uploads/custom_order/email_attach', 0777, true);
             }
 
-            set_query_var('caravan_id', $_POST['custom_order']['caravan']);
-            set_query_var('custom_order', $_POST['custom_order']);
             set_query_var('quote', $_quote);
 
             require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/email/attach/summary-report-template.php' );
