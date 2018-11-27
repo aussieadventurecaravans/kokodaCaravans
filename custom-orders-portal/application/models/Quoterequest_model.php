@@ -46,7 +46,7 @@ class Quoterequest_model extends CI_Model
         }
     }
 
-    public function get_quote($id)
+    public function get_quote($id,$type = 'array')
     {
 
         $user_email = $this->session->userdata('user_email');
@@ -68,7 +68,15 @@ class Quoterequest_model extends CI_Model
 
         if($query->num_rows() > 0)
         {
-            return $query->row_array();
+            if($type == 'object')
+            {
+                return $query->row_object();
+            }
+            else
+            {
+                return $query->row_array();
+            }
+
         }
         else
         {
@@ -76,6 +84,7 @@ class Quoterequest_model extends CI_Model
             return false;
         }
     }
+
 
 
     public function submit_quote($id)

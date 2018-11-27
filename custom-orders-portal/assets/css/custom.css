@@ -262,3 +262,15 @@ fieldset.total-price-section .list-group-item .price-value
     border-top: 1px solid #ffffff;
 }
 
+
+
+/*
+* Customize the email button
+*
+*/
+.buttons-field button .feather-mail
+{
+    vertical-align: sub;
+    width: 22px;
+    height: auto;
+}

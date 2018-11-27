@@ -111,4 +111,77 @@ class Quote_request extends CI_Controller {
         redirect( base_url('quote_request/edit') .'?quote_id='. $quote_id, 'refresh');
 
     }
+
+
+    public function send_email_customer()
+    {
+        $user_id = $this->session->userdata('user_id');
+        $quote_id = $this->input->post('quote_id');
+        if(!$user_id)
+        {
+            $this->session->set_userdata('referer_url',  base_url('quote_request') . '?quote_id=' . $quote_id );
+            redirect( base_url('user/login'), 'refresh');
+        }
+
+        $quote_obj = $this->quoterequest_model->get_quote($quote_id,'object');
+
+
+        try
+        {
+            if ( ! class_exists( 'Quote' ) )
+            {
+                require_once(__DIR__.'/../../../wp-load.php');
+                require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'includes/models/quote.php');
+            }
+
+            //call the quote object from wordpress plugin
+            $wp_quote = new Quote();
+
+            $wp_quote->send_new_quote_email_to_customer($quote_obj);
+
+            return true;
+        }
+        catch (Exception $e)
+        {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            return false;
+        }
+
+    }
+
+    public function send_email_dealer()
+    {
+        $user_id = $this->session->userdata('user_id');
+        $quote_id = $this->input->post('quote_id');
+        if(!$user_id)
+        {
+            $this->session->set_userdata('referer_url',  base_url('quote_request') . '?quote_id=' . $quote_id );
+            redirect( base_url('user/login'), 'refresh');
+        }
+
+        $quote_obj = $this->quoterequest_model->get_quote($quote_id,'object');
+
+
+        try
+        {
+            if ( ! class_exists( 'Quote' ) )
+            {
+                require_once(__DIR__.'/../../../wp-load.php');
+                require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'includes/models/quote.php');
+            }
+
+            //call the quote object from wordpress plugin
+            $wp_quote = new Quote();
+
+            $wp_quote->send_new_quote_email_to_dealer($quote_obj);
+
+            return true;
+        }
+        catch (Exception $e)
+        {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+            return false;
+        }
+
+    }
 }

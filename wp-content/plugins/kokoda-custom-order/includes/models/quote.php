@@ -437,10 +437,7 @@ class Quote
                 );
             }
 
-
-
             $pdf_file = self::generate_pdf_summary_file($_quote);
-
 
             return $email = WP_Mail::init()
                 ->to($receiver)
@@ -493,7 +490,6 @@ class Quote
 
             $pdf_file = self::generate_pdf_summary_file($_quote);
 
-
             return $email = WP_Mail::init()
                 ->to( $receiver)
                 ->subject($subject)
@@ -530,7 +526,8 @@ class Quote
             $table_name = $wpdb->prefix . 'custom_order_quote';
 
             $quote_id = (int) $quote_id;
-            if ( ! $quote_id ) {
+            if ( ! $quote_id )
+            {
                 return false;
             }
 

@@ -147,7 +147,7 @@ class Quote extends CI_Controller {
         }
 
 
-        //load all models from Wordpress website
+        //load products model from Wordpress website
         $this->load->model('wp_product_model');
 
 

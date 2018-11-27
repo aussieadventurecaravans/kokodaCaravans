@@ -27,3 +27,27 @@ var myChart = new Chart(ctx, {
     }
 });
 */
+
+$("button.email-customer").click(function(e)
+{
+    if($(this).attr('quote_id') !== undefined)
+    {
+        var data = {
+            'quote_id': $(this).attr('quote_id')
+        };
+
+        var url = "/custom-orders-portal/quote_request/send_email_customer";
+
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            dataType: 'json',
+            success: function(data)
+            {
+                alert("success!");
+            }
+        });
+    }
+});

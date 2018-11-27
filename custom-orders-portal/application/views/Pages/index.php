@@ -41,7 +41,7 @@
             <th>Caravan Model</th>
             <th>Customer Email</th>
             <th>Customer Phone</th>
-            <th>Quote Submit</th>
+            <th>Date Submit</th>
         </tr>
         </thead>
         <tbody>

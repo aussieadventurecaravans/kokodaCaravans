@@ -149,7 +149,18 @@ $submitQuote = array(
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Ticket Request  #<?php echo $quote['quote_id']; ?></h1>
+    <h1 class="h2 d-inline-flex">Ticket Request  #<?php echo $quote['quote_id']; ?></h1>
+
+    <div class="buttons-field d-flex flex-row-reverse">
+        <button class="btn btn-lg btn-info email-customer m-2" quote_id="<?php echo $quote['quote_id']; ?>">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email Customer
+        </button>
+        <button class="btn btn-lg btn-primary email-dealer m-2"  quote_id="<?php echo $quote['quote_id']; ?>">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email Dealer
+        </button>
+    </div>
 </div>
 
 
