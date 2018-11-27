@@ -173,6 +173,7 @@
     display: block;
     margin: 5px;
     padding: 0;
+    min-height: 400px;
 }
 
 .custom-quote-section .option-select-value-section  #model .item.selected .item-wrapper,
