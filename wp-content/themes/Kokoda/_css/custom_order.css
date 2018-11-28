@@ -35,10 +35,17 @@
         font-size: 24px;margin-bottom:0;
     }
 }
+.page-template-custom-order-template .page-heading a.brand
+{
+    margin: auto;
+    text-align: center;
+    display: block;
+}
 .page-template-custom-order-template .page-heading img.logo
 {
-    max-width: 140px;
-    margin: 30px;
+    width: 150px;
+    max-height: 102px;
+    margin-top: 20px;
 }
 
 .page.page-template-custom-order-template .banner-wrap .banner h1
@@ -53,7 +60,8 @@
 {
     top:0;
     height: 120px;
-    background-color: #eceff0;
+    background-color: #ffffff;
+
 }
 .custom-quote-section
 {
@@ -61,6 +69,10 @@
     padding-top: 20px;
     position: relative;
     padding-bottom: 30px;
+}
+.custom-quote-section  .option-select-header-section.row
+{
+    background-color: #f9f9f9;
 }
 .custom-quote-section  .option-select-header-section.row,
 .custom-quote-section  .option-select-value-section.row
