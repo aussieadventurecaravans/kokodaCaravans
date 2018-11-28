@@ -261,7 +261,7 @@
 
 .custom-quote-section .option-select-value-section #exterior .option-select-image-section .option-display-image-wrapper
 {
-    width: 60%;
+    width: 90%;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -281,20 +281,35 @@
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose
 {
     width: 100%;
-    margin: 0px 0;
+    margin: 0 0;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose li + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc; }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose li + .tooltip > .tooltip-inner {text-transform: capitalize; background-color: #2087fc;}
-
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose .option-label
+{
+    text-transform: capitalize;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    position: relative;
+    margin: 0;
+    top: 50px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose li.selected .option-label
+{
+    top: 45px;
+}
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value]
 {
     width: 80px;
     height: 80px;
     margin: 0 15px 15px 0;
     cursor: pointer;
+    color: #fff;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li:first-child
 {
+    margin-left: 10px;
     border-radius: unset;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=black]{
@@ -304,6 +319,7 @@
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose li[data-value=silver]{
 
     background: #f4f4f4;
+    color: #000;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=red]{
 
@@ -336,29 +352,54 @@
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=white]{
 
     background: #ffffff;
+    color: #000;
     border:1px solid #000;
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=yellow]{
-
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li[data-value=yellow]
+{
     background: #ebcd28;
+    font-weight: bold;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li[data-value=black]{
 
     background-image: url("../_img/checkerplate-black.png");
 }
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li[data-value=silver]{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li[data-value=silver]
+{
 
-    background-image: url("../_img/checkerplate-silver.png");
+    background: #ffffff;
+    overflow: hidden;
 }
-
-.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li.selected{
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li[data-value=silver]:before
+{
+    background-image: url("../_img/checkerplate-silver.png");
+    opacity: 0.6;
+    z-index: 1;
+    content:" ";
+    width: 80px;
+    height: 80px;
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 0;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li[data-value=silver] .option-label
+ {
+     opacity: 1; z-index: 2;
+ }
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose#checker-plate-ui-choose li.selected[data-value=silver]:before
+{
+    opacity: 1; border: 5px solid #2087fc;
+}
+.custom-quote-section .option-select-value-section #exterior ul.ui-choose  li.selected
+{
     border: 5px solid #2087fc;
 }
 
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-wrapper
 {
-    padding-left: 10px;
-    padding-top: 45px;
+    padding-left: 0px;
+    padding-top: 15px;
 }
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose .owl-item {
     float: left;
@@ -980,8 +1021,8 @@ form#customer_details_form .control-label
     content: "\ea08";
 }
 
-.tabcontent#floorplan  .display-model-section .select-model-notice + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc; }
-.tabcontent#floorplan  .display-model-section .select-model-notice+ .tooltip > .tooltip-inner {background-color: #2087fc;}
+.tabcontent#floorplan  .display-model-section .select-model-notice + .tooltip.top > .tooltip-arrow { border-top-color:#2087fc;z-index: 1 }
+.tabcontent#floorplan  .display-model-section .select-model-notice+ .tooltip > .tooltip-inner {background-color: #2087fc;z-index: 1}
 
 /** CUSTOMIZE THE MODEL TAB HEADING AND FILTER **/
 .tabcontent#model .tab-header

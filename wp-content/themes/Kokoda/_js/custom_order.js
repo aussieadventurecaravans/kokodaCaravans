@@ -456,11 +456,9 @@ jQuery(function($) {
                         var price = $(this).attr('price');
                         var value = $(this).attr('data-value');
 
-                        $(this).attr("data-toggle","tooltip");
-
                         $(this).attr("title", value + " $"+  price);
 
-                        $('[data-toggle="tooltip"]').tooltip();
+                        $(this).append('<p class="option-label">' + value + " $" +  price + '</p>');
 
                     });
 
