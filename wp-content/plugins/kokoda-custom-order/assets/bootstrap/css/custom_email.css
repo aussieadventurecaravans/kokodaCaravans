@@ -1,18 +1,50 @@
+.logo-row,
+.logo-row .col-xs-12,
+.logo-row .col-xs-12 .logo
+{
+    margin: 0;padding:0;
+}
+/**
+ * first page header
+ */
+.first-page-header
+{
+    padding:0;
+    margin: 0;
+}
+.first-page-header .row
+{
+    margin-left: 0;
+}
+.first-page-header .row .col-xs-6
+{
+    width: 45%;
+    border-bottom: 1px solid #939393;
+    margin-bottom: 5px;
+    margin-left: 0;
+    padding-left:0;
+}
+
+.first-page-header .row .col-xs-6 h3
+{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+}
+/**
+ * tab header for page header
+ */
 .tab-header
 {
-    margin: 30px 0 10px;
+    margin: 0 0 10px;
     border-bottom: 1px solid #939393;
     font-family: 'Rubik', sans-serif;
-    width: 100%;
-    display: block;
 }
+
 .tab-header h3
 {
     font-size: 16px;
     text-transform: uppercase;
-    padding-left: 5px;
-    display: inline-block;
-    float:left;width: 48%;
     font-family: 'Rubik', sans-serif;
 }
 

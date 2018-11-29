@@ -45,9 +45,23 @@ setup_postdata($post);
 ?>
 
 
-<?php $html = '<div class="tab-header">'; ?>
-<?php $html .= '<h3 class="text-left">Caravan Summary</h3>'; ?>
-<?php $html .= '<h3 class="text-right">Kokoda ' . get_the_title() . '</h3>'; ?>
+<?php $html .= '<div class="row logo-row">'; ?>
+<?php $html .= '<div class="col-xs-12">'; ?>
+<?php $html .= '<img class="logo" src="' . get_stylesheet_directory_uri() .'/_img/logo_black_text_small.png" style="width:120px;padding-left:5px;" />'; ?>
+<?php $html .= '</div>'; ?>
+<?php $html .= '</div>'; ?>
+
+<?php $html .= '<div class="container-fluid first-page-header">'; ?>
+<?php $html .= '<div class="row">'; ?>
+
+<?php $html .= '<div class="col-xs-6 text-left">'; ?>
+<?php $html .= '<h3>Caravan Summary'. '</h3>'; ?>
+<?php $html .= '</div>'; ?>
+<?php $html .= '<div class="col-xs-6 text-right" style="width:50%">'; ?>
+<?php $html .= '<h3>'. 'Kokoda '.  get_the_title() . '</h3>'; ?>
+<?php $html .= '</div>'; ?>
+
+<?php $html .= '</div>'; ?>
 <?php $html .= '</div>'; ?>
 
 <?php $html .= ' <div style="position:relative" class="display-image-wrapper row">'; ?>
@@ -71,7 +85,7 @@ setup_postdata($post);
 
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span> Checker Plate Colour :' . $custom_order['caravan_options']['checker_plate']['value'] . ' </span>'; ?>
+<?php $html .= '<span> Checker Plate Colour : ' . $custom_order['caravan_options']['checker_plate']['value'] . ' </span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
 <?php $html .= '<span>$' . $custom_order['caravan_options']['checker_plate']['price'] . '</span>'; ?>

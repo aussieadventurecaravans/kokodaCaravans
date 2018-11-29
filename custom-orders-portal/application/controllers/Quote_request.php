@@ -128,13 +128,13 @@ class Quote_request extends CI_Controller {
 
         try
         {
+
+            //call the quote object from wordpress plugin
             if ( ! class_exists( 'Quote' ) )
             {
                 require_once(__DIR__.'/../../../wp-load.php');
                 require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'includes/models/quote.php');
             }
-
-            //call the quote object from wordpress plugin
             $wp_quote = new Quote();
 
             $wp_quote->send_new_quote_email_to_customer($quote_obj);
@@ -164,15 +164,14 @@ class Quote_request extends CI_Controller {
 
         try
         {
+            //call the quote object from wordpress plugin
             if ( ! class_exists( 'Quote' ) )
             {
                 require_once(__DIR__.'/../../../wp-load.php');
                 require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'includes/models/quote.php');
             }
 
-            //call the quote object from wordpress plugin
             $wp_quote = new Quote();
-
             $wp_quote->send_new_quote_email_to_dealer($quote_obj);
 
             return true;

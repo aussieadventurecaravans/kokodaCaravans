@@ -412,7 +412,7 @@ class Quote
             require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
 
 
-            $subject = "You have new Quote #" . $_quote->quote_id ;
+            $subject = "You have new enquiry  #" . $_quote->quote_id ;
             if($custom_email == Null)
             {
                 if(get_option('custom_order_development-mode') == false)
@@ -474,7 +474,7 @@ class Quote
         {
             require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'/assets/Mail/WP_Mail.php');
 
-            $subject = "Your quote is submited successfully";
+            $subject = "Your request is submited successfully";
             if($custom_email == Null)
             {
                 $receiver = array(

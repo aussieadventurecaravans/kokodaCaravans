@@ -163,7 +163,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
             </div>
             <div class="banner-content page-heading col-sm-8">
                 <h1>
-                    Build Your Caravan
+                    Build Your Van
                 </h1>
             </div>
             <div class="col-sm-2">

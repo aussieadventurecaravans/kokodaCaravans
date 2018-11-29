@@ -47,9 +47,23 @@ setup_postdata($post);
 
 
 
-<?php $html = '<div class="tab-header">'; ?>
-<?php $html .= '<h3 class="text-left">Caravan Summary</h3>'; ?>
-<?php $html .= '<h3 class="text-right">Kokoda ' . get_the_title() . '</h3>'; ?>
+<?php $html .= '<div class="row logo-row">'; ?>
+<?php $html .= '<div class="col-xs-12">'; ?>
+<?php $html .= '<img class="logo" src="' . get_stylesheet_directory_uri() .'/_img/logo_black_text_small.png" style="width:120px;padding-left:5px;" />'; ?>
+<?php $html .= '</div>'; ?>
+<?php $html .= '</div>'; ?>
+
+<?php $html .= '<div class="container-fluid first-page-header">'; ?>
+<?php $html .= '<div class="row">'; ?>
+
+<?php $html .= '<div class="col-xs-6 text-left">'; ?>
+<?php $html .= '<h3>Caravan Summary'. '</h3>'; ?>
+<?php $html .= '</div>'; ?>
+<?php $html .= '<div class="col-xs-6 text-right" style="width:50%">'; ?>
+<?php $html .= '<h3>'. 'Kokoda '.  get_the_title() . '</h3>'; ?>
+<?php $html .= '</div>'; ?>
+
+<?php $html .= '</div>'; ?>
 <?php $html .= '</div>'; ?>
 
 
@@ -383,7 +397,7 @@ require_once KOKODA_CUSTOM_ORDER_PLUGIN_URL .'assets/mpdf/vendor/autoload.php';
 $cssPart1 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/bootstrap.css');
 $cssPart2 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap/css/custom_email.css');
 
-$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10 ,'margin_left' => 10, 'margin_right' => 10 ]);
+$mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10 ,'margin_left' => 5, 'margin_right' => 5 ]);
 
 $mpdf->setFooter('{PAGENO} / {nb}');
 
