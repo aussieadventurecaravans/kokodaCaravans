@@ -316,6 +316,10 @@ $cssPart2 = file_get_contents(KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'assets/bootstrap
 
 $mpdf = new \Mpdf\Mpdf(['mode' => 'c','margin_top' => 10,'margin_bottom' => 10, 'margin_left' => 5, 'margin_right' => 5  ]);
 
+$mpdf->defaultheaderline = 0;
+$mpdf->defaultfooterline = 0;
+
+
 $mpdf->setFooter('{PAGENO} / {nb}');
 
 //add the Caravan Page with custom Options and Accessories
