@@ -295,6 +295,11 @@
     width: 100%;
     margin: 0 0;
 }
+.custom-quote-section .option-select-value-section #exterior .custom-options-form .control-label
+{
+    margin-left: 12px;
+}
+
 .custom-quote-section .option-select-value-section #exterior ul.ui-choose .option-label
 {
     text-transform: capitalize;
