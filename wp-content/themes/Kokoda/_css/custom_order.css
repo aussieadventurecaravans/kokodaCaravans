@@ -277,6 +277,14 @@
     margin: 20px auto;
     text-align: center;
     position: relative;
+    min-height: 300px;
+}
+@media screen and (max-width: 967px)
+{
+    .custom-quote-section .option-select-value-section #exterior .option-select-image-section .option-display-image-wrapper
+    {
+        min-height: 250px;
+    }
 }
 
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
