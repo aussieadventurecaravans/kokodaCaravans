@@ -976,7 +976,23 @@ form#customer_details_form select option
     line-height: 14px;
     border-radius: 0;
 }
-
+form#customer_details_form .dealer_link
+{
+    height: 38px;
+    display: inline-block;
+    padding: 10px 0 0;
+    color: #1a1a1a;
+    font-size: 18px;
+}
+form#customer_details_form .dealer_link:hover,
+form#customer_details_form .dealer_link:active
+{
+    color: #0089ff;
+}
+form#customer_details_form .dealer_link .icon-location:before
+{
+    content: "\E948";
+}
 form#customer_details_form .control-label
 {
     font-weight: normal;

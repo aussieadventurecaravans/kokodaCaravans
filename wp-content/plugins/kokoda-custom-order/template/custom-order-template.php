@@ -449,6 +449,13 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
                                             <select class="form-control input-lg" id="dealer_name" required disabled>
                                                 <option selected value="">Choose Dealer</option>
                                             </select>
+
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="dealer_link" onClick="MyWindow=window.open('<?php echo get_home_url(); ?>/dealer','Dealers','width=300,height=200'); return false;">
+                                                Show Dealers
+                                                <span class="icon-moon icon-location "></span>
+                                            </a>
                                         </div>
                                     </div>
 
