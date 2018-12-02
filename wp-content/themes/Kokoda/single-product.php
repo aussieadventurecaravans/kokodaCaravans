@@ -397,7 +397,7 @@
             </div>
             <div class="col-md-6 col-xs-6 text-right">
                 <div class="custom-order-button">
-                    <a href="<?php echo home_url(); ?>/custom_order"  target="_blank">Custom Order</a>
+                    <a href="<?php echo home_url(); ?>/custom-order"  target="_blank">Custom Order <span class="icon-moon icon-cart"></span> </a>
                 </div>
             </div>
     </div>

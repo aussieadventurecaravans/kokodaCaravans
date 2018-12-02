@@ -6076,7 +6076,6 @@ CUSTOMIZE THE ARCHIVE PAGE
 .custom_order_button_panel .custom-order-button
 {
 	display: block;
-	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 	background: #0c121c;
 	padding: 5px 3%;
 	text-align: center;
@@ -6095,4 +6094,10 @@ CUSTOMIZE THE ARCHIVE PAGE
 	height: 26px;
 	text-transform: uppercase;
 	padding: 1px 0;
+}
+
+.custom_order_button_panel .custom-order-button a .icon-cart:before
+{
+	content:"\E93A";
+	font-size: 16px;
 }
