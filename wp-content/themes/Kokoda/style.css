@@ -6054,3 +6054,45 @@ CUSTOMIZE THE ARCHIVE PAGE
 	color: #ffffff;
 }
 
+
+/**
+* customize the custom order buttton on product
+*/
+
+.custom_order_button_panel
+{
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+	background-color: rgba(247,247,247,0.95);
+	border-top: 1px solid #ccc;
+	bottom: 0;
+	padding: 15px 0;
+}
+.custom_order_button_panel .custom-order-button
+{
+	display: block;
+	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	background: #0c121c;
+	padding: 5px 3%;
+	text-align: center;
+	width: 200px;
+	float: right;
+}
+
+.custom_order_button_panel .custom-order-button a
+{
+	color: #fff;
+	font-size: 16px;
+	font-weight: normal;
+	background-size: 22px auto;
+	background-repeat: no-repeat;
+	display: block;
+	height: 26px;
+	text-transform: uppercase;
+	padding: 1px 0;
+}

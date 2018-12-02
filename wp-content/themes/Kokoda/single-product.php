@@ -387,6 +387,25 @@
 </div>
 
 <?php get_footer(); ?>
+
+<!-- show the custom order -->
+<?php if(get_option('custom_order_development-mode') != false): ?>
+<div class="custom_order_button_panel">
+    <div class="container">
+            <div class="col-md-6 col-xs-6  text-left">
+                <h4><?php the_title(); ?></h4>
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                <div class="custom-order-button">
+                    <a href="<?php echo home_url(); ?>/custom_order"  target="_blank">Custom Order</a>
+                </div>
+            </div>
+    </div>
+
+</div>
+<?php endif; ?>
+
+
 <!-- Important Owl stylesheet -->
 <link rel="stylesheet" href="/wp-content/themes/Kokoda/owl-carousel/owl.carousel.css">
 <!-- Default Theme -->
@@ -403,7 +422,6 @@
         if(windowWidth <= 976)
         {
             $("#features-list").owlCarousel({
-
                 navigation : false, // Show next and prev buttons
                 slideSpeed : 300,
                 pagination: false,

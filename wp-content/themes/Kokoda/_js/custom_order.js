@@ -806,7 +806,7 @@ jQuery(function($) {
                         }
 
                         //render the accessories list at template
-                        el += '<div class="item ' + sel + ' col-md-2 col-sm-2 col-xs-2" access-id="' + i + '" ><div class="item-detail">';
+                        el += '<div class="item ' + sel + ' col-md-2 col-sm-2 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
                         el += '<span class="icon-moon"></span>';
                         el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
                         el += '<h3>' + accessories[i]['label'] + '</h3>';
