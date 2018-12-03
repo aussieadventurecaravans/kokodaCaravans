@@ -6088,16 +6088,8 @@ CUSTOMIZE THE ARCHIVE PAGE
 	color: #fff;
 	font-size: 16px;
 	font-weight: normal;
-	background-size: 22px auto;
-	background-repeat: no-repeat;
 	display: block;
 	height: 26px;
 	text-transform: uppercase;
-	padding: 1px 0;
-}
-
-.custom_order_button_panel .custom-order-button a .icon-cart:before
-{
-	content:"\E93A";
-	font-size: 16px;
+	padding: 3px 0;
 }
