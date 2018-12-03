@@ -413,6 +413,7 @@ class Quote
 
 
             $subject = "You have new enquiry  #" . $_quote->quote_id ;
+            $extra_receiver = 'chloe@kokodacaravans.com.au';
             if($custom_email == Null)
             {
                 if(get_option('custom_order_development-mode') == false)
@@ -420,13 +421,15 @@ class Quote
 
                     $receiver = array(
                         $_quote->dealer_email,
+                        $extra_receiver,
                         get_option('admin_email')
                     );
                 }
                 else
                 {
                     $receiver = array(
-                        get_option('admin_email')
+                        get_option('admin_email'),
+                        $extra_receiver
                     );
                 }
             }
