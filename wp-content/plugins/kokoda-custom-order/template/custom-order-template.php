@@ -548,9 +548,9 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                     <div class="finance-disclaim-section-details text-left">
                         <p style="text-align: justify;padding: 0 12px;font-size: 13px;"><b>* Please Note:</b>
-                            All the prices are subject to change without prior notice. The price estimates are provided on a basis production cost and
-                            it may be changed base upon on some specific features customer need.
-                            On-Road Cost (ORC) can varies between states and city.Please contact our dealers for more detail.
+                            All the prices are subject to change without prior notice.
+                            The price estimates are provided on a basis production cost and it may be changed based upon on some specific features and customer needs.
+                            On-Road Cost (ORC) vary between states and cities. Please contact our dealers for more detail.
                         </p>
                     </div>
                 </fieldset>
@@ -580,7 +580,7 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 
                         <div class="finance-disclaim-section-details text-left">
                             <p style="text-align: justify;font-size: 13px;"><b>Please Note:</b>
-                                Enter the loan amount, interest rate, terms months and Balloon Amount(large payment due at the end of a loan), it will automatically give you repayment cost.
+                                Enter the loan amount, interest rate, term and balloon amount (large payment due at the end of a loan), it will automatically give you repayment cost.
                             </p>
                         </div>
                     </fieldset>

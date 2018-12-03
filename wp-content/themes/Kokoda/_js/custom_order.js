@@ -281,7 +281,7 @@ jQuery(function($) {
                 for (var i = 0; i < dealers.length; i++)
                 {
                     var state = dealers[i]['sl_state'];
-                    if (state.toLowerCase() == $(this).val())
+                    if (state.toLowerCase().trim() == $(this).val())
                     {
                         el += '<option value="' + dealers[i]['sl_id'] + '" dealers_name=" ' + dealers[i]['sl_store'] + '"  >' + dealers[i]['sl_store'] + ' </option>';
 
