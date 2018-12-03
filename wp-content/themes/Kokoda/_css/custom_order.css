@@ -1,9 +1,5 @@
 /** CUSTOMIZE THE QUOTE ORDER FORM **/
-
-
-
-
-.page-template-custom-order-template . #navbar-top-mob
+.page-template-custom-order-template #navbar-top-mob
 {
    display: none !important;
 }
