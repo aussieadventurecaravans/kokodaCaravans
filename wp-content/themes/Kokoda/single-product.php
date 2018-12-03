@@ -389,7 +389,7 @@
 <?php get_footer(); ?>
 
 <!-- show the custom order -->
-<?php if(get_option('custom_order_development-mode') != false): ?>
+<?php if(get_option('custom_order_development-mode') == false && get_field('custom_order_active') == true): ?>
 <div class="custom_order_button_panel">
     <div class="container">
             <div class="col-md-6 col-xs-6  text-left">
