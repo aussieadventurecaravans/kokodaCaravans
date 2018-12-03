@@ -28,6 +28,9 @@ wp-config.php
 /wp-content/plugins/widgetkit/cache/
 /wp-content/themes/yoo_chester_wp/config.json
 
+/wp-content/db.php
+/wp-content/object-cache.php
+/wp-content/w3tc-config/
 
 #custom order portal
 /custom-orders-portal/application/config/database.php
