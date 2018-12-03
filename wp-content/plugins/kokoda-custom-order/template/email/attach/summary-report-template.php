@@ -139,6 +139,7 @@ setup_postdata($post);
         <?php $html1 .= '<div class="item"><div class="item-detail">'; ?>
         <?php $html1 .= '<img src="' . content_url('uploads') . '/custom_order/Accessories/' . $accessory['label'] . '.png" />'; ?>
         <?php $html1 .= '<h3>' . $accessory['label']  .'</h3>'; ?>
+        <?php $html1 .= '<h3>(SKU: ' . $accessory['sku']  .')</h3>'; ?>
         <?php $html1 .=  '</div></div>'; ?>
 <?php  endforeach; ?>
 

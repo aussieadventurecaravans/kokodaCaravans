@@ -274,6 +274,13 @@
         min-height: 250px;
     }
 }
+@media only screen and (max-width: 420px)
+{
+    .custom-quote-section .option-select-value-section #exterior .option-select-image-section
+    {
+        min-height: 0;
+    }
+}
 
 .custom-quote-section .option-select-value-section #exterior .option-select-image-section .option-display-image-wrapper
 {
@@ -290,7 +297,13 @@
         min-height: 250px;
     }
 }
-
+@media only screen and (max-width: 420px)
+{
+    .custom-quote-section .option-select-value-section #exterior .option-select-image-section .option-display-image-wrapper
+    {
+        min-height: 0;
+    }
+}
 .custom-quote-section .option-select-value-section #exterior .custom-options-form
 {
     margin: 10px 0 0;
@@ -461,6 +474,13 @@
 .custom-quote-section .option-select-value-section #floorplan .option-select-image-section
 {
     margin-bottom: 50px;
+}
+@media only screen and (max-width: 420px)
+{
+    .custom-quote-section .option-select-value-section #floorplan .option-select-image-section
+    {
+        margin-bottom: 20px;
+    }
 }
 
 .custom-quote-section .option-select-value-section #floorplan .option-display-image-wrapper .item.text-center img
@@ -793,7 +813,6 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 {
     border: 5px solid #fff;
     display: inline-block;
-    max-width: 25%;
 }
 .tabcontent#summary .display-accessories-wrapper .item .item-detail
 {
@@ -808,6 +827,13 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
 {
     text-align: center;
 }
+@media only screen and (max-width: 420px)
+{
+    .tabcontent#summary .display-accessories-wrapper .item .item-detail p
+    {
+       font-size: 12px;
+    }
+}
 .tabcontent#summary .display-accessories-wrapper .item .item-detail h3
 {
     text-align: center;
@@ -819,6 +845,13 @@ fieldset.finance-section .cash-summary p.custom-options-price-label
     .tabcontent#summary .display-accessories-wrapper .item .item-detail h3
     {
         font-size: 15px;
+    }
+}
+@media only screen and (max-width: 420px)
+{
+    .tabcontent#summary .display-accessories-wrapper .item .item-detail h3
+    {
+        font-size: 10px;
     }
 }
 .tabcontent#summary .display-accessories-wrapper .item .item-detail img

@@ -719,12 +719,13 @@ jQuery(function($) {
                 el += '<h2>Add-on Accessories</h2>';
                 el += '</div>';
 
-                el += '<div class="col-md-12 text-center">';
+                el += '<div class="row text-center">';
                 for (var i = 0; i < acs.length; i++)
                 {
-                    el += '<div class="item" access-id="' + i + '" ><div class="item-detail">';
+                    el += '<div class="item col-xs-4" access-id="' + i + '" ><div class="item-detail">';
                     el += '<img src="' + $base_url + '/custom_order/Accessories/' + acs[i]['label'] + '.png" />';
                     el += '<h3>' + acs[i]['label'] +  '</h3>';
+                    el += '<h3>(SKU: ' + acs[i]['sku'] +  ')</h3>';
                     el += '<p>$'  +  acs[i]['retail_price'] + '</p>';
                     el += '</div></div>';
                 }
