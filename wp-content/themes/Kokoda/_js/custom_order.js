@@ -810,6 +810,7 @@ jQuery(function($) {
                         el += '<span class="icon-moon"></span>';
                         el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
                         el += '<h3>' + accessories[i]['label'] + '</h3>';
+                        el += '<h3>' + ' (SKU: ' + accessories[i]['sku'] + ')</h3>';
                         el += '<h3>$' + accessories[i]['retail_price'] +'</h3>';
                         el += '</div></div>';
 
