@@ -591,16 +591,16 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 </div>
 
 <!-- load sweet alert js  -->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.js?version=1'; ?>"></script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.css?version=1'?>" >
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.js?ver=' . get_option( 'js-css_version-id'); ?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.css?ver='. get_option( 'js-css_version-id') ?>" >
 <!-- load ui-choose js  -->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js?version=1'; ?>"></script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css?version=1'?>" >
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js?ver=' . get_option( 'js-css_version-id'); ?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css?ver='. get_option( 'js-css_version-id'); ?>" >
 
 <!-- Load owl carousel Js --->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js?version=1'?>"></script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.css?version=1';?> ">
-<link rel="stylesheet"  href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.theme.css?version=1';?> ">
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js?ver=' . get_option( 'js-css_version-id'); ?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.css?ver=' . get_option( 'js-css_version-id');?> ">
+<link rel="stylesheet"  href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.theme.css?ver=' . get_option( 'js-css_version-id');?> ">
 
 
 <script type="text/javascript">
@@ -614,10 +614,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var $site_url = '<?php echo site_url(); ?>';
     var $acs_files = <?php echo json_encode($acs_files); ?>;
 </script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css?version=1'?>" >
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css?version=1'?>" >
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css?ver=' . get_option( 'js-css_version-id')?>" >
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css?ver=' . get_option( 'js-css_version-id')?>" >
 <!-- Load Custom order Js --->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js?version=1'?>"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js?ver=' . get_option( 'js-css_version-id')?>"></script>
 
 
 
