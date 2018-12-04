@@ -507,11 +507,13 @@ jQuery(function($) {
         {
            var options = custom_order.caravan_options;
 
-           var checkerPlateImage = '<img style="position: relative;width:100%" src="' + $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png' + ' "/>';
+           var base_img = '<img style="position: relative;width:100%" src="' + $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + 'base.png' + ' "/>';
+
+           var checkerPlateImage = '<img style="position: absolute; top:0px; left: 0px;width: 100%;" src="' + $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png' + ' "/>';
 
            var panelElements = '<img style="position: absolute; top:0px; left: 0px;width: 100%;" src="' + $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel.value + '.png' + '"/>';
 
-           $('#exterior .option-display-image-wrapper').html(checkerPlateImage + panelElements);
+           $('#exterior .option-display-image-wrapper').html(base_img + checkerPlateImage + panelElements);
 
         }
 
@@ -736,11 +738,13 @@ jQuery(function($) {
             //render the caravan image with custom options
             var options = custom_order.caravan_options;
 
-            var checkerPlateImage = '<img style="position: relative;width:100%" src="' + $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png' + ' "/>';
+            var base_img = '<img style="position: relative;width:100%" src="' + $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + 'base.png' + ' "/>';
+
+            var checkerPlateImage = '<img style="position: absolute; top:0px; left: 0px;width: 100%;" src="' + $base_url + '/custom_order/' + select_model_id + '/checkerplate/' + options.checker_plate.value + '.png' + ' "/>';
 
             var panelElements = '<img style="position: absolute; top:0px; left: 0px;width: 100%;" src="' + $base_url + '/custom_order/' + select_model_id + '/panel/' + options.panel.value + '.png' + '"/>';
 
-            $('.tabcontent#summary #summary-display-image-wrapper').html(checkerPlateImage + panelElements);
+            $('.tabcontent#summary #summary-display-image-wrapper').html(base_img + checkerPlateImage + panelElements);
 
 
             //render the caravan name
