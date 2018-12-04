@@ -6073,9 +6073,25 @@ CUSTOMIZE THE ARCHIVE PAGE
 	bottom: 0;
 	padding: 15px 0;
 }
+@media all and (max-width: 467px)
+{
+	.custom_order_button_panel .model-name
+	{
+		display: none;
+	}
+	.custom_order_button_panel .order-panel
+	{
+		width: 100%;
+		text-align: center;
+	}
+	.custom_order_button_panel .order-panel .custom-order-button
+	{
+		float:none;
+	}
+}
 .custom_order_button_panel .custom-order-button
 {
-	display: block;
+	display: inline-block;
 	background: #0c121c;
 	padding: 5px 3%;
 	text-align: center;

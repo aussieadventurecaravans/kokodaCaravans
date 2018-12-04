@@ -392,10 +392,10 @@
 <?php if(get_option('custom_order_development-mode') == false && get_field('custom_order_active') == true): ?>
 <div class="custom_order_button_panel">
     <div class="container">
-            <div class="col-md-6 col-xs-6  text-left">
+            <div class="model-name col-md-6 col-xs-6  text-left">
                 <h4><?php the_title(); ?></h4>
             </div>
-            <div class="col-md-6 col-xs-6 text-right">
+            <div class="order-panel col-md-6 col-xs-6 text-right">
                 <div class="custom-order-button">
                     <a href="<?php echo home_url(); ?>/custom-order"  target="_blank">Custom Order</a>
                 </div>
@@ -403,6 +403,12 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    jQuery(document).ready(function($){
+            $('.footer-meta').css({"margin-bottom" : "50px"});
+        }
+    );
+</script>
 <?php endif; ?>
 
 
