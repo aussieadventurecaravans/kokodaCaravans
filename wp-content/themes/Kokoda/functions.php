@@ -534,7 +534,3 @@ function css_js_versioning() {
 
 
 ?>
-
-
-
-
