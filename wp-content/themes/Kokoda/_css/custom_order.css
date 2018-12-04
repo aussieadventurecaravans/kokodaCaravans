@@ -1124,6 +1124,14 @@ form#customer_details_form .control-label
     float: right;
     width: 374px;
 }
+@media only screen and (max-width: 574px)
+{
+    .tabcontent#model .model-search
+    {
+        float: left;
+        width: 100%;
+    }
+}
 .tabcontent#model .model-search input
 {
     text-transform: capitalize;
