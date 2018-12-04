@@ -591,16 +591,16 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 </div>
 
 <!-- load sweet alert js  -->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.js'; ?>"></script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.css'?>" >
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.js?version=1'; ?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/sweetalert/sweetalert.css?version=1'?>" >
 <!-- load ui-choose js  -->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js'; ?>"></script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css'?>" >
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.js?version=1'; ?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_js/ui-choose/ui-choose.css?version=1'?>" >
 
 <!-- Load owl carousel Js --->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js'?>"></script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.css';?> ">
-<link rel="stylesheet"  href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.theme.css';?> ">
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.js?version=1'?>"></script>
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.carousel.css?version=1';?> ">
+<link rel="stylesheet"  href="<?php echo get_stylesheet_directory_uri() .'/owl-carousel/owl.theme.css?version=1';?> ">
 
 
 <script type="text/javascript">
@@ -614,10 +614,10 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
     var $site_url = '<?php echo site_url(); ?>';
     var $acs_files = <?php echo json_encode($acs_files); ?>;
 </script>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css'?>" >
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css'?>" >
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/steps/style.css?version=1'?>" >
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/_css/custom_order.css?version=1'?>" >
 <!-- Load Custom order Js --->
-<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js'?>"></script>
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() . '/_js/custom_order.js?version=1'?>"></script>
 
 
 
