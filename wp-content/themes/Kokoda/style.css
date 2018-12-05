@@ -4070,7 +4070,7 @@ nav .container {
 #loading-icon-panel img.loading-icon
 {
     position: relative;
-    top: 52%;
+    top: 50%;
     left: 0;
     width: 50px;
     height: auto;
