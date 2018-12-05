@@ -406,6 +406,7 @@ function Track_user_export_pdf($user_input)
         try {
             $list = array(
                 array(
+                    GetClientIP(),
                     $user_input['caravan'],
                     $user_input['caravan_options']['panel']['value'],
                     $user_input['caravan_options']['checker_plate']['value']
@@ -426,4 +427,27 @@ function Track_user_export_pdf($user_input)
 
         }
     }
+}
+
+/**
+ * this function will track user ip
+ *
+ * @return string $ip
+ */
+
+function GetClientIP()
+{
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+    {
+        $ip=$_SERVER['HTTP_CLIENT_IP'];
+    }
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+    {
+        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else
+    {
+        $ip=$_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
 }
