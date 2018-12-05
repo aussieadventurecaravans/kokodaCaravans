@@ -156,6 +156,9 @@ jQuery(function($) {
                 //go to the next tab
                 $('a.tablinks[tab-content="floorplan"]').click();
 
+                //scroll to top
+                $('html, body').scrollTop($(".custom-quote-section").offset().top - 100);
+
                 //render total price detail after we select the model
                 finance_section_update();
 

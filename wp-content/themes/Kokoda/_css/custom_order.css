@@ -39,17 +39,54 @@
         font-size: 24px;margin-bottom:0;
     }
 }
+.page-template-custom-order-template .page-heading
+{
+    border: 1px solid #eaeff0;
+    text-align: center;
+    height: 114px;
+}
+@media only screen and (max-width: 767px)
+{
+    .page-template-custom-order-template .page-heading
+    {
+        height: 100px !important;
+    }
+}
 .page-template-custom-order-template .page-heading a.brand
 {
     margin: auto;
     text-align: center;
-    display: block;
+    display: inline-block;
+    width: auto;
 }
 .page-template-custom-order-template .page-heading img.logo
 {
-    width: 150px;
-    max-height: 102px;
-    margin-top: 20px;
+    max-width: 150px;
+    width: 100%;
+    height:auto;
+    margin:20px;
+}
+@media only screen and (max-width: 767px)
+{
+    .page-template-custom-order-template .page-heading img.logo
+    {
+        max-width: 150px;
+        width: 100%;
+        height:auto;
+        margin:30px 7px;
+    }
+    .page-template-custom-order-template  .page-heading-content
+    {
+        height:100px !important;
+    }
+}
+.page-template-custom-order-template  .page-heading-content
+{
+    text-align: center;
+    height:114px;
+    border-bottom: 1px solid #eaeff0;
+    padding: 0;
+
 }
 
 .page.page-template-custom-order-template .banner-wrap .banner h1
@@ -58,6 +95,9 @@
     color: #000;
     text-shadow: none;
     text-align: center;
+    height: 100%;
+    margin: 0;
+    padding: 40px 0;
 }
 
 .page-template-custom-order-template .banner-wrap

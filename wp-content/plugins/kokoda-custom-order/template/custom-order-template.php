@@ -156,18 +156,15 @@ $dealers = $wpdb->get_results( $sql, 'ARRAY_A' );
 <div class="banner-wrap">
     <div class="banner fluid-container">
         <div class="row">
-            <div class="page-heading col-sm-2">
+            <div class="page-heading col-sm-2 col-xs-4">
                 <a class="brand auto-top" href="<?php bloginfo('url') ?>">
                     <img class="logo" src="<?php echo get_stylesheet_directory_uri(); ?>/_img/logo_black_text.png">
                 </a>
             </div>
-            <div class="banner-content page-heading col-sm-8">
+            <div class="page-heading-content col-sm-10 col-xs-8">
                 <h1>
                     Build Your Van
                 </h1>
-            </div>
-            <div class="col-sm-2">
-
             </div>
         </div>
     </div>
