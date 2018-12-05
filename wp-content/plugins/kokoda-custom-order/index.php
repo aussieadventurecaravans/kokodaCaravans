@@ -338,6 +338,7 @@ function export_pdf()
     {
         set_query_var('caravan_id', $_POST['caravan_id']);
         set_query_var('custom_order', $_POST['custom_order']);
+        Track_user_export_pdf($_POST['custom_order']);
         require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/summary-report-template.php' );
     }
     wp_die();
@@ -391,4 +392,38 @@ function wpb_sender_email()
     //as your website to avoid being marked as spam.
     $host = $_SERVER['HTTP_HOST'];
     return "noreply@" .str_replace('www.','',$host);
+}
+
+/**
+ * this function will track user input
+ * at the custom order page so we will know their behavior and interest at our model
+ * @param array $user_input
+ */
+function Track_user_export_pdf($user_input)
+{
+    if(isset($user_input))
+    {
+        try {
+            $list = array(
+                array(
+                    $user_input['caravan'],
+                    $user_input['caravan_options']['panel']['value'],
+                    $user_input['caravan_options']['checker_plate']['value']
+                )
+            );
+
+            $file_name = WP_CONTENT_DIR . '/uploads/custom_order/track_user_choice.csv';
+
+            $fp = fopen($file_name, 'a+');
+
+            foreach ($list as $fields) {
+                fputcsv($fp, $fields);
+            }
+
+            fclose($fp);
+        } catch (Exception $e) {
+            echo 'Caught exception: ', $e->getMessage(), "\n";
+
+        }
+    }
 }

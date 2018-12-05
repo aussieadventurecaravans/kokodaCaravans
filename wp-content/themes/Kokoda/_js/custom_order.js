@@ -753,9 +753,6 @@ jQuery(function($) {
             el += '</div>';
             $('.tabcontent#summary .display-model-name').html(el);
 
-
-
-
         }
 
 
