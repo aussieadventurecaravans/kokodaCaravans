@@ -26,54 +26,67 @@
 {
     width: 100%; text-align: left;
 }
-
-@media only screen and (max-width: 767px)
+.page-template-custom-order-template .products-navigation
 {
-    .page.page-template-custom-order-template .banner-wrap .banner .banner-content
+    display: none;
+}
+
+@media only screen and (max-width: 768px)
+{
+    .page.page-template-custom-order-template .page-heading-wrap  .banner-content
     {
         left: 0;
     }
 
-    .page.page-template-custom-order-template .banner-wrap .banner .banner-content h1
+    .page.page-template-custom-order-template .page-heading-wrap .banner-content h1
     {
         font-size: 24px;margin-bottom:0;
     }
 }
+.page.page-template-custom-order-template .page-heading-wrap
+{
+    position: relative;
+    display: block;
+    background-color: #ffffff;
+}
+
 .page-template-custom-order-template .page-heading
 {
     border: 1px solid #eaeff0;
     text-align: center;
     height: 114px;
 }
-@media only screen and (max-width: 767px)
+@media only screen and (max-width: 768px)
 {
     .page-template-custom-order-template .page-heading
     {
         height: 100px !important;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 20px;
     }
 }
 .page-template-custom-order-template .page-heading a.brand
 {
     margin: auto;
     text-align: center;
-    display: inline-block;
     width: auto;
+    display: block;
 }
 .page-template-custom-order-template .page-heading img.logo
 {
     max-width: 150px;
     width: 100%;
     height:auto;
-    margin:20px;
+    margin: 20px 10px;
 }
-@media only screen and (max-width: 767px)
+@media only screen and (max-width: 768px)
 {
     .page-template-custom-order-template .page-heading img.logo
     {
-        max-width: 150px;
         width: 100%;
-        height:auto;
-        margin:30px 7px;
+        height: auto;
+        margin: 0;
     }
     .page-template-custom-order-template  .page-heading-content
     {
@@ -89,23 +102,16 @@
 
 }
 
-.page.page-template-custom-order-template .banner-wrap .banner h1
+.page.page-template-custom-order-template .page-heading-wrap  h1
 {
-    font-size: 30px;
+    font-size: 2em;
     color: #000;
     text-shadow: none;
     text-align: center;
     height: 100%;
     margin: 0;
-    padding: 40px 0;
-}
-
-.page-template-custom-order-template .banner-wrap
-{
-    top:0;
-    height: 120px;
-    background-color: #ffffff;
-
+    text-transform: uppercase;
+    padding-top: 40px;
 }
 .custom-quote-section
 {
