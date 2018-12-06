@@ -291,7 +291,7 @@ $placeorder = array(
 
             <?php if(is_array($add_on_accessories)):?>
                 <?php if(sizeof($add_on_accessories) > 0): ?>
-                    <div class="row">
+                    <div class="row form-row">
                         <div class="col-12">
                             <?php echo form_label('Add On Accessories', 'add_on_options'); ?>
                             <ul class="list-group">

@@ -152,7 +152,7 @@ $submitQuote = array(
     <h1 class="h2 d-inline-flex">Ticket Request  #<?php echo $quote['quote_id']; ?></h1>
 
     <div class="buttons-field d-flex flex-row-reverse">
-        <button class="btn btn-lg btn-info email-customer m-2" quote_id="<?php echo $quote['quote_id']; ?>">
+        <button class="btn btn-lg btn-info email-customer m-2"  data-toggle="modal" data-target="#send-email-customer-modal" >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             Email Customer
         </button>
@@ -369,6 +369,33 @@ $submitQuote = array(
                     </div>
                 </div>
             </div>
+
+
+            <div class="modal fade" id="send-email-customer-modal" tabindex="-1" role="dialog" aria-labelledby="send-email-customer-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Send Request Confirm</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Send To:</label>
+                                    <input type="email" class="form-control" id="recipient-name">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary send-email-customer-btn" quote_id="<?php echo $quote['quote_id']; ?>">Send Email</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
             <?php echo form_close(); ?>

@@ -9,7 +9,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/custom.css" />
 
-
     <title>
         <?php
         if(isset($title))
@@ -171,6 +170,10 @@
 <script>
     feather.replace()
 </script>
+
+<!-- load sweet alert js  -->
+<script type="text/javascript" src="<?php echo base_url() . 'assets/js/sweetalert/sweetalert.js'  ?>"></script>
+<link rel="stylesheet" href="<?php  echo base_url()  . 'assets/js/sweetalert/sweetalert.css' ?>" >
 
 <script src="<?php echo base_url();?>assets/js/Chart.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/custom.js"></script>

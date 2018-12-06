@@ -117,6 +117,7 @@ class Quote_request extends CI_Controller {
     {
         $user_id = $this->session->userdata('user_id');
         $quote_id = $this->input->post('quote_id');
+        $custom_email = $this->input->post('custom_email');
         if(!$user_id)
         {
             $this->session->set_userdata('referer_url',  base_url('quote_request') . '?quote_id=' . $quote_id );
@@ -136,15 +137,21 @@ class Quote_request extends CI_Controller {
                 require_once(KOKODA_CUSTOM_ORDER_PLUGIN_URL.'includes/models/quote.php');
             }
             $wp_quote = new Quote();
+            if(isset($custom_email) && !empty($custom_email))
+            {
+              $wp_quote->send_new_quote_email_to_customer($quote_obj,$custom_email);
+            }
+            else
+            {
+                $wp_quote->send_new_quote_email_to_customer($quote_obj);
+            }
 
-            $wp_quote->send_new_quote_email_to_customer($quote_obj);
-
-            return true;
+            echo true;
         }
         catch (Exception $e)
         {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
-            return false;
+            echo false;
         }
 
     }
@@ -174,12 +181,12 @@ class Quote_request extends CI_Controller {
             $wp_quote = new Quote();
             $wp_quote->send_new_quote_email_to_dealer($quote_obj);
 
-            return true;
+            echo true;
         }
         catch (Exception $e)
         {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
-            return false;
+            echo false;
         }
 
     }

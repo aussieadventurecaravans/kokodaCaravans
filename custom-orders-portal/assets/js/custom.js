@@ -28,12 +28,13 @@ var myChart = new Chart(ctx, {
 });
 */
 
-$("button.email-customer").click(function(e)
+$("button.send-email-customer-btn").click(function(e)
 {
-    if($(this).attr('quote_id') !== undefined)
+   if($(this).attr('quote_id') !== undefined)
     {
         var data = {
-            'quote_id': $(this).attr('quote_id')
+            'quote_id': $(this).attr('quote_id'),
+            'custom_email' : $('#send-email-customer-modal input#recipient-name').val()
         };
 
         var url = "/custom-orders-portal/quote_request/send_email_customer";
@@ -46,7 +47,14 @@ $("button.email-customer").click(function(e)
             dataType: 'json',
             success: function(data)
             {
-                alert("success!");
+                console.log('passed');
+                swal({
+                    title: "Thank You",
+                    text: "Your email is sent successfully.",
+                    icon: "success",
+                    type: "success",
+                    button: "Yes"
+                });
             }
         });
     }
@@ -70,7 +78,13 @@ $("button.email-dealer").click(function(e)
             dataType: 'json',
             success: function(data)
             {
-                alert("success!");
+                swal({
+                    title: "Thank You",
+                    text: "Your email is sent successfully.",
+                    icon: "success",
+                    type: "success",
+                    button: "Yes"
+                });
             }
         });
     }

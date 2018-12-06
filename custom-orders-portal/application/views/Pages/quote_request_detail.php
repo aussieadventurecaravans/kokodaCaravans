@@ -202,7 +202,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                     <?php echo '<div class="errors">'.form_error('$customer_state').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Email', 'customer_email'); ?>
                     <?php echo form_input($customer_email); ?>
@@ -210,14 +210,14 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Phone', 'customer_phone'); ?>
                     <?php echo form_input($customer_phone); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_phone').'</div>'; ?>
                 </div>
             </div>
-            <div class="row">
+            <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Model', 'product_name'); ?>
                     <?php echo form_input($product_name); ?>
