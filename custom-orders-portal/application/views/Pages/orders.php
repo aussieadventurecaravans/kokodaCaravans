@@ -8,6 +8,7 @@
         <thead>
         <tr>
             <th>Order ID</th>
+            <th>Quote ID</th>
             <th>Customer name</th>
             <th>Caravan Model</th>
             <th>Customer Email</th>
@@ -26,6 +27,7 @@
             <?php foreach($orders as $order):  ?>
                 <tr>
                     <td><?php echo $order['order_id'] ?></td>
+                    <td><?php echo $order['quote_id'] ?></td>
                     <td><?php echo $order['customer_first_name']. ' ' . $order['customer_last_name'] ?></td>
                     <td><?php echo $order['product_name'] ?></td>
                     <td><?php echo $order['customer_email'] ?></td>

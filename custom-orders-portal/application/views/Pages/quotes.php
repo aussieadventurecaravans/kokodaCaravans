@@ -8,6 +8,7 @@
         <thead>
         <tr>
             <th>Quote ID</th>
+            <th>Ticket</th>
             <th>Customer name</th>
             <th>Caravan Model</th>
             <th>Customer Email</th>
@@ -26,6 +27,7 @@
             <?php foreach($quotes as $quote): ?>
                 <tr>
                     <td><?php echo $quote['quote_id'] ?></td>
+                    <td><?php echo $quote['web_quote_id'] ?></td>
                     <td><?php echo $quote['customer_first_name']. ' ' . $quote['customer_last_name'] ?></td>
                     <td><?php echo $quote['product_name'] ?></td>
                     <td><?php echo $quote['customer_email'] ?></td>

@@ -263,10 +263,12 @@ $submitQuote = array(
                 <div class="col-12">
                     <?php echo form_label('Custom Options', 'custom_options'); ?>
                     <ul class="list-group">
+                        <?php $_custom_option_price = 0; ?>
                         <?php foreach($custom_options as $key => $value ): ?>
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize"><?php echo preg_replace('/[^A-Za-z0-9\-]/', ' ', $key) . ':'; ?> </span>
-                                <span class="text-capitalize"><?php echo $value; ?></span>
+                                <span class="text-capitalize"><?php echo $value['value'] ?> -  $<?php echo $value['price'] ?> </span>
+                                <?php $_custom_option_price = $_custom_option_price + $value['price']; ?>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -300,6 +302,10 @@ $submitQuote = array(
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Model Price:</span>
                                 <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['product_cost']); ?></span>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Exterior Price:</span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($_custom_option_price); ?></span>
                             </li>
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Accessories Price:</span>
