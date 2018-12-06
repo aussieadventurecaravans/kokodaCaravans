@@ -125,28 +125,33 @@ setup_postdata($post);
     <?php $html .= '</div>'; ?>
 <?php endif; ?>
 
-<?php $accessories =  unserialize($quote->add_on_accessories); ?>
+<?php if( isset($quote->add_on_accessories)) : ?>
 
-<?php if(count($accessories) > 0): ?>
+    <?php $accessories =  unserialize($quote->add_on_accessories); ?>
 
-<?php $html1 .=' <div class="tab-header"><h3>Add-On Accessories</h3></div>' ?>
+    <?php if(is_array($accessories)): ?>
 
-<?php $html1 .= ' <div class="display-accessories-wrapper row" id="summary-display-accessories-wrapper">'; ?>
+        <?php if(count($accessories) > 0): ?>
+
+            <?php $html1 .='<div class="tab-header"><h3>Add-On Accessories</h3></div>' ?>
+
+            <?php $html1 .= '<div class="display-accessories-wrapper row" id="summary-display-accessories-wrapper">'; ?>
 
 
-<?php $html1 .=  '<div class="col-md-12 text-center">'; ?>
-<?php foreach($accessories as $accessory):?>
-        <?php $html1 .= '<div class="item"><div class="item-detail">'; ?>
-        <?php $html1 .= '<img src="' . content_url('uploads') . '/custom_order/Accessories/' . $accessory['label'] . '.png" />'; ?>
-        <?php $html1 .= '<h3>' . $accessory['label']  .'</h3>'; ?>
-        <?php $html1 .= '<h3>(SKU: ' . $accessory['sku']  .')</h3>'; ?>
-        <?php $html1 .=  '</div></div>'; ?>
-<?php  endforeach; ?>
+            <?php $html1 .=  '<div class="col-md-12 text-center">'; ?>
+            <?php foreach($accessories as $accessory):?>
+                    <?php $html1 .= '<div class="item"><div class="item-detail">'; ?>
+                    <?php $html1 .= '<img src="' . content_url('uploads') . '/custom_order/Accessories/' . $accessory['label'] . '.png" />'; ?>
+                    <?php $html1 .= '<h3>' . $accessory['label']  .'</h3>'; ?>
+                    <?php $html1 .= '<h3>(SKU: ' . $accessory['sku']  .')</h3>'; ?>
+                    <?php $html1 .=  '</div></div>'; ?>
+            <?php  endforeach; ?>
 
-<?php $html1 .= ' </div>'; ?>
+            <?php $html1 .= '</div>'; ?>
 
-<?php $html1 .= ' </div>'; ?>
-
+            <?php $html1 .= '</div>'; ?>
+        <?php endif; ?>
+    <?php endif; ?>
 <?php endif; ?>
 
 <?php $html2 = '<div class="tab-header"><h3>Specifications</h3></div>'; ?>

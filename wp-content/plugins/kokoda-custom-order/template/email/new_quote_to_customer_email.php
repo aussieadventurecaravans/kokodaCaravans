@@ -479,23 +479,26 @@
                 </tr>
 
                 <?php
-
-                $accessories = unserialize($_quote->add_on_accessories);
-                if(count($accessories) > 0):
-                ?>
-                <tr>
-                    <td style="padding: 30px 0 0px 0; border-bottom: 1px dashed #aaaaaa;">
-                        <!-- ONE COLUMNS -->
-                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                if(isset($_quote->add_on_accessories)): ?>
+                    <?php $accessories = unserialize($_quote->add_on_accessories); ?>
+                    <?php if(is_array($accessories)): ?>
+                        <?php if(count($accessories) > 0): ?>
                             <tr>
-                                <td valign="top" class="mobile-wrapper">
-                                    <!-- LEFT COLUMN -->
-                                    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%;" align="left">
+                                <td style="padding: 30px 0 0px 0; border-bottom: 1px dashed #aaaaaa;">
+                                    <!-- ONE COLUMNS -->
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                         <tr>
-                                            <td style="padding: 0 0 10px 0;">
-                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <td valign="top" class="mobile-wrapper">
+                                                <!-- LEFT COLUMN -->
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%" style="width: 100%;" align="left">
                                                     <tr>
-                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Add-On Accessories</td>
+                                                        <td style="padding: 0 0 10px 0;">
+                                                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px; font-weight: bold;">Add-On Accessories</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -503,50 +506,49 @@
                                     </table>
                                 </td>
                             </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding:10px 0 0px 0;border-bottom: 1px dashed #aaaaaa;">
-                        <!-- TWO COLUMNS -->
-                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                            <?php foreach($accessories as $option): ?>
-                                <tr>
-                                    <td valign="top" style="padding: 0;" class="mobile-wrapper">
-                                        <!-- LEFT COLUMN -->
-                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
+                            <tr>
+                                <td style="padding:10px 0 0px 0;border-bottom: 1px dashed #aaaaaa;">
+                                    <!-- TWO COLUMNS -->
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <?php foreach($accessories as $option): ?>
                                             <tr>
-                                                <td style="padding: 0 0 10px 0;">
-                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                <td valign="top" style="padding: 0;" class="mobile-wrapper">
+                                                    <!-- LEFT COLUMN -->
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="left">
                                                         <tr>
-                                                            <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
-                                                                <?php echo $option['label']; ?>
+                                                            <td style="padding: 0 0 10px 0;">
+                                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                    <tr>
+                                                                        <td align="left" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
+                                                                            <?php echo $option['label']; ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- RIGHT COLUMN -->
+                                                    <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
+                                                        <tr>
+                                                            <td style="padding: 0 0 10px 0;">
+                                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                                    <tr>
+                                                                        <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
+                                                                            <?php echo '$' . $option['retail_price']; ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </td>
                                             </tr>
-                                        </table>
-                                        <!-- RIGHT COLUMN -->
-                                        <table cellpadding="0" cellspacing="0" border="0" width="47%" style="width: 47%;" align="right">
-                                            <tr>
-                                                <td style="padding: 0 0 10px 0;">
-                                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                                                        <tr>
-                                                            <td align="right" style="font-family: Arial, sans-serif; color: #333333; font-size: 16px;">
-                                                                <?php echo '$' . $option['retail_price']; ?>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </table>
-                    </td>
-                </tr>
+                                        <?php endforeach; ?>
+                                    </table>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 <?php endif;?>
             </table>
             <!--[if (gte mso 9)|(IE)]>
