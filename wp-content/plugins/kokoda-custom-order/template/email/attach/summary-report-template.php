@@ -125,7 +125,7 @@ setup_postdata($post);
     <?php $html .= '</div>'; ?>
 <?php endif; ?>
 
-<?php if( isset($quote->add_on_accessories)) : ?>
+<?php if(isset($quote->add_on_accessories)) : ?>
 
     <?php $accessories =  unserialize($quote->add_on_accessories); ?>
 
@@ -284,22 +284,24 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
                 <?php $html3 .= '</td>'; ?>
             <?php $html3 .= '</tr>';?>
         <?php endif;?>
-        <?php if(count($accessories) > 0) : ?>
-            <?php $html3 .= '<tr>'; ?>
+        <?php if(is_array($accessories)) : ?>
+            <?php if(count($accessories) > 0) : ?>
+                <?php $html3 .= '<tr>'; ?>
 
-                <?php $html3 .= '<td  scope="row"><h4>Add-On Accessories</h4>'; ?>
-                    <?php foreach($accessories as $accessory):?>
-                        <?php $html3 .= '<div class="acc-item">'; ?>
-                        <?php $html3 .= '<span class="acc-label"> + ' . $accessory['label']  .'</span>'; ?>
-                        <?php $html3 .=  '</div>'; ?>
-                    <?php  endforeach; ?>
-                <?php $html3 .= ' </td>'; ?>
+                    <?php $html3 .= '<td  scope="row"><h4>Add-On Accessories</h4>'; ?>
+                        <?php foreach($accessories as $accessory):?>
+                            <?php $html3 .= '<div class="acc-item">'; ?>
+                            <?php $html3 .= '<span class="acc-label"> + ' . $accessory['label']  .'</span>'; ?>
+                            <?php $html3 .=  '</div>'; ?>
+                        <?php  endforeach; ?>
+                    <?php $html3 .= ' </td>'; ?>
 
-                <?php $html3 .= '<td>'; ?>
-                <?php $html3 .= ' <p> $' . number_format($accessories_price) . '</p>'; ?>
-                <?php $html3 .= ' </td>'; ?>
+                    <?php $html3 .= '<td>'; ?>
+                    <?php $html3 .= ' <p> $' . number_format($accessories_price) . '</p>'; ?>
+                    <?php $html3 .= ' </td>'; ?>
 
-            <?php $html3 .= '</tr>'; ?>
+                <?php $html3 .= '</tr>'; ?>
+            <?php endif; ?>
         <?php endif; ?>
 
         <?php $html3 .= '<tr class="total-price-row">'; ?>
@@ -417,12 +419,18 @@ $mpdf->WriteHTML($html);
 
 
 // add the add on accessories page
-if(count($custom_order['accessories']) > 0)
+if(isset($quote->add_on_accessories))
 {
-    $mpdf->AddPage();
-    $mpdf->WriteHTML($html1);
-}
+    if(is_array($accessories))
+    {
+        if(count($accessories) > 0)
+        {
+            $mpdf->AddPage();
+            $mpdf->WriteHTML($html1);
+        }
 
+    }
+}
 
 //add the specification page
 $mpdf->AddPage();

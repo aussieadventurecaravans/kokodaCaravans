@@ -277,24 +277,25 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
             <?php $html3 .= ' </td>'; ?>
         <?php $html3 .= '</tr>';?>
         <?php endif; ?>
-        <?php if(count($custom_order['accessories']) > 0) : ?>
-            <?php $html3 .= '<tr>'; ?>
+        <?php if( isset($custom_order['accessories']) && is_array($custom_order['accessories'])) : ?>
+            <?php if(count($custom_order['accessories']) > 0) : ?>
+                <?php $html3 .= '<tr>'; ?>
 
-                <?php $html3 .= '<td scope="row"><h4>Add-On Accessories</h4>'; ?>
-                    <?php foreach($accessories as $accessory):?>
-                        <?php $html3 .= '<div class="acc-item">'; ?>
-                        <?php $html3 .= '<span class="acc-label"> + ' . $accessory['label']  .'</span>'; ?>
-                        <?php $html3 .=  '</div>'; ?>
-                    <?php  endforeach; ?>
-                <?php $html3 .= ' </td>'; ?>
+                    <?php $html3 .= '<td scope="row"><h4>Add-On Accessories</h4>'; ?>
+                        <?php foreach($accessories as $accessory):?>
+                            <?php $html3 .= '<div class="acc-item">'; ?>
+                            <?php $html3 .= '<span class="acc-label"> + ' . $accessory['label']  .'</span>'; ?>
+                            <?php $html3 .=  '</div>'; ?>
+                        <?php  endforeach; ?>
+                    <?php $html3 .= ' </td>'; ?>
 
-                <?php $html3 .= '<td>'; ?>
-                <?php $html3 .= ' <p> $' . number_format($accessories_price) . '</p>'; ?>
-                <?php $html3 .= ' </td>'; ?>
+                    <?php $html3 .= '<td>'; ?>
+                    <?php $html3 .= ' <p> $' . number_format($accessories_price) . '</p>'; ?>
+                    <?php $html3 .= ' </td>'; ?>
 
-            <?php $html3 .= '</tr>'; ?>
+                <?php $html3 .= '</tr>'; ?>
+            <?php endif; ?>
         <?php endif; ?>
-
         <?php $html3 .= '<tr class="total-price-row">'; ?>
             <?php  $html3 .= ' <td class="header-wrapper"><span > Total Price (*) </span></td>'; ?>
             <?php  $html3 .= ' <td class="price-wrapper">$'.  number_format($total_price) .'</td>'; ?>
@@ -336,13 +337,14 @@ $mpdf->WriteHTML($html);
 
 
 
-
-
 // add the add on accessories page
-if(count($custom_order['accessories']) > 0)
+if( isset($custom_order['accessories']) && is_array($custom_order['accessories']))
 {
-    $mpdf->AddPage();
-    $mpdf->WriteHTML($html1);
+    if(count($custom_order['accessories']) > 0)
+    {
+        $mpdf->AddPage();
+        $mpdf->WriteHTML($html1);
+    }
 }
 
 
