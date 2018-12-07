@@ -139,7 +139,18 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Quote Detail</h1>
+    <h1 class="h2 d-inline-flex">Ticket Request  #<?php echo $quote['quote_id']; ?></h1>
+
+    <div class="buttons-field d-flex flex-row-reverse">
+        <button class="btn btn-lg btn-info email-customer m-2"  data-toggle="modal" data-target="#send-email-customer-modal" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email Customer
+        </button>
+        <button class="btn btn-lg btn-primary email-dealer m-2"  data-toggle="modal" data-target="#send-email-dealer-modal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email Dealer
+        </button>
+    </div>
 </div>
 
 
@@ -305,6 +316,56 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                     </li>
                 </ul>
             </fieldset>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="send-email-customer-modal" tabindex="-1" role="dialog" aria-labelledby="send-email-customer-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="send_email_customer_modal_form" method="post"  quote_id="<?php echo $quote['quote_id']; ?>">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Send Request Confirm</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Send To:</label>
+                            <input type="email" class="form-control" id="recipient-name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary send-email-customer-btn" value="Send Email"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="send-email-dealer-modal" tabindex="-1" role="dialog" aria-labelledby="send-email-dealer-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="send_email_dealer_modal_form" method="post"  quote_id="<?php echo $quote['quote_id']; ?>">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Send Request Notify</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Dealer Email:</label>
+                            <input type="email" class="form-control" id="recipient-name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-primary send-email-customer-btn" value="Send Email"/>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
