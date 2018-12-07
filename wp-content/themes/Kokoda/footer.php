@@ -189,8 +189,11 @@
         </script>
    <?php endif; ?>
     <div class="loading-icon-panel" id="loading-icon-panel">
-         <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/loading-progress.svg" class="loading-icon" alt="loading icon"/>
-            <p class="loading-icon-text">Please wait...</p>
+         <p class="loading-icon-text">
+             <img src="<?php echo get_stylesheet_directory_uri(); ?>/_img/loading-progress.svg" class="loading-icon" alt="loading icon"/>
+             <br/><br/>
+             Please wait...
+         </p>
     </div>
 
 	</body>

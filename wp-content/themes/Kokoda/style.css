@@ -4066,16 +4066,13 @@ nav .container {
 }
 #loading-icon-panel img.loading-icon
 {
-    position: relative;
-    top: 50%;
-    left: 0;
     width: 50px;
     height: auto;
 }
 #loading-icon-panel p.loading-icon-text
 {
 	position: absolute;
-	top: 650px;
+	top: 40%;
 	text-transform: uppercase;
 	width: 100%;
 	text-align: center;

@@ -581,40 +581,39 @@ jQuery(function($) {
                     $('#enquiry input#submit_order').attr('value', 'Loading....');
                     $('#loading-icon-panel').show();
 
-                },
-                success: function (data)
+                }
+            }).done(function (data)
+            {
+                $('#loading-icon-panel').hide();
+                if (data == true)
                 {
+                    $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
+                    $('#enquiry input#submit_order').attr('value', 'Complete');
 
-                    $('#loading-icon-panel').hide();
-                    if (data == true)
+                    swal({
+                        title: "Thank You",
+                        text: "Your enquire is submited successfully.",
+                        icon: "success",
+                        type: "success",
+                        button: "Yes"
+                    },function()
                     {
-                        $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-success').show();
-                        $('#enquiry input#submit_order').attr('value', 'Complete');
-
-                        swal({
-                            title: "Thank You",
-                            text: "Your enquire is submited successfully.",
-                            icon: "success",
-                            type: "success",
-                            button: "Yes"
-                        },function()
+                        setTimeout(function ()
                         {
-                            setTimeout(function ()
-                            {
-                                location = $site_url;
-                            }, 500);
-                        });
+                            location = $site_url;
+                        }, 500);
+                    });
 
 
-                    }
-                    else
-                    {
-                        $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-danger').show();
-                        $('#enquiry input#submit_order').attr('value', 'Submit');
-                        $('#enquiry input#submit_order').removeAttr("disabled");
-                    }
+                }
+                else
+                {
+                    $('.custom-quote-section .option-select-value-section  #enquiry .feedback-notice-messages .alert.alert-danger').show();
+                    $('#enquiry input#submit_order').attr('value', 'Submit');
+                    $('#enquiry input#submit_order').removeAttr("disabled");
                 }
             });
+
         }
 
 
@@ -702,17 +701,14 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function ()
-                {
+                beforeSend: function () {
                     $('#loading-icon-panel').show();
 
-                },
-                success: function (data)
-                {
+                }
+            }).done(function (data) {
                     $(".tabcontent#summary .display-features-wrapper").html(data);
                     $('#loading-icon-panel').hide();
-                }
-            });
+             });
 
             //render the list of selected accessories from order
             var el = '';
@@ -782,69 +778,67 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function() {
+                beforeSend: function () {
                     $('#loading-icon-panel').show();
-                },
-                success: function (data) {
+                }
+            }).done(function (data) {
+                $('#loading-icon-panel').hide();
 
-                    $('#loading-icon-panel').hide();
+                accessories = JSON.parse(data);
 
-                    accessories = JSON.parse(data);
+                //load accessories to template
+                var el = "";
 
-                    //load accessories to template
-                    var el = "";
+                for (var i = 0; i < accessories.length; i++)
+                {
 
-                    for (var i = 0; i < accessories.length; i++)
+                    //check if any accessories are added to current order
+                    var sel = '';
+                    if (custom_order.accessories.length > 0)
                     {
-
-                        //check if any accessories are added to current order
-                        var sel = '';
-                        if (custom_order.accessories.length > 0)
+                        for (var a = 0; a < custom_order.accessories.length; a++)
                         {
-                            for (var a = 0; a < custom_order.accessories.length; a++)
+                            if (accessories[i]['label'] == custom_order.accessories[a]['label'])
                             {
-                                if (accessories[i]['label'] == custom_order.accessories[a]['label'])
-                                {
-                                    sel = "selected";
-                                }
+                                sel = "selected";
                             }
                         }
-
-                        //render the accessories list at template
-                        el += '<div class="item ' + sel + ' col-md-2 col-sm-2 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
-                        el += '<span class="icon-moon"></span>';
-                        el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
-                        el += '<h3>' + accessories[i]['label'] + '</h3>';
-                        el += '<h3>' + ' (SKU: ' + accessories[i]['sku'] + ')</h3>';
-                        el += '<h3>$' + accessories[i]['retail_price'] +'</h3>';
-                        el += '</div></div>';
-
                     }
-                    accessories_wrapper.html(el);
 
-                    //add event listener to the accessories link
+                    //render the accessories list at template
+                    el += '<div class="item ' + sel + ' col-md-2 col-sm-2 col-xs-6" access-id="' + i + '" ><div class="item-detail">';
+                    el += '<span class="icon-moon"></span>';
+                    el += '<img src="' + $base_url + '/custom_order/Accessories/' + accessories[i]['label'] + '.png" />';
+                    el += '<h3>' + accessories[i]['label'] + '</h3>';
+                    el += '<h3>' + ' (SKU: ' + accessories[i]['sku'] + ')</h3>';
+                    el += '<h3>$' + accessories[i]['retail_price'] +'</h3>';
+                    el += '</div></div>';
 
-                    $(".tabcontent#accessories .accessories-list .item").click(function (e) {
-
-                        if ($(this).hasClass('selected')) {
-                            //remove accessories from the order
-                            $(this).removeClass('selected');
-                        }
-                        else {
-                            //add accessories to the order
-                            $(this).addClass('selected');
-                        }
-
-                        var acc_list = [];
-                        $(".tabcontent#accessories .accessories-list .item.selected").each(function (index) {
-                            var accessId = $(this).attr('access-id');
-                            acc_list.push(accessories[accessId]);
-
-                        });
-                        custom_order.accessories = acc_list;
-                        finance_section_update(true);
-                    });
                 }
+                accessories_wrapper.html(el);
+
+                //add event listener to the accessories link
+
+                $(".tabcontent#accessories .accessories-list .item").click(function (e) {
+
+                    if ($(this).hasClass('selected')) {
+                        //remove accessories from the order
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        //add accessories to the order
+                        $(this).addClass('selected');
+                    }
+
+                    var acc_list = [];
+                    $(".tabcontent#accessories .accessories-list .item.selected").each(function (index) {
+                        var accessId = $(this).attr('access-id');
+                        acc_list.push(accessories[accessId]);
+
+                    });
+                    custom_order.accessories = acc_list;
+                    finance_section_update(true);
+                });
             });
 
 
@@ -864,17 +858,14 @@ jQuery(function($) {
                 url: url,
                 data: data,
                 type: "POST",
-                beforeSend: function()
-                {
+                beforeSend: function () {
                     $('#loading-icon-panel').show();
-                },
-                success: function (data)
-                {
+                }
+            }).done(function (data) {
                     var base64string = data;
                     var d = new Date();
                     printPdfFile(base64ToArrayBuffer(base64string), caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear()  + '.pdf', 'application/pdf');
                     $('#loading-icon-panel').hide();
-                }
             });
         }
 
@@ -890,22 +881,21 @@ jQuery(function($) {
             var url = $site_url + "/wp-admin/admin-ajax.php";
             //loading the caravan detail before open panel
             $.ajax({
-                url: url,
-                data: data,
-                type: "POST",
-                beforeSend: function ()
-                {
-                    $('#loading-icon-panel').show();
+                    url: url,
+                    data: data,
+                    type: "POST",
+                    beforeSend: function () {
+                        $('#loading-icon-panel').show();
 
-                },
-                success: function (data)
-                {
-                   var base64string = data;
-                   var d = new Date();
-                    exportPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
+                    }
+            }).done(function(data) {
 
-                   $('#loading-icon-panel').hide();
-                }
+                var base64string = data;
+                var d = new Date();
+
+                exportPdfFile(base64ToArrayBuffer(base64string),  caravan_title[select_model_id] + ' ' + d.getDate() + '-' + d.getMonth() + '-' + d.getFullYear() +'.pdf', 'application/pdf');
+
+                $('#loading-icon-panel').hide();
             });
         }
 
