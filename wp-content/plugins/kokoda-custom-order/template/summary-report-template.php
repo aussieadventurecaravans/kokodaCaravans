@@ -7,6 +7,7 @@ $caravan_ids = array(
     5195 => 39,
     4032 => 43,
     4165 => 42,
+    7169 => 42,
     5026 => 39
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
