@@ -8,7 +8,8 @@ $caravan_ids = array(
     4032 => 43,
     4165 => 42,
     7169 => 42,
-    5026 => 39
+    5026 => 39,
+    4190 => 42
 );
 $_MAXIMUM_LINES = $caravan_ids[$caravan_id];
 
@@ -269,13 +270,13 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
         <?php if(isset($custom_order['caravan_options'])): ?>
         <?php $html3 .= '<tr>'; ?>
             <?php $html3 .= '<td scope="row"><h4>Custom Exterior </h4>' ;?>
-            <?php $html3 .= '<p>Panel Colour : '. $custom_order['caravan_options']['panel']['value'] .'</p>'; ?>
-            <?php $html3 .= '<p>Checker Plate Colour : '. $custom_order['caravan_options']['checker_plate']['value'] .'</p>'; ?>
+            <?php $html3 .= '<p style="text-transform: capitalize">Panel Colour : '. $custom_order['caravan_options']['panel']['value'] .'</p>'; ?>
+            <?php $html3 .= '<p style="text-transform: capitalize">Checker Plate Colour : '. $custom_order['caravan_options']['checker_plate']['value'] .'</p>'; ?>
             <?php $html3 .=  '</td>';  ?>
 
             <?php $html3 .= '<td><h4 style="color:#fff"> Cost </h4>'; ?>
-            <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['panel']['price']) .'</p>'; ?>
-            <?php $html3 .= '<p>$'. number_format($custom_order['caravan_options']['checker_plate']['price']) .'</p>'; ?>
+            <?php $html3 .= '<p style="text-transform: capitalize">$'. number_format($custom_order['caravan_options']['panel']['price']) .'</p>'; ?>
+            <?php $html3 .= '<p style="text-transform: capitalize">$'. number_format($custom_order['caravan_options']['checker_plate']['price']) .'</p>'; ?>
             <?php $html3 .= ' </td>'; ?>
         <?php $html3 .= '</tr>';?>
         <?php endif; ?>
