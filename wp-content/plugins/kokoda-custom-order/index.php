@@ -391,7 +391,7 @@ function wpb_sender_email()
     //Make sure the email is from the same domain
     //as your website to avoid being marked as spam.
     $host = $_SERVER['HTTP_HOST'];
-    return "_mainaccount@" .str_replace('www.','',$host);
+    return "noreply@" .str_replace('www.','',$host);
 }
 
 /**
