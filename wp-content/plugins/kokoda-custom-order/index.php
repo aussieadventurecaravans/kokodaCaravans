@@ -258,7 +258,7 @@ add_action('wp_ajax_nopriv_list_accessories', 'list_accessories');
 
 
 // Hooking up our functions to  filter wordpress email send header
-//add_filter( 'wp_mail_from', 'wpb_sender_email' );
+add_filter( 'wp_mail_from', 'wpb_sender_email' );
 add_filter( 'wp_mail_from_name', 'wpb_sender_name' );
 
 //add custom order page template
@@ -391,7 +391,7 @@ function wpb_sender_email()
     //Make sure the email is from the same domain
     //as your website to avoid being marked as spam.
     $host = $_SERVER['HTTP_HOST'];
-    return "noreply@" .str_replace('www.','',$host);
+    return "_mainaccount@" .str_replace('www.','',$host);
 }
 
 /**
