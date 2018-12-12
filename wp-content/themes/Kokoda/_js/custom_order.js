@@ -693,7 +693,8 @@ jQuery(function($) {
             //render the the feature spec for the model
             var data = {
                 'action': 'get_caravan',
-                'caravan_id': custom_order.caravan
+                'caravan_id': custom_order.caravan,
+                'custom_order': custom_order
             };
             var url = $site_url + "/wp-admin/admin-ajax.php";
             //loading the caravan detail before open panel

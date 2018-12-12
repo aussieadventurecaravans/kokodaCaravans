@@ -323,8 +323,13 @@ function submit_customorder()
 
 function get_caravan()
 {
+    if(isset($_POST['custom_order']))
+    {
+        Track_user_export_pdf($_POST['custom_order']);
+    }
     if( isset( $_POST['caravan_id'] ))
     {
+
         set_query_var('caravan_id', $_POST['caravan_id']);
         require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/caravan-specs-part.php' );
     }
@@ -338,7 +343,6 @@ function export_pdf()
     {
         set_query_var('caravan_id', $_POST['caravan_id']);
         set_query_var('custom_order', $_POST['custom_order']);
-        Track_user_export_pdf($_POST['custom_order']);
         require( KOKODA_CUSTOM_ORDER_PLUGIN_URL . 'template/summary-report-template.php' );
     }
     wp_die();
