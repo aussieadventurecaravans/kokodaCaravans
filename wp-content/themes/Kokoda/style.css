@@ -512,7 +512,7 @@ nav .container {
 {
 	.home.page .banner .banner-list-wrap
 	{
-		margin-top:0;
+		margin-top: -7%;
 	}
 }
 .home.page .banner-list-wrap .banner-wrap {
@@ -611,7 +611,7 @@ nav .container {
 		height: 200px;
 	}
 }
-.page.home .banner-wrap .banner h1 {
+.page.home .banner-wrap .banner h1 , .page.home .banner-wrap .banner h2 {
 	color: #000;
 	text-shadow: none;
 	font-weight: bold;
@@ -626,7 +626,8 @@ nav .container {
 	text-shadow: none;
 }
 
-.page.home .banner-wrap .banner a.btn-default {
+.page.home .banner-wrap .banner a.btn-default
+{
 	color: #fff;
 	font-size: 12px;
 	display: block;
