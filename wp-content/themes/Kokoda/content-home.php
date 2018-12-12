@@ -1,9 +1,7 @@
-
-
-
 <?php $banner_img = get_field('home_banner_image'); ?>
 <?php $banner_img_2 = get_field('home_banner_image_2'); ?>
 <?php $banner_img_3 = get_field('home_banner_image_3'); ?>
+<?php $banner_img_4 = get_field('home_banner_image_4'); ?>
 <div class="banner">
     <div class="banner-list-wrap" id="banner-list">
         <?php if(!empty($banner_img)): ?>
@@ -27,7 +25,7 @@
                         <img src="<?php echo $banner_img_2; ?>" />
                         <div class="banner-content">
                             <?php the_field('home_banner_text_2'); ?>
-                            <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                            <a href="<?php the_field('home_banner_button_link_2'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text_2'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -41,7 +39,21 @@
                         <img src="<?php echo $banner_img_3; ?>" />
                         <div class="banner-content">
                             <?php the_field('home_banner_text_3'); ?>
-                            <a href="<?php the_field('home_banner_button_link'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text'); ?></a>
+                            <a href="<?php the_field('home_banner_button_link_3'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text_3'); ?></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if(!empty($banner_img_4)): ?>
+            <div class="banner-wrap item">
+                <div class="banner container-fluid">
+                    <div class="row">
+                        <img src="<?php echo $banner_img_4; ?>" />
+                        <div class="banner-content">
+                            <?php the_field('home_banner_text_4'); ?>
+                            <a href="<?php the_field('home_banner_button_link_4'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text_4'); ?></a>
                         </div>
                     </div>
                 </div>
@@ -73,6 +85,10 @@
             <div class="banner-content content-3">
                 <?php the_field('home_banner_text_3'); ?>
                 <a href="<?php the_field('home_banner_button_link_3'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text_3'); ?></a>
+            </div>
+            <div class="banner-content content-4">
+                <?php the_field('home_banner_text_4'); ?>
+                <a href="<?php the_field('home_banner_button_link_4'); ?>" class="btn btn-default"><?php the_field('home_banner_button_text_4'); ?></a>
             </div>
         </div>
     </div>
