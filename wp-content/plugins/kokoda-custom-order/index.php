@@ -408,6 +408,7 @@ function Track_user_export_pdf($user_input)
     if(isset($user_input))
     {
         try {
+            if(!in_array(GetClientIP(),array("58.171.141.167","127.0.0.1")))
             $list = array(
                 array(
                     GetClientIP(),
