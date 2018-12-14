@@ -93,15 +93,14 @@
         </div>
     </div>
 </div>
-
 <div class="break" id="break">
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2><?php the_field('home_break_heading'); ?></h2>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2><?php the_field('home_break_heading'); ?></h2>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php if(have_rows('home_featured_caravans')): ?>
@@ -154,7 +153,19 @@
 	</div>
 	
 <?php endif; ?>
-
+<div class="custom-order-panel">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="<?php echo get_field('custom_order_banner'); ?>" />
+                <div class="custom-order-content">
+                    <?php the_field('custom_order_text'); ?>
+                    <a href="<?php the_field('custom_order_link'); ?>" class="btn btn-default">Build It</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?php if(have_rows('home_benefit_icons')): ?>
 
 	<div class="benefits">

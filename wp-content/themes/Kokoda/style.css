@@ -607,7 +607,7 @@ nav .container {
 @media only screen and (max-width:1326px) {
 	.page.home .banner-wrap .banner .row .banner-content
 	{
-		left: 0%;
+		left: 0;
 		height: 200px;
 	}
 }
@@ -807,9 +807,10 @@ nav .container {
 }
 /* BENEFITS */
 
-.benefits {
+.home.page .benefits {
 	padding-top: 60px;
 	padding-bottom: 60px;
+	background-color: #f8f9f9;
 }
 
 .benefits .icon {
@@ -833,7 +834,7 @@ nav .container {
 /* BLOG */
 
 .home .blog {
-	background: #f8f9f9;
+	background: #fff;
 	padding-top: 60px;
 	padding-bottom: 60px;
 }
@@ -871,7 +872,7 @@ nav .container {
 }
 
 .blog .item h3 {
-	font-size: 24px;
+	font-size: 1.6em;
 	font-weight: 400;
 	color: #0c121d;
 	margin: 0 0 10px 0;
@@ -895,7 +896,8 @@ nav .container {
 	font-size:14px;
 }
 
-.blog .item.article {
+.blog .item.article
+{
 	background-image: url('_img/ico-news-article@2x.png');
 }
 
@@ -6137,4 +6139,63 @@ CUSTOMIZE THE ARCHIVE PAGE
 	line-height: normal;
 	font-family: 'Rubik', sans-serif;
 	border: 1px solid #fff;
+}
+/**
+home page custom order panel
+ */
+
+.home.page .custom-order-panel
+{
+	background: #fff;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.home.page .custom-order-panel .container-fluid {
+	padding-right: 0;
+	padding-left: 0;
+	margin-right: auto;
+	margin-left: auto;
+}
+.home.page .custom-order-panel img {
+	width: 100%;
+	min-height: 200px;
+}
+
+
+.home.page .custom-order-panel .custom-order-content
+{
+	color: #000;
+	background-color: hsla(0,0%,100%,.9);
+	padding: 19px 25px 21px;
+	min-width: 450px;
+	height: 210px;
+	left: 5.2%;
+	top: 30%;
+	position: absolute;
+}
+
+@media only screen and (max-width: 1326px) {
+	.home.page .custom-order-panel .custom-order-content
+	{
+		left: 0;
+		height: 200px;
+	}
+}
+
+.home.page .custom-order-panel .custom-order-content a{
+	color: #fff;
+	font-size: 12px;
+	display: block;
+	height: 46px;
+	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	background: #0c121c;
+	padding: 15px 5%;
+	text-align: center;
+	width: 200px;
+}
+
+.home.page .custom-order-panel .custom-order-content a.btn-default:hover {
+	background: #fff;
+	color: #0c121c;
 }
