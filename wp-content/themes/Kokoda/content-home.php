@@ -164,6 +164,14 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="mobile-custom-order-content stripe center">
+                    <?php the_field('custom_order_text'); ?>
+                    <a href="<?php the_field('custom_order_link'); ?>" class="btn btn-default">Build It</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <?php if(have_rows('home_benefit_icons')): ?>

@@ -6199,3 +6199,34 @@ home page custom order panel
 	background: #fff;
 	color: #0c121c;
 }
+
+.home.page .custom-order-panel .mobile-custom-order-content
+{
+	display: none;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+@media (max-width: 900px)
+{
+	.home.page .custom-order-panel .custom-order-content
+	{
+		display: none;
+	}
+	.home.page .custom-order-panel .mobile-custom-order-content
+	{
+		display: block;
+	}
+}
+
+.home.page .custom-order-panel .mobile-custom-order-content a
+{
+	color: #fff;
+	font-size: 17px;
+	height: 46px;
+	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+	background: #0c121c;
+	padding: 10px 5%;
+	text-align: center;
+	width: 200px;
+}
