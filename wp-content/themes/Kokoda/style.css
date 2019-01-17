@@ -6154,7 +6154,10 @@ home page custom order panel
 	width: 100%;
 	min-height: 200px;
 }
-
+.home.page .custom-order-panel .container-fluid  .row
+{
+	position: relative;
+}
 
 .home.page .custom-order-panel .custom-order-content
 {

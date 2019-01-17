@@ -155,14 +155,12 @@
 <?php endif; ?>
 <div class="custom-order-panel">
     <div class="container-fluid">
-        <div class="row">
-            
-            <img src="<?php echo get_field('custom_order_banner'); ?>" />
-            <div class="custom-order-content">
-                <?php the_field('custom_order_text'); ?>
-                <a href="<?php the_field('custom_order_link'); ?>" class="btn btn-default">Build It</a>
-            </div>
-
+        <div class="row" style="position: relative">
+                <img src="<?php echo get_field('custom_order_banner'); ?>" />
+                <div class="custom-order-content">
+                    <?php the_field('custom_order_text'); ?>
+                    <a href="<?php the_field('custom_order_link'); ?>" class="btn btn-default">Build It</a>
+                </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
