@@ -294,6 +294,29 @@ $submitQuote = array(
                 <?php endif; ?>
             <?php endif; ?>
 
+
+            <div class="row dealer-row">
+                <div class="col-12">
+                    <fieldset class="dealer-detail-section">
+                        <legend class="header">Dealer Detail</legend>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Dealer Name: </span>
+                                <span class="text-capitalize"><?php echo $quote['dealer_name']; ?></span>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Dealer Email: </span>
+                                <span class="text-capitalize"><?php echo $quote['dealer_email']; ?></span>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="font-weight-bold text-capitalize">Dealer Phone: </span>
+                                <span class="text-capitalize"><?php echo $quote['dealer_phone']; ?></span>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </div>
+            </div>
+
             <div class="row finance-row">
                 <div class="col-6">
                     <fieldset class="total-price-section">

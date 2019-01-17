@@ -222,7 +222,8 @@ ul.navbar-nav li
 
 
 fieldset.finance-section,
-fieldset.total-price-section
+fieldset.total-price-section,
+fieldset.dealer-detail-section
 {
     border: 1px solid #d5d6d6 !important;
     padding: 0 1.4em 1.4em 1.4em !important;
@@ -232,7 +233,8 @@ fieldset.total-price-section
     border-radius: 8px;
 }
 fieldset.finance-section .header,
-fieldset.total-price-section .header
+fieldset.total-price-section .header,
+fieldset.dealer-detail-section .header
 {
     border-bottom: none;
     width: auto;
@@ -240,9 +242,9 @@ fieldset.total-price-section .header
     font-weight: 400;
 }
 
-
+fieldset.total-price-section .list-group-item,
 fieldset.finance-section  .list-group-item,
-fieldset.total-price-section .list-group-item
+fieldset.dealer-detail-section .list-group-item
 {
     padding: 0.5rem 1.25rem;
     border: 1px solid rgb(255, 255, 255);
