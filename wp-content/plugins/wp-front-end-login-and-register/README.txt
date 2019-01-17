@@ -3,7 +3,7 @@ Contributors: Mohsin khan
 Donate link: https://www.paypal.me/mohsinalam
 Tags: front end login,front end login and registration, wordpress login,wordpress login and registration, frontend regstration,custom registration, responsive, custom login, custom signup, ajax login, ajax signup, signup, signin, register, registration login, reset password, forgot password
 Requires at least: 3.0.1
-Tested up to: 4.9.4
+Tested up to: 4.9.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ With WP Front-end login and register, you can easily make use of login and regis
 
 = Some of the features =
 
-* AJAX-powered login and registration, no screen refreshes!
+* AJAX-powered login ,registration and Profile page with profile picture, no screen refreshes!
 * Fully responsive design using Bootstrap.
 * Customize your redirect URL after successful login/logout to redirect your users to a custom URL or page.
 * Easily customize your login/registration form heading as well as the button text from the backend.
@@ -40,6 +40,7 @@ Just create a normal WordPress page, and use the following shortcodes:
 
 * For login form: `[wpmp_login_form]`
 * For registration form: `[wpmp_register_form]`
+* For profile page/User dashboard : `[wpmp_user_profile]`
 
 = Usage =
 
@@ -72,5 +73,20 @@ For example : `<?php echo do_shortcode("[wpmp_login_form]"); ?>`
 4. Email confirmation message
 5. Reset password
 6. Backend Settings with tabs
+7. Profile Page/User dashboard
+
+
+== Changelog ==
+ 
+= 2.1 =
+* Added profile page/ user dashboard 
+* Add user profile image update option
+* Fixed some other minor issues
+ 
+= 2.0 =
+* fixed some errors.
+
+= 1.0 =
+* First version.
 
 

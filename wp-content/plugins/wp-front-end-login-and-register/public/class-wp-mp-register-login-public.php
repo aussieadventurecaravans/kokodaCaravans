@@ -66,7 +66,7 @@ class Wp_Mp_Register_Login_Public extends Wp_Mp_Register_Login_Generic_Public
     {
 
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wp-mp-register-login-public.js', array('jquery'), $this->version, false);
-        /*wp_enqueue_script($this->plugin_name . '-bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js', array('jquery'), $this->version, false);*/
+        wp_enqueue_script($this->plugin_name . '-bootstrap', plugin_dir_url(__FILE__) . 'js/bootstrap.min.js', array('jquery'), $this->version, false);
         wp_enqueue_script($this->plugin_name . '-formValidation.min', plugin_dir_url(__FILE__) . 'js/validator/formValidation.min.js', array('jquery'), $this->version, false);
         wp_enqueue_script($this->plugin_name . '-bootstrap-validator', plugin_dir_url(__FILE__) . 'js/validator/bootstrap-validator.min.js', array('jquery'), $this->version, false);
         // localizing gloabl js objects
@@ -316,6 +316,61 @@ class Wp_Mp_Register_Login_Public extends Wp_Mp_Register_Login_Generic_Public
         }
     }
     /*
+     * update profile and add profile image
+     * Load profile page html    
+     * 
+     */
+    function wpmp_user_profile_page(){
+        if ( is_user_logged_in() ) {
+            include_once 'partials/wpmp-profile.php';
+        } else {
+            wp_redirect(home_url());
+            exit;
+        }        
+    }
+    //update Profile
+    public function updateProfile(){        
+        // checking post data
+        if (isset($_POST) && $_POST) {
+            $nonce = $_POST['wpmp_profile_nonce'];
+            // For security : verifying wordpress nonce
+            if (!wp_verify_nonce($nonce, 'wpmp_profile_action')) {
+                _e('Failed security check !', $this->plugin_name);
+                exit;
+            }
+            // preparing user array and added required filters
+            $userdata = array(
+                'ID' => get_current_user_id(),               
+                'user_email' => apply_filters('pre_user_email', trim($_POST['wpmp_email'])),
+                'first_name' => apply_filters('pre_user_first_name', trim($_POST['wpmp_fname'])),
+                'last_name' => apply_filters('pre_user_last_name', trim($_POST['wpmp_lname']))                
+            );
+            // creating new user
+            $user_id = wp_update_user($userdata);
+            //Upload profile Pic
+            if($_FILES['wpmp_profile_pic']['size'] !=0 && $_FILES['wpmp_profile_pic']['error']==0){
+                if ( ! function_exists( 'wp_handle_upload' ) ) {
+                    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+                }
+            $uploadedfile = $_FILES['wpmp_profile_pic'];
+            $upload_overrides = array( 'test_form' => false );
+            $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+                if ( $movefile && ! isset( $movefile['error'] ) ) {
+        update_user_meta($user_id,'wpmp_profile_pic', $movefile['url']);
+                }
+            }            
+            // checking for errors while user registration
+            if (is_wp_error($user_id)) {
+                $response['error'] = $user_id->get_error_message();
+            } else {                
+                $response['reg_status'] = true;
+                $response['success'] = "Profile updated successfully";
+            }
+            // sending back the response in right header
+            wp_send_json($response);
+        }
+    }
+    /*
      * Send email confirmation link with token
      * @param array $userdata
      * @return bool
@@ -361,7 +416,7 @@ class Wp_Mp_Register_Login_Public extends Wp_Mp_Register_Login_Generic_Public
     public function wpmp_verify_token()
     {
         // checking email and token
-        if (isset($_GET) && $_GET['wpmp_email_verification_token'] && $_GET['email']) {
+        if (isset($_GET) && isset($_GET['wpmp_email_verification_token']) && $_GET['email']) {
             $user = get_user_by('email', $_GET['email']);
 
             if ($user->ID)

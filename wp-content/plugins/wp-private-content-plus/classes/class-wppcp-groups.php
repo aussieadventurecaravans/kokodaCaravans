@@ -13,6 +13,9 @@ class WPPCP_Groups{
         add_action( 'manage_' . WPPCP_GROUPS_POST_TYPE . '_posts_custom_column', array( $this,'custom_column_values'), 10, 2 );
 
         add_action( 'delete_post', array($this,'delete_group_info'), 10 );
+        add_action('restrict_manage_users', array($this,'add_group_filter_user_list'));
+        add_filter('init', array($this,'add_user_group'));
+        add_action('admin_notices', array($this,'bulk_admin_notices'));
 	}
 
 	public function register_groups(){
@@ -267,7 +270,76 @@ class WPPCP_Groups{
         $result = $wpdb->get_results($sql);
 
     }
-    
+
+    public function add_group_filter_user_list($name){
+
+        $group_select = '<select name="wppcp_user_list_group_%s" style="float:none;margin-left:10px;">
+    <option value="">%s</option>%s</select>';
+
+
+        $query = new WP_Query( array( 
+            'post_type' => WPPCP_GROUPS_POST_TYPE,
+            'post_status' => 'publish',
+            'posts_per_page'=>-1    ) );
+
+        $options = '';
+        if ( $query->have_posts() ) {
+            while ($query->have_posts()) : $query->the_post();            
+                 $options .= '<option value="'.get_the_ID().'">'.get_the_title().'</option>';
+            endwhile;
+            wp_reset_query();
+        }
+
+
+        $select = sprintf( $group_select, $name, __( 'Select Group...', 'wppcp' ), $options );
+
+        echo $select;
+        submit_button(__( 'Assign Group','wppcp' ), null, 'wppcp_user_list_group_submit' , false);
+    }
+
+    public function add_user_group($query){
+     global $pagenow,$wpdb;
+     if (is_admin() && 'users.php' == $pagenow && isset($_REQUEST['wppcp_user_list_group_submit']) ) { 
+        $users = isset($_GET['users']) ?   (array) $_GET['users'] : array() ;
+        $user_list_group = isset($_GET['wppcp_user_list_group_top']) ? (int) $_GET['wppcp_user_list_group_top'] : 0;
+        if($user_list_group != 0) {
+            foreach ($users as $user_id ) {
+                $sql  = $wpdb->prepare( "Delete from {$wpdb->prefix}wppcp_group_users where group_id=%d and user_id=%d", $user_list_group , $user_id);
+                $result = $wpdb->get_results($sql);
+
+                $sql  = $wpdb->prepare( "Insert into {$wpdb->prefix}wppcp_group_users(group_id,user_id,updated_at) values(%d,%d,'%s')", $user_list_group , $user_id, date("Y-m-d H:i:s"));
+                $result = $wpdb->get_results($sql);
+            }        
+        }
+     }
+    }
+
+    public function bulk_admin_notices(){
+
+        $screen = get_current_screen();
+        if ( $screen->id != "users" )   // Only add to users.php page
+            return;
+
+        $message = '';
+
+        if((isset($_REQUEST['wppcp_user_list_group_submit'])) ) {
+            $users = isset($_GET['users']) ?   (array) $_GET['users'] : array() ;
+            $user_list_group = isset($_GET['wppcp_user_list_group_top']) ? (int) $_GET['wppcp_user_list_group_top'] : 0;
+            if($user_list_group != 0 && count($users) > 0 ) {
+                $message = __( 'Users added to group.','wppcp');
+            }
+
+        }
+
+        if('' != $message){
+            $html = '<div class="updated">
+                        <p>'.$message.'</p>
+                    </div>';
+            echo $html; 
+        }
+        
+    }
+        
 }
 
 

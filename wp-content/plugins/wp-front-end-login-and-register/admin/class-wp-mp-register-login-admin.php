@@ -83,7 +83,7 @@ class Wp_Mp_Register_Login_Admin
 
     public function wpmp_load_settings_page()
     {
-        if ($_POST["wpmp-settings-submit"] == 'Y') {
+        if (isset($_POST["wpmp-settings-submit"]) && $_POST["wpmp-settings-submit"] == 'Y') {
             check_admin_referer("wpmp-settings-page");
             $this->wpmp_save_theme_settings();
             $url_parameters = isset($_GET['tab']) ? 'updated=true&tab=' . $_GET['tab'] : 'updated=true';
@@ -151,7 +151,7 @@ class Wp_Mp_Register_Login_Admin
         <div class="wrap">
             <h2><?php echo 'WP Register Login' ?> - Settings</h2>
 
-            <?php if ('true' == esc_attr($_GET['updated'])) { ?>
+            <?php if (isset($_GET['updated']) && 'true' == esc_attr($_GET['updated'])) { ?>
                 <div class="updated"><p>Settings updated.</p></div>
                 <?php
             }

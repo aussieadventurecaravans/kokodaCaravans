@@ -183,6 +183,11 @@ class Wp_Mp_Register_Login
         $this->loader->add_shortcode('wpmp_register_form', $plugin_public, 'wpmp_display_register_form');
 
         $this->loader->add_shortcode('wpmp_resetpassword_form', $plugin_public, 'wpmp_display_resetpassword_form');
+        //profile
+        $this->loader->add_shortcode('wpmp_user_profile', $plugin_public, 'wpmp_user_profile_page');
+        //wpmp_updateProfile
+        $this->loader->add_action( 'wp_ajax_nopriv_updateProfile', $plugin_public,'updateProfile' );
+        $this->loader->add_action( 'wp_ajax_updateProfile', $plugin_public,'updateProfile' );
     }
 
     /**

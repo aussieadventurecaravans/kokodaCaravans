@@ -1,10 +1,10 @@
 === WP Private Content Plus ===
 Contributors: nimeshrmr
 Donate link: http://www.wpexpertdeveloper.com/donations/
-Tags: private page,restrict content,client portal,private content,membership,private user page, private portal, post page restrictions,shortcode,private,protect,nav menu, restrict menu, content restrictions, lock content, scheduled content, private schedule, time based content, capability, search, search restrictions, navigation, user role, user profiles made easy, password protect,private group, password protection,widget by user role, protect widgets,restrict widgets, restrict widget,hide, post attachments, restrict attachments, protect attachments, attachment download,private site, post file, attachments, widgets, global post restriction, content lock, private site,site lockdown, lock entire site, protect rss feed,restrict rss feed, user groups, groups
+Tags: private page,restrict content,client portal,private content,membership,private user page, private portal, post page restrictions,shortcode,private,protect,nav menu, restrict menu, content restrictions, lock content, scheduled content, private schedule, admin menu, admin screens, time based content, capability, search, search restrictions, navigation, user role, user profiles made easy, password protect,private group, password protection,widget by user role, protect widgets,restrict widgets, restrict widget,hide, post attachments, restrict attachments, protect attachments, attachment download,private site, post file, attachments, widgets, global post restriction, content lock, private site,site lockdown, lock entire site, protect rss feed,restrict rss feed, user groups, groups
 Requires at least: 4.3.1
-Tested up to: 4.9.6
-Stable tag: 1.23
+Tested up to: 5.0.2
+Stable tag: 1.29
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,7 @@ Apart from that you will get a unique private page for every user of your site a
 > * [Restrict content by multiple user meta values](http://www.wpexpertdeveloper.com/restrict-content-by-multiple-user-meta-values/)
 > * [Restrict search content by user types](http://www.wpexpertdeveloper.com/site-search-restrictions/)
 > * [Integration with User Profiles Made Easy](http://www.wpexpertdeveloper.com/user-profiles-made-easy-integration/)
+> * [Restrict Admin Menus and Features](http://www.wpexpertdeveloper.com/restrict-admin-menu/)
 > * [Global Post/Page Protection](http://www.wpexpertdeveloper.com/global-post-page-protection/)
 > * [Global Site Protection with Single Password](http://www.wpexpertdeveloper.com/protect-entire-site-single-password/)
 
@@ -163,6 +164,24 @@ Please refer the [Documentation](http://www.wpexpertdeveloper.com/wp-private-con
 
 
 == Changelog ==
+
+= 1.29 =
+* Support for adding multiple users to group from user list
+
+= 1.28 =
+* Shortcode for private posts/pages list by user role
+
+= 1.27 =
+* Shortcode for private posts/pages list by user
+
+= 1.26 =
+* Ability to restrict admin backend menus
+
+= 1.25 =
+* Shortcode for private content based on WooCommerce product purchase
+
+= 1.24 =
+* Shortcode for private content based on a password
 
 = 1.23 =
 * Shortcode for private content based on user registration date

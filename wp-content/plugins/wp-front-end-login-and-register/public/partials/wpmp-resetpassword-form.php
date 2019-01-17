@@ -12,7 +12,11 @@
  */
 
 ?>
-<?php $is_url_has_token = $_GET['wpmp_reset_password_token'];?>
+<?php 
+if(isset($_GET['wpmp_reset_password_token'])){
+$is_url_has_token = $_GET['wpmp_reset_password_token']; }else{
+$is_url_has_token ='';
+ } ?>
 <div id="wpmpResetPasswordSection" class="container-fluid <?php echo empty($is_url_has_token) ? ' hidden' : 'ds' ?>">
     <div class="row">
         <div class="col-xs-8 col-md-10"> 

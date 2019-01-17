@@ -3,7 +3,7 @@
   Plugin Name: WP Private Content Plus
   Plugin URI: http://www.wpexpertdeveloper.com/wp-private-content-plus/
   Description: Advanced private content restrictions for WordPress
-  Version: 1.23
+  Version: 1.29
   Author: Rakhitha Nimesh
   Author URI: http://www.wpexpertdeveloper.com
  */
@@ -13,7 +13,7 @@
 if( !defined( 'ABSPATH' ) ) exit;
 
 if ( ! defined( 'WPPCP_VERSION' ) ) {
-    define( 'WPPCP_VERSION', '1.23' );
+    define( 'WPPCP_VERSION', '1.29' );
 }
 
 register_activation_hook( __FILE__, 'wppcp_install_db_tables' );
@@ -109,6 +109,7 @@ if( !class_exists( 'WP_Private_Content_Plus' ) ) {
                 self::$instance->ip_restrictions    = new WPPCP_IP_Restrictions();
 
                 self::$instance->admin_stats        = new WPPCP_Admin_Stats();
+                self::$instance->admin_permissions  = new WPPCP_Admin_Permissions();
                 // self::$instance->social_locker       = new WPPCP_Social_Locker();
                 if ( defined( 'upme_url' ) ) {
                     self::$instance->upme           = new WPPCP_UPME();
@@ -175,7 +176,7 @@ if( !class_exists( 'WP_Private_Content_Plus' ) ) {
             // require_once WPPCP_PLUGIN_DIR . 'classes/class-wppcp-social-locker.php';
 
             require_once WPPCP_PLUGIN_DIR . 'classes/class-wppcp-admin-stats.php';
-
+            require_once WPPCP_PLUGIN_DIR . 'classes/class-wppcp-admin-permissions.php';
             if ( defined( 'upme_url' ) ) {
                 require_once WPPCP_PLUGIN_DIR . 'classes/class-wppcp-upme.php';
             }
@@ -259,4 +260,15 @@ function wppcp_settings_page_capability($capability,$params){
     return $capability;
 }
 
+/* TODO 
+- 1.27 shortcode to display list of posts restricted by user
+- 1.28 shortcode to display list of posts restricted by user role, group, membership
+- 1.29 shortcode to display list of posts not restricted by conditions
+- 2.0 add notiifcation list to display the private content edited user list
+- PRO - add notification list to display the private content edited user list + track the changes
+- PRO - add notification list to display the private files edited user list + track the changes
+- PRO - add notification list to display the private messages edited user list + track the changes
+- Post/page visibility - block selected users/ user roles/ groups/ memberships
+- post/page password protection with send to user email feature
 
+*/

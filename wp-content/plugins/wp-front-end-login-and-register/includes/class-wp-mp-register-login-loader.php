@@ -40,6 +40,7 @@ class Wp_Mp_Register_Login_Loader
      * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
      */
     protected $filters;
+    protected $shortcodes;
 
     /**
      * Initialize the collections used to maintain the actions and filters.

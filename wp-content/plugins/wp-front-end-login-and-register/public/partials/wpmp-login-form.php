@@ -15,7 +15,7 @@
 
 <div id="wpmpLoginSection" class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-md-12">
+        <div class="col-xs-8 col-md-10"> 
             <?php
             $wpmp_redirect_settings = get_option('wpmp_redirect_settings');
             $wpmp_form_settings = get_option('wpmp_form_settings');
@@ -26,7 +26,10 @@
                 $form_heading = empty($wpmp_form_settings['wpmp_signin_heading']) ? 'Login' : $wpmp_form_settings['wpmp_signin_heading'];
                 $submit_button_text = empty($wpmp_form_settings['wpmp_signin_button_text']) ? 'Login' : $wpmp_form_settings['wpmp_signin_button_text'];
                 $forgotpassword_button_text = empty($wpmp_form_settings['wpmp_forgot_password_button_text']) ? 'Forgot Password' : $wpmp_form_settings['wpmp_forgot_password_button_text'];
-                $is_url_has_token = $_GET['wpmp_reset_password_token'];
+                if(isset($_GET['wpmp_reset_password_token']) && $_GET['wpmp_reset_password_token'] !=''){
+                    $is_url_has_token = $_GET['wpmp_reset_password_token'];
+                }else{ $is_url_has_token; }
+                
                 ?>
                 <form name="wpmpLoginForm" id="wpmpLoginForm" method="post" class="<?php echo empty($is_url_has_token) ? '' : 'hidden' ?>">
                     

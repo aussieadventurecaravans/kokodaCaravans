@@ -506,7 +506,122 @@ jQuery(document).ready(function($) {
       // alert(hash_key);
       $(hash_key).addClass('wppcp-info-setting-active');
     }
+    
 
+    $(document).on('click', '.wppcp-admin-menu-permission-level1' , function(){
+      $('.wppcp-admin-menu-permission-level1').removeClass('wppcp-admin-menu-active');
+      $('.wppcp-admin-menu-permission-level2').removeClass('wppcp-admin-menu-active');
+
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+
+      var key = $(this).attr('data-key');
+      $('.wppcp-admin-menu-permission-level1-panel').hide();
+      $('#wppcp-admin-menu-' + key).show();
+      // alert('#wppcp-admin-menu-' + key);
+
+      $(this).addClass('wppcp-admin-menu-active');
+      var slug = $(this).attr('data-slug');
+
+      $('#wppcp-admin-menu-permissions').html("<div id='wppcp-admin-menu-msg'>"+WPPCPAdmin.Messages.loading+"</div>");
+      
+      $.post(
+            WPPCPAdmin.AdminAjax,
+            {
+                'action': 'wppcp_load_admin_menu_permission',
+                'verify_nonce': WPPCPAdmin.nonce,
+                // 'visibility' : visibility,
+                // 'roles' : user_roles,
+                'slug' : slug,
+            },
+            function(response){
+              if(response.status == 'success'){
+                $('#wppcp_admin_menu_item_slug').val(slug);
+                $('#wppcp-admin-menu-permissions').html(response.msg);
+              }else{
+
+              }
+  
+            },"json"
+        );
+    });
+
+    $(document).on('click', '.wppcp-admin-menu-permission-level2' , function(){
+      $('.wppcp-admin-menu-permission-level2').removeClass('wppcp-admin-menu-active');
+      $('.wppcp-admin-menu-permission-level1').removeClass('wppcp-admin-menu-active');
+
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+
+      $(this).addClass('wppcp-admin-menu-active');
+      var slug = $(this).attr('data-slug');
+
+      $('#wppcp-admin-menu-permissions').html("<div id='wppcp-admin-menu-msg'>"+WPPCPAdmin.Messages.loading+"</div>");
+      
+      $.post(
+            WPPCPAdmin.AdminAjax,
+            {
+                'action': 'wppcp_load_admin_menu_permission',
+                'verify_nonce': WPPCPAdmin.nonce,
+                // 'visibility' : visibility,
+                // 'roles' : user_roles,
+                'slug' : slug,
+            },
+            function(response){
+              if(response.status == 'success'){
+                $('#wppcp_admin_menu_item_slug').val(slug);
+                $('#wppcp-admin-menu-permissions').html(response.msg);
+              }else{
+
+              }
+  
+            },"json"
+        );
+    });
+
+    $(document).on('click', '#wppcp_admin_menu_item_submit' , function(){
+      // post_message_container.find('.wppcp-private-page-disscussion-tab-msg').removeClass('wppcp-message-info-error').removeClass('wppcp-message-info-success').hide();
+      var visibility  = $('#wppcp_admin_menu_item_visibility').val();
+      
+      var slug = $('#wppcp_admin_menu_item_slug').val();
+
+      var user_roles = [];
+       $('.wppcp_admin_menu_item_roles:checked').each(function() {
+         user_roles.push($(this).val());
+       });
+      $('#wppcp-admin-menu-permissions').html("<div id='wppcp-admin-menu-msg'>"+WPPCPAdmin.Messages.saving+"</div>");
+      
+      $.post(
+            WPPCPAdmin.AdminAjax,
+            {
+                'action': 'wppcp_update_admin_menu_permission',
+                'verify_nonce': WPPCPAdmin.nonce,
+                'visibility' : visibility,
+                'user_roles' : user_roles,
+                'slug' : slug,
+            },
+            function(response){
+              if(response.status == 'success'){
+                $('#wppcp-admin-menu-permissions').html(response.msg);
+              }else{
+
+              }
+  
+            },"json"
+        );
+    });
+
+  $(document).on('change', '#wppcp_admin_menu_item_visibility' , function(){
+      // post_message_container.find('.wppcp-private-page-disscussion-tab-msg').removeClass('wppcp-message-info-error').removeClass('wppcp-message-info-success').hide();
+      var visibility  = $(this).val();
+      if(visibility == '0'){
+        $('.wppcp_admin_menu_item_roles').closest('tr').hide();
+      }else{
+        $('.wppcp_admin_menu_item_roles').closest('tr').show();
+      }      
+    });
+
+  $('#wppcp_admin_menu_item_visibility').trigger('change');
 });
 
 function wppcp_formatRepo (repo) {

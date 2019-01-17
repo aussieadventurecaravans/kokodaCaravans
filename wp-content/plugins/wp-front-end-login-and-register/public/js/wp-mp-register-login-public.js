@@ -15,6 +15,8 @@
         wpmpValidateAndProcessResetPasswordForm();
         //Show Reset password
         wpmpShowResetPasswordForm();
+        // validating Profile form request
+        wpmpValidateAndProcessProfileForm();
         //Return to login
         wpmpReturnToLoginForm();
         generateCaptcha();
@@ -95,6 +97,78 @@
             }
         });
     }
+
+    //Validate profile update
+    function wpmpValidateAndProcessProfileForm() {
+        $('#wpmpProfileForm').formValidation({
+            message: 'This value is not valid',
+            icon: {
+                required: 'glyphicon glyphicon-asterisk',
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                wpmp_fname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The first name is required'
+                        },
+                        stringLength: {
+                            max: 30,
+                            message: 'The firstname must be less than 30 characters long'
+                        }
+                    }
+                },                
+                wpmp_email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The email is required'
+                        },
+                        regexp: {
+                            regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                            message: 'The value is not a valid email address'
+                        }
+                    }
+                },
+            }
+        }).on('success.form.fv', function(e) {
+            e.preventDefault();
+            $('#wpmp-profile-alert').hide();           
+            $('body, html').animate({
+                scrollTop: 0
+            }, 'slow');
+            // You can get the form instance
+            $('#wpmp-profile-loader-info').show();
+            var formdata = new FormData($("#wpmpProfileForm")[0]);
+            formdata.append('action', 'updateProfile');
+            jQuery.ajax({
+              url:ajax_object.ajax_url, 
+              data:formdata,
+              method:"POST",
+              processData: false,
+              contentType: false,
+              success:function(data){  
+                $('#wpmp-profile-loader-info').hide();
+                 if (true == data.reg_status) {
+                    $('#wpmp-profile-alert').removeClass('alert-danger');
+                    $('#wpmp-profile-alert').addClass('alert-success');
+                    $('#wpmp-profile-alert').show();
+                    $('#wpmp-profile-alert').html(data.success);
+
+                } else {
+                    $('#wpmp-profile-alert').addClass('alert-danger');
+                    $('#wpmp-profile-alert').show();
+                    $('#wpmp-profile-alert').html(data.error);
+
+                }
+              }
+          });
+        }).on('err.form.fv', function(e) {
+            console.log("ddd");
+        });
+    }
+
 
     // Validate registration form
 

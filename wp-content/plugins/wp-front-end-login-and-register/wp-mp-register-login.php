@@ -3,7 +3,7 @@
  * Plugin Name:       WP Front-end login and register
  * Plugin URI:        http://webprepration.com/
  * Description:       This plugin will help you to add ajax enabled custom login/register form on your website in just few minutes.
- * Version:           2.0.0
+ * Version:           2.1.0
  * Author:            Mohsin khan
  * Author URI:        https://profiles.wordpress.org/mohsin-khan
  * License:           GPL-2.0+

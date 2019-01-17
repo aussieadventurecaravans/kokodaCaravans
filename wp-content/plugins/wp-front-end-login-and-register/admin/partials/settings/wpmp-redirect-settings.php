@@ -40,5 +40,7 @@
             <code style="font-size: 16px;">[wpmp_register_form]</code></p>
         <p> <strong style="font-size: 20px;">Login Form:</strong>
             <code style="font-size: 17px;">[wpmp_login_form]</code></p>
+        <p> <strong style="font-size: 20px;">Profile Page:</strong>
+            <code style="font-size: 17px;">[wpmp_user_profile]</code></p>
     </div>
 </div>

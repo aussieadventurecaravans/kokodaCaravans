@@ -21,7 +21,11 @@ class WPPCP_Private_Content{
         add_shortcode('wppcp_member_content', array($this,'member_content_block'));
         add_shortcode('wppcp_scheduled_content', array($this,'scheduled_content_block'));
         add_shortcode('wppcp_private_content_by_registration', array($this,'private_content_by_registration'));
-        
+        add_shortcode('wppcp_password_protected_content', array($this,'private_content_by_password'));
+        add_shortcode('wppcp_woocommerce_product_content', array($this,'private_content_by_woocommerce_product'));
+    
+        add_shortcode('wppcp_user_restricted_posts', array($this,'user_restricted_posts'));
+        add_shortcode('wppcp_user_role_restricted_posts', array($this,'user_role_restricted_posts'));
     }
 
     public function init(){
@@ -77,6 +81,9 @@ class WPPCP_Private_Content{
             return __('Private content module is disabled.','wppcp');        
         }
 
+        if(!is_array($atts)){
+            $atts = array();
+        }
         
         $private_content_result = array('status'=>true, 'type'=>'admin');
         
@@ -894,6 +901,162 @@ class WPPCP_Private_Content{
         }        
        
         return false;
+    }
+
+    public function private_content_by_password($atts,$content){
+        global $wppcp,$wpdb;
+
+        $this->private_content_settings  = get_option('wppcp_options');  
+
+        if(!isset($this->private_content_settings['general']['private_content_module_status'])){
+            return __('Private content module is disabled.','wppcp');        
+        }
+        
+        $private_content_result = array('status'=>true, 'type'=>'admin');
+        
+        extract(shortcode_atts(array(
+            'message' => '',
+            'password' => ''
+        ), $atts));
+        
+        $user_id =  $this->current_user;
+        
+        // Provide permission for admin to view any content
+        if(current_user_can('manage_options') || current_user_can('wppcp_manage_options') ){
+            return $this->get_restriction_message($atts,$content,$private_content_result);
+        }        
+
+        if($password != '' && !isset($_POST['wppcp_protected_content_password'])){
+            return "<p><form method='POST'>".__("Enter Password ","wppcp").": <input type='password' name='wppcp_protected_content_password'  />
+            <input type='submit' value='".__("Submit ","wppcp")."' /></form></p>";
+        }else if($password != '' &&  isset($_POST['wppcp_protected_content_password']) ){
+            $user_password = sanitize_text_field($_POST['wppcp_protected_content_password']);
+            
+            if(trim($user_password) == $password){
+                return $content;
+            }else{
+                return "<p><form method='POST'>".__("Enter Password ","wppcp").": <input type='password' name='wppcp_protected_content_password'  />
+            <input type='submit' value='".__("Submit ","wppcp")."' /></form></p>";
+            }
+        }else if($password == ''){
+            return $this->get_restriction_message($atts,$content,$private_content_result);
+        }
+
+        
+             
+    }
+
+    public function private_content_by_woocommerce_product($atts,$content){
+        global $wppcp,$wpdb;
+
+        $this->private_content_settings  = get_option('wppcp_options');  
+
+        if(!isset($this->private_content_settings['general']['private_content_module_status'])){
+            return __('Private content module is disabled.','wppcp');        
+        }
+        
+        $private_content_result = array('status'=>true, 'type'=>'admin');
+        
+        extract(shortcode_atts(array(
+            'message' => '',
+            'product_id' => ''
+        ), $atts));
+        
+        $user_id =  $this->current_user;
+        $user = get_userdata($user_id);
+        // Provide permission for admin to view any content
+        if(current_user_can('manage_options') || current_user_can('wppcp_manage_options') 
+            || $product_id == '' ){
+            return $this->get_restriction_message($atts,$content,$private_content_result);
+        }        
+
+        if($product_id != '' && wc_customer_bought_product( $user->user_email, $user->ID, $product_id )){
+            return do_shortcode($content);
+        }else{
+            return $message;
+        }
+
+        
+             
+    }
+
+    public function user_restricted_posts($atts,$content){
+        global $wppcp,$wpdb;
+        extract(shortcode_atts(array(
+            'user_id' => '',
+            'post_type' => 'post',
+            'result_limit' => 100,
+
+        ), $atts));
+        
+        $user_id =  ($user_id == '') ? get_current_user_id() : $user_id;
+        
+        $query = new WP_Query( array( 
+            'post_type' => $post_type,
+            'post_status' => 'publish',
+            'posts_per_page' => (int) $result_limit,
+            'meta_query' => array(
+                array(
+                    'key'     => '_wppcp_post_page_allowed_users',
+                    'value'   => ':"'.$user_id.'"',
+                    'compare' => 'REGEXP',
+                ) ) ) );
+
+        $html = "";
+        if ( $query->have_posts() ) {
+
+            $html .= "<ul>";
+
+            while ($query->have_posts()) : $query->the_post();
+                $html .= "<li><a href='".get_permalink()."'>".get_the_title()."</a></li>";
+            endwhile;
+            wp_reset_query();
+
+            $html .= "</ul>";
+        }
+        
+        return $html;
+             
+    }
+    
+
+    public function user_role_restricted_posts($atts,$content){
+        global $wppcp,$wpdb;
+        extract(shortcode_atts(array(
+            'role' => '',
+            'post_type' => 'post',
+            'result_limit' => 100,
+
+        ), $atts));
+        
+        $role =  ($role == '') ? '' : $role;
+        
+        $query = new WP_Query( array( 
+            'post_type' => $post_type,
+            'post_status' => 'publish',
+            'posts_per_page' => (int) $result_limit,
+            'meta_query' => array(
+                array(
+                    'key'     => '_wppcp_post_page_roles',
+                    'value'   => ':"'.$role.'"',
+                    'compare' => 'REGEXP',
+                ) ) ) );
+
+        $html = "";
+        if ( $query->have_posts() ) {
+
+            $html .= "<ul>";
+
+            while ($query->have_posts()) : $query->the_post();
+                $html .= "<li><a href='".get_permalink()."'>".get_the_title()."</a></li>";
+            endwhile;
+            wp_reset_query();
+
+            $html .= "</ul>";
+        }
+        
+        return $html;
+             
     }
 
 }

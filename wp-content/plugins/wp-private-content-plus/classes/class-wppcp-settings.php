@@ -117,8 +117,12 @@ class WPPCP_Settings{
                                 'userEmpty' => __('Please select a user.','wppcp'),
                                 'addToPost' => __('Add to Post','wppcp'), 
                                 'insertToPost' => __('Insert Files to Post','wppcp'),   
-                                'removeGroupUser' => __('Removing User...','wppcp')     
+                                'removeGroupUser' => __('Removing User...','wppcp'),
+                                'loading' => __('Loading...','wppcp'), 
+                                'saving' => __('Saving...','wppcp'),   
                             ),
+            'nonce' => wp_create_nonce('wppcp-admin'),   
+
         );
 
         wp_localize_script('wppcp_admin_js', 'WPPCPAdmin', $custom_js_strings);
@@ -145,6 +149,9 @@ class WPPCP_Settings{
         add_submenu_page('wppcp-settings', __('Private User Page', 'wppcp' ), __('Private User Page', 'wppcp'),
             apply_filters('wppcp_private_page_settings_page_capability','manage_options',array()),'wppcp-private-user-page',array(&$this,'private_user_page'));
         
+        add_submenu_page('wppcp-settings',__('Admin Permissions', 'wppcp' ), __('Admin Permissions', 'wppcp' ),
+            apply_filters('wppcp_admin_permission_settings_page_capability','manage_options',array()),'wppcp-admin-permissions',array(&$this,'admin_permission_settings'));
+
         add_submenu_page('wppcp-settings', __('Security Settings', 'wppcp' ), __('Security Settings', 'wppcp'),
             apply_filters('wppcp_security_settings_page_capability','manage_options',array()),'wppcp-security-settings-page',array(&$this,'security_settings'));
         
@@ -251,6 +258,10 @@ class WPPCP_Settings{
 
             case 'security':
                 $this->plugin_settings_tabs['wppcp_section_security_ip']  = __('IP Restrictions','wppcp');
+                break;
+
+            case 'admin_permissions':
+                $this->plugin_settings_tabs['wppcp_section_admin_menu']  = __('Admin Menu Restrictions','wppcp');
                 break;
 
             case 'password':
@@ -410,6 +421,22 @@ class WPPCP_Settings{
 
 
                 $wppcp->template_loader->get_template_part('security-ip-settings');            
+                break;
+
+            case 'wppcp_section_admin_menu':                
+                // $data = isset($private_content_settings['security_ip']) ? $private_content_settings['security_ip'] : array();
+
+                // $wppcp_security_settings_data['tab'] = $tab;
+                
+                // $wppcp_security_settings_data['restriction_status'] = isset($data['restriction_status']) ? $data['restriction_status'] : '';
+                // $wppcp_security_settings_data['allowed_urls'] = isset($data['allowed_urls']) ? $data['allowed_urls'] : '';
+                // $wppcp_security_settings_data['whitelisted'] = isset($data['whitelisted']) ? $data['whitelisted'] : '';
+                // $wppcp_security_settings_data['redirect_url'] = isset($data['redirect_url']) ? $data['redirect_url'] : site_url();
+
+                // $wppcp_security_settings_data = apply_filters('wppcp_security_settings_data',$wppcp_security_settings_data, array('data' => $data, 'section' => 'wppcp_section_security_ip' ) );
+
+
+                $wppcp->template_loader->get_template_part('admin-menu-settings');            
                 break;
 
             // Settings for Global Password
@@ -875,6 +902,30 @@ class WPPCP_Settings{
         $wppcp_options['password_global'] = $this->settings;
         update_option('wppcp_options',$wppcp_options);
         add_action( 'admin_notices', array( $this, 'admin_notices' ) ); 
+    }
+
+    public function admin_permission_settings(){
+
+        global $wppcp,$wppcp_settings_data;
+        
+        add_settings_section( 'wppcp_section_admin_menu', __('Admin Menu Permissions','wppcp'), array( &$this, 'wppcp_section_general_desc' ), 'wppcp-security-ip' );
+        
+        
+        $tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'wppcp_section_admin_menu';
+        $wppcp_settings_data['tab'] = $tab;
+        
+        $tabs = $this->plugin_options_tabs('admin_permissions',$tab);
+   
+        $wppcp_settings_data['tabs'] = $tabs;
+        
+        $tab_content = $this->plugin_options_tab_content($tab);
+        $wppcp_settings_data['tab_content'] = $tab_content;
+        
+        ob_start();
+        $wppcp->template_loader->get_template_part( 'menu-page-container');
+        $display = ob_get_clean();
+        echo $display;
+
     }
 
     /* Get the users for restrictions on various locations */

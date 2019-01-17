@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Private Content Plus\n"
-"POT-Creation-Date: 2018-06-11 19:49+0530\n"
-"PO-Revision-Date: 2018-06-11 19:50+0530\n"
+"POT-Creation-Date: 2018-12-31 17:31+0530\n"
+"PO-Revision-Date: 2018-12-31 17:31+0530\n"
 "Last-Translator: \n"
 "Language-Team: WPExpertDeveloper <innovativephp@gmail.com>\n"
 "Language: en\n"
@@ -14,6 +14,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: admin/templates/admin-menu-visibility.php:10
+#: admin/templates/global-page-restriction-settings.php:29
+#: admin/templates/global-post-restriction-settings.php:29
+#: classes/class-wppcp-menu.php:53 classes/class-wppcp-widgets.php:27
+#: templates/post-page-restriction-meta.php:60
+msgid "Visibility"
+msgstr ""
+
+#: admin/templates/admin-menu-visibility.php:13
+msgid "Default Permissions"
+msgstr ""
+
+#: admin/templates/admin-menu-visibility.php:14 classes/class-wppcp-menu.php:63
+#: classes/class-wppcp-widgets.php:32
+msgid "By User Role"
+msgstr ""
+
+#: admin/templates/admin-menu-visibility.php:19
+msgid "User Roles"
+msgstr ""
+
+#: admin/templates/admin-menu-visibility.php:38
+#: templates/private-user-page.php:84
+msgid "Save"
+msgstr ""
 
 #: admin/templates/general-settings.php:31
 msgid "License Details"
@@ -37,9 +63,9 @@ msgstr ""
 msgid "Upgrading to PRO License"
 msgstr ""
 
-#: admin/templates/general-settings.php:49 classes/class-wppcp-settings.php:180
-#: classes/class-wppcp-settings.php:236 classes/class-wppcp-settings.php:261
-#: classes/class-wppcp-settings.php:940
+#: admin/templates/general-settings.php:49 classes/class-wppcp-settings.php:187
+#: classes/class-wppcp-settings.php:243 classes/class-wppcp-settings.php:272
+#: classes/class-wppcp-settings.php:991
 msgid "General Settings"
 msgstr ""
 
@@ -92,13 +118,6 @@ msgstr ""
 msgid ""
 "This setting is used to enable/disable restrictions globally on all pages by "
 "default."
-msgstr ""
-
-#: admin/templates/global-page-restriction-settings.php:29
-#: admin/templates/global-post-restriction-settings.php:29
-#: classes/class-wppcp-menu.php:53 classes/class-wppcp-widgets.php:27
-#: templates/post-page-restriction-meta.php:60
-msgid "Visibility"
 msgstr ""
 
 #: admin/templates/global-page-restriction-settings.php:32
@@ -530,7 +549,7 @@ msgid ""
 msgstr ""
 
 #: admin/templates/user-role-hierarchy.php:17
-#: classes/class-wppcp-settings.php:182 classes/class-wppcp-settings.php:238
+#: classes/class-wppcp-settings.php:189 classes/class-wppcp-settings.php:245
 msgid "User Role Hierarchy"
 msgstr ""
 
@@ -581,7 +600,7 @@ msgstr ""
 
 #: admin/templates/welcome-screen.php:59
 #: classes/class-wppcp-admin-stats.php:252
-#: classes/class-wppcp-settings.php:1194
+#: classes/class-wppcp-settings.php:1245
 msgid "Menu Protection"
 msgstr ""
 
@@ -592,7 +611,7 @@ msgstr ""
 
 #: admin/templates/welcome-screen.php:74
 #: classes/class-wppcp-admin-stats.php:258
-#: classes/class-wppcp-settings.php:1201
+#: classes/class-wppcp-settings.php:1252
 msgid "Widget Protection"
 msgstr ""
 
@@ -604,7 +623,7 @@ msgstr ""
 
 #: admin/templates/welcome-screen.php:89
 #: classes/class-wppcp-admin-stats.php:282
-#: classes/class-wppcp-settings.php:1229
+#: classes/class-wppcp-settings.php:1280
 msgid "Search Protection"
 msgstr ""
 
@@ -616,7 +635,7 @@ msgstr ""
 
 #: admin/templates/welcome-screen.php:105
 #: classes/class-wppcp-admin-stats.php:270
-#: classes/class-wppcp-settings.php:1215
+#: classes/class-wppcp-settings.php:1266
 msgid "Attachment Protection"
 msgstr ""
 
@@ -640,7 +659,7 @@ msgstr ""
 
 #: admin/templates/welcome-screen.php:138
 #: classes/class-wppcp-admin-stats.php:276
-#: classes/class-wppcp-settings.php:1222
+#: classes/class-wppcp-settings.php:1273
 msgid "Private Page"
 msgstr ""
 
@@ -710,7 +729,7 @@ msgstr ""
 msgid "Complete Protection for Post Attachments"
 msgstr ""
 
-#: admin/templates/welcome-screen.php:193 classes/class-wppcp-settings.php:158
+#: admin/templates/welcome-screen.php:193 classes/class-wppcp-settings.php:165
 msgid "PRO Version"
 msgstr ""
 
@@ -760,6 +779,11 @@ msgid ""
 "as this page would be perfect!"
 msgstr ""
 
+#: classes/class-wppcp-admin-permissions.php:40
+#: classes/class-wppcp-admin-permissions.php:81
+msgid "Invalid request."
+msgstr ""
+
 #: classes/class-wppcp-admin-stats.php:106
 msgid "WP Private Content Plus - Stats"
 msgstr ""
@@ -778,8 +802,8 @@ msgstr ""
 #: classes/class-wppcp-admin-stats.php:153
 #: classes/class-wppcp-admin-stats.php:166
 #: classes/class-wppcp-admin-stats.php:220
-#: classes/class-wppcp-settings.php:1074 classes/class-wppcp-settings.php:1091
-#: classes/class-wppcp-settings.php:1104 classes/class-wppcp-settings.php:1158
+#: classes/class-wppcp-settings.php:1125 classes/class-wppcp-settings.php:1142
+#: classes/class-wppcp-settings.php:1155 classes/class-wppcp-settings.php:1209
 msgid " Posts "
 msgstr ""
 
@@ -787,14 +811,14 @@ msgstr ""
 #: classes/class-wppcp-admin-stats.php:156
 #: classes/class-wppcp-admin-stats.php:167
 #: classes/class-wppcp-admin-stats.php:223
-#: classes/class-wppcp-settings.php:1077 classes/class-wppcp-settings.php:1094
-#: classes/class-wppcp-settings.php:1105 classes/class-wppcp-settings.php:1161
+#: classes/class-wppcp-settings.php:1128 classes/class-wppcp-settings.php:1145
+#: classes/class-wppcp-settings.php:1156 classes/class-wppcp-settings.php:1212
 msgid " Pages "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:142
 #: classes/class-wppcp-admin-stats.php:168
-#: classes/class-wppcp-settings.php:1080 classes/class-wppcp-settings.php:1106
+#: classes/class-wppcp-settings.php:1131 classes/class-wppcp-settings.php:1157
 msgid " Custom Post Types "
 msgstr ""
 
@@ -804,172 +828,180 @@ msgstr ""
 #: classes/class-wppcp-admin-stats.php:176
 #: classes/class-wppcp-admin-stats.php:183
 #: classes/class-wppcp-admin-stats.php:190
-#: classes/class-wppcp-settings.php:1085 classes/class-wppcp-settings.php:1099
-#: classes/class-wppcp-settings.php:1107 classes/class-wppcp-settings.php:1114
-#: classes/class-wppcp-settings.php:1121 classes/class-wppcp-settings.php:1128
+#: classes/class-wppcp-settings.php:1136 classes/class-wppcp-settings.php:1150
+#: classes/class-wppcp-settings.php:1158 classes/class-wppcp-settings.php:1165
+#: classes/class-wppcp-settings.php:1172 classes/class-wppcp-settings.php:1179
 msgid " are protected"
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:175
-#: classes/class-wppcp-settings.php:1113
+#: classes/class-wppcp-settings.php:1164
 msgid " Menu Items "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:182
-#: classes/class-wppcp-settings.php:1120
+#: classes/class-wppcp-settings.php:1171
 msgid " Widgets "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:189
-#: classes/class-wppcp-settings.php:1127
+#: classes/class-wppcp-settings.php:1178
 msgid " Post/Page Content Blocks "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:196
-#: classes/class-wppcp-settings.php:1134
+#: classes/class-wppcp-settings.php:1185
 msgid " Users "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:196
-#: classes/class-wppcp-settings.php:1134
+#: classes/class-wppcp-settings.php:1185
 msgid "have private page with protected content. "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:202
-#: classes/class-wppcp-settings.php:1140
+#: classes/class-wppcp-settings.php:1191
 msgid " Post "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:205
-#: classes/class-wppcp-settings.php:1143
+#: classes/class-wppcp-settings.php:1194
 msgid " Page "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:208
-#: classes/class-wppcp-settings.php:1146
+#: classes/class-wppcp-settings.php:1197
 msgid " Custom Post Type "
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:213
-#: classes/class-wppcp-settings.php:1151
+#: classes/class-wppcp-settings.php:1202
 msgid " attachments are protected"
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:227
-#: classes/class-wppcp-settings.php:1165
+#: classes/class-wppcp-settings.php:1216
 msgid " are protected from search"
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:234
-#: classes/class-wppcp-settings.php:1173
+#: classes/class-wppcp-settings.php:1224
 msgid "Individual Post/Page Protection"
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:240
-#: classes/class-wppcp-settings.php:1180
+#: classes/class-wppcp-settings.php:1231
 msgid "Global Post/Page Protection"
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:246
-#: classes/class-wppcp-settings.php:1187
+#: classes/class-wppcp-settings.php:1238
 msgid "Password Protection"
 msgstr ""
 
 #: classes/class-wppcp-admin-stats.php:264
-#: classes/class-wppcp-settings.php:1208
+#: classes/class-wppcp-settings.php:1259
 msgid "Shortcode Protection"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:22
+#: classes/class-wppcp-groups.php:25
 msgid "Groups"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:23
+#: classes/class-wppcp-groups.php:26
 msgid "Group"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:24
+#: classes/class-wppcp-groups.php:27
 msgid "Add New"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:25
+#: classes/class-wppcp-groups.php:28
 msgid "Add New Group"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:26
+#: classes/class-wppcp-groups.php:29
 msgid "Edit"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:27
+#: classes/class-wppcp-groups.php:30
 msgid "Edit Group"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:28
+#: classes/class-wppcp-groups.php:31
 msgid "New Group"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:29
+#: classes/class-wppcp-groups.php:32
 msgid "View"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:30
+#: classes/class-wppcp-groups.php:33
 msgid "View Group"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:31
+#: classes/class-wppcp-groups.php:34
 msgid "Search Group"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:32
+#: classes/class-wppcp-groups.php:35
 msgid "No Group found"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:33
+#: classes/class-wppcp-groups.php:36
 msgid "No Group found in Trash"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:51
+#: classes/class-wppcp-groups.php:54
 msgid "WP Private Content Plus - Add New Users"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:60
+#: classes/class-wppcp-groups.php:63
 msgid "WP Private Content Plus - Group Members"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:74
+#: classes/class-wppcp-groups.php:77
 msgid "Start typing username or email to Add New Members"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:97
+#: classes/class-wppcp-groups.php:100
 msgid "ID"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:98 templates/private-user-page.php:70
+#: classes/class-wppcp-groups.php:101 templates/private-user-page.php:70
 msgid "Name"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:108
+#: classes/class-wppcp-groups.php:111
 msgid "Remove from Group"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:124
+#: classes/class-wppcp-groups.php:127
 msgid "No Users Found"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:218
+#: classes/class-wppcp-groups.php:221
 msgid "Title"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:219
+#: classes/class-wppcp-groups.php:222
 msgid "Group ID"
 msgstr ""
 
-#: classes/class-wppcp-groups.php:220
+#: classes/class-wppcp-groups.php:223
 msgid "Dates"
 msgstr ""
 
-#: classes/class-wppcp-menu.php:63 classes/class-wppcp-widgets.php:32
-msgid "By User Role"
+#: classes/class-wppcp-groups.php:294
+msgid "Select Group..."
+msgstr ""
+
+#: classes/class-wppcp-groups.php:297
+msgid "Assign Group"
+msgstr ""
+
+#: classes/class-wppcp-groups.php:329
+msgid "Users added to group."
 msgstr ""
 
 #: classes/class-wppcp-menu.php:64
@@ -985,12 +1017,12 @@ msgid "Permitted users"
 msgstr ""
 
 #: classes/class-wppcp-password-protected-content.php:31
-#: classes/class-wppcp-settings.php:422
+#: classes/class-wppcp-settings.php:449
 msgid "Protected Content"
 msgstr ""
 
 #: classes/class-wppcp-password-protected-content.php:32
-#: classes/class-wppcp-settings.php:423
+#: classes/class-wppcp-settings.php:450
 msgid ""
 "This content is password protected. Please enter the password to view the "
 "content."
@@ -1013,30 +1045,42 @@ msgstr ""
 msgid "You need to <a href=\"%s\">login</a> before downloading this file."
 msgstr ""
 
-#: classes/class-wppcp-private-content.php:48
-#: classes/class-wppcp-private-content.php:77
-#: classes/class-wppcp-private-content.php:558
-#: classes/class-wppcp-private-content.php:587
-#: classes/class-wppcp-private-content.php:728
-#: classes/class-wppcp-private-content.php:812
+#: classes/class-wppcp-private-content.php:52
+#: classes/class-wppcp-private-content.php:81
+#: classes/class-wppcp-private-content.php:565
+#: classes/class-wppcp-private-content.php:594
+#: classes/class-wppcp-private-content.php:735
+#: classes/class-wppcp-private-content.php:819
+#: classes/class-wppcp-private-content.php:912
+#: classes/class-wppcp-private-content.php:955
 #: classes/class-wppcp-social-locker.php:19
 msgid "Private content module is disabled."
 msgstr ""
 
-#: classes/class-wppcp-private-content.php:66
+#: classes/class-wppcp-private-content.php:70
 msgid "No content found."
 msgstr ""
 
-#: classes/class-wppcp-private-content.php:513
+#: classes/class-wppcp-private-content.php:520
 msgid "Login to access this content"
 msgstr ""
 
-#: classes/class-wppcp-private-content.php:540
+#: classes/class-wppcp-private-content.php:547
 msgid "You don't have permission to access this content"
 msgstr ""
 
-#: classes/class-wppcp-private-content.php:618
+#: classes/class-wppcp-private-content.php:625
 msgid "My Private Page"
+msgstr ""
+
+#: classes/class-wppcp-private-content.php:930
+#: classes/class-wppcp-private-content.php:938
+msgid "Enter Password "
+msgstr ""
+
+#: classes/class-wppcp-private-content.php:931
+#: classes/class-wppcp-private-content.php:939
+msgid "Submit "
 msgstr ""
 
 #: classes/class-wppcp-private-posts-pages.php:43
@@ -1066,128 +1110,148 @@ msgstr ""
 msgid "Removing User..."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:133
+#: classes/class-wppcp-settings.php:121
+msgid "Loading..."
+msgstr ""
+
+#: classes/class-wppcp-settings.php:122
+msgid "Saving..."
+msgstr ""
+
+#: classes/class-wppcp-settings.php:137
 msgid "Private Content Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:136
+#: classes/class-wppcp-settings.php:140
 msgid "Global Restrictions"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:139
+#: classes/class-wppcp-settings.php:143
 msgid "Search"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:139 classes/class-wppcp-settings.php:248
-#: classes/class-wppcp-settings.php:744
+#: classes/class-wppcp-settings.php:143 classes/class-wppcp-settings.php:255
+#: classes/class-wppcp-settings.php:771
 msgid "Search Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:142 templates/global-password-form.php:59
+#: classes/class-wppcp-settings.php:146 templates/global-password-form.php:59
 msgid "Password"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:142 classes/class-wppcp-settings.php:257
+#: classes/class-wppcp-settings.php:146 classes/class-wppcp-settings.php:268
 msgid "Password Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:145
+#: classes/class-wppcp-settings.php:149
 msgid "Private User Page"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:148
+#: classes/class-wppcp-settings.php:152
+msgid "Admin Permissions"
+msgstr ""
+
+#: classes/class-wppcp-settings.php:155
 msgid "Security Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:152
+#: classes/class-wppcp-settings.php:159
 msgid "User Profiles Made Easy"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:155 templates/plugin-help.php:23
+#: classes/class-wppcp-settings.php:162 templates/plugin-help.php:23
 msgid "Getting Started"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:162
+#: classes/class-wppcp-settings.php:169
 msgid "Try PRO Version"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:165
+#: classes/class-wppcp-settings.php:172
 msgid "Addons"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:169
+#: classes/class-wppcp-settings.php:176
 msgid "FAQ"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:181 classes/class-wppcp-settings.php:237
+#: classes/class-wppcp-settings.php:188 classes/class-wppcp-settings.php:244
 msgid "Information Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:183 classes/class-wppcp-settings.php:239
+#: classes/class-wppcp-settings.php:190 classes/class-wppcp-settings.php:246
 msgid "Restriction Permissions"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:206 classes/class-wppcp-settings.php:243
+#: classes/class-wppcp-settings.php:213 classes/class-wppcp-settings.php:250
 msgid "Post Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:208 classes/class-wppcp-settings.php:244
+#: classes/class-wppcp-settings.php:215 classes/class-wppcp-settings.php:251
 msgid "Page Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:249 classes/class-wppcp-settings.php:746
+#: classes/class-wppcp-settings.php:256 classes/class-wppcp-settings.php:773
 msgid "Search Restrictions"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:253 classes/class-wppcp-settings.php:769
+#: classes/class-wppcp-settings.php:260 classes/class-wppcp-settings.php:796
 msgid "IP Restrictions"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:265 classes/class-wppcp-settings.php:964
+#: classes/class-wppcp-settings.php:264
+msgid "Admin Menu Restrictions"
+msgstr ""
+
+#: classes/class-wppcp-settings.php:276 classes/class-wppcp-settings.php:1015
 msgid "UPME General Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:266 classes/class-wppcp-settings.php:965
+#: classes/class-wppcp-settings.php:277 classes/class-wppcp-settings.php:1016
 msgid "UPME Search Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:267 classes/class-wppcp-settings.php:966
+#: classes/class-wppcp-settings.php:278 classes/class-wppcp-settings.php:1017
 msgid "UPME Member List Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:268 classes/class-wppcp-settings.php:967
+#: classes/class-wppcp-settings.php:279 classes/class-wppcp-settings.php:1018
 msgid "UPME Member Profile Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:604
+#: classes/class-wppcp-settings.php:631
 msgid "Private content update failed."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:607
+#: classes/class-wppcp-settings.php:634
 msgid "Private content updated successfully."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:681
+#: classes/class-wppcp-settings.php:708
 msgid "Role Hierarchy saved succefully."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:684
+#: classes/class-wppcp-settings.php:711
 msgid "Role Hierarchy save failed."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:843
+#: classes/class-wppcp-settings.php:870
 msgid "Global Password Settings"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1239
+#: classes/class-wppcp-settings.php:911
+msgid "Admin Menu Permissions"
+msgstr ""
+
+#: classes/class-wppcp-settings.php:1290
 msgid "Deactivate WP Private Content Plus"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1245
+#: classes/class-wppcp-settings.php:1296
 msgid "Are you sure that you would like to deactivate the plugin?"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1246
+#: classes/class-wppcp-settings.php:1297
 msgid ""
 "Just a reminder - Currently WP Private Content Plus is protecting your "
 "important site content. Following content types are \n"
@@ -1195,65 +1259,65 @@ msgid ""
 "content will be visible to public once you deactivate the plugin."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1253
+#: classes/class-wppcp-settings.php:1304
 msgid "Continue"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1263
+#: classes/class-wppcp-settings.php:1314
 msgid ""
 "Please help us understand why you are removing our plugin and what we can do "
 "to improve our plugin."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1266
+#: classes/class-wppcp-settings.php:1317
 msgid "I no longer need the plugin."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1267
+#: classes/class-wppcp-settings.php:1318
 msgid "I found a better plugin."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1268
+#: classes/class-wppcp-settings.php:1319
 msgid "Plugin Name"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1269
+#: classes/class-wppcp-settings.php:1320
 msgid "I only needed the plugin for short period."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1270
+#: classes/class-wppcp-settings.php:1321
 msgid "The plugin broke my site or stopped working"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1271
+#: classes/class-wppcp-settings.php:1322
 msgid "What exactly happened?"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1272
+#: classes/class-wppcp-settings.php:1323
 msgid "The feature I need is in PRO version and its expensive."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1273
+#: classes/class-wppcp-settings.php:1324
 msgid "What's your budget?"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1274
+#: classes/class-wppcp-settings.php:1325
 msgid "The feature I need is not available."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1275
+#: classes/class-wppcp-settings.php:1326
 msgid "Let us know more about this feature"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1276
+#: classes/class-wppcp-settings.php:1327
 msgid "Other."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1277
+#: classes/class-wppcp-settings.php:1328
 msgid "Please explain the reason"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1281
+#: classes/class-wppcp-settings.php:1332
 msgid ""
 "<strong>Submit & Deactivate</strong> option will send the following details "
 "to developers of the plugin. Your feedback will be \n"
@@ -1261,36 +1325,36 @@ msgid ""
 "the plugin."
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1284
+#: classes/class-wppcp-settings.php:1335
 msgid "Reason for deactivation"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1285
+#: classes/class-wppcp-settings.php:1336
 msgid "Plugin Version"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1286
+#: classes/class-wppcp-settings.php:1337
 msgid "Activated Date"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1287
+#: classes/class-wppcp-settings.php:1338
 msgid "Admin Email (If you tick the following checkbox)"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1292
+#: classes/class-wppcp-settings.php:1343
 msgid ""
 "<b>I would like to get a response from developers regarding my feedback.</b>"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1299
+#: classes/class-wppcp-settings.php:1350
 msgid "Submit & Deactivate"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1300
+#: classes/class-wppcp-settings.php:1351
 msgid "Skip & Deactivate"
 msgstr ""
 
-#: classes/class-wppcp-settings.php:1301
+#: classes/class-wppcp-settings.php:1352
 msgid "Close"
 msgstr ""
 
@@ -1402,7 +1466,7 @@ msgid "Help"
 msgstr ""
 
 #: functions.php:152 templates/plugin-help.php:109
-#: wp-private-content-plus.php:199
+#: wp-private-content-plus.php:200
 msgid "Documentation"
 msgstr ""
 
@@ -1636,10 +1700,6 @@ msgstr ""
 msgid "Private content"
 msgstr ""
 
-#: templates/private-user-page.php:84
-msgid "Save"
-msgstr ""
-
-#: wp-private-content-plus.php:200
+#: wp-private-content-plus.php:201
 msgid "Upgrade to PRO"
 msgstr ""
