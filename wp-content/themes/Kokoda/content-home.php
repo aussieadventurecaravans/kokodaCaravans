@@ -156,13 +156,13 @@
 <div class="custom-order-panel">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
-                <img src="<?php echo get_field('custom_order_banner'); ?>" />
-                <div class="custom-order-content">
-                    <?php the_field('custom_order_text'); ?>
-                    <a href="<?php the_field('custom_order_link'); ?>" class="btn btn-default">Build It</a>
-                </div>
+            
+            <img src="<?php echo get_field('custom_order_banner'); ?>" />
+            <div class="custom-order-content">
+                <?php the_field('custom_order_text'); ?>
+                <a href="<?php the_field('custom_order_link'); ?>" class="btn btn-default">Build It</a>
             </div>
+
         </div>
         <div class="row">
             <div class="col-xs-12">

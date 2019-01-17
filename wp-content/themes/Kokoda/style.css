@@ -6150,12 +6150,6 @@ home page custom order panel
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-.home.page .custom-order-panel .container-fluid {
-	padding-right: 0;
-	padding-left: 0;
-	margin-right: auto;
-	margin-left: auto;
-}
 .home.page .custom-order-panel img {
 	width: 100%;
 	min-height: 200px;
