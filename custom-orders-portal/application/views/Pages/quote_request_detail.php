@@ -288,7 +288,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
                     </li>
                     <li class="list-group-item">
                         <span class="font-weight-bold text-capitalize">Dealer Email: </span>
-                        <span class="text-capitalize"><?php echo $quote['dealer_email']; ?></span>
+                        <span><?php echo $quote['dealer_email']; ?></span>
                     </li>
                     <li class="list-group-item">
                         <span class="font-weight-bold text-capitalize">Dealer Phone: </span>
