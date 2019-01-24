@@ -245,7 +245,7 @@ $caravan_specs = get_field('specifications',$quote['product_id']);
     </div>
     <div class="row form-row">
         <div class="col-12">
-            <?php echo form_label('Custom Options', 'custom_options'); ?>
+            <?php echo form_label('Exterior Options', 'custom_options'); ?>
             <ul class="list-group">
                 <?php $_custom_option_price = 0; ?>
                 <?php foreach($custom_options as $key => $value ): ?>

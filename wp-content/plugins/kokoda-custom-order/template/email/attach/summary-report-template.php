@@ -80,23 +80,21 @@ setup_postdata($post);
 <?php $html .= ' <div class="header-wrapper">'; ?>
 <?php $html .= ' <h3>Exterior Colour</h3>'; ?>
 <?php $html .= ' </div>'; ?>
-<?php $html .= '<div class="row">'; ?>
-<?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span>Panel Colour : ' . $custom_options['panel']['value']  .'</span>'; ?>
-<?php $html .= '</div>'; ?>
-<?php $html .= '<div class="col-xs-6 text-right">'; ?>
-<?php $html .= '<span>$' . $custom_options['panel']['price'] . '</span>'; ?>
-<?php $html .= '</div>'; ?>
-<?php $html .= '</div>'; ?>
 
+
+<?php
+$exterior_options = $custom_options;
+foreach($exterior_options as $key => $exterior_option): ?>
 <?php $html .= '<div class="row">'; ?>
 <?php $html .= '<div class="col-xs-6 text-left">'; ?>
-<?php $html .= '<span>Checker Plate Colour : ' . $custom_options['checker_plate']['value'] .'</span>'; ?>
+<?php $html .= '<span>' . ucfirst(preg_replace('/[^A-Za-z0-9 ]/', ' ', $key)). ' Colour : ' . $exterior_option['value']   .'</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '<div class="col-xs-6 text-right">'; ?>
-<?php $html .= '<span>$' . $custom_options['checker_plate']['price'] . '</span>'; ?>
+<?php $html .= '<span>$' . $exterior_option['price'] . '</span>'; ?>
 <?php $html .= '</div>'; ?>
 <?php $html .= '</div>'; ?>
+<?php endforeach ?>
+
 <?php $html .= '</div>'; ?>
 
 
@@ -249,7 +247,7 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
 ?>
 
 <?php $html3 = '<div class="tab-header">'; ?>
-<?php $html3 .= ' <h3>Total  Price Estimate</h3>'; ?>
+<?php $html3 .= ' <h3>Total Price Estimate</h3>'; ?>
 <?php $html3 .= ' </div>'; ?>
 
 <?php $html3 .= '<div class="finance-wrapper container-fluid">'; ?>
@@ -277,13 +275,21 @@ $total_price  = $product_price + $accessories_price + $exterior_price;
         <?php if(isset($custom_options)): ?>
             <?php $html3 .= '<tr>'; ?>
                 <?php $html3 .= '<td scope="row"><h4>Custom Exterior </h4>' ;?>
-                <?php $html3 .= '<p style="text-transform: capitalize">Panel Colour : '. $custom_options['panel']['value'] .'</p>'; ?>
+
+                <?php $exterior_options =  $custom_options ?>
+                <?php foreach($exterior_options as $key => $exterior_option): ?>
+                    <?php $html3 .= '<p style="text-transform: capitalize"> ' .  ucfirst(preg_replace('/[^A-Za-z0-9 ]/', ' ', $key)) .  ' Colour : '. $exterior_option['value'] .'</p>'; ?>
+                <?php endforeach; ?>
+                <?php $html3 .=  '</td>';  ?>
+
+
                 <?php $html3 .= '<p style="text-transform: capitalize">Checker Plate Colour : '. $custom_options['checker_plate']['value'] .'</p>'; ?>
                 <?php $html3 .=  '</td>';  ?>
 
                 <?php $html3 .= '<td><h4 style="color:#fff"> Cost </h4>'; ?>
-                <?php $html3 .= '<p>$'. number_format($custom_options['panel']['price']) .'</p>'; ?>
-                <?php $html3 .= '<p>$'. number_format($custom_options['checker_plate']['price']) .'</p>'; ?>
+                <?php foreach($exterior_options as $key => $exterior_option): ?>
+                    <?php $html3 .= '<p style="text-transform: capitalize">$'. number_format($exterior_option['price']) .'</p>'; ?>
+                <?php endforeach; ?>
                 <?php $html3 .= '</td>'; ?>
             <?php $html3 .= '</tr>';?>
         <?php endif;?>
