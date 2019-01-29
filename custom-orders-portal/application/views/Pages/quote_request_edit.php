@@ -2,26 +2,26 @@
 
 $user_role = $this->session->userdata('user_role');
 
-$quote_id = array(
-    'quote_id' => $quote['quote_id']
+$quote_request_id = array(
+    'request_id' => $quote_request['quote_id']
 );
 
-$custom_options = unserialize($quote['custom_options']);
-$add_on_accessories = unserialize($quote['add_on_accessories']);
+$custom_options = unserialize($quote_request['custom_options']);
+$add_on_accessories = unserialize($quote_request['add_on_accessories']);
 
 
-if($quote['status'] == 'In Order')
+if($quote_request['status'] == 'In Order')
 {
     $quote_status = array(
         'name' => 'status',
         'id'  => 'status',
-        'value' => $quote['status'],
+        'value' => $quote_request['status'],
         'class' => 'form-control',
         'options' => array(
             'In Order'  => 'In Order',
             'In Cancel'  => 'In Cancel'
         ),
-        'selected' => array($quote['status']),
+        'selected' => array($quote_request['status']),
         'disabled' => 'true'
     );
 
@@ -31,14 +31,14 @@ else
         $quote_status = array(
             'name' => 'status',
             'id'  => 'status',
-            'value' => $quote['status'],
+            'value' => $quote_request['status'],
             'class' => 'form-control',
             'options' => array(
                 'In Progress'  => 'In Progress',
                 'In Review'  => 'In Review',
                 'In Cancel'  => 'In Cancel'
             ),
-            'selected' => array($quote['status']),
+            'selected' => array($quote_request['status']),
             'disabled' => 'true'
         );
 }
@@ -48,7 +48,7 @@ $firstName = array(
     'name' => 'customer_first_name',
     'type' => 'text',
     'id'  => 'customer_first_name',
-    'value' => $quote['customer_first_name'],
+    'value' => $quote_request['customer_first_name'],
     'class' => 'form-control',
     'required' => true,
 );
@@ -57,7 +57,7 @@ $lastName = array(
     'name' => 'customer_last_name',
     'type' => 'text',
     'id'  => 'customer_last_name',
-    'value' => $quote['customer_last_name'],
+    'value' => $quote_request['customer_last_name'],
     'class' => 'form-control',
     'required' => true
 );
@@ -66,7 +66,7 @@ $customer_address = array(
     'name' => 'customer_address',
     'type' => 'text',
     'id'  => 'customer_address',
-    'value' => $quote['customer_address'],
+    'value' => $quote_request['customer_address'],
     'class' => 'form-control',
     'required' => true
 );
@@ -75,7 +75,7 @@ $customer_postcode = array(
     'name' => 'customer_postcode',
     'type' => 'text',
     'id'  => 'customer_postcode',
-    'value' => $quote['customer_postcode'],
+    'value' => $quote_request['customer_postcode'],
     'class' => 'form-control',
     'required' => true
 );
@@ -84,7 +84,7 @@ $customer_state = array(
     'name' => 'customer_state',
     'type' => 'text',
     'id'  => 'customer_state',
-    'value' => strtoupper($quote['customer_state']),
+    'value' => strtoupper($quote_request['customer_state']),
     'class' => 'form-control',
     'required' => true
 );
@@ -92,7 +92,7 @@ $customer_city = array(
     'name' => 'customer_city',
     'type' => 'text',
     'id'  => 'customer_city',
-    'value' => strtoupper($quote['customer_city']),
+    'value' => strtoupper($quote_request['customer_city']),
     'class' => 'form-control',
     'required' => true
 );
@@ -100,7 +100,7 @@ $customer_email = array(
     'name' => 'customer_email',
     'type' => 'email',
     'id'  => 'customer_email',
-    'value' => $quote['customer_email'],
+    'value' => $quote_request['customer_email'],
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -110,7 +110,7 @@ $customer_phone = array(
     'name' => 'customer_phone',
     'type' => 'text',
     'id'  => 'customer_phone',
-    'value' => $quote['customer_phone'],
+    'value' => $quote_request['customer_phone'],
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -120,7 +120,7 @@ $product_name = array(
     'name' => 'product_name',
     'type' => 'text',
     'id'  => 'product_name',
-    'value' => $quote['product_name'],
+    'value' => $quote_request['product_name'],
     'class' => 'form-control',
     ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
@@ -149,7 +149,7 @@ $submitQuote = array(
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2 d-inline-flex">Ticket Request  #<?php echo $quote['quote_id']; ?></h1>
+    <h1 class="h2 d-inline-flex">Ticket Request  #<?php echo $quote_request['quote_id']; ?></h1>
 
     <div class="buttons-field d-flex flex-row-reverse">
         <button class="btn btn-lg btn-info email-customer m-2"  data-toggle="modal" data-target="#send-email-customer-modal" >
@@ -302,15 +302,15 @@ $submitQuote = array(
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Dealer Name: </span>
-                                <span class="text-capitalize"><?php echo $quote['dealer_name']; ?></span>
+                                <span class="text-capitalize"><?php echo $quote_request['dealer_name']; ?></span>
                             </li>
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Dealer Email: </span>
-                                <span><?php echo $quote['dealer_email']; ?></span>
+                                <span><?php echo $quote_request['dealer_email']; ?></span>
                             </li>
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Dealer Phone: </span>
-                                <span class="text-capitalize"><?php echo $quote['dealer_phone']; ?></span>
+                                <span class="text-capitalize"><?php echo $quote_request['dealer_phone']; ?></span>
                             </li>
                         </ul>
                     </fieldset>
@@ -324,7 +324,7 @@ $submitQuote = array(
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Model Price:</span>
-                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['product_cost']); ?></span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote_request['product_cost']); ?></span>
                             </li>
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Exterior Price:</span>
@@ -332,14 +332,14 @@ $submitQuote = array(
                             </li>
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Accessories Price:</span>
-                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['add_on_cost']); ?></span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote_request['add_on_cost']); ?></span>
                             </li>
                         </ul>
                         <hr/>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Total Cost:</span>
-                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote['total_cost']) ; ?></span>
+                                <span class="text-capitalize price-value"><?php echo ' $ ' . number_format($quote_request['total_cost']) ; ?></span>
                             </li>
                         </ul>
                     </fieldset>
@@ -351,7 +351,7 @@ $submitQuote = array(
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="font-weight-bold text-capitalize">Payment Method: </span>
-                                <span class="text-capitalize"><?php echo $quote['payment_method']; ?></span>
+                                <span class="text-capitalize"><?php echo $quote_request['payment_method']; ?></span>
                             </li>
                         </ul>
                     </fieldset>
@@ -360,9 +360,9 @@ $submitQuote = array(
 
 
 
-            <?php echo form_hidden($quote_id); ?>
+            <?php echo form_hidden($quote_request_id); ?>
 
-            <?php if($quote['status'] == 'In Progress'): ?>
+            <?php if($quote_request['status'] == 'In Progress'): ?>
                 <div class="row quote-buttons">
                     <div class="col-12 text-right">
                         <?php echo form_submit($submitQuoteButton);  ?>
@@ -397,7 +397,7 @@ $submitQuote = array(
             <div class="modal fade" id="send-email-customer-modal" tabindex="-1" role="dialog" aria-labelledby="send-email-customer-label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <form id="send_email_customer_modal_form" method="post"  quote_id="<?php echo $quote['quote_id']; ?>">
+                        <form id="send_email_customer_modal_form" method="post"  request_id="<?php echo $quote_request['quote_id']; ?>">
                             <div class="modal-header">
                                 <h5 class="modal-title">Send Request Confirm</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -421,7 +421,7 @@ $submitQuote = array(
             <div class="modal fade" id="send-email-dealer-modal" tabindex="-1" role="dialog" aria-labelledby="send-email-dealer-label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <form id="send_email_dealer_modal_form" method="post"  quote_id="<?php echo $quote['quote_id']; ?>">
+                        <form id="send_email_dealer_modal_form" method="post"  request_id="<?php echo $quote_request['quote_id']; ?>">
                             <div class="modal-header">
                                 <h5 class="modal-title">Send Request Notify</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

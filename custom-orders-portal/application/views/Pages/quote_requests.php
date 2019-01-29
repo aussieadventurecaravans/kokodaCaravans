@@ -18,27 +18,27 @@
         </tr>
         </thead>
         <tbody>
-        <?php if(!$quotes): ?>
+        <?php if(!$quote_requests): ?>
             <div class="alert alert-warning">
                 <?php echo 'There are no quote requests at the moment'; ?>
             </div>
         <?php else: ?>
-            <?php foreach($quotes as $quote): ?>
+            <?php foreach($quote_requests as $quote_request): ?>
                 <tr>
-                    <td><?php echo $quote['quote_id'] ?></td>
-                    <td><?php echo $quote['customer_first_name']. ' ' . $quote['customer_last_name'] ?></td>
-                    <td><?php echo $quote['product_name'] ?></td>
-                    <td><?php echo $quote['customer_email'] ?></td>
-                    <td><?php echo $quote['customer_phone'] ?></td>
-                    <td><?php echo $quote['status'] ?></td>
-                    <td><?php echo $quote['date_created'] ?></td>
+                    <td><?php echo $quote_request['quote_id'] ?></td>
+                    <td><?php echo $quote_request['customer_first_name']. ' ' . $quote_request['customer_last_name'] ?></td>
+                    <td><?php echo $quote_request['product_name'] ?></td>
+                    <td><?php echo $quote_request['customer_email'] ?></td>
+                    <td><?php echo $quote_request['customer_phone'] ?></td>
+                    <td><?php echo $quote_request['status'] ?></td>
+                    <td><?php echo $quote_request['date_created'] ?></td>
                     <td>
-                        <?php if($quote['status'] != 'In Progress'): ?>
-                            <a class="btn btn-success btn-sm" href="<?php echo base_url('quote_request') . '?quote_id=' . $quote['quote_id']; ?>" >
+                        <?php if($quote_request['status'] != 'In Progress'): ?>
+                            <a class="btn btn-success btn-sm" href="<?php echo base_url('quote_request') . '?request_id=' . $quote_request['quote_id']; ?>" >
                                 <span class="fa-search"></span>View
                             </a>
                         <?php else: ?>
-                            <a class="btn btn-info btn-sm" href="<?php echo base_url('quote_request/edit') . '?quote_id=' . $quote['quote_id']; ?>" >
+                            <a class="btn btn-info btn-sm" href="<?php echo base_url('quote_request/edit') . '?request_id=' . $quote_request['quote_id']; ?>" >
                                 <span class="fa-edit"></span>Edit
                             </a>
                         <?php endif; ?>

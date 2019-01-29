@@ -30,7 +30,7 @@ class Index extends CI_Controller {
         $data['title'] = 'Custom Orders Management ';
         $data['message'] = 'Kokoda Custom Orders';
         $data['content'] = 'Pages/index';
-        $data['quotes'] =  $this->quoterequest_model->get_quotes();
+        $data['quote_requests'] =  $this->quoterequest_model->get_quote_requests();
         $this->load->view('Layouts/master', $data);
 
     }
@@ -49,7 +49,7 @@ class Index extends CI_Controller {
         $data['menu'] = 'quote_request';
         $data['title'] = 'Custom Orders Management ';
         $data['content'] = 'Pages/quote_requests';
-        $data['quotes'] = $this->quoterequest_model->get_quotes();
+        $data['quote_requests'] = $this->quoterequest_model->get_quote_requests();
         $this->load->view('Layouts/master', $data);
 
     }

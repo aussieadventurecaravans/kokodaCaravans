@@ -14,7 +14,7 @@ class Quoterequest_model extends CI_Model
     }
 
 
-    public function get_quotes()
+    public function get_quote_requests()
     {
         $user_email = $this->session->userdata('user_email');
         $user_role = $this->session->userdata('user_role');
@@ -46,7 +46,7 @@ class Quoterequest_model extends CI_Model
         }
     }
 
-    public function get_quote($id,$type = 'array')
+    public function get_quote_request($request_id,$type = 'array')
     {
 
         $user_email = $this->session->userdata('user_email');
@@ -56,11 +56,11 @@ class Quoterequest_model extends CI_Model
 
         if($user_role == 'admin')
         {
-            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE, array('quote_id'=>$id));
+            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE, array('quote_id'=>$request_id));
         }
         else
         {
-            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE, array('quote_id'=>$id,'dealer_email' => $user_email));
+            $query = $wordpress_db->get_where(self::WP_QUOTE_TABLE, array('quote_id'=>$request_id,'dealer_email' => $user_email));
         }
 
         $wordpress_db->close();
@@ -86,29 +86,28 @@ class Quoterequest_model extends CI_Model
     }
 
 
-
-    public function submit_quote($id)
+    public function submit_quote($request_id)
     {
 
         $status = array('status' => 'In Review');
 
-        $result = $this->setWPQuoteStatus($status,$id);
+        $result = $this->setWPQuoteStatus($status,$request_id);
 
         if ($result ===  true)
         {
-            //copy the quote detail and add it to the custom_order table
-            $quote = $this->get_quote($id);
+            //copy the Web quote detail and add it to the table quote of custom order database
+            $quote_request = $this->get_quote_request($request_id);
 
             //if this quote request was added from website
             if(isset($quote['quote_id']))
             {
-                $quote['web_quote_id']  = $quote['quote_id'];
-                unset($quote['quote_id']);
+                $quote_request['web_quote_id']  = $quote_request['quote_id'];
+                unset($quote_request['quote_id']);
             }
 
             $custom_order_db = $this->db;
 
-            $result = $custom_order_db->insert(self::QUOTES_TABLE,$quote);
+            $result = $custom_order_db->insert(self::QUOTES_TABLE,$quote_request);
 
             return $result;
         }
@@ -116,15 +115,15 @@ class Quoterequest_model extends CI_Model
         return $result;
     }
 
-    public function setWPQuoteStatus($status,$quote_id)
+    public function setWPQuoteStatus($status,$request_id)
     {
-        if(is_array($status) && isset($quote_id))
+        if(is_array($status) && isset($request_id))
         {
             $wordpress_db = $this->load->database('wordpress', TRUE);
 
             $wordpress_db->trans_start();
 
-            $wordpress_db->update(self::WP_QUOTE_TABLE, $status,  array('quote_id' => $quote_id));
+            $wordpress_db->update(self::WP_QUOTE_TABLE, $status,  array('quote_id' => $request_id));
 
             $wordpress_db->trans_complete();
 

@@ -165,13 +165,20 @@ class Quote extends CI_Controller {
 
 
 
-        //Custom Options  of all Models
-        $custom_options= array();
+        //Exterior Custom Options  of all Models
+        $exterior_custom_options= array();
         foreach ($caravans as $caravan)
         {
-            $custom_options[$caravan->ID] = get_field('custom_exterior',$caravan->ID);
+            $exterior_custom_options[$caravan->ID] = get_field('custom_exterior',$caravan->ID);
         }
 
+
+        //Exterior Custom Options  of all Models
+        $interior_custom_options= array();
+        foreach ($caravans as $caravan)
+        {
+            $interior_custom_options[$caravan->ID] = get_field('custom_interior',$caravan->ID);
+        }
 
         $add_on_accessories = array();
 
@@ -181,7 +188,9 @@ class Quote extends CI_Controller {
 
         $data['products_title'] = $products_title;
 
-        $data['custom_options'] = $custom_options;
+        $data['exterior_custom_options'] = $exterior_custom_options;
+
+        $data['interior_custom_options'] = $interior_custom_options;
 
         $data['add_on_accessories'] = $add_on_accessories;
 

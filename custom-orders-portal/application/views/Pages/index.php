@@ -45,20 +45,20 @@
         </tr>
         </thead>
         <tbody>
-        <?php if(!$quotes): ?>
+        <?php if(!$quote_requests): ?>
             <div class="alert alert-warning">
                 <?php echo 'There are no quote request from website at the moment'; ?>
             </div>
         <?php else: ?>
-            <?php foreach($quotes as $quote): ?>
-                <?php if($quote['status'] == 'In Progress'): ?>
+            <?php foreach($quote_requests as $quote_request): ?>
+                <?php if($quote_request['status'] == 'In Progress'): ?>
                     <tr>
-                        <td><?php echo $quote['quote_id'] ?></td>
-                        <td><?php echo $quote['customer_first_name'] . ' ' . $quote['customer_last_name'] ?></td>
-                        <td><?php echo $quote['product_name'] ?></td>
-                        <td><?php echo $quote['customer_email'] ?></td>
-                        <td><?php echo $quote['customer_phone'] ?></td>
-                        <td><?php echo $quote['date_created'] ?></td>
+                        <td><?php echo $quote_request['quote_id'] ?></td>
+                        <td><?php echo $quote_request['customer_first_name'] . ' ' . $quote_request['customer_last_name'] ?></td>
+                        <td><?php echo $quote_request['product_name'] ?></td>
+                        <td><?php echo $quote_request['customer_email'] ?></td>
+                        <td><?php echo $quote_request['customer_phone'] ?></td>
+                        <td><?php echo $quote_request['date_created'] ?></td>
                     </tr>
                 <?php endif; ?>
              <?php endforeach; ?>

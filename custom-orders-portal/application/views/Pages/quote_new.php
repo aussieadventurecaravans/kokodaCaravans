@@ -84,7 +84,6 @@ $product_name = array(
     'required' => true
 );
 
-
 /*$product_custom_options = array(
     'name' => 'product_name',
     'type' => 'text',
@@ -102,9 +101,9 @@ $payment_options = array(
 );
 
 $payment_method = array(
-    'name' => 'product_name',
+    'name' => 'payment_method',
     'type' => 'text',
-    'id'  => 'product_name',
+    'id'  => 'payment_method',
     'value' => '',
     'options' => $payment_options,
     'class' => 'form-control',
@@ -133,7 +132,7 @@ $submitQuote = array(
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">New Quote</h1>
+    <h1 class="h2">Create New Quote</h1>
 </div>
 
 
@@ -142,7 +141,7 @@ $submitQuote = array(
     <div class="row">
         <div class="col-md-12 text-left">
 
-            <?php echo form_open('quote/insert'); ?>
+            <?php echo form_open('quote/insert','id="new_quote_form"'); ?>
 
             <?php
             $success_msg = $this->session->flashdata('success_msg');
@@ -168,7 +167,7 @@ $submitQuote = array(
             <?php  endif;  ?>
 
 
-            <div class="row form-row">
+            <div class="row form-row form-group required">
                 <div class="col-sm-6 col-12">
                     <?php echo form_label('First Name', 'customer_first_name'); ?>
                     <?php echo form_input($firstName); ?>
@@ -225,16 +224,25 @@ $submitQuote = array(
                 </div>
             </div>
 
-         <!--   <div class="row">
+            <div class="row form-row exterior-custom-options">
                 <div class="col-12">
-                    <?php /*echo form_label('Custom Options', 'custom_options'); */?>
-                    <?php /*echo print_r($custom_options,true); */?>
+                    <?php echo form_label('Exterior Options', 'exterior_custom_options','class="font-weight-bold text-capitalize"'); ?>
+                    <div class="options">
 
-                    <?php /*foreach($custom_options as $key => $value ): */?>
-
-                    <?php /*endforeach; */?>
+                    </div>
                 </div>
-            </div>-->
+            </div>
+
+
+            <div class="row form-row interior-custom-options">
+                <div class="col-12">
+                    <?php echo form_label('Interior Options', 'interior_custom_options','class="font-weight-bold text-capitalize"'); ?>
+                    <div class="options">
+
+                    </div>
+
+                </div>
+            </div>
 
           <!--<?php /*if(is_array($add_on_accessories)):*/?>
                 <?php /*if(sizeof($add_on_accessories) > 0): */?>
@@ -265,7 +273,7 @@ $submitQuote = array(
                             </li>
                         </ul>
                         <?php echo form_dropdown($payment_method); ?>
-                        <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
+                        <?php echo '<div class="errors">'.form_error('$payment_method').'</div>'; ?>
                     </fieldset>
                 </div>
             </div>
@@ -294,8 +302,6 @@ $submitQuote = array(
                         </ul>
                     </fieldset>
                 </div>
-
-
             </div>
 
 
@@ -340,3 +346,9 @@ $submitQuote = array(
     </div>
 
 </div>
+<script type="text/javascript">
+    //pass the php parameter to javascript global variable
+    var $_global_exterior = <?php echo json_encode($exterior_custom_options); ?>;
+    var $_global_interior = <?php echo json_encode($interior_custom_options); ?>;
+
+</script>
