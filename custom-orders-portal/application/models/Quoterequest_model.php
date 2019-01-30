@@ -99,7 +99,7 @@ class Quoterequest_model extends CI_Model
             $quote_request = $this->get_quote_request($request_id);
 
             //if this quote request was added from website
-            if(isset($quote['quote_id']))
+            if(isset($quote_request['quote_id']))
             {
                 $quote_request['web_quote_id']  = $quote_request['quote_id'];
                 unset($quote_request['quote_id']);

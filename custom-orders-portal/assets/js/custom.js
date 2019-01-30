@@ -180,7 +180,7 @@ jQuery(function($) {
          * update, edit, create the interior options for
          * new quote form
          */
-
+        /*
         //initialize the the exterior option when load first product
         if($("form#new_quote_form").length > 0)
         {
@@ -239,5 +239,6 @@ jQuery(function($) {
                 $('div.interior-custom-options div.options').html('<p>No Interior Options</p>');
             }
         });
+        */
     });
 });

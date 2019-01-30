@@ -186,7 +186,7 @@ $submitQuote = array(
                     <?php echo '<div class="errors">'.form_error('$customer_address').'</div>'; ?>
                 </div>
                 <div class="col-2">
-                    <?php echo form_label('Address', 'customer_city'); ?>
+                    <?php echo form_label('City', 'customer_city'); ?>
                     <?php echo form_input($customer_city); ?>
                     <?php echo '<div class="errors">'.form_error('$customer_city').'</div>'; ?>
                 </div>
@@ -224,6 +224,170 @@ $submitQuote = array(
                 </div>
             </div>
 
+
+
+            <div class="row form-row interior-custom-options">
+                <div class="col-12">
+                    <?php echo form_label('Interiors', 'interior_custom_options','class="font-weight-bold text-capitalize"'); ?>
+                    <table class="table table-striped interior-list">
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">flooring</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Wall Ply</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Partition Ply</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Ceiling Ply</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Furniture Ply</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Doors Top</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Doors Bottom</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Bench Tops</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Splash Backs</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Fridge Doors</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Door Handles</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
             <div class="row form-row exterior-custom-options">
                 <div class="col-12">
                     <?php echo form_label('Exterior Options', 'exterior_custom_options','class="font-weight-bold text-capitalize"'); ?>
@@ -233,35 +397,160 @@ $submitQuote = array(
                 </div>
             </div>
 
-
             <div class="row form-row interior-custom-options">
                 <div class="col-12">
-                    <?php echo form_label('Interior Options', 'interior_custom_options','class="font-weight-bold text-capitalize"'); ?>
-                    <div class="options">
-
-                    </div>
-
+                    <?php echo form_label('Upholstery', 'upholstery_options','class="font-weight-bold text-capitalize"'); ?>
+                    <table class="table table-striped upholstery-list">
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Seat Top Scroll</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Seat Bottom Scroll</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Back Top Scroll</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Back Bottom Scroll</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Magazine Pocket</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Bed Head</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="text-capitalize">Door Curtain</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                            </td>
+                            <td>
+                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                            </td>
+                            <td>
+                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
-          <!--<?php /*if(is_array($add_on_accessories)):*/?>
-                <?php /*if(sizeof($add_on_accessories) > 0): */?>
-                    <div class="row">
-                        <div class="col-12">
-                            <?php /*echo form_label('Add On Accessories', 'add_on_options'); */?>
-                            <ul class="list-group">
-                                <?php /*foreach($add_on_accessories as $option): */?>
-                                    <li class="list-group-item">
-                                        <span class="font-weight-bold text-capitalize"><?php /*echo $option['label'] . ':'; */?> </span><br/>
-                                        <span class="text-capitalize"><?php /*echo 'Retail Price: $' . $option['retail_price']; */?></span><br/>
-                                        <span class="text-capitalize"><?php /*echo 'Whole Sale Price: $' . $option['wholesale_price']; */?></span>
-                                    </li>
-                                <?php /*endforeach; */?>
-                            </ul>
-                        </div>
-                    </div>
-                <?php /*endif; */?>
-            --><?php /*endif; */?>
+            <div class="row form-row add-on-options">
+                <div class="col-12">
+                    <?php echo form_label('Add-on Extra', 'accessories_options','class="font-weight-bold text-capitalize"'); ?>
+                    <table id="myTable" class="table table-striped add-on-list">
+                        <thead>
+                            <tr>
+                                <td>Extras</td>
+                                <td>Sku</td>
+                                <td>Qty</td>
+                                <td>Cost</td>
+                                <td>Retail Price</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" name="label" class="form-control" />
+                                </td>
+                                <td>
+                                    <input type="text" name="sku" class="form-control"/>
+                                </td>
+                                <td>
+                                    <input type="text" name="qty" class="form-control"/>
+                                </td>
+                                <td>
+                                    <input type="text" name="wholesale_price" class="form-control"/>
+                                </td>
+                                <td>
+                                    <input type="text" name="retail_price" class="form-control"/>
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <input type="button" class="btn btn-lg btn-success" id="addextra" value="Add +" />
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
 
             <div class="row form-row">
                 <div class="col-12">
@@ -350,5 +639,35 @@ $submitQuote = array(
     //pass the php parameter to javascript global variable
     var $_global_exterior = <?php echo json_encode($exterior_custom_options); ?>;
     var $_global_interior = <?php echo json_encode($interior_custom_options); ?>;
+
+    $(document).ready(function () {
+        var counter = 0;
+
+        $("#addextra").on("click", function () {
+            var newRow = $("<tr>");
+            var cols = "";
+
+            cols += '<td><input type="text" class="form-control" name="label' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control" name="sku' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control" name="qty' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control" name="wholesale_price' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control" name="retail_price' + counter + '"/></td>';
+
+            cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+            newRow.append(cols);
+            $("table.add-on-list").append(newRow);
+            counter++;
+        });
+
+
+
+        $("table.add-on-list").on("click", ".ibtnDel", function (event) {
+            $(this).closest("tr").remove();
+            counter -= 1
+        });
+
+
+    });
+
 
 </script>
