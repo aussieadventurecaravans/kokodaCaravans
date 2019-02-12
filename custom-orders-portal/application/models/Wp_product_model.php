@@ -4,21 +4,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Wp_product_model extends CI_Model
 {
 
-
+    /**
+     * Wp_product_model constructor.
+     */
 
     public function __construct()
     {
         parent::__construct();
     }
 
+    /**
+     * return an product object/Wp_Post
+     * by post/product ID
+     *
+     * @param $product_id
+     * @return array|bool|null|WP_Post
+     */
     public function get_product($product_id)
     {
+
+        if($product = get_post($product_id))
+        {
+            return $product;
+        }
+
        return false;
     }
 
-    /*
-     * Get Product from Wordpress Website
-     * with the custom order flag enable
+    /**
+     * return the caravan cost by post/caravan ID
+     *
+     * @param $product_id
+     * @return bool|string
+     */
+
+    public function get_product_price($product_id)
+    {
+
+        if($product = get_post($product_id))
+        {
+            return get_field('price_thousands', $product->ID) . get_field('price_hundreds', $product->ID);
+        }
+        return false;
+    }
+
+
+    /**
+     * return a list of products/WP posts
+     * @return array|bool
      */
 
     public function get_products()

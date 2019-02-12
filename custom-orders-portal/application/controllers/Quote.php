@@ -144,7 +144,7 @@ class Quote extends CI_Controller {
 
         if(!$user_id)
         {
-            $this->session->set_userdata('referer_url',  base_url('quote/new'));
+            $this->session->set_userdata('referer_url',  base_url('quote/new_quote'));
             redirect( base_url('user/login'), 'refresh');
         }
 
@@ -186,7 +186,7 @@ class Quote extends CI_Controller {
 
         $data = array();
 
-        $data['content'] = 'Pages/quote_new';
+        $data['content'] = 'Pages/new_quote';
 
         $data['products_title'] = $products_title;
 
@@ -199,6 +199,9 @@ class Quote extends CI_Controller {
         $this->load->view('Layouts/master', $data);
     }
 
+    /**
+     *
+     */
 
     public function insert()
     {
@@ -206,7 +209,7 @@ class Quote extends CI_Controller {
 
         if(!$user_id)
         {
-            $this->session->set_userdata('referer_url',  base_url('quote/new'));
+            $this->session->set_userdata('referer_url',  base_url('quote/new_quote'));
             redirect( base_url('user/login'), 'refresh');
         }
 
@@ -222,12 +225,11 @@ class Quote extends CI_Controller {
             $dealer_detail = $this->dealer_model->getDealerByEmail($user_email);
 
             //prepare custom quote detail for insert new quote
-            if($this->input->post('quote_data'))
-            {
+            if($this->input->post('quote_data')) {
 
-               $data =[];
+                $data = [];
 
-               $post_data = $this->input->post('quote_data');
+                $post_data = $this->input->post('quote_data');
 
 
                 $data['customer_first_name'] = $post_data['customer']['customer_first_name'];
@@ -239,7 +241,6 @@ class Quote extends CI_Controller {
                 $data['customer_phone'] = $post_data['customer']['customer_phone'];
 
 
-
                 $data['dealer_name'] = $dealer_detail->dealer_name;
                 $data['dealer_email'] = $dealer_detail->dealer_email;
                 $data['dealer_phone'] = $dealer_detail->dealer_phone;
@@ -249,30 +250,53 @@ class Quote extends CI_Controller {
                 $data['dealer_state'] = $dealer_detail->dealer_state;
 
 
-                $data['product_name'] = $post_data['product'];
+                $data['product_name'] = $post_data['product_name'];
+                $data['product_id'] = $post_data['product_id'];
 
-               $custom_options = [
-                   'upholstery_options' => $post_data['upholstery_options'],
-                   'interior_options' => $post_data['interior_options'],
+                $custom_options = [
+                    'upholstery_options' => $post_data['upholstery_options'],
+                    'interior_options' => $post_data['interior_options'],
                     'exterior_options' => $post_data['exterior_options']
-               ];
+                ];
 
-               $data['custom_options'] = serialize($custom_options) ;
-
-               if($post_data['add_on_accessories'])
-               {
-                   $data['add_on_accessories'] = serialize($post_data['add_on_accessories']);
-               }
-               else
-               {
-                   $data['add_on_accessories'] = '';
-               }
+                $data['custom_options'] = serialize($custom_options);
 
 
 
-                echo json_encode($data);
-/*
-                if($this->quote_model->addNewQuote($data))
+                $custom_options_price = 0;
+                foreach ($post_data['exterior_options'] as $option)
+                {
+                    $custom_options_price += $option['price'];
+                }
+
+                $accessories_price = 0;
+                if ($post_data['add_on_accessories'])
+                {
+                    $data['add_on_accessories'] = serialize($post_data['add_on_accessories']);
+
+                    foreach ($post_data['add_on_accessories'] as $option)
+                    {
+                        $accessories_price += $option['retail_price'];
+                    }
+                }
+                else
+                {
+                    $data['add_on_accessories'] = '';
+                }
+
+
+                //load products model from Wordpress website
+                $this->load->model('wp_product_model');
+
+                $data['product_cost'] = $this->wp_product_model->get_product_price($post_data['product_id']);
+                $data['add_on_cost'] = $accessories_price;
+                $data['orc_cost'] = 0;
+
+                $data['total_cost'] = $data['product_cost'] + $data['orc_cost'] + $data['add_on_cost'] + $custom_options_price ;
+
+
+
+                if ($this->quote_model->addNewQuote($data))
                 {
                     echo 'true';
                 }
@@ -280,10 +304,10 @@ class Quote extends CI_Controller {
                 {
 
                     echo 'false';
-                }*/
+                }
+
 
             }
-
         }
         else
         {

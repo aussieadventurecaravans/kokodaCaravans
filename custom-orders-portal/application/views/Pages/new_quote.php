@@ -726,7 +726,9 @@ $(document).ready(function () {
 
         quote_data.customer = customer;
 
-        quote_data.product =  $("form#new_quote_form select#product_name").find(":selected").text();
+        quote_data.product_name =  $("form#new_quote_form select#product_name").find(":selected").text();
+
+        quote_data.product_id =  $("form#new_quote_form select#product_name").val();
 
     }
 
