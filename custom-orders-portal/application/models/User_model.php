@@ -17,7 +17,41 @@ class User_model extends CI_Model
 
     }
 
-    public function login_user($user_login){
+
+    public function getUser($id = null)
+    {
+
+        if(!isset($id))
+        {
+            $user_id = $this->session->userdata('user_id');
+        }
+        else
+        {
+            $user_id = $id;
+        }
+
+        if(isset($user_id))
+        {
+            $sql = "SELECT * FROM " . self::USERS_TABLE . " WHERE user_id = ? ";
+
+            $query = $this->db->query($sql,array($user_id));
+
+            $user_obj = $query->row();
+
+            if(isset($user_obj))
+            {
+                return $user_obj;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
+    public function login_user($user_login)
+    {
 
         $this->db->select('*');
         $this->db->from(self::USERS_TABLE);
@@ -33,6 +67,7 @@ class User_model extends CI_Model
             return $query->result_array();
         }
         else{
+
             return false;
         }
 
@@ -48,13 +83,32 @@ class User_model extends CI_Model
 
         if($query->num_rows()>0)
         {
-            return false;
-        }
-        else
-            {
             return true;
         }
+        else
+        {
+            return false;
+        }
 
+    }
+
+
+
+    public function is_dealer($user_id)
+    {
+        $this->db->select('*');
+        $this->db->from(self::USERS_TABLE);
+        $this->db->where('user_id',$user_id);
+        $query = $this->db->get();
+
+        if($query->num_rows()>0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

@@ -9,6 +9,8 @@ class Quote extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model("quote_model");
+        $this->load->model("user_model");
+        $this->load->model("dealer_model");
 
 
     }
@@ -136,7 +138,7 @@ class Quote extends CI_Controller {
     }
 
 
-    public function new()
+    public function new_quote()
     {
         $user_id = $this->session->userdata('user_id');
 
@@ -195,6 +197,100 @@ class Quote extends CI_Controller {
         $data['add_on_accessories'] = $add_on_accessories;
 
         $this->load->view('Layouts/master', $data);
+    }
+
+
+    public function insert()
+    {
+        $user_id = $this->session->userdata('user_id');
+
+        if(!$user_id)
+        {
+            $this->session->set_userdata('referer_url',  base_url('quote/new'));
+            redirect( base_url('user/login'), 'refresh');
+        }
+
+        //$quote_data = $this->input->post('quote_data');
+        $user = $this->user_model->getUser();
+        $user_email = $user->user_email;
+
+        //check if user is the dealer.
+        if($this->dealer_model->email_check($user_email))
+        {
+
+            // get dealer for detail
+            $dealer_detail = $this->dealer_model->getDealerByEmail($user_email);
+
+            //prepare custom quote detail for insert new quote
+            if($this->input->post('quote_data'))
+            {
+
+               $data =[];
+
+               $post_data = $this->input->post('quote_data');
+
+
+                $data['customer_first_name'] = $post_data['customer']['customer_first_name'];
+                $data['customer_last_name'] = $post_data['customer']['customer_last_name'];
+                $data['customer_address'] = $post_data['customer']['customer_address'];
+                $data['customer_city'] = $post_data['customer']['customer_city'];
+                $data['customer_state'] = $post_data['customer']['customer_state'];
+                $data['customer_email'] = $post_data['customer']['customer_email'];
+                $data['customer_phone'] = $post_data['customer']['customer_phone'];
+
+
+
+                $data['dealer_name'] = $dealer_detail->dealer_name;
+                $data['dealer_email'] = $dealer_detail->dealer_email;
+                $data['dealer_phone'] = $dealer_detail->dealer_phone;
+                $data['dealer_city'] = $dealer_detail->dealer_city;
+                $data['dealer_address'] = $dealer_detail->dealer_address;
+                $data['dealer_postcode'] = $dealer_detail->dealer_postcode;
+                $data['dealer_state'] = $dealer_detail->dealer_state;
+
+
+                $data['product_name'] = $post_data['product'];
+
+               $custom_options = [
+                   'upholstery_options' => $post_data['upholstery_options'],
+                   'interior_options' => $post_data['interior_options'],
+                    'exterior_options' => $post_data['exterior_options']
+               ];
+
+               $data['custom_options'] = serialize($custom_options) ;
+
+               if($post_data['add_on_accessories'])
+               {
+                   $data['add_on_accessories'] = serialize($post_data['add_on_accessories']);
+               }
+               else
+               {
+                   $data['add_on_accessories'] = '';
+               }
+
+
+
+                echo json_encode($data);
+/*
+                if($this->quote_model->addNewQuote($data))
+                {
+                    echo 'true';
+                }
+                else
+                {
+
+                    echo 'false';
+                }*/
+
+            }
+
+        }
+        else
+        {
+            echo 'false';
+        }
+
+
     }
 
 }

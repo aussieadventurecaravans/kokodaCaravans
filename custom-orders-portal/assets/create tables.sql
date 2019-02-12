@@ -89,6 +89,21 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
+
+CREATE TABLE `dealer` (
+  `dealer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dealer_name` varchar(50) NOT NULL,
+  `dealer_email` varchar(50) NOT NULL,
+  `dealer_phone` varchar(50) NOT NULL,
+  `dealer_address` varchar(50) NOT NULL,
+  `dealer_city` varchar(50) NOT NULL,
+  `dealer_postcode` varchar(50) NOT NULL,
+  `dealer_state` varchar(50) NOT NULL,
+  PRIMARY KEY (`dealer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `product_title` varchar(50) NOT NULL,

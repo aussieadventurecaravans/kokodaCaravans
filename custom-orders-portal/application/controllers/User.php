@@ -31,17 +31,18 @@ class User extends CI_Controller {
 
         $email_check=$this->user_model->email_check($user['user_email']);
 
-        if($email_check)
+        //create new user with new email
+        if(!$email_check)
         {
             $this->user_model->register_user($user);
-            $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
+            $this->session->set_flashdata('success_msg', 'Registered successfully. Now login to your account.');
             redirect(base_url('user/login'),'refresh');
 
         }
         else
         {
 
-            $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+            $this->session->set_flashdata('error_msg', 'Error occured, Try again.');
             redirect(base_url('user/register_user'),'refresh');
 
         }

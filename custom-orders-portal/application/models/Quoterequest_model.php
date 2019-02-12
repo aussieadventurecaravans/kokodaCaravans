@@ -85,8 +85,13 @@ class Quoterequest_model extends CI_Model
         }
     }
 
+    /**
+     * transfer request ticket to official quote before it become the order
+     * @param $request_id
+     * @return bool
+     */
 
-    public function submit_quote($request_id)
+    public function submit_to_quote($request_id)
     {
 
         $status = array('status' => 'In Review');
@@ -103,6 +108,11 @@ class Quoterequest_model extends CI_Model
             {
                 $quote_request['web_quote_id']  = $quote_request['quote_id'];
                 unset($quote_request['quote_id']);
+            }
+            //filter data before create new quote. remove unneeded data
+            if(isset($quote_request['dealer_id']))
+            {
+                unset($quote_request['dealer_id']);
             }
 
             $custom_order_db = $this->db;

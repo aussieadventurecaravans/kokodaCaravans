@@ -91,7 +91,7 @@ class Quote_request extends CI_Controller {
 
         if($this->input->post('submitQuote'))
         {
-            $result = $this->quoterequest_model->submit_quote($request_id);
+            $result = $this->quoterequest_model->submit_to_quote($request_id);
             if(!$result)
             {
                 $this->session->set_flashdata('error_msg', 'Update failed, please check the input or contact to our IT Support.' . $result );

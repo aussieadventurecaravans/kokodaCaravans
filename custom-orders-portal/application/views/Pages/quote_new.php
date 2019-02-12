@@ -124,8 +124,8 @@ $submitQuote = array(
     'name'=> 'submitQuote',
     'value' => 'Submit Quote',
     'class' => 'btn btn-lg btn-success',
-    'type'  => 'submit'
-
+    'type'  => 'submit',
+    'data-toggle' => "modal",
 );
 
 
@@ -233,155 +233,155 @@ $submitQuote = array(
                         <tr>
                             <td colspan="3"><span class="text-capitalize">flooring</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='flooring' option_name="flooring">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="flooring_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="flooring_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="flooring_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Wall Ply</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='wallply'  option_name="Wall Ply">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="wallply_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="wallply_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="wallply_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Partition Ply</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='partitionply' option_name="Partition Ply">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="partitionply_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="partitionply_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="partitionply_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Ceiling Ply</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='ceilingply' option_name="Ceiling Ply">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="ceilingply_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="ceilingply_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="ceilingply_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Furniture Ply</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='furnitureply' option_name="Furniture Ply">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="furnitureply_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="furnitureply_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="furnitureply_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Doors Top</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='doorstop' option_name="Doors Top">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="doorstop_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="doorstop_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="doorstop_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Doors Bottom</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='doorsbottom' option_name="Doors Bottom">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="doorsbottom_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="doorsbottom_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="doorsbottom_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Bench Tops</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='benchtop' option_name="Bench Tops">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="benchtop_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="benchtop_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="benchtop_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Splash Backs</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='splashbacks' option_name="Splash Backs">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="splashbacks_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="splashbacks_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="splashbacks_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Fridge Doors</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='fridgedoors' option_name="Fridge Doors">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="fridgedoors_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="fridgedoors_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="fridgedoors_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Door Handles</span></td>
                         </tr>
-                        <tr>
+                        <tr class="options" option_id='doorhandles' option_name="Door Handles">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="doorhandles_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="doorhandles_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="doorhandles_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                     </table>
@@ -391,112 +391,123 @@ $submitQuote = array(
             <div class="row form-row exterior-custom-options">
                 <div class="col-12">
                     <?php echo form_label('Exterior Options', 'exterior_custom_options','class="font-weight-bold text-capitalize"'); ?>
-                    <div class="options">
+                    <table class="table table-bordered exterior-list">
+                        <tr>
+                            <td>
+                                <span class="text-capitalize">Exterior</span>
+                            </td>
+                            <td>
+                                <span class="text-capitalize">Selections</span>
+                            </td>
+                        </tr>
+                        <tbody class="options">
 
-                    </div>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
 
-            <div class="row form-row interior-custom-options">
+            <div class="row form-row upholstery-custom-options">
                 <div class="col-12">
                     <?php echo form_label('Upholstery', 'upholstery_options','class="font-weight-bold text-capitalize"'); ?>
                     <table class="table table-striped upholstery-list">
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Seat Top Scroll</span></td>
                         </tr>
-                        <tr>
+                        <tr class='options' option_id='seattopscroll' option_name="Seat Top Scroll">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="seattopscroll_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="seattopscroll_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="seattopscroll_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Seat Bottom Scroll</span></td>
                         </tr>
-                        <tr>
+                        <tr class='options' option_id='seatbottomscroll' option_name="Seat Bottom Scroll">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="seatbottomscroll_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="seatbottomscroll_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="seatbottomscroll_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Back Top Scroll</span></td>
                         </tr>
-                        <tr>
+                        <tr class='options' option_id='backtopscroll' option_name="Back Top Scroll">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="backtopscroll_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="backtopscroll_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="backtopscroll_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Back Bottom Scroll</span></td>
                         </tr>
-                        <tr>
+                        <tr class='options' option_id='backbottomscroll' option_name="Back Bottom Scroll">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="backbottomscroll_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="backbottomscroll_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="backbottomscroll_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Magazine Pocket</span></td>
                         </tr>
-                        <tr>
+                        <tr class='options' option_id='magazinepocket' option_name="Magazine Pocket">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="magazinepocket_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="magazinepocket_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="magazinepocket_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Bed Head</span></td>
                         </tr>
-                        <tr>
+                        <tr class='options' option_id='bedhead' option_name="Bed Head">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="bedhead_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="bedhead_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="bedhead_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3"><span class="text-capitalize">Door Curtain</span></td>
                         </tr>
-                        <tr>
+                        <tr class='options' option_id='doorcurtain' option_name="Door Curtain">
                             <td>
-                                <input type="text" name="brand" placeholder="Brand of Sample" class="form-control" />
+                                <input type="text" name="doorcurtain_brand" placeholder="Brand of Sample" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="name" placeholder="Name of Sample" class="form-control"/>
+                                <input type="text" name="doorcurtain_name" placeholder="Name of Sample" class="form-control"/>
                             </td>
                             <td>
-                                <input type="text" name="code" placeholder="Code of Sample" class="form-control"/>
+                                <input type="text" name="doorcurtain_code" placeholder="Code of Sample" class="form-control"/>
                             </td>
                         </tr>
                     </table>
@@ -506,7 +517,7 @@ $submitQuote = array(
             <div class="row form-row add-on-options">
                 <div class="col-12">
                     <?php echo form_label('Add-on Extra', 'accessories_options','class="font-weight-bold text-capitalize"'); ?>
-                    <table id="myTable" class="table table-striped add-on-list">
+                    <table class="table table-striped add-on-list">
                         <thead>
                             <tr>
                                 <td>Extras</td>
@@ -517,7 +528,7 @@ $submitQuote = array(
                                 <td></td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="add-on-options">
                             <tr>
                                 <td>
                                     <input type="text" name="label" class="form-control" />
@@ -548,22 +559,6 @@ $submitQuote = array(
                             </tr>
                         </tfoot>
                     </table>
-                </div>
-            </div>
-
-
-            <div class="row form-row">
-                <div class="col-12">
-                    <fieldset class="finance-section">
-                        <legend class="header">Payment Information</legend>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="font-weight-bold text-capitalize">Payment Method: </span>
-                            </li>
-                        </ul>
-                        <?php echo form_dropdown($payment_method); ?>
-                        <?php echo '<div class="errors">'.form_error('$payment_method').'</div>'; ?>
-                    </fieldset>
                 </div>
             </div>
 
@@ -636,38 +631,194 @@ $submitQuote = array(
 
 </div>
 <script type="text/javascript">
+
     //pass the php parameter to javascript global variable
     var $_global_exterior = <?php echo json_encode($exterior_custom_options); ?>;
-    var $_global_interior = <?php echo json_encode($interior_custom_options); ?>;
-
-    $(document).ready(function () {
-        var counter = 0;
-
-        $("#addextra").on("click", function () {
-            var newRow = $("<tr>");
-            var cols = "";
-
-            cols += '<td><input type="text" class="form-control" name="label' + counter + '"/></td>';
-            cols += '<td><input type="text" class="form-control" name="sku' + counter + '"/></td>';
-            cols += '<td><input type="text" class="form-control" name="qty' + counter + '"/></td>';
-            cols += '<td><input type="text" class="form-control" name="wholesale_price' + counter + '"/></td>';
-            cols += '<td><input type="text" class="form-control" name="retail_price' + counter + '"/></td>';
-
-            cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
-            newRow.append(cols);
-            $("table.add-on-list").append(newRow);
-            counter++;
-        });
+    var quote_data = {};
+$(document).ready(function () {
+    var counter = 0;
 
 
+    $("#addextra").on("click", function () {
 
-        $("table.add-on-list").on("click", ".ibtnDel", function (event) {
-            $(this).closest("tr").remove();
-            counter -= 1
-        });
+        var newRow = $("<tr>");
+        var cols = "";
 
+        cols += '<td><input type="text" class="form-control" name="label' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="sku' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="qty' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="wholesale_price' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="retail_price' + counter + '"/></td>';
 
+        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+        newRow.append(cols);
+        $("table.add-on-list").append(newRow);
+        counter++;
     });
+
+
+
+    $("table.add-on-list").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();
+        counter -= 1
+    });
+
+
+    $('form#new_quote_form').submit(function()
+    {
+
+        $('#submit-quote-confirm-modal').modal('toggle'); //or  $('#submit-quote-confirm-modal').modal('hide');
+
+        collectCustomerDetail()
+
+        collectExteriorOptions();
+
+        collectInteriorOptions();
+
+        collectUpholsteryOptions();
+
+        collectAddOnAccessories();
+
+        submitNewQuote();
+
+        return false;
+    });
+
+    function submitNewQuote()
+    {
+
+        var data =
+            {
+                'action': 'submit_custom_quote',
+                'quote_data': quote_data
+            };
+        var url = "<?php echo base_url('quote/insert'); ?>";
+
+        $.ajax({
+            url: url,
+            data: data,
+            type: "POST",
+            beforeSend: function ()
+            {
+
+
+            }
+        }).done(function (data)
+        {
+
+            console.log(JSON.parse(data));
+        });
+    }
+
+
+    function collectCustomerDetail()
+    {
+        var customer = {
+            'customer_first_name': $('input#customer_first_name').val(),
+            'customer_last_name' : $('input#customer_last_name').val(),
+            'customer_address' : $('input#customer_address').val(),
+            'customer_city' : $('input#customer_city').val(),
+            'customer_postcode' : $('input#customer_postcode').val(),
+            'customer_state' : $('input#customer_state').val(),
+            'customer_email' : $('input#customer_email').val(),
+            'customer_phone' : $('input#customer_phone').val()
+        };
+
+        quote_data.customer = customer;
+
+        quote_data.product =  $("form#new_quote_form select#product_name").find(":selected").text();
+
+    }
+
+    function collectExteriorOptions()
+    {
+
+        var TableData = new Array();
+
+        $('table.exterior-list tbody.options tr').each(function(row, tr)
+        {
+
+            var value = $(tr).find('td:eq(1) select.custom_exterior_select option:selected').val().split('-');
+
+            TableData[row]={
+                "option_name" : $(tr).find('td:eq(0)').text(),
+                "value" :   value[0],
+                "price" :   value[1],
+            };
+        });
+
+        quote_data.exterior_options = TableData;
+
+    }
+
+
+    function collectInteriorOptions()
+    {
+
+        var TableData = new Array();
+
+        $('table.interior-list tr.options').each(function(row, tr)
+        {
+
+            TableData[row]={
+                "option_name" :  $(tr).attr('option_name'),
+                "option_id" : $(tr).attr('option_id'),
+                "brand" : $(tr).find('td:eq(0) input[type=text]').val(),
+                "name" : $(tr).find('td:eq(1) input[type=text]').val(),
+                "code" : $(tr).find('td:eq(2) input[type=text]').val()
+            };
+        });
+
+        quote_data.interior_options = TableData;
+
+    }
+
+
+    function collectUpholsteryOptions()
+    {
+
+        var TableData = new Array();
+
+        $('table.upholstery-list tr.options').each(function(row, tr)
+        {
+
+            TableData[row]={
+                "option_name" :  $(tr).attr('option_name'),
+                "option_id" : $(tr).attr('option_id'),
+                "brand" : $(tr).find('td:eq(0) input[type=text]').val(),
+                "name" : $(tr).find('td:eq(1) input[type=text]').val(),
+                "code" : $(tr).find('td:eq(2) input[type=text]').val()
+            };
+        });
+
+        quote_data.upholstery_options = TableData;
+
+    }
+
+    function collectAddOnAccessories()
+    {
+
+        var TableData = new Array();
+
+        $('table.add-on-list tbody.add-on-options tr').each(function(row, tr)
+        {
+            if($(tr).find('td:eq(0) input[type=text]').val() !== '')
+            {
+                TableData[row]={
+                    "label" : $(tr).find('td:eq(0) input[type=text]').val() ,
+                    "sku" : $(tr).find('td:eq(1) input[type=text]').val(),
+                    "qty" : $(tr).find('td:eq(2) input[type=text]').val(),
+                    "wholesale_price" : $(tr).find('td:eq(3) input[type=text]').val(),
+                    "retail_price" : $(tr).find('td:eq(4) input[type=text]').val()
+                };
+            }
+        });
+
+        quote_data.add_on_accessories = TableData;
+
+    }
+
+});
 
 
 </script>
