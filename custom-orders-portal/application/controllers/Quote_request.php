@@ -75,6 +75,43 @@ class Quote_request extends CI_Controller {
 
     }
 
+    public function submit_to_quote()
+    {
+        $user_id = $this->session->userdata('user_id');
+
+        $request_id = $this->input->get('request_id');
+
+        if(!$user_id)
+        {
+            $this->session->set_userdata('referer_url',  base_url('quote_request/submit_to_quote') . '?request_id=' . $request_id );
+            redirect( base_url('user/login'), 'refresh');
+        }
+
+        if(!$request_id)
+        {
+            redirect( base_url('quotes'), 'refresh');
+        }
+
+        $data = array();
+
+        $data['content'] = 'Pages/submit_request_to_quote';
+
+        $quote_request = $this->quoterequest_model->get_quote_request($request_id);
+
+        if($quote_request)
+        {
+            $data['quote_request'] = $quote_request;
+        }
+        else
+        {
+            redirect( base_url(''), 'refresh');
+        }
+
+        $data['menu'] = 'quote_request';
+
+        $this->load->view('Layouts/master', $data);
+    }
+
 
     public function update()
     {
@@ -86,6 +123,12 @@ class Quote_request extends CI_Controller {
         {
             $this->session->set_userdata('referer_url',  base_url('quote_request/edit') . '?request_id=' . $request_id );
             redirect( base_url('user/login'), 'refresh');
+        }
+
+
+        if($this->input->post('requestToQuote'))
+        {
+            redirect( base_url('quote_request/submit_to_quote') .'?request_id='. $request_id, 'refresh');
         }
 
 

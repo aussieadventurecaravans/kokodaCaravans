@@ -2,6 +2,28 @@
     <h1 class="h2">Quotes List</h1>
 </div>
 
+<?php
+$success_msg = $this->session->flashdata('success_msg');
+$error_msg = $this->session->flashdata('error_msg');
+if($success_msg):  ?>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-success">
+                <?php echo $success_msg; ?>
+            </div>
+        </div>
+    </div>
+<?php
+endif;
+if($error_msg): ?>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-danger">
+                <?php echo $error_msg; ?>
+            </div>
+        </div>
+    </div>
+<?php  endif;  ?>
 
 <div class="table-responsive quotes-list">
     <table class="table table-striped table-sm">

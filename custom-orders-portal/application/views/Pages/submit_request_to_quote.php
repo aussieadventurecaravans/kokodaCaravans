@@ -2,11 +2,21 @@
 
 $user_role = $this->session->userdata('user_role');
 
+
+$quote_request_id = array(
+    'request_id' => $quote_request['quote_id']
+);
+
+$custom_options = unserialize($quote_request['custom_options']);
+$add_on_accessories = unserialize($quote_request['add_on_accessories']);
+
+
+
 $firstName = array(
     'name' => 'customer_first_name',
     'type' => 'text',
     'id'  => 'customer_first_name',
-    'value' => '',
+    'value' => $quote_request['customer_first_name'],
     'class' => 'form-control',
     'required' => true,
 );
@@ -15,7 +25,7 @@ $lastName = array(
     'name' => 'customer_last_name',
     'type' => 'text',
     'id'  => 'customer_last_name',
-    'value' => '',
+    'value' => $quote_request['customer_last_name'],
     'class' => 'form-control',
     'required' => true
 );
@@ -24,7 +34,7 @@ $customer_address = array(
     'name' => 'customer_address',
     'type' => 'text',
     'id'  => 'customer_address',
-    'value' => '',
+    'value' => $quote_request['customer_address'],
     'class' => 'form-control',
     'required' => true
 );
@@ -33,7 +43,7 @@ $customer_city = array(
     'name' => 'customer_city',
     'type' => 'text',
     'id'  => 'customer_city',
-    'value' => '',
+    'value' => strtoupper($quote_request['customer_city']),
     'class' => 'form-control',
     'required' => true
 );
@@ -42,7 +52,7 @@ $customer_postcode = array(
     'name' => 'customer_postcode',
     'type' => 'text',
     'id'  => 'customer_postcode',
-    'value' => '',
+    'value' => $quote_request['customer_postcode'],
     'class' => 'form-control',
     'required' => true
 );
@@ -51,7 +61,7 @@ $customer_state = array(
     'name' => 'customer_state',
     'type' => 'text',
     'id'  => 'customer_state',
-    'value' => '',
+    'value' => strtoupper($quote_request['customer_state']),
     'class' => 'form-control',
     'required' => true
 );
@@ -60,7 +70,7 @@ $customer_email = array(
     'name' => 'customer_email',
     'type' => 'email',
     'id'  => 'customer_email',
-    'value' => '',
+    'value' => $quote_request['customer_email'],
     'class' => 'form-control',
     'required' => true
 );
@@ -69,7 +79,7 @@ $customer_phone = array(
     'name' => 'customer_phone',
     'type' => 'text',
     'id'  => 'customer_phone',
-    'value' => '',
+    'value' => $quote_request['customer_phone'],
     'class' => 'form-control',
     'required' => true
 );
@@ -78,9 +88,9 @@ $product_name = array(
     'name' => 'product_name',
     'type' => 'text',
     'id'  => 'product_name',
-    'value' => '',
-    'options' => $products_title,
+    'value' => $quote_request['product_name'],
     'class' => 'form-control',
+    ($user_role == 'admin') ? '' : 'readonly' => 'readonly',
     'required' => true
 );
 
@@ -132,7 +142,7 @@ $submitQuote = array(
 ?>
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Create New Quote</h1>
+    <h1 class="h2">Create New Quote From Request# <?php echo $quote_request['quote_id']; ?></h1>
 </div>
 
 
@@ -219,7 +229,7 @@ $submitQuote = array(
             <div class="row form-row">
                 <div class="col-12">
                     <?php echo form_label('Model', 'product_name'); ?>
-                    <?php echo form_dropdown($product_name); ?>
+                    <?php echo form_input($product_name); ?>
                     <?php echo '<div class="errors">'.form_error('$product_name').'</div>'; ?>
                 </div>
             </div>

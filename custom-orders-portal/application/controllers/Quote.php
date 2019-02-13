@@ -236,6 +236,7 @@ class Quote extends CI_Controller {
                 $data['customer_last_name'] = $post_data['customer']['customer_last_name'];
                 $data['customer_address'] = $post_data['customer']['customer_address'];
                 $data['customer_city'] = $post_data['customer']['customer_city'];
+                $data['customer_postcode'] = $post_data['customer']['customer_postcode'];
                 $data['customer_state'] = $post_data['customer']['customer_state'];
                 $data['customer_email'] = $post_data['customer']['customer_email'];
                 $data['customer_phone'] = $post_data['customer']['customer_phone'];
@@ -296,22 +297,26 @@ class Quote extends CI_Controller {
 
 
 
+                $data['status'] = 'In Review';
+
+
                 if ($this->quote_model->addNewQuote($data))
                 {
-                    echo 'true';
+                    $this->session->set_flashdata('success_msg', 'A new quote create successfully !!!' );
+                    echo json_encode(array('status' => true));
                 }
                 else
                 {
-
-                    echo 'false';
+                    $this->session->set_flashdata('error_msg', 'A new quote create fail, please check your input !!!' );
+                    echo json_encode(array('status' => false));
                 }
-
 
             }
         }
         else
         {
-            echo 'false';
+            $this->session->set_flashdata('error_msg', 'A new quote create fail, contact our admin !!!' );
+            echo json_encode(array('status' => false));
         }
 
 

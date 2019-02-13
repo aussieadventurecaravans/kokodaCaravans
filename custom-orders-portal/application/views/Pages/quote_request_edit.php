@@ -138,7 +138,7 @@ $submitQuoteButton = array(
 
 );
 $submitQuote = array(
-    'name'=> 'submitQuote',
+    'name'=> 'requestToQuote',
     'value' => 'Submit Quote',
     'class' => 'btn btn-lg btn-success',
     'type'  => 'submit'
